@@ -13,14 +13,18 @@ class Splash<T> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SplashState createState() => _SplashState();
+  _SplashState createState() => _SplashState<T>(onComplete);
 }
 
-class _SplashState extends State<Splash> {
+class _SplashState<T> extends State<Splash<T>> {
+  final void Function(BuildContext context, T value) onComplete;
+
+  _SplashState(this.onComplete);
+
   @override
   void initState() {
     super.initState();
-    widget.future.then((result) => widget.onComplete(context, result));
+    widget.future.then((result) => onComplete(context, result));
   }
 
   @override
