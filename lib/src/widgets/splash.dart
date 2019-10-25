@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of unox_flutter_resmodules;
 
 class Splash<T> extends StatefulWidget {
   final Future<T> future;
