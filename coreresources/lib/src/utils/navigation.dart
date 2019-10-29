@@ -1,25 +1,25 @@
 part of unox_flutter_core_resources;
 
 class Navigation {
-  static void push(
+  static Future<T> push<T>(
     BuildContext context, {
     Widget Function(BuildContext context) builder,
     Widget destination,
     bool fullscreenDialog = false,
   }) {
-    Navigator.of(context).push(MaterialPageRoute(
+    return Navigator.of(context).push<T>(MaterialPageRoute(
       builder: builder ?? (_) => destination,
       fullscreenDialog: fullscreenDialog,
     ));
   }
 
-  static void pushReplacement(
+  static Future<T> pushReplacement<T>(
     BuildContext context, {
     Widget Function(BuildContext context) builder,
     Widget destination,
     bool fullscreenDialog = false,
   }) {
-    Navigator.of(context).pushReplacement(MaterialPageRoute(
+    return Navigator.of(context).pushReplacement<T, dynamic>(MaterialPageRoute(
       builder: builder ?? (_) => destination,
       fullscreenDialog: fullscreenDialog,
     ));
