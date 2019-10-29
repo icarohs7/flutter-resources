@@ -1,4 +1,4 @@
-part of unox_flutter_resmodules;
+part of unox_flutter_core_resources;
 
 class Splash<T> extends StatefulWidget {
   final Future<T> future;

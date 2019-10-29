@@ -1,8 +1,8 @@
-name: unox_flutter_resmodules
+name: unox_flutter_core_resources
 description: Utilities for Flutter.
 version: 0.0.1
-author:
-homepage:
+author: Icaro R D Temponi
+homepage: https://github.com/icarohs7
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
