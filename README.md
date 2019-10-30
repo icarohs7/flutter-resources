@@ -8,5 +8,5 @@ dependencies:
   flutter:
     sdk: flutter
   core_resources:
-    path: unox_flutter_resmodules/coreresources/
+    path: unox_flutter_resmodules/core_resources/
 ```
