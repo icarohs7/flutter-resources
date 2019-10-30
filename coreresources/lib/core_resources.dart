@@ -1,4 +1,4 @@
-library unox_flutter_core_resources;
+library core_resources;
 
 import 'package:flutter/material.dart';
 

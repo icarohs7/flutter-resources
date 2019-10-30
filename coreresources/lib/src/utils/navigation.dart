@@ -1,4 +1,4 @@
-part of unox_flutter_core_resources;
+part of core_resources;
 
 class Navigation {
   static Future<T> push<T>(

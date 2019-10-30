@@ -1,4 +1,4 @@
-part of unox_flutter_core_resources;
+part of core_resources;
 
 class Splash<T> extends StatefulWidget {
   const Splash({

@@ -7,6 +7,6 @@ relative to the project's root directory.
 dependencies:
   flutter:
     sdk: flutter
-  unox_flutter_core_resources:
+  core_resources:
     path: unox_flutter_resmodules/coreresources/
 ```
