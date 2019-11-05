@@ -1,0 +1,22 @@
+name: basic_resource_pack
+description: Pack of resource modules
+version: 0.0.1
+author: Icaro R D Temponi
+homepage: https://github.com/icarohs7
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core_resources:
+    path: ../core_resources
+  bloc_resources:
+    path: ../bloc_resources
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
