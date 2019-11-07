@@ -15,6 +15,11 @@ class NxBlocBase extends BlocBase {
     return result;
   }
 
+  void setState(void Function() operation) {
+    operation();
+    notifyListeners();
+  }
+
   Object logError(dynamic e) {
     print("Error on $runtimeType => ${e?.response?.body ?? e}");
     return null;
