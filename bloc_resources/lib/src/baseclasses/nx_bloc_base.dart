@@ -9,10 +9,15 @@ class NxBlocBase extends BlocBase {
   Future<T> runLoadingSetState<T>(Future<T> Function() operation) async {
     _isLoading = true;
     notifyListeners();
-    final result = await operation();
+    Result<T> result;
+    try {
+      result = Result.value(await operation());
+    } on Exception catch (e) {
+      result = Result.error(e);
+    }
     _isLoading = false;
     notifyListeners();
-    return result;
+    return await result.asFuture;
   }
 
   void setState(void Function() operation) {

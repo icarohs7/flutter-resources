@@ -10,8 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc_pattern: ^2.4.2+1
-  rxdart: ^0.22.4
+  async: 2.3.0
+  bloc_pattern: ^2.4.4
+  rxdart: ^0.22.6
   core_resources:
     path: ../core_resources
 
