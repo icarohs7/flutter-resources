@@ -1,10 +1,10 @@
 library core_resources;
 
-import 'package:flutter/material.dart';
-
-part 'src/utils/lazy.dart';
-part 'src/utils/navigation.dart';
-part 'src/widgets/dialogs.dart';
-part 'src/widgets/dismissible_from_end_to_start.dart';
-part 'src/widgets/hero_app_bar.dart';
-part 'src/widgets/splash.dart';
+export 'src/utils/lazy.dart';
+export 'src/utils/math.dart';
+export 'src/utils/navigation.dart';
+export 'src/utils/widgets.dart';
+export 'src/widgets/dialogs.dart';
+export 'src/widgets/dismissible_from_end_to_start.dart';
+export 'src/widgets/hero_app_bar.dart';
+export 'src/widgets/splash.dart';

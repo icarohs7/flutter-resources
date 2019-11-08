@@ -1,4 +1,4 @@
-part of core_resources;
+import 'package:flutter/material.dart';
 
 class HeroAppBar extends PreferredSize {
   HeroAppBar({

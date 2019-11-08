@@ -1,4 +1,4 @@
-part of core_resources;
+import 'package:flutter/material.dart';
 
 class Navigation {
   static Future<T> push<T>(

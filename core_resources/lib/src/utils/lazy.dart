@@ -1,5 +1,3 @@
-part of core_resources;
-
 class Lazy<T> {
   Lazy(this.builder);
 
