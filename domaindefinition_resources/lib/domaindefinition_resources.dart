@@ -1,0 +1,1 @@
+library domaindefinition_resources;

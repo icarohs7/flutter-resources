@@ -1,12 +1,7 @@
 name: bloc_resources
-description: Utilities for flutter with bloc
 version: 0.0.1
-author: Icaro R D Temponi
-homepage: https://github.com/icarohs7
-
 environment:
   sdk: ">=2.1.0 <3.0.0"
-
 dependencies:
   flutter:
     sdk: flutter
@@ -15,9 +10,7 @@ dependencies:
   rxdart: ^0.22.6
   core_resources:
     path: ../core_resources
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 flutter:
