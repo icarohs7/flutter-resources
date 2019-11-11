@@ -1,5 +1,7 @@
 library core_resources;
 
+export 'package:fluro/fluro.dart';
+
 export 'src/utils/lazy.dart';
 export 'src/utils/math.dart';
 export 'src/utils/navigation.dart';
