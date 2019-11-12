@@ -1,14 +1,14 @@
 name: basic_resource_pack
 version: 0.0.1
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0-dev.4.0.flutter-1103600280 <3.0.0"
 dependencies:
   flutter:
     sdk: flutter
-  core_resources:
-    path: ../core_resources
   bloc_resources:
     path: ../bloc_resources
+  navigation_resources:
+    path: ../navigation_resources
 dev_dependencies:
   flutter_test:
     sdk: flutter
