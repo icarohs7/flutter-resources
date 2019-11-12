@@ -1,4 +1,5 @@
-part of bloc_resources;
+import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:core_resources/core_resources.dart';
 
 class NxRepositoryBase<DaoT> {
   DaoT get dao => _dao.v;

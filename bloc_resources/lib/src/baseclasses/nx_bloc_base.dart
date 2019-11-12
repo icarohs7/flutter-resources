@@ -1,4 +1,5 @@
-part of bloc_resources;
+import 'package:async/async.dart';
+import 'package:bloc_pattern/bloc_pattern.dart';
 
 class NxBlocBase extends BlocBase {
   bool get isLoading => _isLoading;
