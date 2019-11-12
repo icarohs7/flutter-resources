@@ -1,4 +1,4 @@
-import 'package:core_resources/core_resources.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
 TransitionType _defaultTransition = TransitionType.fadeIn;
