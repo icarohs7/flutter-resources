@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:progress_indicators/progress_indicators.dart';
 
 class LoadingRaisedButton extends StatefulWidget {
   const LoadingRaisedButton({
@@ -14,28 +15,48 @@ class LoadingRaisedButton extends StatefulWidget {
 }
 
 class _LoadingRaisedButtonState extends State<LoadingRaisedButton> {
-  bool _isLoading = true;
+  bool _isLoading = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final button = _Button(
+      onPressed: _isLoading
+          ? null
+          : () async {
+              try {
+                setState(() => _isLoading = true);
+                await widget.onPressed();
+              } finally {
+                setState(() => _isLoading = false);
+              }
+            },
+      child: _isLoading
+          ? Container(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(strokeWidth: 3),
+            )
+          : widget.child,
+    );
+
+    return _isLoading ? GlowingProgressIndicator(child: button) : button;
+  }
+}
+
+class _Button extends StatelessWidget {
+  const _Button({
+    @required this.onPressed,
+    @required this.child,
+  });
+
+  final Widget child;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-      child: _isLoading
-          ? Container(
-              height: 20,
-              width: 20,
-              child: CircularProgressIndicator(strokeWidth: 3),
-            )
-          : widget.child,
-      onPressed: _isLoading
-          ? null
-          : () async {
-              _isLoading = true;
-              try {
-                await widget.onPressed();
-              } finally {
-                _isLoading = false;
-              }
-            },
+      onPressed: onPressed,
+      child: child,
     );
   }
 }
