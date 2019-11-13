@@ -1,5 +1,5 @@
+import 'package:core_resources/core_resources.dart';
 import 'package:flutter/material.dart';
-import 'package:progress_indicators/progress_indicators.dart';
 
 class LoadingRaisedButton extends StatefulWidget {
   const LoadingRaisedButton({
@@ -31,15 +31,15 @@ class _LoadingRaisedButtonState extends State<LoadingRaisedButton> {
               }
             },
       child: _isLoading
-          ? Container(
-              width: 20,
-              height: 20,
-              child: CircularProgressIndicator(strokeWidth: 3),
+          ? Shimmer.fromColors(
+              baseColor: Theme.of(context).colorScheme.onSurface,
+              highlightColor: Colors.white,
+              child: widget.child,
             )
           : widget.child,
     );
 
-    return _isLoading ? GlowingProgressIndicator(child: button) : button;
+    return button;
   }
 }
 

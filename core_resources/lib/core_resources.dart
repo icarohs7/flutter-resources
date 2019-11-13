@@ -1,6 +1,6 @@
 library core_resources;
 
-export 'package:progress_indicators/progress_indicators.dart';
+export 'package:shimmer/shimmer.dart';
 
 export 'src/utils/lazy.dart';
 export 'src/utils/math.dart';
