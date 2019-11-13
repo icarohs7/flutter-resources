@@ -1,23 +1,28 @@
 import 'package:async/async.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:bloc_resources/bloc_resources.dart';
 
 class NxBlocBase extends BlocBase {
   bool get isLoading => _isLoading;
   bool _isLoading = false;
 
-  void toggleLoading(bool isLoading) => _isLoading = isLoading;
+  Stream<bool> get isLoadingStream => _isLoading$;
+  final BehaviorSubject<bool> _isLoading$ = BehaviorSubject.seeded(false);
+
+  void toggleLoading(bool isLoading) {
+    setState(() => _isLoading = isLoading);
+    _isLoading$.value = isLoading;
+  }
 
   Future<T> runLoadingSetState<T>(Future<T> Function() operation) async {
-    _isLoading = true;
-    notifyListeners();
+    toggleLoading(true);
     Result<T> result;
     try {
       result = Result.value(await operation());
     } on Exception catch (e) {
       result = Result.error(e);
     }
-    _isLoading = false;
-    notifyListeners();
+    toggleLoading(false);
     return await result.asFuture;
   }
 
@@ -29,5 +34,11 @@ class NxBlocBase extends BlocBase {
   Object logError(dynamic e) {
     print("Error on $runtimeType => ${e?.response?.body ?? e}");
     return null;
+  }
+
+  @override
+  void dispose() {
+    _isLoading$.close();
+    super.dispose();
   }
 }
