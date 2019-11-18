@@ -1,5 +1,5 @@
+import 'package:core_resources/src/utils/ui.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class Splash<T> extends StatefulWidget {
   const Splash({
@@ -25,13 +25,11 @@ class _SplashState<T> extends State<Splash<T>> {
   @override
   void initState() {
     super.initState();
-    SystemChrome.setEnabledSystemUIOverlays([]);
-    widget.future.then((result) {
-      try {
-        onComplete(context, result);
-      } finally {
-        SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
-      }
+    hideSystemOverlays();
+    widget.future.catchError((e) => null).then((result) async {
+      await showSystemOverlays();
+      await Future.delayed(Duration(milliseconds: 200));
+      onComplete(context, result);
     });
   }
 
