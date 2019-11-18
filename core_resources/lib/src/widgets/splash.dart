@@ -28,7 +28,6 @@ class _SplashState<T> extends State<Splash<T>> {
     hideSystemOverlays();
     widget.future.catchError((e) => null).then((result) async {
       await showSystemOverlays();
-      await Future.delayed(Duration(milliseconds: 200));
       onComplete(context, result);
     });
   }
