@@ -8,7 +8,7 @@ extension RouterExtensions on Router {
     _defaultTransition = transition;
   }
 
-  void addRoute(String routePath, {Widget destination, Handler handler}) {
+  void addRoute(String routePath, {Widget destination, HandlerFunc handlerFunc, Handler handler}) {
     define(
       routePath,
       handler: handler ?? Handler(handlerFunc: (_, __) => destination),
