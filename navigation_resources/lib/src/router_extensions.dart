@@ -11,7 +11,7 @@ extension RouterExtensions on Router {
   void addRoute(String routePath, {Widget destination, HandlerFunc handlerFunc, Handler handler}) {
     define(
       routePath,
-      handler: handler ?? Handler(handlerFunc: (_, __) => destination),
+      handler: handler ?? Handler(handlerFunc: handlerFunc ?? (_, __) => destination),
       transitionType: _defaultTransition,
     );
   }
