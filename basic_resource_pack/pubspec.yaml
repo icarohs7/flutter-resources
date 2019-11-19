@@ -9,6 +9,8 @@ dependencies:
     path: ../bloc_resources
   navigation_resources:
     path: ../navigation_resources
+  rest_resources:
+    path: ../rest_resources
 dev_dependencies:
   flutter_test:
     sdk: flutter
