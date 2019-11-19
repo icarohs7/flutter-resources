@@ -12,6 +12,8 @@ Future<Result<T>> runCatchingAsync<T>(FutureOr<T> Function() fn) async {
 }
 
 extension FutureExtensions<T> on Future<T> {
+  ///Intercepts errors thrown on the execution
+  ///of the given future, logging them and rethrowing
   Future<T> loggingErrors([String Function(dynamic e) errToString]) {
     return Future.microtask(() async {
       try {
