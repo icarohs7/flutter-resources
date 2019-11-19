@@ -1,8 +1,9 @@
 name: rest_resources
 version: 0.0.1
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.1 <3.0.0"
 dependencies:
+  alice: ^0.0.18
   dio: ^3.0.5
   dio_flutter_transformer: ^3.0.2
   flutter:

@@ -1,6 +1,5 @@
 library bloc_resources;
 
-export 'package:async/async.dart';
 export 'package:bloc_pattern/bloc_pattern.dart';
 export 'package:core_resources/core_resources.dart';
 export 'package:rxdart/rxdart.dart';

@@ -1,4 +1,3 @@
-import 'package:async/async.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:bloc_resources/bloc_resources.dart';
 
@@ -16,14 +15,9 @@ class NxBlocBase extends BlocBase {
 
   Future<T> runLoadingSetState<T>(Future<T> Function() operation) async {
     toggleLoading(true);
-    Result<T> result;
-    try {
-      result = Result.value(await operation());
-    } on Exception catch (e) {
-      result = Result.error(e);
-    }
+    final result = await runCatchingAsync(() async => await operation());
     toggleLoading(false);
-    return await result.asFuture;
+    return result.asFuture;
   }
 
   void setState(void Function() operation) {
