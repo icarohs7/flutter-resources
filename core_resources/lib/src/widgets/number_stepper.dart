@@ -7,6 +7,7 @@ class NumberStepper extends StatelessWidget {
     this.iconColor,
     this.increaseEnabled = true,
     this.decreaseEnabled = true,
+    this.decoration,
   });
 
   final int number;
@@ -14,14 +15,12 @@ class NumberStepper extends StatelessWidget {
   final Color iconColor;
   final bool increaseEnabled;
   final bool decreaseEnabled;
+  final Decoration decoration;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Color(0xFF808080)),
-        borderRadius: BorderRadius.circular(8),
-      ),
+      decoration: decoration,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
