@@ -9,4 +9,10 @@ extension IterableExtensions<T> on Iterable<T> {
       return null;
     }
   }
+
+  ///Returns an interable representing the original
+  ///collection without the given [element]
+  Iterable<T> operator -(T element) {
+    return where((e) => e != element);
+  }
 }
