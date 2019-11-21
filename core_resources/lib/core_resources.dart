@@ -9,6 +9,7 @@ export 'src/extensions/number_extensions.dart';
 export 'src/extensions/stream_extensions.dart';
 export 'src/utils/lazy.dart';
 export 'src/utils/math.dart';
+export 'src/utils/stateful_wrapper.dart';
 export 'src/utils/ui.dart';
 export 'src/utils/widgets.dart';
 export 'src/widgets/dialogs.dart';
