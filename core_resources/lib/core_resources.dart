@@ -6,7 +6,6 @@ export 'package:shimmer/shimmer.dart';
 
 export 'src/extensions/execution_extensions.dart';
 export 'src/extensions/future_extensions.dart';
-export 'src/extensions/iterable_extensions.dart';
 export 'src/extensions/number_extensions.dart';
 export 'src/extensions/stream_extensions.dart';
 export 'src/utils/lazy.dart';
