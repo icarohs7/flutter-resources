@@ -1,6 +1,7 @@
 library core_resources;
 
 export 'package:async/async.dart';
+export 'package:dartx/dartx.dart';
 export 'package:shimmer/shimmer.dart';
 
 export 'src/extensions/execution_extensions.dart';
