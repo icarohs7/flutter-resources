@@ -12,7 +12,7 @@ for subdir in subdirs:
             f"cd ./{subdir}",
             "flutter packages get",
             "flutter analyze",
-            "flutter test"
+            "flutter test --coverage"
         ]
         command = "&&".join(commands)
         result = os.system(command)
