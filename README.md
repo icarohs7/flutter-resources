@@ -1,6 +1,6 @@
 # unox_flutter_resmodules
 
-[![Actions Status](https://github.com/icarohs7/unox-flutter-resmodules/workflows/ci/badge.svg)](
+[![Actions Status](https://github.com/icarohs7/unox-flutter-resmodules/workflows/flutter/badge.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/actions)
 [![HitCount](http://hits.dwyl.io/icarohs7/unox-flutter-resmodules.svg)](
 http://hits.dwyl.io/icarohs7/unox-flutter-resmodules)
