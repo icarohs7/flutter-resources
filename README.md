@@ -6,6 +6,8 @@ https://github.com/icarohs7/unox-flutter-resmodules/actions)
 http://hits.dwyl.io/icarohs7/unox-flutter-resmodules)
 [![GitHub license](https://img.shields.io/github/license/icarohs7/unox-flutter-resmodules.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/blob/master/LICENSE)
+[![codecov](https://codecov.io/gh/icarohs7/unox-flutter-resmodules/branch/master/graph/badge.svg)](
+https://codecov.io/gh/icarohs7/unox-flutter-resmodules)
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/w/icarohs7/unox-flutter-resmodules.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/commits/master)
