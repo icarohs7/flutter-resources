@@ -14,6 +14,7 @@ export 'src/utils/stateful_wrapper.dart';
 export 'src/utils/ui.dart';
 export 'src/utils/widgets.dart';
 export 'src/widgets/dialogs.dart';
+export 'src/widgets/dismissible_and_editable_slidable.dart';
 export 'src/widgets/dismissible_from_end_to_start.dart';
 export 'src/widgets/loading_raised_button.dart';
 export 'src/widgets/number_stepper.dart';
