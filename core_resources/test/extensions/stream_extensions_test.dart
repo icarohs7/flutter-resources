@@ -19,6 +19,6 @@ void main() {
 
     final s2 = Stream.value(["Omai wa", "mou", "shindeiru!"]);
     final f2 = s2.innerFirst((e) => e.startsWith("s"));
-    expect(await f2.first, "shindeiru");
+    expect(await f2.first, "shindeiru!");
   });
 }
