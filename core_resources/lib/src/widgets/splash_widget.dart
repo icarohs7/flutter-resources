@@ -1,8 +1,8 @@
 import 'package:core_resources/src/utils/ui.dart';
 import 'package:flutter/material.dart';
 
-class Splash<T> extends StatefulWidget {
-  const Splash({
+class SplashWidget<T> extends StatefulWidget {
+  const SplashWidget({
     Key key,
     @required this.future,
     @required this.child,
@@ -14,11 +14,11 @@ class Splash<T> extends StatefulWidget {
   final void Function(BuildContext context, T value) onComplete;
 
   @override
-  _SplashState createState() => _SplashState<T>(onComplete);
+  _SplashWidgetState createState() => _SplashWidgetState<T>(onComplete);
 }
 
-class _SplashState<T> extends State<Splash<T>> {
-  _SplashState(this.onComplete);
+class _SplashWidgetState<T> extends State<SplashWidget<T>> {
+  _SplashWidgetState(this.onComplete);
 
   final void Function(BuildContext context, T value) onComplete;
 
