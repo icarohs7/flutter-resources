@@ -33,3 +33,5 @@ dependencies:
   core_resources:
     path: unox_flutter_resmodules/core_resources/
 ```
+
+Note: No internationalization yet, all strings are in pt-BR

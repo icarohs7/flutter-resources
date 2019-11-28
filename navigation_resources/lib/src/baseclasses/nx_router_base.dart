@@ -50,6 +50,32 @@ class NxRouterBase {
     throw ArgumentError("namedRoute, page or route must be defined");
   }
 
+  ///Shorthand to [goErasingHistory] with named route
+  Future goErasingHistoryNamed(BuildContext context, String route) {
+    return goErasingHistory(context, namedRoute: route);
+  }
+
+  Future goErasingHistory(
+    BuildContext context, {
+    String namedRoute,
+    Widget page,
+    Route Function(Widget page) routeBuilder,
+    Route route,
+  }) {
+    if (namedRoute != null) {
+      return Navigator.pushNamedAndRemoveUntil(context, namedRoute, (r) => false);
+    } else if (page != null) {
+      return Navigator.pushAndRemoveUntil(
+        context,
+        routeBuilder?.invoke(page) ?? FadePageRoute(page: page),
+        (r) => false,
+      );
+    } else if (route != null) {
+      return Navigator.pushAndRemoveUntil(context, route, (r) => false);
+    }
+    throw ArgumentError("namedRoute, page or route must be defined");
+  }
+
   static NxRouterBase get to => _instance;
   static final NxRouterBase _instance = NxRouterBase();
 }
