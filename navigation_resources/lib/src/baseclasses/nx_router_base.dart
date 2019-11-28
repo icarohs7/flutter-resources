@@ -1,8 +1,16 @@
 import 'package:core_resources/core_resources.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:navigation_resources/navigation_resources.dart';
 
 class NxRouterBase {
+  Future<T> goFullscreenDialog<T>(BuildContext context, {@required Widget page}) {
+    return Navigator.push<T>(
+      context,
+      MaterialPageRoute(builder: (context) => page, fullscreenDialog: true),
+    );
+  }
+
   ///Shorthand to [go] with named route
   Future<T> goNamed<T>(BuildContext context, String route) {
     return go(context, namedRoute: route);
