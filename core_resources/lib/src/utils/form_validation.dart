@@ -5,11 +5,23 @@ import 'package:flutter/cupertino.dart';
 ///first one not passing
 FormFieldValidator<String> validators(List<FormFieldValidator<String>> validators) {
   return (input) {
-    return validators.firstWhere((validator) => (validator(input) ?? "").isNotBlank)(input);
+    return validators.firstWhere(
+      (validator) => (validator(input) ?? "").isNotBlank,
+      orElse: () => (s) => null,
+    )(input);
   };
 }
 
 ///Validator only allowing non-blank values
-FormFieldValidator<String> requiredValidator() {
-  return (input) => (input ?? "").isBlank ? "Campo obrigatório" : null;
+FormFieldValidator<String> requiredValidator({String errorMessage}) {
+  return (input) => (input ?? "").isBlank ? (errorMessage ?? "Campo obrigatório") : null;
+}
+
+///Validator only allowing values above the given length
+FormFieldValidator<String> minLengthValidator(int minLength, {String errorMessage}) {
+  return (input) {
+    return (input ?? "").length < minLength
+        ? (errorMessage ?? "Mínimo de $minLength caracteres requiridos")
+        : null;
+  };
 }
