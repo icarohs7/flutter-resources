@@ -5,6 +5,7 @@ environment:
 dependencies:
   async: ^2.4.0
   dartx: ^0.2.0
+  rxdart: ^0.23.1
   shimmer: ^1.0.1
   supercharged: ^1.1.0
   transparent_image: ^1.0.0

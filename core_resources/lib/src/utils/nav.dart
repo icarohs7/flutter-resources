@@ -1,9 +1,8 @@
 import 'package:core_resources/core_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:navigation_resources/navigation_resources.dart';
 
-class NxRouterBase {
+class Nav {
   Future<T> goFullscreenDialog<T>(BuildContext context, {@required Widget page}) {
     return Navigator.push<T>(
       context,
@@ -84,6 +83,6 @@ class NxRouterBase {
     throw ArgumentError("namedRoute, page or route must be defined");
   }
 
-  static NxRouterBase get to => _instance;
-  static final NxRouterBase _instance = NxRouterBase();
+  static Nav get to => _instance;
+  static final Nav _instance = Nav();
 }

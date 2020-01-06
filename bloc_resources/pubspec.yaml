@@ -6,7 +6,6 @@ dependencies:
   flutter:
     sdk: flutter
   bloc_pattern: ^2.5.1
-  rxdart: ^0.23.1
   core_resources:
     path: ../core_resources
 dev_dependencies:
