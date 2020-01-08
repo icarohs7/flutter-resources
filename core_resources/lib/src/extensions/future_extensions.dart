@@ -5,12 +5,22 @@ import 'package:async/async.dart';
 ///Run the given operation asynchronously
 Future<T> runAsync<T>(FutureOr<T> Function() fn) => Future(() async => await fn());
 
-/// Wrap the given future result into a Result instance
+///Wrap the given future result into a Result instance
 Future<Result<T>> runCatchingAsync<T>(FutureOr<T> Function() fn) async {
   try {
     return Result.value(await fn());
   } catch (e) {
     return Result.error(e);
+  }
+}
+
+///Return the result of the given operation or the [fallback] if
+///the operation throws
+Future<T> runAsyncOrDefault<T>(T fallback, FutureOr<T> Function() fn) async {
+  try {
+    return await fn();
+  } catch (e) {
+    return fallback;
   }
 }
 

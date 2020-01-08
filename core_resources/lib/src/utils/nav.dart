@@ -29,7 +29,7 @@ class Nav {
     } else if (route != null) {
       return Navigator.push<T>(context, route);
     }
-    throw ArgumentError("namedRoute, page or route must be defined");
+    throw ArgumentError('namedRoute, page or route must be defined');
   }
 
   ///Shorthand to [goReplacement] with named route
@@ -54,7 +54,7 @@ class Nav {
     } else if (route != null) {
       return Navigator.pushReplacement<T, dynamic>(context, route);
     }
-    throw ArgumentError("namedRoute, page or route must be defined");
+    throw ArgumentError('namedRoute, page or route must be defined');
   }
 
   ///Shorthand to [goErasingHistory] with named route
@@ -80,7 +80,7 @@ class Nav {
     } else if (route != null) {
       return Navigator.pushAndRemoveUntil(context, route, (r) => false);
     }
-    throw ArgumentError("namedRoute, page or route must be defined");
+    throw ArgumentError('namedRoute, page or route must be defined');
   }
 
   static Nav get to => _instance;

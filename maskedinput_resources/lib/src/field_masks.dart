@@ -7,5 +7,5 @@ const FieldMasks = _FieldMasks();
 class _FieldMasks {
   const _FieldMasks();
 
-  MaskTextInputFormatter phone() => MaskTextInputFormatter(mask: "(##) #####-####");
+  MaskTextInputFormatter phone() => MaskTextInputFormatter(mask: '(##) #####-####');
 }

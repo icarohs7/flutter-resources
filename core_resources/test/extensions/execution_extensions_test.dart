@@ -2,7 +2,7 @@ import 'package:core_resources/core_resources.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test("should run code catching exceptions", () {
+  test('should run code catching exceptions', () {
     final r1 = runCatching<int>(() => throw FormatException());
     expect(r1, null);
 
@@ -12,11 +12,11 @@ void main() {
     final r3 = runCatching<String>(() => throw FormatException());
     expect(r3, null);
 
-    final r4 = runCatching<String>(() => "Omai wa mou shindeiru!");
-    expect(r4, "Omai wa mou shindeiru!");
+    final r4 = runCatching<String>(() => 'Omai wa mou shindeiru!');
+    expect(r4, 'Omai wa mou shindeiru!');
   });
 
-  test("should measure execution time", () async {
+  test('should measure execution time', () async {
     final time = measureTimeMillis(() async {
       return 1532;
     });
