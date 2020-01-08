@@ -26,7 +26,7 @@ class NxBlocBase extends BlocBase {
   }
 
   Object logError(dynamic e) {
-    print("Error on $runtimeType => ${e?.response?.body ?? e}");
+    print('Error on $runtimeType => ${e?.response?.body ?? e}');
     return null;
   }
 

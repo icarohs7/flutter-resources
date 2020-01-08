@@ -22,7 +22,7 @@ extension FutureExtensions<T> on Future<T> {
       try {
         return await this;
       } catch (e) {
-        print("Error on future: ${errToString?.call(e) ?? e}");
+        print('Error on future: ${errToString?.call(e) ?? e}');
         rethrow;
       }
     });

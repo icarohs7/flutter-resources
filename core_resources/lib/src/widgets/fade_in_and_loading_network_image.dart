@@ -23,7 +23,7 @@ class FadeInAndLoadingNetworkImage extends StatelessWidget {
         FadeInImage.memoryNetwork(
           placeholder: kTransparentImage,
           placeholderCacheWidth: width ?? 15,
-          image: "https://$imageUrl",
+          image: 'https://$imageUrl',
           height: height,
           width: width,
         ),

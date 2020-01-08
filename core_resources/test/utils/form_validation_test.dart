@@ -2,12 +2,12 @@ import 'package:core_resources/core_resources.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test("should validate empty string", () {
-    const f1 = "";
-    expect(requiredValidator(errorMessage: "It's empty")(f1), "It's empty");
+  test('should validate empty string', () {
+    const f1 = '';
+    expect(requiredValidator(errorMessage: 'It\'s empty')(f1), 'It\'s empty');
 
-    const f2 = "not empty";
-    expect(requiredValidator(errorMessage: "It's empty")(f2), null);
+    const f2 = 'not empty';
+    expect(requiredValidator(errorMessage: 'It\'s empty')(f2), null);
   });
 
   test("should validate string using minimum length", () {

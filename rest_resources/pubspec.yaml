@@ -1,7 +1,7 @@
 name: rest_resources
 version: 0.0.1
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.7.0 <3.0.0'
 dependencies:
   dio: ^3.0.8
   dio_flutter_transformer: ^3.0.2

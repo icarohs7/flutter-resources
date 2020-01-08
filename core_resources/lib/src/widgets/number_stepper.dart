@@ -29,7 +29,7 @@ class NumberStepper extends StatelessWidget {
             color: iconColor,
             onPressed: decreaseEnabled ? () => onChange(number, NumberStepperEvent.decrease) : null,
           ),
-          Text("$number"),
+          Text('$number'),
           IconButton(
             icon: Icon(Icons.add),
             color: iconColor,

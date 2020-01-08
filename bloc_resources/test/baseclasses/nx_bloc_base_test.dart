@@ -12,7 +12,7 @@ void main() {
     bloc = TestModule.to.bloc<NxBlocBase>();
   });
 
-  test("should indicate loading", () {
+  test('should indicate loading', () {
     expect(bloc.isLoading, false);
     bloc.toggleLoading(true);
     expect(bloc.isLoading, true);

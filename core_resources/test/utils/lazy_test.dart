@@ -2,7 +2,7 @@ import 'package:core_resources/core_resources.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test("should create lazy variable", () {
+  test('should create lazy variable', () {
     var a = 0;
     final l = Lazy(() {
       a = 42;

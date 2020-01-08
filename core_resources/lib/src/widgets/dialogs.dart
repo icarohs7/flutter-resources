@@ -14,7 +14,7 @@ Future<T> showSimpleAlert<T>(
         content: content,
         actions: <Widget>[
           FlatButton(
-            child: Text("Ok"),
+            child: Text('Ok'),
             onPressed: () => onConfirm != null ? onConfirm() : Navigator.pop(context),
           ),
         ],
@@ -38,12 +38,12 @@ Future<T> showConfirmDialog<T>(
         content: content,
         actions: <Widget>[
           FlatButton(
-            child: Text("Cancelar"),
+            child: Text('Cancelar'),
             textColor: Theme.of(context).primaryColor,
             onPressed: onCancel != null ? onCancel() : () => Navigator.of(context).pop(false),
           ),
           FlatButton(
-            child: Text("Confirmar"),
+            child: Text('Confirmar'),
             textColor: Theme.of(context).primaryColor,
             onPressed: onConfirm != null ? onConfirm() : () => Navigator.of(context).pop(true),
           )
