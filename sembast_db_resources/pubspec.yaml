@@ -6,6 +6,8 @@ dependencies:
   path: ^1.6.4
   path_provider: ^1.5.1
   sembast: ^2.1.2+3
+  core_resources:
+    path: ../core_resources
   flutter:
     sdk: flutter
 dev_dependencies:
