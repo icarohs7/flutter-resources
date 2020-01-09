@@ -87,6 +87,25 @@ extension DatabaseExtensions on Future<Database> {
     await store.addAll(await this, values);
   }
 
+  ///Erase the store and insert the given values
+  Future<void> replaceAll<T>(String storeName, List<T> values) async {
+    await erase(storeName);
+    await insertAll(storeName, values);
+  }
+
+  ///Erase the store and insert the given values
+  Future<void> replaceAllJsons(String storeName, List<Map<String, dynamic>> values) async {
+    await erase(storeName);
+    await insertAllJsons(storeName, values);
+  }
+
+  ///Remove all records from the given store,
+  ///return the number of updated records
+  Future<int> erase(String storeName) async {
+    final store = intMapStoreFactory.store(storeName);
+    return await store.delete(await this);
+  }
+
   Future<Map<int, Map<String, dynamic>>> _get(String storeName) async {
     final store = intMapStoreFactory.store(storeName);
     return (await store.query().getSnapshots(await this)).associate<int, Map<String, dynamic>>((e) {
