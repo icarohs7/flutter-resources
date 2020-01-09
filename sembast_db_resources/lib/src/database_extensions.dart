@@ -14,26 +14,6 @@ Future<Database> createDefaultSembastDatabase() async {
 typedef JsonAdapter<T> = T Function(Map<String, dynamic>);
 
 extension DatabaseExtensions on Future<Database> {
-  ///Get records from the given store as maps of int keys and T type values
-  Future<Map<int, T>> getAll<T>(String storeName, JsonAdapter<T> adapter) async {
-    return (await _get(storeName)).map((k, v) => MapEntry(k, adapter(v)));
-  }
-
-  ///Get records from the given store as maps of int keys and json values
-  Future<Map<int, Map<String, dynamic>>> getAllJsons(String storeName) async => _get(storeName);
-
-  ///Get a record on the given store identified by the given key
-  Future<T> getSingleWithStringKey<T>(String storeName, String key, JsonAdapter<T> adapter) async {
-    final store = stringMapStoreFactory.store(storeName);
-    return adapter(await store.record(key).get(await this));
-  }
-
-  ///Get a record on the given store identified by the given key
-  Future<T> getSingleWithIntKey<T>(String storeName, int key, JsonAdapter<T> adapter) async {
-    final store = intMapStoreFactory.store(storeName);
-    return adapter(await store.record(key).get(await this));
-  }
-
   ///Insert the given value into a store, if [key] is defined and exists
   ///on store, the old value will be replaced
   Future<void> insertWithStringKey<T>(String storeName, T value, {String key}) async {
@@ -47,8 +27,7 @@ extension DatabaseExtensions on Future<Database> {
     Map<String, dynamic> value, {
     String key,
   }) async {
-    final store = stringMapStoreFactory.store(storeName);
-    await store.record(key).put(await this, value);
+    await _stringStore(storeName).record(key).put(await this, value);
   }
 
   ///Insert the given value into a store, if [key] is defined and exists
@@ -62,12 +41,11 @@ extension DatabaseExtensions on Future<Database> {
   ///on store, the old value will be replaced, finally returning the key of the
   ///created or updated value
   Future<int> insertJson(String storeName, Map<String, dynamic> value, {int key}) async {
-    final store = intMapStoreFactory.store(storeName);
     if (key != null) {
-      await store.record(key).put(await this, value);
+      await _intStore(storeName).record(key).put(await this, value);
       return key;
     } else {
-      return await store.add(await this, value);
+      return await _intStore(storeName).add(await this, value);
     }
   }
 
@@ -83,8 +61,7 @@ extension DatabaseExtensions on Future<Database> {
 
   ///Insert the given values to the database
   Future<void> insertAllJsons(String storeName, List<Map<String, dynamic>> values) async {
-    final store = intMapStoreFactory.store(storeName);
-    await store.addAll(await this, values);
+    await _intStore(storeName).addAll(await this, values);
   }
 
   ///Erase the store and insert the given values
@@ -102,8 +79,34 @@ extension DatabaseExtensions on Future<Database> {
   ///Remove all records from the given store,
   ///return the number of updated records
   Future<int> erase(String storeName) async {
-    final store = intMapStoreFactory.store(storeName);
-    return await store.delete(await this);
+    return await _intStore(storeName).delete(await this);
+  }
+
+  ///Get records from the given store as maps of int keys and T type values
+  Future<Map<int, T>> getAll<T>(String storeName, JsonAdapter<T> adapter) async {
+    return (await _get(storeName)).map((k, v) => MapEntry(k, adapter(v)));
+  }
+
+  ///Get records from the given store as maps of int keys and json values
+  Future<Map<int, Map<String, dynamic>>> getAllJsons(String storeName) async => _get(storeName);
+
+  ///Get a record on the given store identified by the given key
+  Future<T> getSingleWithStringKey<T>(String storeName, String key, JsonAdapter<T> adapter) async {
+    return adapter(await _stringStore(storeName).record(key).get(await this));
+  }
+
+  ///Get a record on the given store identified by the given key
+  Future<T> getSingleWithIntKey<T>(String storeName, int key, JsonAdapter<T> adapter) async {
+    return adapter(await _intStore(storeName).record(key).get(await this));
+  }
+
+  ///Stream of all record snapshots on a given store
+  Stream<Map<int, T>> streamAll<T>(String storeName, JsonAdapter<T> adapter) async* {
+    _intStore(storeName).query().onSnapshots(await this).map<Map<int, T>>((data) {
+      return data.associate<int, T>((e) {
+        return MapEntry(e.key, adapter(e.value));
+      });
+    });
   }
 
   Future<Map<int, Map<String, dynamic>>> _get(String storeName) async {
@@ -111,5 +114,13 @@ extension DatabaseExtensions on Future<Database> {
     return (await store.query().getSnapshots(await this)).associate<int, Map<String, dynamic>>((e) {
       return MapEntry(e.key, e.value);
     });
+  }
+
+  StoreRef<int, Map<String, dynamic>> _intStore(String storeName) {
+    return intMapStoreFactory.store(storeName);
+  }
+
+  StoreRef<String, Map<String, dynamic>> _stringStore(String storeName) {
+    return stringMapStoreFactory.store(storeName);
   }
 }
