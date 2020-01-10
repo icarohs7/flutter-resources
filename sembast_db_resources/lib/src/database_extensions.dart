@@ -1,9 +1,6 @@
 import 'dart:convert';
 
-import 'package:core_resources/core_resources.dart';
 import 'package:sembast_db_resources/sembast_db_resources.dart';
-
-import '../sembast_db_resources.dart';
 
 ///Create a default instace of a sembast database using the file name 'app.db'
 Future<Database> createDefaultSembastDatabase() async {

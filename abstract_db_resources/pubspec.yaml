@@ -1,13 +1,10 @@
-name: sembast_db_resources
+name: abstract_db_resources
 version: 0.0.1
 environment:
   sdk: ">=2.7.0 <3.0.0"
 dependencies:
-  path: ^1.6.4
-  path_provider: ^1.5.1
-  sembast: ^2.1.2+3
-  abstract_db_resources:
-    path: ../abstract_db_resources
+  core_resources:
+    path: ../core_resources
   flutter:
     sdk: flutter
 dev_dependencies:
