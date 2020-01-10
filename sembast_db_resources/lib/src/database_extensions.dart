@@ -17,6 +17,7 @@ extension DatabaseExtensions on Future<Database> {
   ///Insert the given value into a store, if [key] is defined and exists
   ///on store, the old value will be replaced
   Future<void> insertWithStringKey<T>(String storeName, T value, {String key}) async {
+    if (value == null) return;
     return await insertJsonWithStringKey(storeName, jsonDecode(jsonEncode(value)), key: key);
   }
 
@@ -27,6 +28,7 @@ extension DatabaseExtensions on Future<Database> {
     Map<String, dynamic> value, {
     String key,
   }) async {
+    if (value == null) return;
     await _stringStore(storeName).record(key).put(await this, value);
   }
 
@@ -34,6 +36,7 @@ extension DatabaseExtensions on Future<Database> {
   ///on store, the old value will be replaced, finally returning the key of the
   ///created or updated value
   Future<int> insert<T>(String storeName, T value, {int key}) async {
+    if (value == null) return -1;
     return await insertJson(storeName, jsonDecode(jsonEncode(value)));
   }
 
@@ -41,6 +44,7 @@ extension DatabaseExtensions on Future<Database> {
   ///on store, the old value will be replaced, finally returning the key of the
   ///created or updated value
   Future<int> insertJson(String storeName, Map<String, dynamic> value, {int key}) async {
+    if (value == null) return -1;
     if (key != null) {
       await _intStore(storeName).record(key).put(await this, value);
       return key;
@@ -51,6 +55,7 @@ extension DatabaseExtensions on Future<Database> {
 
   ///Insert the given values to the database
   Future<void> insertAll<T>(String storeName, List<T> values) async {
+    if (values == null) return;
     insertAllJsons(
       storeName,
       values.map<Map<String, dynamic>>((e) {
@@ -61,25 +66,29 @@ extension DatabaseExtensions on Future<Database> {
 
   ///Insert the given values to the database
   Future<void> insertAllJsons(String storeName, List<Map<String, dynamic>> values) async {
+    if (values == null) return;
     await _intStore(storeName).addAll(await this, values);
   }
 
   ///Erase the store and insert the given values
   Future<void> replaceAll<T>(String storeName, List<T> values) async {
+    if (values == null) return;
     await erase(storeName);
     await insertAll(storeName, values);
   }
 
   ///Erase the store and insert the given values
   Future<void> replaceAllJsons(String storeName, List<Map<String, dynamic>> values) async {
+    if (values == null) return;
     await erase(storeName);
     await insertAllJsons(storeName, values);
   }
 
   ///Remove all records from the given store,
   ///return the number of updated records
-  Future<int> erase(String storeName) async {
-    return await _intStore(storeName).delete(await this);
+  Future<void> erase(String storeName) async {
+    await runCatchingAsync(() async => await _intStore(storeName).drop(await this));
+    await runCatchingAsync(() async => await _stringStore(storeName).drop(await this));
   }
 
   ///Get records from the given store as maps of int keys and T type values
@@ -102,7 +111,7 @@ extension DatabaseExtensions on Future<Database> {
 
   ///Stream of all record snapshots on a given store
   Stream<Map<int, T>> streamAll<T>(String storeName, JsonAdapter<T> adapter) async* {
-    _intStore(storeName).query().onSnapshots(await this).map<Map<int, T>>((data) {
+    yield* _intStore(storeName).query().onSnapshots(await this).map<Map<int, T>>((data) {
       return data.associate<int, T>((e) {
         return MapEntry(e.key, adapter(e.value));
       });
