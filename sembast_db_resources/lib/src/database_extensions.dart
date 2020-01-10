@@ -84,6 +84,16 @@ extension DatabaseExtensions on Future<Database> {
     await insertAllJsons(storeName, values);
   }
 
+  ///Delete the given item
+  Future<void> delete(String storeName, int key) async {
+    await _intStore(storeName).record(key).delete(await this);
+  }
+
+  ///Delete the given item
+  Future<void> deleteWithStringKey(String storeName, String key) async {
+    await _stringStore(storeName).record(key).delete(await this);
+  }
+
   ///Remove all records from the given store,
   ///return the number of updated records
   Future<void> erase(String storeName) async {
