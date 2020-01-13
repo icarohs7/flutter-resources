@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:hive_db_resources/hive_db_resources.dart';
 
@@ -19,26 +21,37 @@ AbstractJsonDatabase HiveJsonDatabase({@required String boxName}) {
 }
 
 class HiveDatabase extends AbstractJsonDatabase {
-  HiveDatabase({@required this.boxName});
+  HiveDatabase({@required this.boxName, this.boxFactory});
 
   final String boxName;
+  final Box<String> Function(String boxName) boxFactory;
 
-  Future<Box<Map<String, dynamic>>> _getBox() async => await Hive.openBox(boxName);
+  Future<Box<String>> _getBox() async => boxFactory?.invoke(boxName) ?? await Hive.openBox(boxName);
+
+  String _serialize(Map<String, dynamic> item) => jsonEncode(item);
+
+  List<String> _serializeList(List<Map<String, dynamic>> items) => items.map(_serialize).toList();
+
+  Map<String, dynamic> _deserialize(String item) => jsonDecode(item);
+
+  List<Map<String, dynamic>> _deserializeList(List<String> items) {
+    return items.map(_deserialize).toList();
+  }
 
   @override
   Future<int> insert(Map<String, dynamic> item, {int key}) async {
     final box = await _getBox();
     if (key != null) {
-      await box.put(key, item);
+      await box.put(key, _serialize(item));
       return key;
     } else {
-      return await box.add(item);
+      return await box.add(_serialize(item));
     }
   }
 
   @override
   Future<void> insertAll(List<Map<String, dynamic>> items) async {
-    await (await _getBox()).addAll(items);
+    await (await _getBox()).addAll(_serializeList(items));
   }
 
   @override
@@ -60,12 +73,12 @@ class HiveDatabase extends AbstractJsonDatabase {
 
   @override
   Future<Map<String, dynamic>> getSingle(int key) async {
-    return (await _getBox()).get(key);
+    return _deserialize((await _getBox()).get(key));
   }
 
   @override
   Future<List<Map<String, dynamic>>> getAll() async {
-    return (await _getBox()).values.toList();
+    return _deserializeList((await _getBox()).values.toList());
   }
 
   @override
