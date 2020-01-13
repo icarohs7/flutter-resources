@@ -58,12 +58,12 @@ class AbstractTDatabase<T> {
 
   ///Stream of the latest records store
   Stream<List<T>> streamAll() {
-    return jsonDatabase.streamAll().map(_deserializeList);
+    return jsonDatabase.streamAll().map(_deserializeList).asBroadcastStream();
   }
 
   ///Stream of the latest version of a record
   ///identified by the given [key]
   Stream<T> streamSingle(int key) {
-    return jsonDatabase.streamSingle(key).map(_deserialize);
+    return jsonDatabase.streamSingle(key).map(_deserialize).asBroadcastStream();
   }
 }
