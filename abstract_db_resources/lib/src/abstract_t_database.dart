@@ -34,9 +34,19 @@ class AbstractTDatabase<T> {
     return jsonDatabase.insertAll(_serializeList(items));
   }
 
+  ///Store multiple items associating ids to each
+  Future<void> insertAllWithKeys(Map<int, T> items) {
+    return jsonDatabase.insertAllWithKeys(items.map((k, v) => MapEntry(k, _serialize(v))));
+  }
+
   ///Erase the database and insert values
   Future<void> replaceAll(List<T> items) {
     return jsonDatabase.replaceAll(_serializeList(items));
+  }
+
+  ///Erase the database and insert values using identifiers
+  Future<void> replaceAllWithKeys(Map<int, T> items) {
+    return jsonDatabase.replaceAllWithKeys(items.map((k, v) => MapEntry(k, _serialize(v))));
   }
 
   ///Remove data, if [key] is defined, only the record

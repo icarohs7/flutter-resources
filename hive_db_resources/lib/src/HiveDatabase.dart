@@ -55,10 +55,24 @@ class HiveDatabase extends AbstractJsonDatabase {
   }
 
   @override
+  Future<void> insertAllWithKeys(Map<int, Map<String, dynamic>> items) async {
+    await (await _getBox()).putAll(items.map<int, String>((k, v) {
+      return MapEntry(k, _serialize(v));
+    }));
+  }
+
+  @override
   Future<void> replaceAll(List<Map<String, dynamic>> items) async {
     final box = await _getBox();
     await box.clear();
     await insertAll(items);
+  }
+
+  @override
+  Future<void> replaceAllWithKeys(Map<int, Map<String, dynamic>> items) async {
+    final box = await _getBox();
+    await box.clear();
+    await insertAllWithKeys(items);
   }
 
   @override
@@ -73,7 +87,8 @@ class HiveDatabase extends AbstractJsonDatabase {
 
   @override
   Future<Map<String, dynamic>> getSingle(int key) async {
-    return _deserialize((await _getBox()).get(key));
+    final item = (await _getBox()).get(key);
+    return _deserialize(item);
   }
 
   @override

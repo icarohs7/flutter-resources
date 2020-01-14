@@ -8,8 +8,14 @@ abstract class AbstractJsonDatabase {
   ///Store multiple items
   Future<void> insertAll(List<Map<String, dynamic>> items);
 
+  ///Store multiple items associating ids to each
+  Future<void> insertAllWithKeys(Map<int, Map<String, dynamic>> items);
+
   ///Erase the database and insert values
   Future<void> replaceAll(List<Map<String, dynamic>> items);
+
+  ///Erase the database and insert values using identifiers
+  Future<void> replaceAllWithKeys(Map<int, Map<String, dynamic>> items);
 
   ///Remove data, if [key] is defined, only the record
   ///identified will be deleted, otherwise erase all
