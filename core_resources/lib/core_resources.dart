@@ -2,6 +2,7 @@ library core_resources;
 
 export 'package:async/async.dart';
 export 'package:dartx/dartx.dart';
+export 'package:intl/intl.dart';
 export 'package:rxdart/rxdart.dart';
 export 'package:shimmer/shimmer.dart';
 export 'package:transparent_image/transparent_image.dart';
@@ -10,6 +11,7 @@ export 'src/extensions/execution_extensions.dart';
 export 'src/extensions/future_extensions.dart';
 export 'src/extensions/number_extensions.dart';
 export 'src/extensions/stream_extensions.dart';
+export 'src/extensions/time_extensions.dart';
 export 'src/utils/fade_page_route.dart';
 export 'src/utils/form_validation.dart';
 export 'src/utils/lazy.dart';
