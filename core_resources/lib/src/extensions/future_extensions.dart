@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:async/async.dart';
+import 'package:core_resources/core_resources.dart';
 
 ///Run the given operation asynchronously
 Future<T> runAsync<T>(FutureOr<T> Function() fn) => Future(() async => await fn());
@@ -27,12 +28,15 @@ Future<T> runAsyncOrDefault<T>(T fallback, FutureOr<T> Function() fn) async {
 extension FutureExtensions<T> on Future<T> {
   ///Intercepts errors thrown on the execution
   ///of the given future, logging them and rethrowing
-  Future<T> loggingErrors([String Function(dynamic e) errToString]) {
+  Future<T> loggingErrors({
+    String Function(dynamic e) errToString,
+    String Function(dynamic e) loggingFn,
+  }) {
     return runAsync(() async {
       try {
         return await this;
       } catch (e) {
-        print('Error on future: ${errToString?.call(e) ?? e}');
+        loggingFn?.invoke(e) ?? print('Error on future: ${errToString?.call(e) ?? e}');
         rethrow;
       }
     });
