@@ -16,6 +16,14 @@ void main() {
     expect(r4, 'Omai wa mou shindeiru!');
   });
 
+  test('should return result of function execution or fallback', () {
+    final r1 = runOrDefault(999, () => throw FormatException());
+    expect(r1, 999);
+
+    final r2 = runOrDefault<int>(42, () => 1532);
+    expect(r2, 1532);
+  });
+
   test('should measure execution time', () async {
     final time = measureTimeMillis(() async {
       return 1532;

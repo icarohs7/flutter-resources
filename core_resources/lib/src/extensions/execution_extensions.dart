@@ -10,6 +10,17 @@ T runCatching<T>(T Function() fn) {
   }
 }
 
+///Return the result of the given
+///function or the [fallback] if
+///an exception is thrown
+T runOrDefault<T>(T fallback, T fn()) {
+  try {
+    return fn();
+  } catch (_) {
+    return fallback;
+  }
+}
+
 ///Measures the execution time of the given
 ///[operation]
 BenchmarkedResult<T> measureTimeMillis<T>(T Function() operation) {
