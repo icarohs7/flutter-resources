@@ -1,0 +1,14 @@
+name: modular_mobx_resources
+version: 0.0.1
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+dependencies:
+  flutter_mobx: ^0.3.6
+  mobx: ^0.4.0+1
+  flutter_modular: ^0.3.3+1
+  flutter:
+    sdk: flutter
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
