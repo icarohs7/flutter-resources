@@ -4,13 +4,16 @@ import 'package:flutter/foundation.dart';
 import 'package:hive_db_resources/hive_db_resources.dart';
 
 ///Implementation of [AbstractTDatabase] using Hive
-///as the underlying engine
+///as the underlying engine.
+///<br/> Either [jsonDatabase] or [dbName] must be defined
 // ignore: non_constant_identifier_names
 AbstractTDatabase<T> HiveTDatabase<T>({
   HiveDatabase jsonDatabase,
-  T Function(Map<String, dynamic>) adapter,
+  String dbName,
+  @required T Function(Map<String, dynamic>) adapter,
 }) {
-  return AbstractTDatabase(jsonDatabase: jsonDatabase, adapter: adapter);
+  final dbImpl = jsonDatabase ?? HiveJsonDatabase(boxName: dbName);
+  return AbstractTDatabase(jsonDatabase: dbImpl, adapter: adapter);
 }
 
 ///Implementation of [AbstractJsonDatabase] using Hive
