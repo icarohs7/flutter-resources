@@ -20,7 +20,7 @@ class AbstractTDatabase<T> {
 
   List<Map<String, dynamic>> _serializeList(List<T> items) => items.map(_serialize).toList();
 
-  T _deserialize(Map<String, dynamic> json) => adapter(json);
+  T _deserialize(Map<String, dynamic> json) => json != null ? adapter(json) : null;
 
   List<T> _deserializeList(List<Map<String, dynamic>> items) => items.map(_deserialize).toList();
 

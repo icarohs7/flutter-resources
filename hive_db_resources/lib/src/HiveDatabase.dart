@@ -91,7 +91,7 @@ class HiveDatabase extends AbstractJsonDatabase {
   @override
   Future<Map<String, dynamic>> getSingle(int key) async {
     final item = (await _getBox()).get(key);
-    return _deserialize(item);
+    return item != null ? _deserialize(item) : null;
   }
 
   @override
