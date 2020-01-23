@@ -30,7 +30,12 @@ class LoadingRaisedButton extends StatelessWidget {
               );
             },
           )
-        : _Button(isLoading: isLoading ?? false, onPressed: onPressed, child: child);
+        : _Button(
+            isLoading: isLoading ?? false,
+            onPressed: onPressed,
+            child: child,
+            color: color,
+          );
   }
 }
 
