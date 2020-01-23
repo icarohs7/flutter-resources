@@ -8,4 +8,5 @@ class _FieldMasks {
   const _FieldMasks();
 
   MaskTextInputFormatter phone() => MaskTextInputFormatter(mask: '(##) #####-####');
+  MaskTextInputFormatter zipCode() => MaskTextInputFormatter(mask: '#####-###');
 }
