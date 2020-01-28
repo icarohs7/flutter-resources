@@ -8,4 +8,8 @@ mixin BaseModularRouter {
   Future<T> goReplacement<T>(String route, {Object arguments}) {
     return Modular.to.pushReplacementNamed(route, arguments: arguments);
   }
+
+  Future<T> goClearingBackstack<T>(String route, {Object arguments}) {
+    return Modular.to.pushNamedAndRemoveUntil(route, (r) => false, arguments: arguments);
+  }
 }
