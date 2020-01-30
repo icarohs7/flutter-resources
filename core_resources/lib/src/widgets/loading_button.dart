@@ -60,30 +60,46 @@ class _Button extends StatelessWidget {
       child: RaisedButton(
         color: color,
         onPressed: onPressed,
-        child: AnimatedSwitcher(
-          switchInCurve: Curves.easeOut,
-          switchOutCurve: Curves.easeIn,
-          transitionBuilder: (child, animation) => ScaleTransition(scale: animation, child: child),
-          duration: Duration(milliseconds: 300),
-          child: isLoading
-              ? Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(6),
-                    child: Container(
-                      height: 16,
-                      width: 16,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          Theme.of(context).colorScheme.onPrimary,
-                        ),
-                      ),
+        child: _ButtonContent(isLoading: isLoading, child: child),
+      ),
+    );
+  }
+}
+
+class _ButtonContent extends StatelessWidget {
+  const _ButtonContent({
+    Key key,
+    @required this.isLoading,
+    @required this.child,
+  }) : super(key: key);
+
+  final bool isLoading;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSwitcher(
+      switchInCurve: Curves.easeOut,
+      switchOutCurve: Curves.easeIn,
+      transitionBuilder: (child, animation) => ScaleTransition(scale: animation, child: child),
+      duration: Duration(milliseconds: 300),
+      child: isLoading
+          ? Center(
+              child: Padding(
+                padding: EdgeInsets.all(6),
+                child: Container(
+                  height: 16,
+                  width: 16,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
-                )
-              : child,
-        ),
-      ),
+                ),
+              ),
+            )
+          : child,
     );
   }
 }
