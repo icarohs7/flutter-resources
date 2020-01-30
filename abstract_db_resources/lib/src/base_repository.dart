@@ -10,16 +10,24 @@ class BaseRepository<T> {
   Future<int> insert(T item, {int key}) => db.insert(item, key: key);
 
   ///Store multiple items
-  Future<void> insertAll(List<T> items) => db.insertAll(items);
+  Future<void> insertAll(List<T> items) => Future.wait(items.map((e) => insert(e)));
 
   ///Store multiple items associating ids to each
-  Future<void> insertAllWithKeys(Map<int, T> items) => insertAllWithKeys(items);
+  Future<void> insertAllWithKeys(Map<int, T> items) {
+    return Future.wait(items.entries.map((e) => insert(e.value, key: e.key)));
+  }
 
   ///Erase the database and insert values
-  Future<void> replaceAll(List<T> items) => db.replaceAll(items);
+  Future<void> replaceAll(List<T> items) async {
+    await clear();
+    return insertAll(items);
+  }
 
   ///Erase the database and insert values using identifiers
-  Future<void> replaceAllWithKeys(Map<int, T> items) => db.replaceAllWithKeys(items);
+  Future<void> replaceAllWithKeys(Map<int, T> items) async {
+    await clear();
+    return insertAllWithKeys(items);
+  }
 
   ///Remove data, if [key] is defined, only the record
   ///identified will be deleted, otherwise erase all
