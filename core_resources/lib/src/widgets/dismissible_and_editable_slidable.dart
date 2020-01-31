@@ -42,7 +42,7 @@ class DismissibleAndEditableSlidable extends StatelessWidget {
             alignment: Alignment.centerRight,
             color: Color(0xFFE3000F),
             child: Container(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Icon(
                 Icons.delete,
                 size: 24,
@@ -55,7 +55,7 @@ class DismissibleAndEditableSlidable extends StatelessWidget {
             alignment: Alignment.centerLeft,
             color: Colors.blue,
             child: Container(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Icon(
                 Icons.edit,
                 size: 24,
