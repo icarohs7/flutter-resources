@@ -2,6 +2,7 @@ library core_resources;
 
 export 'package:async/async.dart';
 export 'package:dartx/dartx.dart';
+export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:intl/date_symbol_data_local.dart';
 export 'package:intl/intl.dart';
 export 'package:rxdart/rxdart.dart';
