@@ -4,8 +4,8 @@ environment:
   sdk: '>=2.7.0 <3.0.0'
 dependencies:
   flutter_mobx: ^1.0.1
-  mobx: ^1.0.0
-  flutter_modular: ^0.4.0
+  mobx: ^1.0.1
+  flutter_modular: ^0.4.2
   flutter:
     sdk: flutter
 dev_dependencies:
