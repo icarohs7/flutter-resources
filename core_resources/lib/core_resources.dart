@@ -9,6 +9,7 @@ export 'package:rxdart/rxdart.dart';
 export 'package:shimmer/shimmer.dart';
 export 'package:transparent_image/transparent_image.dart';
 
+export 'src/extensions/color_extensions.dart';
 export 'src/extensions/execution_extensions.dart';
 export 'src/extensions/future_extensions.dart';
 export 'src/extensions/number_extensions.dart';
