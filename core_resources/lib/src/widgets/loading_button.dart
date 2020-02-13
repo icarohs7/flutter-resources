@@ -83,33 +83,29 @@ class _ButtonContent extends StatelessWidget {
       switchOutCurve: Curves.easeIn,
       duration: Duration(milliseconds: 300),
       child: isLoading
-        ? Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          Opacity(
-            opacity: 0,
-            child: child,
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(6),
-              child: Container(
-                height: 16,
-                width: 16,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    Theme
-                      .of(context)
-                      .colorScheme
-                      .onPrimary,
-                  ),
-                ),
+        ? Stack(alignment: Alignment.center, children: <Widget>[
+        Opacity(
+          opacity: 0,
+          child: child,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(6),
+          child: Container(
+            height: 16,
+            width: 16,
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Theme
+                  .of(context)
+                  .colorScheme
+                  .onPrimary,
               ),
             ),
           ),
-        ]) : child
-      ,
+        ),
+      ])
+        : child,
     );
   }
 }
