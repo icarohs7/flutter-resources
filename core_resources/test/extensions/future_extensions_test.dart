@@ -20,4 +20,14 @@ void main() {
     final f2 = await runAsyncOrDefault('nani!?', () => 'kono giorno giovanna niwa yume ga aru');
     expect(f2, equals('kono giorno giovanna niwa yume ga aru'));
   });
+
+  test('should turn future value into null if it\'s a failure', () async {
+    final f1 = Future<int>(() => throw Exception());
+    final r1 = await f1.orNull();
+    expect(r1, isNull);
+
+    final f2 = Future(() => 1532);
+    final r2 = await f2.orNull();
+    expect(r2, equals(1532));
+  });
 }
