@@ -29,6 +29,8 @@ Future<T> showConfirmDialog<T>(
   Widget content,
   Function() onConfirm,
   Function() onCancel,
+    String cancelText,
+    String confirmText,
 }) {
   return showDialog(
     context: context,
@@ -38,12 +40,12 @@ Future<T> showConfirmDialog<T>(
         content: content,
         actions: <Widget>[
           FlatButton(
-            child: Text('Cancelar'),
+            child: Text(cancelText ?? 'Cancelar'),
             textColor: Theme.of(context).primaryColor,
             onPressed: onCancel != null ? onCancel() : () => Navigator.of(context).pop(false),
           ),
           FlatButton(
-            child: Text('Confirmar'),
+            child: Text(confirmText ?? 'Confirmar'),
             textColor: Theme.of(context).primaryColor,
             onPressed: onConfirm != null ? onConfirm() : () => Navigator.of(context).pop(true),
           )
