@@ -7,7 +7,6 @@ dependencies:
   dartx: ^0.2.0
   intl: ^0.16.0
   rxdart: ^0.23.1
-  shimmer: ^1.0.1
   transparent_image: ^1.0.0
   flutter:
     sdk: flutter

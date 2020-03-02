@@ -6,7 +6,6 @@ export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:intl/date_symbol_data_local.dart';
 export 'package:intl/intl.dart';
 export 'package:rxdart/rxdart.dart';
-export 'package:shimmer/shimmer.dart';
 export 'package:transparent_image/transparent_image.dart';
 
 export 'src/extensions/color_extensions.dart';
