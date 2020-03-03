@@ -13,6 +13,7 @@ class ConditionalRender extends StatelessWidget {
     this.transitionBuilder,
     this.switchInCurve = Curves.linear,
     this.switchOutCurve = Curves.linear,
+    this.animationsEnabled = true,
   });
 
   final bool condition;
@@ -22,9 +23,11 @@ class ConditionalRender extends StatelessWidget {
   final AnimatedSwitcherTransitionBuilder transitionBuilder;
   final Curve switchInCurve;
   final Curve switchOutCurve;
+  final bool animationsEnabled;
 
   @override
   Widget build(BuildContext context) {
+    if (animationsEnabled == false) return condition ? child : SizedBox();
     return AnimatedSwitcher(
       duration: duration,
       reverseDuration: reverseDuration,
@@ -32,8 +35,8 @@ class ConditionalRender extends StatelessWidget {
       switchOutCurve: switchOutCurve,
       transitionBuilder: transitionBuilder ??
           (child, value) {
-            return ScaleTransition(child: child, scale: value);
-          },
+          return ScaleTransition(child: child, scale: value);
+        },
       child: condition ? child : SizedBox(),
     );
   }
