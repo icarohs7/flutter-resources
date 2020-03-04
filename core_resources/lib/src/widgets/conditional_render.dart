@@ -8,6 +8,7 @@ class ConditionalRender extends StatelessWidget {
   const ConditionalRender({
     @required this.condition,
     @required this.child,
+    this.childElse,
     this.duration = const Duration(milliseconds: 200),
     this.reverseDuration,
     this.transitionBuilder,
@@ -18,6 +19,7 @@ class ConditionalRender extends StatelessWidget {
 
   final bool condition;
   final Widget child;
+  final Widget childElse;
   final Duration duration;
   final Duration reverseDuration;
   final AnimatedSwitcherTransitionBuilder transitionBuilder;
@@ -37,7 +39,7 @@ class ConditionalRender extends StatelessWidget {
           (child, value) {
           return ScaleTransition(child: child, scale: value);
         },
-      child: condition ? child : SizedBox(),
+      child: condition ? child : (childElse ?? SizedBox()),
     );
   }
 }
