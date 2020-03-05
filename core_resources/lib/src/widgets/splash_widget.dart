@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:core_resources/src/utils/ui.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,7 @@ class SplashWidget<T> extends StatefulWidget {
 
   final Future<T> future;
   final Widget child;
-  final Future<void> Function(BuildContext context, T value) onComplete;
+  final FutureOr<void> Function(BuildContext context, T value) onComplete;
 
   @override
   _SplashWidgetState createState() => _SplashWidgetState<T>();
