@@ -11,16 +11,14 @@ class SplashWidget<T> extends StatefulWidget {
 
   final Future<T> future;
   final Widget child;
-  final void Function(BuildContext context, T value) onComplete;
+  final Future<void> Function(BuildContext context, T value) onComplete;
 
   @override
-  _SplashWidgetState createState() => _SplashWidgetState<T>(onComplete);
+  _SplashWidgetState createState() => _SplashWidgetState<T>();
 }
 
 class _SplashWidgetState<T> extends State<SplashWidget<T>> {
-  _SplashWidgetState(this.onComplete);
-
-  final void Function(BuildContext context, T value) onComplete;
+  _SplashWidgetState();
 
   @override
   void initState() {
@@ -28,7 +26,7 @@ class _SplashWidgetState<T> extends State<SplashWidget<T>> {
     hideTopSystemOverlay();
     widget.future.catchError((e) => null).then((result) async {
       await showSystemOverlays();
-      onComplete(context, result);
+      await widget.onComplete(context, result);
     });
   }
 

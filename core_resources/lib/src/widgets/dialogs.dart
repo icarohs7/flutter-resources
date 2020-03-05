@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 Future<T> showSimpleAlert<T>(
@@ -27,8 +29,8 @@ Future<T> showConfirmDialog<T>(
   BuildContext context, {
   Widget title,
   Widget content,
-  Function() onConfirm,
-  Function() onCancel,
+  FutureOr<void> Function() onConfirm,
+  FutureOr<void> Function() onCancel,
     String cancelText,
     String confirmText,
 }) {
@@ -42,12 +44,12 @@ Future<T> showConfirmDialog<T>(
           FlatButton(
             child: Text(cancelText ?? 'Cancelar'),
             textColor: Theme.of(context).primaryColor,
-            onPressed: onCancel != null ? onCancel() : () => Navigator.of(context).pop(false),
+            onPressed: onCancel ?? () => Navigator.of(context).pop(false),
           ),
           FlatButton(
             child: Text(confirmText ?? 'Confirmar'),
             textColor: Theme.of(context).primaryColor,
-            onPressed: onConfirm != null ? onConfirm() : () => Navigator.of(context).pop(true),
+            onPressed: onConfirm ?? () => Navigator.of(context).pop(true),
           )
         ],
       );
