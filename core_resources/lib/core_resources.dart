@@ -27,6 +27,7 @@ export 'src/widgets/dismissible_and_editable_slidable.dart';
 export 'src/widgets/dismissible_from_end_to_start.dart';
 export 'src/widgets/fade_in_and_loading_network_image.dart';
 export 'src/widgets/future_loading_raised_button.dart';
+export 'src/widgets/hero_text.dart';
 export 'src/widgets/loading_button.dart';
 export 'src/widgets/number_stepper.dart';
 export 'src/widgets/splash_widget.dart';
