@@ -8,11 +8,15 @@ class FadeInAndLoadingNetworkImage extends StatelessWidget {
     this.imageUrl, {
     this.width,
     this.height,
+    this.fit,
+    this.alignment = Alignment.center,
   });
 
   final String imageUrl;
   final double height;
   final double width;
+  final BoxFit fit;
+  final AlignmentGeometry alignment;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +26,12 @@ class FadeInAndLoadingNetworkImage extends StatelessWidget {
         CircularProgressIndicator(),
         FadeInImage.memoryNetwork(
           placeholder: kTransparentImage,
-          placeholderCacheWidth: width ?? 15,
+          placeholderCacheWidth: width.toInt() ?? 15,
           image: imageUrl.startsWith(RegExp(r'http|https')) ? imageUrl : 'https://$imageUrl',
           height: height,
           width: width,
+          fit: fit,
+          alignment: alignment,
         ),
       ],
     );
