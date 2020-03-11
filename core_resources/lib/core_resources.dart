@@ -21,6 +21,7 @@ export 'src/utils/math.dart';
 export 'src/utils/nav.dart';
 export 'src/utils/ui.dart';
 export 'src/utils/widgets.dart';
+export 'src/widgets/auto_complete_text_view.dart';
 export 'src/widgets/conditional_render.dart';
 export 'src/widgets/dialogs.dart';
 export 'src/widgets/dismissible_and_editable_slidable.dart';
