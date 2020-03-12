@@ -32,3 +32,4 @@ export 'src/widgets/hero_text.dart';
 export 'src/widgets/loading_button.dart';
 export 'src/widgets/number_stepper.dart';
 export 'src/widgets/splash_widget.dart';
+export 'src/widgets/transitions.dart';
