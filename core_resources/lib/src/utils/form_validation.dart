@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 FormFieldValidator<String> validators(List<FormFieldValidator<String>> validators) {
   return (input) {
     return validators.firstWhere(
-        (validator) => (validator(input) ?? '').isNotBlank,
+      (validator) => (validator(input) ?? '').isNotBlank,
       orElse: () => (s) => null,
     )(input);
   };
@@ -21,15 +21,13 @@ FormFieldValidator<String> requiredValidator({String errorMessage}) {
 FormFieldValidator<String> minLengthValidator(int minLength, {String errorMessage}) {
   return (input) {
     return (input ?? '').length < minLength
-      ? (errorMessage ?? 'Mínimo de $minLength caracteres requiridos')
-      : null;
+        ? (errorMessage ?? 'Mínimo de $minLength caracteres requiridos')
+        : null;
   };
 }
 
 ///Validator only allowing valid emails
 FormFieldValidator<String> emailValidator({String errorMessage}) {
-  return (input) => null;
-  //TODO find best email regex
-  //  final emailRegex = RegExp(r'''^[^\@]+\@^[^\@]$''');
-  //  return (input) => emailRegex.hasMatch(input) ? (errorMessage ?? 'Email inválido') : null;
+  final emailRegex = RegExp(r'''^[^@]+@[^@]+$''');
+  return (input) => emailRegex.hasMatch(input) ? null : (errorMessage ?? 'Email inválido');
 }
