@@ -47,4 +47,10 @@ extension FutureExtensions<T> on Future<T> {
   Future<T> orNull() {
     return runAsyncOrDefault(null, () => this);
   }
+
+  ///Map the internal value of the future to itself if
+  ///it's a success or [fallback] if it's a failure
+  Future<T> or(T fallback) {
+    return runAsyncOrDefault(fallback, () => this);
+  }
 }
