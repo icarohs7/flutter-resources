@@ -13,8 +13,8 @@ FormFieldValidator<String> validators(List<FormFieldValidator<String>> validator
 }
 
 ///Validator only allowing non-blank values
-FormFieldValidator<String> requiredValidator({String errorMessage}) {
-  return (input) => (input ?? '').isBlank ? (errorMessage ?? 'Campo obrigatório') : null;
+FormFieldValidator<String> requiredValidator({String errorMessage = 'Campo obrigatório'}) {
+  return (input) => (input ?? '').isBlank ? errorMessage : null;
 }
 
 ///Validator only allowing values above the given length
@@ -27,7 +27,15 @@ FormFieldValidator<String> minLengthValidator(int minLength, {String errorMessag
 }
 
 ///Validator only allowing valid emails
-FormFieldValidator<String> emailValidator({String errorMessage}) {
+FormFieldValidator<String> emailValidator({String errorMessage = 'Email inválido'}) {
   final emailRegex = RegExp(r'''^[^@]+@[^@]+$''');
-  return (input) => emailRegex.hasMatch(input) ? null : (errorMessage ?? 'Email inválido');
+  return (input) => emailRegex.hasMatch(input) ? null : errorMessage;
+}
+
+///Validator only allowing valid phone numbers
+FormFieldValidator<String> phoneValidator({
+  int requiredLength = 11,
+  String errorMessage = 'Telefone inválido',
+}) {
+  return (input) => input.onlyNumbers().length == 11 ? null : errorMessage;
 }
