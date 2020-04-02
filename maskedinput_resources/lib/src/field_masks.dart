@@ -7,6 +7,11 @@ const FieldMasks = _FieldMasks();
 class _FieldMasks {
   const _FieldMasks();
 
+  MaskTextInputFormatter cpf() => MaskTextInputFormatter(mask: '###.###.###-##');
+
+  MaskTextInputFormatter cnpj() => MaskTextInputFormatter(mask: '##.###.###/####-##');
+
   MaskTextInputFormatter phone() => MaskTextInputFormatter(mask: '(##) #####-####');
+
   MaskTextInputFormatter zipCode() => MaskTextInputFormatter(mask: '#####-###');
 }
