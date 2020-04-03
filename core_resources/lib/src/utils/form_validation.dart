@@ -1,8 +1,8 @@
 import 'package:core_resources/core_resources.dart';
 import 'package:flutter/cupertino.dart';
 
-///Use multiple validators, returning null if all of them pass or the result of the
-///first one not passing
+/// Use multiple validators, returning null if all of them pass or the result of the
+/// first one not passing
 FormFieldValidator<String> validators(List<FormFieldValidator<String>> validators) {
   return (input) {
     return validators.firstWhere(
@@ -12,12 +12,12 @@ FormFieldValidator<String> validators(List<FormFieldValidator<String>> validator
   };
 }
 
-///Validator only allowing non-blank values
+/// Validator only allowing non-blank values
 FormFieldValidator<String> requiredValidator({String errorMessage = 'Campo obrigatório'}) {
   return (input) => (input ?? '').isBlank ? errorMessage : null;
 }
 
-///Validator only allowing values above the given length
+/// Validator only allowing values above the given length
 FormFieldValidator<String> minLengthValidator(int minLength, {String errorMessage}) {
   return (input) {
     return (input ?? '').length < minLength
@@ -26,16 +26,26 @@ FormFieldValidator<String> minLengthValidator(int minLength, {String errorMessag
   };
 }
 
-///Validator only allowing valid emails
+/// Validator only allowing valid emails
 FormFieldValidator<String> emailValidator({String errorMessage = 'Email inválido'}) {
   final emailRegex = RegExp(r'''^[^@]+@[^@]+$''');
   return (input) => emailRegex.hasMatch(input) ? null : errorMessage;
 }
 
-///Validator only allowing valid phone numbers
+/// Validator only allowing valid phone numbers
 FormFieldValidator<String> phoneValidator({
   int requiredLength = 11,
   String errorMessage = 'Telefone inválido',
 }) {
   return (input) => input.onlyNumbers().length == 11 ? null : errorMessage;
+}
+
+/// Validator only allowing valid cpf numbers
+FormFieldValidator<String> cpfValidator({String errorMessage = 'CPF inválido'}) {
+  return (input) => input.onlyNumbers().length == 11 ? null : errorMessage;
+}
+
+/// Validator only allowing valid cnpj numbers
+FormFieldValidator<String> cnpjValidator({String errorMessage = 'CNPJ inválido'}) {
+  return (input) => input.onlyNumbers().length == 14 ? null : errorMessage;
 }
