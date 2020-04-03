@@ -33,5 +33,6 @@ export 'src/widgets/hero_text.dart';
 export 'src/widgets/list_view_with_padded_children.dart';
 export 'src/widgets/loading_button.dart';
 export 'src/widgets/number_stepper.dart';
+export 'src/widgets/row_with_padded_children.dart';
 export 'src/widgets/splash_widget.dart';
 export 'src/widgets/transitions.dart';

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 /// child
 class ListViewWithPaddedChildren extends StatelessWidget {
   const ListViewWithPaddedChildren({
+    Key key,
     this.scrollDirection = Axis.vertical,
     this.reverse = false,
     this.controller,
@@ -22,7 +23,7 @@ class ListViewWithPaddedChildren extends StatelessWidget {
     this.dragStartBehavior = DragStartBehavior.start,
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
     this.childrenPadding = EdgeInsets.zero,
-  });
+  }) : super(key: key);
 
   final Axis scrollDirection;
   final bool reverse;

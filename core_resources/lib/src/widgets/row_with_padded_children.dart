@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-/// A [Column] where a padding is applied to each
+/// A [Row] where a padding is applied to each
 /// child
-class ColumnWithPaddedChildren extends StatelessWidget {
-  const ColumnWithPaddedChildren({
+class RowWithPaddedChildren extends StatelessWidget {
+  const RowWithPaddedChildren({
     Key key,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.max,
@@ -26,7 +26,7 @@ class ColumnWithPaddedChildren extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       mainAxisAlignment: mainAxisAlignment,
       mainAxisSize: mainAxisSize,
       crossAxisAlignment: crossAxisAlignment,
