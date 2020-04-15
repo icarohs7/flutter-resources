@@ -7,7 +7,7 @@ dependencies:
     path: ../core_resources
   flutter:
     sdk: flutter
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+#dev_dependencies:
+#  flutter_test:
+#    sdk: flutter
 flutter:

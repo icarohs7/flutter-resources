@@ -9,7 +9,7 @@ dependencies:
     path: ../abstract_db_resources
   flutter:
     sdk: flutter
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+#dev_dependencies:
+#  flutter_test:
+#    sdk: flutter
 flutter:
