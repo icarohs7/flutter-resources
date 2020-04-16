@@ -13,6 +13,7 @@ export 'src/extensions/execution_extensions.dart';
 export 'src/extensions/future_extensions.dart';
 export 'src/extensions/number_extensions.dart';
 export 'src/extensions/stream_extensions.dart';
+export 'src/extensions/string_extensions.dart';
 export 'src/extensions/time_extensions.dart';
 export 'src/utils/fade_page_route.dart';
 export 'src/utils/form_validation.dart';
