@@ -9,7 +9,9 @@ dependencies:
     path: ../abstract_db_resources
   flutter:
     sdk: flutter
-#dev_dependencies:
-#  flutter_test:
-#    sdk: flutter
+dependency_overrides:
+  dartx: ^0.3.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
 flutter:
