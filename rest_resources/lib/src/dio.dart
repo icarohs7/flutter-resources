@@ -3,5 +3,12 @@ import 'package:rest_resources/rest_resources.dart';
 ///Create default dio instance
 ///for flutter
 Dio defaultFlutterDio(String baseUrl) {
-  return Dio(BaseOptions(baseUrl: baseUrl))..transformer = FlutterTransformer();
+  int secondsToMilliseconds(int seconds) => seconds * 1000;
+  return Dio(BaseOptions(
+    baseUrl: baseUrl,
+    connectTimeout: secondsToMilliseconds(30),
+    receiveTimeout: secondsToMilliseconds(30),
+    sendTimeout: secondsToMilliseconds(30),
+  ))
+    ..transformer = FlutterTransformer();
 }
