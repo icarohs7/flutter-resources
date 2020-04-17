@@ -1,4 +1,3 @@
-import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 
 class DismissibleAndEditableSlidable extends StatelessWidget {
@@ -28,7 +27,7 @@ class DismissibleAndEditableSlidable extends StatelessWidget {
       confirmDismiss: (direction) async {
         switch (direction) {
           case DismissDirection.endToStart:
-            return confirmDismiss?.invoke() ?? true;
+            return confirmDismiss?.call() ?? true;
           case DismissDirection.startToEnd:
             onEdited();
             return false;
