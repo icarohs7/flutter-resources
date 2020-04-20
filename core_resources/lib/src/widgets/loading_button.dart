@@ -4,54 +4,18 @@ class LoadingRaisedButton extends StatelessWidget {
   const LoadingRaisedButton({
     @required this.onPressed,
     this.child,
-    this.isLoading,
-    this.isLoadingStream,
+    this.isLoading = false,
     this.color,
-  }) : assert(!(isLoading != null && isLoadingStream != null));
+    this.textColor,
+    this.progressIndicatorColor,
+  });
 
   final Widget child;
   final void Function() onPressed;
   final bool isLoading;
-  final Stream<bool> isLoadingStream;
   final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return isLoadingStream != null
-      ? StreamBuilder(
-      stream: isLoadingStream,
-      initialData: false,
-      builder: (context, snapshot) {
-        return _Button(
-          isLoading: snapshot.data,
-          onPressed: onPressed,
-          child: child,
-          color: color,
-        );
-      },
-    )
-      : _Button(
-      isLoading: isLoading ?? false,
-      onPressed: onPressed,
-      child: child,
-      color: color,
-    );
-  }
-}
-
-class _Button extends StatelessWidget {
-  const _Button({
-    Key key,
-    @required this.isLoading,
-    @required this.onPressed,
-    @required this.child,
-    this.color,
-  }) : super(key: key);
-
-  final bool isLoading;
-  final void Function() onPressed;
-  final Widget child;
-  final Color color;
+  final Color textColor;
+  final Color progressIndicatorColor;
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +23,50 @@ class _Button extends StatelessWidget {
       absorbing: isLoading,
       child: RaisedButton(
         color: color,
+        textColor: textColor,
         onPressed: onPressed,
-        child: _ButtonContent(isLoading: isLoading, child: child),
+        child: _ButtonContent(
+          isLoading: isLoading,
+          child: child,
+          progressIndicatorColor:
+              progressIndicatorColor ?? textColor ?? Theme.of(context).colorScheme.onPrimary,
+        ),
+      ),
+    );
+  }
+}
+
+class LoadingFlatButton extends StatelessWidget {
+  const LoadingFlatButton({
+    @required this.onPressed,
+    this.child,
+    this.isLoading = false,
+    this.color,
+    this.textColor,
+    this.progressIndicatorColor,
+  });
+
+  final Widget child;
+  final void Function() onPressed;
+  final bool isLoading;
+  final Color color;
+  final Color textColor;
+  final Color progressIndicatorColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return AbsorbPointer(
+      absorbing: isLoading,
+      child: FlatButton(
+        color: color,
+        textColor: textColor,
+        onPressed: onPressed,
+        child: _ButtonContent(
+          isLoading: isLoading,
+          child: child,
+          progressIndicatorColor:
+              progressIndicatorColor ?? textColor ?? Theme.of(context).colorScheme.primary,
+        ),
       ),
     );
   }
@@ -71,10 +77,12 @@ class _ButtonContent extends StatelessWidget {
     Key key,
     @required this.isLoading,
     @required this.child,
+    @required this.progressIndicatorColor,
   }) : super(key: key);
 
   final bool isLoading;
   final Widget child;
+  final Color progressIndicatorColor;
 
   @override
   Widget build(BuildContext context) {
@@ -83,29 +91,24 @@ class _ButtonContent extends StatelessWidget {
       switchOutCurve: Curves.easeIn,
       duration: Duration(milliseconds: 300),
       child: isLoading
-        ? Stack(alignment: Alignment.center, children: <Widget>[
-        Opacity(
-          opacity: 0,
-          child: child,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(6),
-          child: Container(
-            height: 16,
-            width: 16,
-            child: CircularProgressIndicator(
-              strokeWidth: 2,
-              valueColor: AlwaysStoppedAnimation<Color>(
-                Theme
-                  .of(context)
-                  .colorScheme
-                  .onPrimary,
+          ? Stack(alignment: Alignment.center, children: <Widget>[
+              Opacity(
+                opacity: 0,
+                child: child,
               ),
-            ),
-          ),
-        ),
-      ])
-        : child,
+              Padding(
+                padding: const EdgeInsets.all(6),
+                child: Container(
+                  height: 16,
+                  width: 16,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    valueColor: AlwaysStoppedAnimation<Color>(progressIndicatorColor),
+                  ),
+                ),
+              ),
+            ])
+          : child,
     );
   }
 }
