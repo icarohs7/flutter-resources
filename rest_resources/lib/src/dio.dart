@@ -9,6 +9,6 @@ Dio defaultFlutterDio(String baseUrl) {
     connectTimeout: secondsToMilliseconds(30),
     receiveTimeout: secondsToMilliseconds(30),
     sendTimeout: secondsToMilliseconds(30),
-  ))
-    ..transformer = FlutterTransformer();
+    responseType: ResponseType.plain,
+  ));
 }
