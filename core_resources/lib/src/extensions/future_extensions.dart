@@ -29,17 +29,18 @@ extension FutureExtensions<T> on Future<T> {
   ///Intercepts errors thrown on the execution
   ///of the given future, logging them and rethrowing
   Future<T> loggingErrors({
-    String Function(dynamic e) errToString,
-    String Function(dynamic e) loggingFn,
-  }) {
-    return runAsync(() async {
-      try {
-        return await this;
-      } catch (e) {
-        loggingFn?.invoke(e) ?? print('Error on future: ${errToString?.call(e) ?? e}');
-        rethrow;
-      }
-    });
+    String functionName,
+    String Function(dynamic e, StackTrace stacktrace) errToString,
+    String Function(dynamic error, StackTrace stacktrace) loggingFn,
+  }) async {
+    try {
+      return await this;
+    } catch (e, s) {
+      print(s.runtimeType);
+      loggingFn?.invoke(e, s) ??
+          print('Error on future: $functionName -> ${errToString?.call(e, s) ?? "$e ->\n$s"}');
+      rethrow;
+    }
   }
 
   ///Map the internal value of the future to itself if
