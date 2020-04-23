@@ -31,4 +31,17 @@ void main() {
     expect(arr[4], equals(42));
     expect(arr, equals(['omai', 'wa', 'mou', 'shindeiru', 42]));
   });
+
+  test('should encode json object', () async {
+    final obj1 = {
+      'name': 'test',
+      'items': [1, 2, 3],
+    };
+    const exJson1 = '{"name":"test","items":[1,2,3]}';
+    expect(await jsonEncodeBg(obj1), equals(exJson1));
+
+    final obj2 = ['omai', 'wa', 'mou', 'shindeiru', 42];
+    const exJson2 = '["omai","wa","mou","shindeiru",42]';
+    expect(await jsonEncodeBg(obj2), equals(exJson2));
+  });
 }
