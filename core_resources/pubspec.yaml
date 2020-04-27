@@ -3,10 +3,10 @@ version: 0.0.1
 environment:
   sdk: '>=2.7.0 <3.0.0'
 dependencies:
-  async: ^2.4.0
-  dartx: ^0.2.0
-  intl: ^0.16.0
-  rxdart: ^0.23.1
+  async: ^2.4.1
+  dartx: ^0.3.0
+  intl: ^0.16.1
+  rxdart: ^0.24.0
   transparent_image: ^1.0.0
   flutter:
     sdk: flutter
