@@ -8,6 +8,8 @@ class LoadingRaisedButton extends StatelessWidget {
     this.color,
     this.textColor,
     this.progressIndicatorColor,
+    this.shape,
+    this.padding,
   });
 
   final Widget child;
@@ -16,6 +18,8 @@ class LoadingRaisedButton extends StatelessWidget {
   final Color color;
   final Color textColor;
   final Color progressIndicatorColor;
+  final ShapeBorder shape;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +29,8 @@ class LoadingRaisedButton extends StatelessWidget {
         color: color,
         textColor: textColor,
         onPressed: onPressed,
+        shape: shape,
+        padding: padding,
         child: _ButtonContent(
           isLoading: isLoading,
           child: child,
@@ -44,6 +50,8 @@ class LoadingFlatButton extends StatelessWidget {
     this.color,
     this.textColor,
     this.progressIndicatorColor,
+    this.shape,
+    this.padding,
   });
 
   final Widget child;
@@ -52,6 +60,8 @@ class LoadingFlatButton extends StatelessWidget {
   final Color color;
   final Color textColor;
   final Color progressIndicatorColor;
+  final ShapeBorder shape;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +71,50 @@ class LoadingFlatButton extends StatelessWidget {
         color: color,
         textColor: textColor,
         onPressed: onPressed,
+        shape: shape,
+        padding: padding,
         child: _ButtonContent(
           isLoading: isLoading,
           child: child,
           progressIndicatorColor:
               progressIndicatorColor ?? textColor ?? Theme.of(context).colorScheme.primary,
+        ),
+      ),
+    );
+  }
+}
+
+class LoadingFloatingActionButton extends StatelessWidget {
+  const LoadingFloatingActionButton({
+    @required this.onPressed,
+    this.child,
+    this.isLoading = false,
+    this.backgroundColor,
+    this.progressIndicatorColor,
+    this.shape,
+    this.padding,
+  });
+
+  final Widget child;
+  final void Function() onPressed;
+  final bool isLoading;
+  final Color backgroundColor;
+  final Color progressIndicatorColor;
+  final ShapeBorder shape;
+  final EdgeInsetsGeometry padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return AbsorbPointer(
+      absorbing: isLoading,
+      child: FloatingActionButton(
+        backgroundColor: backgroundColor,
+        onPressed: onPressed,
+        shape: shape,
+        child: _ButtonContent(
+          isLoading: isLoading,
+          child: child,
+          progressIndicatorColor: progressIndicatorColor ?? Theme.of(context).colorScheme.onPrimary,
         ),
       ),
     );
@@ -91,23 +140,26 @@ class _ButtonContent extends StatelessWidget {
       switchOutCurve: Curves.easeIn,
       duration: Duration(milliseconds: 300),
       child: isLoading
-          ? Stack(alignment: Alignment.center, children: <Widget>[
-              Opacity(
-                opacity: 0,
-                child: child,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6),
-                child: Container(
-                  height: 16,
-                  width: 16,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(progressIndicatorColor),
+          ? Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Opacity(
+                  opacity: 0,
+                  child: child,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(6),
+                  child: Container(
+                    height: 16,
+                    width: 16,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(progressIndicatorColor),
+                    ),
                   ),
                 ),
-              ),
-            ])
+              ],
+            )
           : child,
     );
   }
