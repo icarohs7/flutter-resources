@@ -37,7 +37,7 @@ FormFieldValidator<String> phoneValidator({
   int requiredLength = 11,
   String errorMessage = 'Telefone inválido',
 }) {
-  return (input) => input.onlyNumbers().length == 11 ? null : errorMessage;
+  return (input) => input.onlyNumbers().length == requiredLength ? null : errorMessage;
 }
 
 /// Validator only allowing valid cpf numbers

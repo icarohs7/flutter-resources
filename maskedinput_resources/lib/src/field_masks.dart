@@ -11,7 +11,9 @@ class _FieldMasks {
 
   MaskTextInputFormatter cnpj() => MaskTextInputFormatter(mask: '##.###.###/####-##');
 
-  MaskTextInputFormatter phone() => MaskTextInputFormatter(mask: '(##) #####-####');
+  MaskTextInputFormatter cellphone() => MaskTextInputFormatter(mask: '(##) #####-####');
+
+  MaskTextInputFormatter phone() => MaskTextInputFormatter(mask: '(##) ####-####');
 
   MaskTextInputFormatter zipCode() => MaskTextInputFormatter(mask: '#####-###');
 }
