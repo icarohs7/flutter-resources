@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 dependency_overrides:
-  dartx: ^0.3.0
+  dartx: 0.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
