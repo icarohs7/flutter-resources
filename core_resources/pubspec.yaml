@@ -6,7 +6,7 @@ dependencies:
   async: ^2.4.1
   dartx: 0.4.1
   intl: ^0.16.1
-  rxdart: ^0.24.0
+  rxdart: ^0.24.1
   transparent_image: ^1.0.0
   flutter:
     sdk: flutter
