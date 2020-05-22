@@ -5,3 +5,4 @@ export 'package:flutter_modular/flutter_modular.dart';
 export 'package:mobx/mobx.dart' hide version;
 
 export 'src/base_modular_router.dart';
+export 'src/mobx_extensions.dart';
