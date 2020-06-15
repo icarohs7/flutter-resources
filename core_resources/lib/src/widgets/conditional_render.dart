@@ -7,8 +7,10 @@ import 'package:flutter/material.dart';
 class ConditionalRender extends StatelessWidget {
   const ConditionalRender({
     @required this.condition,
-    @required this.child,
+    this.child,
+    this.childBuilder,
     this.childElse,
+    this.childElseBuilder,
     this.duration = const Duration(milliseconds: 200),
     this.reverseDuration,
     this.transitionBuilder,
@@ -19,7 +21,9 @@ class ConditionalRender extends StatelessWidget {
 
   final bool condition;
   final Widget child;
+  final Widget Function(BuildContext) childBuilder;
   final Widget childElse;
+  final Widget Function(BuildContext) childElseBuilder;
   final Duration duration;
   final Duration reverseDuration;
   final AnimatedSwitcherTransitionBuilder transitionBuilder;
@@ -29,7 +33,9 @@ class ConditionalRender extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (animationsEnabled == false) return condition ? child : SizedBox();
+    if (animationsEnabled == false) {
+      return condition ? (child ?? childBuilder(context)) : SizedBox();
+    }
     return AnimatedSwitcher(
       duration: duration,
       reverseDuration: reverseDuration,
@@ -37,9 +43,9 @@ class ConditionalRender extends StatelessWidget {
       switchOutCurve: switchOutCurve,
       transitionBuilder: transitionBuilder ??
           (child, value) {
-          return ScaleTransition(child: child, scale: value);
-        },
-      child: condition ? child : (childElse ?? SizedBox()),
+            return ScaleTransition(child: child, scale: value);
+          },
+      child: condition ? child : (childElse ?? childElseBuilder(context) ?? SizedBox()),
     );
   }
 }
