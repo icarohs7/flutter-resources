@@ -3,6 +3,7 @@ library core_resources;
 export 'package:async/async.dart';
 export 'package:dartx/dartx.dart' hide Function0, Function1, Function2, Function3, Function4;
 export 'package:dartz/dartz.dart' hide State, Bind, Order;
+export 'package:enhanced_future_builder/enhanced_future_builder.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:intl/date_symbol_data_local.dart';
 export 'package:intl/intl.dart';
