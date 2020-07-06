@@ -55,3 +55,8 @@ FormFieldValidator<String> cpfValidator({String errorMessage = 'CPF inválido'})
 FormFieldValidator<String> cnpjValidator({String errorMessage = 'CNPJ inválido'}) {
   return (input) => input.onlyNumbers().length == 14 ? null : errorMessage;
 }
+
+/// Validator only allowing valid zip numbers
+FormFieldValidator<String> zipValidator({String errorMessage = 'CEP inválido'}) {
+  return (input) => input.onlyNumbers().length == 8 ? null : errorMessage;
+}
