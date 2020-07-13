@@ -21,4 +21,15 @@ mixin BaseModularRouter {
   }) {
     return Modular.to.pushNamedAndRemoveUntil(route, predicate, arguments: arguments);
   }
+
+  List<String> get bottomNavRoutes => [];
+
+  /// The index of the curent route in the
+  /// [bottomNavRoutes] list, or null if
+  /// it isn't a registered route
+  int currentBottomNavIndex(BuildContext context) {
+    final routeName = ModalRoute.of(context).settings.name;
+    final index = bottomNavRoutes.indexOf(routeName);
+    return index != -1 ? index : null;
+  }
 }
