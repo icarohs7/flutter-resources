@@ -10,19 +10,35 @@ Future<T> showSimpleAlert<T>(
 }) {
   return showDialog(
     context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: title,
-        content: content,
-        actions: <Widget>[
-          FlatButton(
-            child: Text('Ok'),
-            onPressed: () => onConfirm != null ? onConfirm() : Navigator.pop(context),
-          ),
-        ],
-      );
-    },
+    builder: (context) => SimpleAlert(title: title, content: content, onConfirm: onConfirm),
   );
+}
+
+class SimpleAlert extends StatelessWidget {
+  final Widget title;
+  final Widget content;
+  final Function() onConfirm;
+
+  const SimpleAlert({
+    Key key,
+    this.title,
+    this.content,
+    this.onConfirm,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: title,
+      content: content,
+      actions: <Widget>[
+        FlatButton(
+          child: Text('Ok'),
+          onPressed: () => onConfirm != null ? onConfirm() : Navigator.pop(context),
+        ),
+      ],
+    );
+  }
 }
 
 Future<T> showConfirmDialog<T>(
@@ -31,28 +47,59 @@ Future<T> showConfirmDialog<T>(
   Widget content,
   FutureOr<void> Function() onConfirm,
   FutureOr<void> Function() onCancel,
-    String cancelText,
-    String confirmText,
+  String cancelText,
+  String confirmText,
 }) {
   return showDialog(
     context: context,
     builder: (context) {
-      return AlertDialog(
+      return ConfirmDialog(
         title: title,
         content: content,
-        actions: <Widget>[
-          FlatButton(
-            child: Text(cancelText ?? 'Cancelar'),
-            textColor: Theme.of(context).primaryColor,
-            onPressed: onCancel ?? () => Navigator.of(context).pop(false),
-          ),
-          FlatButton(
-            child: Text(confirmText ?? 'Confirmar'),
-            textColor: Theme.of(context).primaryColor,
-            onPressed: onConfirm ?? () => Navigator.of(context).pop(true),
-          )
-        ],
+        onConfirm: onConfirm,
+        onCancel: onCancel,
+        cancelText: cancelText,
+        confirmText: confirmText,
       );
     },
   );
+}
+
+class ConfirmDialog extends StatelessWidget {
+  final Widget title;
+  final Widget content;
+  final FutureOr<void> Function() onConfirm;
+  final FutureOr<void> Function() onCancel;
+  final String cancelText;
+  final String confirmText;
+
+  const ConfirmDialog({
+    this.title,
+    this.content,
+    this.onConfirm,
+    this.onCancel,
+    this.cancelText,
+    this.confirmText,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: title,
+      content: content,
+      actions: <Widget>[
+        FlatButton(
+          child: Text(cancelText ?? 'Cancelar'),
+          textColor: Theme.of(context).primaryColor,
+          onPressed: onCancel ?? () => Navigator.of(context).pop(false),
+        ),
+        FlatButton(
+          child: Text(confirmText ?? 'Confirmar'),
+          textColor: Theme.of(context).primaryColor,
+          onPressed: onConfirm ?? () => Navigator.of(context).pop(true),
+        )
+      ],
+    );
+  }
 }
