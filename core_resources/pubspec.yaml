@@ -16,8 +16,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_cupertino_localizations: ^1.0.1
-dependency_overrides:
-  dartx: 0.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
