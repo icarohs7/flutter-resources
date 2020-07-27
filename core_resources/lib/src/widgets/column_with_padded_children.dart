@@ -33,7 +33,13 @@ class ColumnWithPaddedChildren extends StatelessWidget {
       textDirection: textDirection,
       verticalDirection: verticalDirection,
       textBaseline: textBaseline,
-      children: children.map<Widget>((w) => Padding(padding: childrenPadding, child: w)).toList(),
+      children: children.map<Widget>((w) {
+        return w is Spacer
+            ? w
+            : w is Expanded
+                ? Expanded(child: Padding(padding: childrenPadding, child: w.child))
+                : Padding(padding: childrenPadding, child: w);
+      }).toList(),
     );
   }
 }
