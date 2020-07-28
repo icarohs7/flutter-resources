@@ -3,7 +3,7 @@ import 'dart:io';
 @TestOn('vm')
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_db_resources/hive_db_resources.dart';
-import 'package:hive_db_resources/src/HiveDatabase.dart';
+import 'package:hive_db_resources/src/hive_database.dart';
 
 // ignore: avoid_void_async
 void main() async {
