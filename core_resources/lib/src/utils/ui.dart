@@ -1,5 +1,30 @@
+import 'dart:async';
+
+import 'package:core_resources/src/widgets/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+Future<bool> askConfirmation(
+  BuildContext context, {
+  String titleText,
+  Widget title,
+  Widget content,
+  FutureOr<void> Function() onConfirm,
+  FutureOr<void> Function() onCancel,
+  String cancelText,
+  String confirmText,
+}) async {
+  return await showConfirmDialog<bool>(
+        context,
+        title: titleText != null ? Text(titleText) : title,
+        content: content,
+        onConfirm: onConfirm,
+        onCancel: onCancel,
+        cancelText: cancelText,
+        confirmText: confirmText,
+      ) ??
+      false;
+}
 
 Future<void> showSystemOverlays() async {
   await SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
