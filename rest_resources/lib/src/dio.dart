@@ -10,5 +10,6 @@ Dio defaultFlutterDio(String baseUrl) {
     receiveTimeout: secondsToMilliseconds(30),
     sendTimeout: secondsToMilliseconds(30),
     responseType: ResponseType.plain,
+    headers: {'Accept': 'application/json'},
   ));
 }
