@@ -5,7 +5,7 @@ import 'package:hive_db_resources/hive_db_resources.dart';
 
 /// Global box used to persist data as
 /// an alternative to using shared preferences
-final globalBox = Hive.box('globalBox');
+final globalBox = Hive.box<String>('globalBox');
 
 ///Implementation of [AbstractTDatabase] using Hive
 ///as the underlying engine.
