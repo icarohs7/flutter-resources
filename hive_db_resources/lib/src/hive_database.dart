@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:hive_db_resources/hive_db_resources.dart';
 
+Box<String> _globalBox;
+
 /// Global box used to persist data as
 /// an alternative to using shared preferences
-final globalBox = Hive.box<String>('globalBox');
+Box<String> get globalBox => _globalBox ??= Hive.box<String>('globalBox');
 
 ///Implementation of [AbstractTDatabase] using Hive
 ///as the underlying engine.
