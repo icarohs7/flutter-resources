@@ -55,3 +55,11 @@ extension FutureExtensions<T> on Future<T> {
     return runAsyncOrDefault(fallback, () => this);
   }
 }
+
+extension FutureListExtensions<T> on Future<List<T>> {
+  ///Map the internal value of the future to itself if
+  ///it's a success or an empty list if it's a failure
+  Future<List<T>> orEmpty() {
+    return runAsyncOrDefault(<T>[], () => this);
+  }
+}

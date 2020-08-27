@@ -30,4 +30,14 @@ void main() {
     final r2 = await f2.orNull();
     expect(r2, equals(1532));
   });
+
+  test('should turn future value into empty list if it\'s a failure', () async {
+    final f1 = Future<List<int>>(() => throw Exception());
+    final r1 = await f1.orEmpty();
+    expect(r1, isEmpty);
+
+    final f2 = Future(() => [24, 42, 1532]);
+    final r2 = await f2.orEmpty();
+    expect(r2, equals([24, 42, 1532]));
+  });
 }
