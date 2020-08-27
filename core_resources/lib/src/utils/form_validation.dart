@@ -60,3 +60,11 @@ FormFieldValidator<String> cnpjValidator({String errorMessage = 'CNPJ inválido'
 FormFieldValidator<String> zipValidator({String errorMessage = 'CEP inválido'}) {
   return (input) => input.onlyNumbers().length == 8 ? null : errorMessage;
 }
+
+/// Validator only allowing valid zip numbers
+FormFieldValidator<String> userValidator({String errorMessage = 'Usuário inválido'}) {
+  return (input) {
+    final regex = RegExp(r'^[\w\._]+$');
+    return regex.hasMatch(input) ? null : 'Nome de usuário inválido';
+  };
+}
