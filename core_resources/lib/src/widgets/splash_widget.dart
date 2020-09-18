@@ -26,7 +26,10 @@ class _SplashWidgetState<T> extends State<SplashWidget<T>> {
   void initState() {
     super.initState();
     hideTopSystemOverlay();
-    widget.future.catchError((e) => null).then((result) async {
+    widget.future.catchError((e) {
+      print('Error on Splash loading:\n$e');
+      return null;
+    }).then((result) async {
       await showSystemOverlays();
       await widget.onComplete(context, result);
     });
