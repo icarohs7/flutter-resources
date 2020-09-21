@@ -6,17 +6,24 @@ Future<T> showSimpleAlert<T>(
   BuildContext context, {
   Widget title,
   Widget content,
+  String confirmText,
   Function() onConfirm,
 }) {
   return showDialog(
     context: context,
-    builder: (context) => SimpleAlert(title: title, content: content, onConfirm: onConfirm),
+    builder: (context) => SimpleAlert(
+      title: title,
+      content: content,
+      confirmText: confirmText,
+      onConfirm: onConfirm,
+    ),
   );
 }
 
 class SimpleAlert extends StatelessWidget {
   final Widget title;
   final Widget content;
+  final String confirmText;
   final Function() onConfirm;
 
   const SimpleAlert({
@@ -24,6 +31,7 @@ class SimpleAlert extends StatelessWidget {
     this.title,
     this.content,
     this.onConfirm,
+    this.confirmText,
   }) : super(key: key);
 
   @override
@@ -33,7 +41,7 @@ class SimpleAlert extends StatelessWidget {
       content: content,
       actions: <Widget>[
         FlatButton(
-          child: Text('Ok'),
+          child: Text(confirmText ?? 'Ok'),
           onPressed: () => onConfirm != null ? onConfirm() : Navigator.pop(context),
         ),
       ],
