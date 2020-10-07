@@ -52,7 +52,7 @@ void main() {
     expect(f3.message, '');
   });
 
-  test('try operators should work', () {
+  test('try operators should work', () async {
     final f1 = Try.value(237);
     expect(f1.fold(() => 999, (a) => a - 10), 227);
     expect(f1.map((a) => a - 5), Try.value(232));
@@ -66,5 +66,44 @@ void main() {
     expect(f2.map((a) => 'world').exception.runtimeType, SocketException);
     expect(f2 | 'world', 'world');
     expect(f2.getOrElse(() => 'hello'), 'hello');
+    
+    final f3 = Try.value(1532);
+    expect(f3.flatMap((b) => Try.value(b * 2)), Try.value(3064));
+
+    final f4 = Try<int>.message('error');
+    expect(f4.flatMap((b) => Try.value(b * 15)), Try<int>.message('error'));
+
+    final f5 = Try.value(Try.value(995));
+    expect(f5.flatten(), Try.value(995));
+
+    final f6 = Try(() {
+      throw HandshakeException();
+      return Try.value(997);
+    });
+    expect(f6.flatten().message, Try<int>.exception(HandshakeException()).message);
+    expect(f6.flatten().exception.runtimeType, HandshakeException);
+    expect(f6.flatten().value, Try<int>.exception(HandshakeException()).value);
+
+    final f7 = Try(() => Try.exception(FileSystemException()));
+    expect(f7.flatten().message, Try<int>.exception(FileSystemException()).message);
+    expect(f7.flatten().exception.runtimeType, FileSystemException);
+    expect(f7.flatten().value, Try<int>.exception(FileSystemException()).value);
+
+    final f8 = Try.async(() async {
+      Future.delayed(Duration(milliseconds: 5));
+      throw HandshakeException();
+      return Try.value(997);
+    });
+    expect((await f8.flatten()).message, Try.exception(HandshakeException()).message);
+    expect((await f8.flatten()).exception.runtimeType, HandshakeException);
+    expect((await f8.flatten()).value, Try.exception(HandshakeException()).value);
+
+    final f9 = Try.async(() async {
+      Future.delayed(Duration(milliseconds: 5));
+      return Try.exception(FileSystemException());
+    });
+    expect((await f9.flatten()).message, Try.exception(FileSystemException()).message);
+    expect((await f9.flatten()).exception.runtimeType, FileSystemException);
+    expect((await f9.flatten()).value, Try.exception(FileSystemException()).value);
   });
 }

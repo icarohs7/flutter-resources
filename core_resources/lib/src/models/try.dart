@@ -3,19 +3,21 @@ import 'dart:async';
 import 'package:core_resources/core_resources.dart';
 
 class Try<A> {
-  factory Try(A op()) {
+  factory Try(A op(), {String messageOnError = ''}) {
+    assert(messageOnError != null);
     try {
       return Try.value(op());
     } catch (e, s) {
-      return Try.exception(e, stacktrace: s);
+      return Try.exception(e, stacktrace: s, message: messageOnError);
     }
   }
 
-  static Future<Try<A>> async<A>(FutureOr<A> op()) async {
+  static Future<Try<A>> async<A>(FutureOr<A> op(), {String messageOnError = ''}) async {
+    assert(messageOnError != null);
     try {
       return Try.value(await op());
     } catch (e, s) {
-      return Try.exception(e, stacktrace: s);
+      return Try.exception(e, stacktrace: s, message: messageOnError);
     }
   }
 
@@ -48,6 +50,13 @@ class Try<A> {
     );
   }
 
+  Try<B> flatMap<B>(Try<B> f(A b)) {
+    return fold(
+      () => Try.message(message, exception: exception, stacktrace: stacktrace),
+      f,
+    );
+  }
+
   A getOrElse(A dflt()) => fold(dflt, (a) => a);
 
   A operator |(A other) => getOrElse(() => other);
@@ -63,4 +72,23 @@ class Try<A> {
 
   @override
   int get hashCode => value.hashCode ^ message.hashCode ^ exception.hashCode;
+
+  @override
+  String toString() {
+    return 'Try{value: $value, message: $message, exception: $exception, stacktrace: ${stacktrace == null ? 'null' : 'Instance of \'Stacktrace\''}';
+  }
+}
+
+extension TryTryExtensions<T> on Try<Try<T>> {
+  Try<T> flatten() {
+    return value ?? Try.message(message, exception: exception, stacktrace: stacktrace);
+  }
+}
+
+extension TryTryFutureExtensions<T> on Future<Try<Try<T>>> {
+  Future<Try<T>> flatten() async {
+    final thiss = await this;
+    return thiss.value ??
+        Try.message(thiss.message, exception: thiss.exception, stacktrace: thiss.stacktrace);
+  }
 }
