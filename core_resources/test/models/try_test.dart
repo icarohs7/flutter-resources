@@ -78,7 +78,6 @@ void main() {
 
     final f6 = Try(() {
       throw HandshakeException();
-      return Try.value(997);
     });
     expect(f6.flatten().message, Try<int>.exception(HandshakeException()).message);
     expect(f6.flatten().exception.runtimeType, HandshakeException);
@@ -92,7 +91,6 @@ void main() {
     final f8 = Try.async(() async {
       Future.delayed(Duration(milliseconds: 5));
       throw HandshakeException();
-      return Try.value(997);
     });
     expect((await f8.flatten()).message, Try.exception(HandshakeException()).message);
     expect((await f8.flatten()).exception.runtimeType, HandshakeException);
