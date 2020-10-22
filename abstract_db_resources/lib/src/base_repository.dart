@@ -10,7 +10,7 @@ class BaseRepository<T> {
   Future<int> insert(T item, {int key}) => db.insert(item, key: key);
 
   ///Store multiple items
-  Future<void> insertAll(List<T> items) => Future.wait(items.map((e) => insert(e)));
+  Future<void> insertAll(Iterable<T> items) => Future.wait(items.map((e) => insert(e)));
 
   ///Store multiple items associating ids to each
   Future<void> insertAllWithKeys(Map<int, T> items) {
@@ -18,7 +18,7 @@ class BaseRepository<T> {
   }
 
   ///Erase the database and insert values
-  Future<void> replaceAll(List<T> items) async {
+  Future<void> replaceAll(Iterable<T> items) async {
     await clear();
     return insertAll(items);
   }
