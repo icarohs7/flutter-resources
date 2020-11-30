@@ -62,9 +62,9 @@ FormFieldValidator<String> zipValidator({String errorMessage = 'CEP inválido'})
 }
 
 /// Validator only allowing valid zip numbers
-FormFieldValidator<String> userValidator({String errorMessage = 'Usuário inválido'}) {
+FormFieldValidator<String> userValidator({String errorMessage = 'Nome de usuário inválido'}) {
   return (input) {
     final regex = RegExp(r'^[\w\._]+$');
-    return regex.hasMatch(input) ? null : 'Nome de usuário inválido';
+    return regex.hasMatch(input) ? null : errorMessage;
   };
 }
