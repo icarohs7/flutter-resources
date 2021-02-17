@@ -33,4 +33,18 @@ void main() {
     expect(s2t, equals('nan...'));
     expect(s2t.length, equals(3 + 3));
   });
+
+  test('should return substring after pattern', () {
+    const s1 = 'kono Giorno Giovanna ni wa yume ga aru';
+    final s1s = s1.afterLast('ni');
+    final s1s2 = s1.afterLast('ni', patternIncluded: true);
+    expect(s1s, equals(' wa yume ga aru'));
+    expect(s1s2, equals('ni wa yume ga aru'));
+
+    const s2 = 'nigerundayo Smokey';
+    final s2s = s2.afterLast('Smokey');
+    final s2s2 = s2.afterLast('Smokey', patternIncluded: true);
+    expect(s2s, equals(''));
+    expect(s2s2, equals('Smokey'));
+  });
 }

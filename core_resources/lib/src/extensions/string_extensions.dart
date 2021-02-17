@@ -24,4 +24,14 @@ extension StringExtensions on String {
             ? '${substring(0, maxLength)}...'
             : substring(0, maxLength);
   }
+
+  /// Returns the substring after the last
+  /// occurrence of [pattern], including it
+  /// if [patternIncluded] is true
+  String afterLast(String pattern, {bool patternIncluded = false}) {
+    final index = lastIndexOf(pattern);
+    if (index == -1) return '';
+    if (index >= length) return patternIncluded ? pattern : '';
+    return substring(index + (patternIncluded ? 0 : pattern.length));
+  }
 }
