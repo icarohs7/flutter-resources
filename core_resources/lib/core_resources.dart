@@ -19,6 +19,7 @@ export 'src/extensions/stream_extensions.dart';
 export 'src/extensions/string_extensions.dart';
 export 'src/extensions/time_extensions.dart';
 export 'src/models/try.dart';
+export 'src/utils/date_time.dart';
 export 'src/utils/fade_page_route.dart';
 export 'src/utils/form_validation.dart';
 export 'src/utils/json.dart';
