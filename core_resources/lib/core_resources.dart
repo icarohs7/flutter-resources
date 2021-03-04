@@ -2,10 +2,11 @@ library core_resources;
 
 export 'package:async/async.dart';
 export 'package:build_context/build_context.dart';
-export 'package:dartx/dartx.dart' hide Function0, Function1, Function2, Function3, Function4;
-export 'package:dartz/dartz.dart' hide State, Bind, Order;
+export 'package:dartx/dartx.dart'
+    hide Function0, Function1, Function2, Function3, Function4;
 export 'package:enhanced_future_builder/enhanced_future_builder.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
+export 'package:freezed_annotation/freezed_annotation.dart';
 export 'package:intl/date_symbol_data_local.dart';
 export 'package:intl/intl.dart';
 export 'package:rxdart/rxdart.dart';
@@ -19,6 +20,7 @@ export 'src/extensions/stream_extensions.dart';
 export 'src/extensions/string_extensions.dart';
 export 'src/extensions/time_extensions.dart';
 export 'src/models/try.dart';
+export 'src/models/tuple.dart';
 export 'src/utils/date_time.dart';
 export 'src/utils/fade_page_route.dart';
 export 'src/utils/form_validation.dart';
