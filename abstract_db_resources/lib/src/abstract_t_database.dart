@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:abstract_db_resources/src/abstract_json_database.dart';
-import 'package:flutter/foundation.dart';
 
 ///Abstraction of database storing records
 ///as json objects but exposing them as
@@ -9,8 +8,8 @@ import 'package:flutter/foundation.dart';
 ///field
 class AbstractTDatabase<T> {
   AbstractTDatabase({
-    @required this.jsonDatabase,
-    @required this.adapter,
+    required this.jsonDatabase,
+    required this.adapter,
   });
 
   final AbstractJsonDatabase jsonDatabase;
@@ -20,12 +19,12 @@ class AbstractTDatabase<T> {
 
   List<Map<String, dynamic>> _serializeList(List<T> items) => items.map(_serialize).toList();
 
-  T _deserialize(Map<String, dynamic> json) => json != null ? adapter(json) : null;
+  T _deserialize(Map<String, dynamic> json) => adapter(json);
 
   List<T> _deserializeList(List<Map<String, dynamic>> items) => items.map(_deserialize).toList();
 
   ///Store single item
-  Future<int> insert(T item, {int key}) {
+  Future<int> insert(T item, {int? key}) {
     return jsonDatabase.insert(_serialize(item), key: key);
   }
 
@@ -52,7 +51,7 @@ class AbstractTDatabase<T> {
   ///Remove data, if [key] is defined, only the record
   ///identified will be deleted, otherwise erase all
   ///records
-  Future<void> delete({int key}) {
+  Future<void> delete({int? key}) {
     return jsonDatabase.delete(key: key);
   }
 

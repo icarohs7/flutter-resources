@@ -1,13 +1,12 @@
 import 'package:abstract_db_resources/abstract_db_resources.dart';
-import 'package:flutter/foundation.dart';
 
 class BaseRepository<T> {
-  BaseRepository({@required this.db});
+  BaseRepository({required this.db});
 
   final AbstractTDatabase<T> db;
 
   ///Store single item
-  Future<int> insert(T item, {int key}) => db.insert(item, key: key);
+  Future<int> insert(T item, {int? key}) => db.insert(item, key: key);
 
   ///Store multiple items
   Future<void> insertAll(Iterable<T> items) => Future.wait(items.map((e) => insert(e)));
@@ -32,7 +31,7 @@ class BaseRepository<T> {
   ///Remove data, if [key] is defined, only the record
   ///identified will be deleted, otherwise erase all
   ///records
-  Future<void> delete({int key}) => db.delete(key: key);
+  Future<void> delete({int? key}) => db.delete(key: key);
 
   ///Remove all records from the database
   Future<void> clear() => delete();
