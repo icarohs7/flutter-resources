@@ -37,7 +37,7 @@ class BaseRepository<T> {
   Future<void> clear() => delete();
 
   ///Get a record identified by the given [key]
-  Future<T> getSingle(int key) async => db.getSingle(key);
+  Future<T?> getSingle(int key) async => db.getSingle(key);
 
   ///Get all records stored
   Future<List<T>> getAll() async => db.getAll();
@@ -47,5 +47,5 @@ class BaseRepository<T> {
 
   ///Stream of the latest version of a record
   ///identified by the given [key]
-  Stream<T> streamSingle(int key) => db.streamSingle(key);
+  Stream<T?> streamSingle(int key) => db.streamSingle(key);
 }

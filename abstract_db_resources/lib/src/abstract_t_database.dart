@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:abstract_db_resources/src/abstract_json_database.dart';
+import 'package:core_resources/core_resources.dart';
 
 ///Abstraction of database storing records
 ///as json objects but exposing them as
@@ -19,9 +20,11 @@ class AbstractTDatabase<T> {
 
   List<Map<String, dynamic>> _serializeList(List<T> items) => items.map(_serialize).toList();
 
-  T _deserialize(Map<String, dynamic> json) => adapter(json);
+  T? _deserialize(Map<String, dynamic> json) => adapter(json);
 
-  List<T> _deserializeList(List<Map<String, dynamic>> items) => items.map(_deserialize).toList();
+  List<T> _deserializeList(List<Map<String, dynamic>> items) {
+    return items.map(_deserialize).mapNotNull((e) => e).toList();
+  }
 
   ///Store single item
   Future<int> insert(T item, {int? key}) {
@@ -56,8 +59,10 @@ class AbstractTDatabase<T> {
   }
 
   ///Get a record identified by the given [key]
-  Future<T> getSingle(int key) async {
-    return _deserialize(await jsonDatabase.getSingle(key));
+  Future<T?> getSingle(int key) async {
+    final json = await jsonDatabase.getSingle(key);
+    if (json == null) return null;
+    return _deserialize(json);
   }
 
   ///Get all records stored
@@ -72,7 +77,10 @@ class AbstractTDatabase<T> {
 
   ///Stream of the latest version of a record
   ///identified by the given [key]
-  Stream<T> streamSingle(int key) {
-    return jsonDatabase.streamSingle(key).map(_deserialize).asBroadcastStream();
+  Stream<T?> streamSingle(int key) {
+    return jsonDatabase
+        .streamSingle(key)
+        .map<T?>((json) => json == null ? null : _deserialize(json))
+        .asBroadcastStream();
   }
 }
