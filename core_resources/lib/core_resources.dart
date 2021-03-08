@@ -2,6 +2,7 @@ library core_resources;
 
 export 'package:async/async.dart';
 export 'package:build_context/build_context.dart';
+export 'package:collection/collection.dart';
 export 'package:dartx/dartx.dart' hide Function0, Function1, Function2, Function3, Function4;
 export 'package:enhanced_future_builder/enhanced_future_builder.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
