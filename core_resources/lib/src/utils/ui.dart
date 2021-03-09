@@ -14,16 +14,15 @@ Future<bool> askConfirmation(
   String? cancelText,
   String? confirmText,
 }) async {
-  return (await showConfirmDialog<bool>(
-        context,
-        title: titleText != null ? Text(titleText) : title,
-        content: content,
-        onConfirm: onConfirm,
-        onCancel: onCancel,
-        cancelText: cancelText,
-        confirmText: confirmText,
-      )) ??
-      false;
+  return showConfirmDialog(
+    context,
+    title: titleText != null ? Text(titleText) : title,
+    content: content,
+    onConfirm: onConfirm,
+    onCancel: onCancel,
+    cancelText: cancelText,
+    confirmText: confirmText,
+  );
 }
 
 Future<void> showSystemOverlays() async {
