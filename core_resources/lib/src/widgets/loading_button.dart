@@ -101,7 +101,7 @@ class LoadingFloatingActionButton extends StatelessWidget {
   });
 
   final Widget? child;
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final bool isLoading;
   final Color? backgroundColor;
   final Color? progressIndicatorColor;
