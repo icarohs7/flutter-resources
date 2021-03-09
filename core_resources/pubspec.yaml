@@ -9,7 +9,6 @@ dependencies:
     git:
       ref: null-safety
       url: https://github.com/icarohs7/build_context
-  collection: ^1.15.0
   dartx: ^0.6.0
   enhanced_future_builder:
     git: https://github.com/icarohs7/enhanced_future_builder
