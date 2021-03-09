@@ -5,10 +5,7 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 dependencies:
   async: ^2.5.0
-  build_context:
-    git:
-      ref: null-safety
-      url: https://github.com/icarohs7/build_context
+  build_context: ^3.0.0
   dartx: ^0.6.0
   enhanced_future_builder:
     git: https://github.com/icarohs7/enhanced_future_builder
