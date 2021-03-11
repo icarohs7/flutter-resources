@@ -6,7 +6,6 @@ export 'package:dartx/dartx.dart'
     hide Function0, Function1, Function2, Function3, Function4;
 export 'package:enhanced_future_builder/enhanced_future_builder.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
-export 'package:freezed_annotation/freezed_annotation.dart' hide IterableExtension;
 export 'package:intl/date_symbol_data_local.dart';
 export 'package:intl/intl.dart';
 export 'package:rxdart/rxdart.dart';
