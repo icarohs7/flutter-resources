@@ -6,7 +6,7 @@ environment:
 dependencies:
   async: ^2.5.0
   build_context: ^3.0.0
-  dartx: ^0.6.0
+  dartx: ^0.7.0
   enhanced_future_builder:
     git: https://github.com/icarohs7/enhanced_future_builder
   flutter:
