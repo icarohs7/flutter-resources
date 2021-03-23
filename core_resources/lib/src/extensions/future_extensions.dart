@@ -36,9 +36,9 @@ extension FutureExtensions<T> on Future<T> {
     try {
       return await this;
     } catch (e, s) {
-      print(s.runtimeType);
+      clog(s.runtimeType);
       loggingFn?.invoke(e, s) ??
-          print('Error on future: $functionName -> ${errToString?.call(e, s) ?? "$e ->\n$s"}');
+          clog('Error on future: $functionName -> ${errToString?.call(e, s) ?? "$e ->\n$s"}');
       rethrow;
     }
   }

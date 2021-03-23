@@ -1,6 +1,9 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:core_resources/src/utils/log.dart';
 import 'package:core_resources/src/utils/ui.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class SplashWidget<T> extends StatefulWidget {
@@ -13,7 +16,7 @@ class SplashWidget<T> extends StatefulWidget {
 
   final Future<T> future;
   final Widget child;
-  final FutureOr<void> Function(BuildContext context, T value) onComplete;
+  final Future<void> Function(BuildContext context, T value) onComplete;
 
   @override
   _SplashWidgetState createState() => _SplashWidgetState<T>();
@@ -25,14 +28,15 @@ class _SplashWidgetState<T> extends State<SplashWidget<T>> {
   @override
   void initState() {
     super.initState();
-    hideTopSystemOverlay();
-    widget.future.catchError((e) {
-      print('Error on Splash loading:\n$e');
-      return null;
-    }).then((result) async {
-      await showSystemOverlays();
+    if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) hideTopSystemOverlay();
+    Future(() async {
+      final result = await widget.future.catchError((e) {
+        clog('Error on Splash loading:\n$e');
+        return null;
+      });
+      if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) await showSystemOverlays();
       await widget.onComplete(context, result);
-    });
+    }).then((_) {});
   }
 
   @override
