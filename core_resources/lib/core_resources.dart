@@ -26,6 +26,7 @@ export 'src/utils/fade_page_route.dart';
 export 'src/utils/form_validation.dart';
 export 'src/utils/json.dart';
 export 'src/utils/lazy.dart';
+export 'src/utils/log.dart';
 export 'src/utils/math.dart';
 export 'src/utils/nav.dart';
 export 'src/utils/ui.dart';
