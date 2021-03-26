@@ -6,7 +6,7 @@ environment:
 dependencies:
   async: ^2.5.0
   build_context: ^3.0.0
-  dartx: ^0.7.0
+  dartx: ^0.7.1
   enhanced_future_builder:
     git: https://github.com/icarohs7/enhanced_future_builder
   flutter:
@@ -14,7 +14,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   rxdart: ^0.26.0
-  transparent_image: ^2.0.0-nullsafety.0
+  transparent_image: ^2.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
