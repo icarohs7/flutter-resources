@@ -2,7 +2,8 @@ import 'package:dartx/dartx.dart';
 
 /// Convert String of format HH:mm:ss
 /// or HH:mm to [Duration] object
-Duration parseDuration(String duration) {
+Duration? parseDuration(String? duration) {
+  if (duration == null) return null;
   if (!duration.contains(':')) throw FormatException('Invalid duration string');
   final parts = duration.split(':');
   final hours = parts.elementAtOrDefault(0, '0').toIntOrNull() ?? 0;
