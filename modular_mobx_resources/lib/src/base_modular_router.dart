@@ -10,9 +10,8 @@ mixin BaseModularRouter {
     return Modular.to.pushReplacementNamed(route, arguments: arguments);
   }
 
-  Future<T?> goClearingBackstack<T>(String route, {Object? arguments}) {
-    return Modular.to
-        .pushNamedAndRemoveUntil(route, (r) => false, arguments: arguments);
+  void goClearingBackstack(String route, {Object? arguments}) {
+    Modular.to.navigate(route, arguments: arguments,replaceAll: true);
   }
 
   Future<T?> goAndRemoveUntil<T>(
@@ -20,8 +19,7 @@ mixin BaseModularRouter {
     bool Function(Route<dynamic> route) predicate, {
     Object? arguments,
   }) {
-    return Modular.to
-        .pushNamedAndRemoveUntil(route, predicate, arguments: arguments);
+    return Modular.to.pushNamedAndRemoveUntil(route, predicate, arguments: arguments);
   }
 
   List<String> get bottomNavRoutes => [];
