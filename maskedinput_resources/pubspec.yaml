@@ -5,7 +5,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  mask_text_input_formatter: ^2.0.0-nullsafety.2
+  mask_text_input_formatter: ^2.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
