@@ -9,6 +9,13 @@ dependencies:
     path: ../core_resources
   flutter_html: ^2.1.0
   html_unescape: ^2.0.0
+  http: ^0.13.3
+  image: ^3.0.2
+  mime_type: ^1.0.0
+  modular_mobx_resources:
+    path: ../modular_mobx_resources
+  rest_resources:
+    path: ../rest_resources
   url_launcher: ^6.0.2
 dev_dependencies:
   flutter_test:
