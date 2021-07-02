@@ -1,0 +1,16 @@
+name: core_resources_2
+version: 0.0.1
+description: Extended version of core_resources
+publish_to: none
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+dependencies:
+  core_resources:
+    path: ../core_resources
+  flutter_html: ^2.1.0
+  html_unescape: ^2.0.0
+  url_launcher: ^6.0.2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:

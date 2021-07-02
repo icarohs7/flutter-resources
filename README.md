@@ -39,6 +39,8 @@ dependencies:
 
 ```
 •
+├── core_resources_2
+│   └── core_resources
 ├── rest_resources
 ├── modular_mobx_resources
 ├── maskedinput_resources
