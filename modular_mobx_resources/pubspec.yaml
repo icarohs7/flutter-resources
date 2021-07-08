@@ -6,7 +6,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_mobx: ^2.0.0
-  flutter_modular: ^3.3.0
+  flutter_modular: ^3.3.1
   mobx: ^2.0.1
 dev_dependencies:
   flutter_test:

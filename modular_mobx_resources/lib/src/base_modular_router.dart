@@ -10,8 +10,8 @@ mixin BaseModularRouter {
     return Modular.to.pushReplacementNamed(route, arguments: arguments);
   }
 
-  void goClearingBackstack(String route, {Object? arguments}) {
-    Modular.to.navigate(route, arguments: arguments,replaceAll: true);
+  Future<T?> goClearingBackstack<T>(String route, {Object? arguments}) {
+    return Modular.to.pushNamedAndRemoveUntil(route, (r) => false, arguments: arguments);
   }
 
   Future<T?> goAndRemoveUntil<T>(
