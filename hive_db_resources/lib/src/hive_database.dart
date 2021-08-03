@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:hive_db_resources/hive_db_resources.dart';
+import 'package:rxdart/rxdart.dart';
 
 /// Global box used to persist data as
 /// an alternative to using shared preferences

@@ -8,8 +8,7 @@ dependencies:
     path: ../abstract_db_resources
   flutter:
     sdk: flutter
-  hive: ^2.0.4
-  hive_flutter: ^1.0.0
+  hive_flutter: ^1.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
