@@ -7,7 +7,6 @@ export 'package:enhanced_future_builder/enhanced_future_builder.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:intl/date_symbol_data_local.dart';
 export 'package:intl/intl.dart';
-export 'package:rxdart/rxdart.dart';
 export 'package:transparent_image/transparent_image.dart';
 
 export 'src/extensions/color_extensions.dart';
@@ -30,7 +29,6 @@ export 'src/utils/math.dart';
 export 'src/utils/nav.dart';
 export 'src/utils/ui.dart';
 export 'src/utils/widgets.dart';
-export 'src/widgets/auto_complete_text_view.dart';
 export 'src/widgets/column_with_padded_children.dart';
 export 'src/widgets/conditional_render.dart';
 export 'src/widgets/dialogs.dart';

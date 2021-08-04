@@ -16,6 +16,7 @@ dependencies:
     path: ../modular_mobx_resources
   rest_resources:
     path: ../rest_resources
+  rxdart: ^0.26.0
   url_launcher: ^6.0.2
 dev_dependencies:
   flutter_test:
