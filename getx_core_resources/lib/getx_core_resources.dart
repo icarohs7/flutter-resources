@@ -11,6 +11,7 @@ export 'package:rest_resources/rest_resources.dart';
 export 'src/base_get_router.dart';
 export 'src/baseclasses/base_api_service.dart';
 export 'src/extensions/future_extensions.dart';
+export 'src/extensions/stream_extensions.dart';
 export 'src/extensions/string_extensions.dart';
 export 'src/hive_database.dart' hide HiveDatabase;
 export 'src/hive_db_resources.dart';

@@ -5,9 +5,5 @@ extension GCRFutureExtensions<T> on Future<T> {
   /// containing a null value initially
   /// and updating to the future's result
   /// when done
-  Rxn<T> get obxF {
-    final rx = Rxn<T>();
-    then(rx);
-    return rx;
-  }
+  Rxn<T> get obxF => Rxn<T>()..bindStream(asStream());
 }
