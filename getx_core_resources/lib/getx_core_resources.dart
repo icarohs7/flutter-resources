@@ -3,12 +3,14 @@ library getx_core_resources;
 export 'package:abstract_db_resources/abstract_db_resources.dart';
 export 'package:core_resources/core_resources.dart';
 export 'package:core_resources/core_resources.dart';
-export 'package:get/get.dart' hide ListExtension, FormData, MultipartFile, Response;
+export 'package:get/get.dart'
+    hide ListExtension, FormData, MultipartFile, Response, ContextExtensionss;
 export 'package:hive_flutter/hive_flutter.dart';
 export 'package:rest_resources/rest_resources.dart';
 
 export 'src/base_get_router.dart';
 export 'src/baseclasses/base_api_service.dart';
+export 'src/extensions/future_extensions.dart';
 export 'src/extensions/string_extensions.dart';
 export 'src/hive_database.dart' hide HiveDatabase;
 export 'src/hive_db_resources.dart';
