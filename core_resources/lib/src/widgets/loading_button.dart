@@ -72,7 +72,7 @@ class LoadingFlatButton extends StatelessWidget {
       absorbing: isLoading,
       child: TextButton(
         onPressed: onPressed,
-        style:ButtonStyle(
+        style: ButtonStyle(
           foregroundColor: color?.materialProperty,
           backgroundColor: textColor?.materialProperty,
           shape: shape?.materialProperty,
@@ -120,6 +120,42 @@ class LoadingFloatingActionButton extends StatelessWidget {
           isLoading: isLoading,
           child: child,
           progressIndicatorColor: progressIndicatorColor ?? Theme.of(context).colorScheme.onPrimary,
+        ),
+      ),
+    );
+  }
+}
+
+class LoadingIconButton extends StatelessWidget {
+  const LoadingIconButton({
+    required this.onPressed,
+    this.icon,
+    this.isLoading = false,
+    this.color,
+    this.progressIndicatorColor,
+    this.padding,
+  });
+
+  final Widget? icon;
+  final void Function() onPressed;
+  final bool isLoading;
+  final Color? color;
+  final Color? progressIndicatorColor;
+  final EdgeInsetsGeometry? padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return AbsorbPointer(
+      absorbing: isLoading,
+      child: IconButton(
+        onPressed: onPressed,
+        color: color,
+        padding: padding ?? const EdgeInsets.all(8.0),
+        icon: _ButtonContent(
+          isLoading: isLoading,
+          child: icon,
+          progressIndicatorColor:
+              progressIndicatorColor ?? color ?? Theme.of(context).colorScheme.primary,
         ),
       ),
     );
