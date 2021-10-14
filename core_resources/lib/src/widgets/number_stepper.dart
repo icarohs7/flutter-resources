@@ -26,13 +26,13 @@ class NumberStepper extends StatelessWidget {
         children: <Widget>[
           IconButton(
             icon: Icon(Icons.remove),
-            color: iconColor ?? Theme.of(context).accentColor,
+            color: iconColor ?? Theme.of(context).colorScheme.secondary,
             onPressed: decreaseEnabled ? () => onChange(number, NumberStepperEvent.decrease) : null,
           ),
           Text('$number'),
           IconButton(
             icon: Icon(Icons.add),
-            color: iconColor ?? Theme.of(context).accentColor,
+            color: iconColor ?? Theme.of(context).colorScheme.secondary,
             onPressed: increaseEnabled ? () => onChange(number, NumberStepperEvent.increase) : null,
           ),
         ],
