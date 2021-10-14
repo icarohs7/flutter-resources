@@ -26,14 +26,19 @@ Future<bool> askConfirmation(
 }
 
 Future<void> showSystemOverlays() async {
-  await SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
 }
 
 Future<void> hideTopSystemOverlay() async {
-  await SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+  await SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: [SystemUiOverlay.bottom],
+  );
 }
 
-Future<void> hideSystemOverlays() async => await SystemChrome.setEnabledSystemUIOverlays([]);
+Future<void> hideSystemOverlays() async {
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+}
 
 ///Create a material swatch with variations of
 ///a base color, credits to [Filip Veličković](https://medium.com/@filipvk/creating-a-custom-color-swatch-in-flutter-554bcdcb27f3)
