@@ -6,35 +6,39 @@ import 'package:flutter/services.dart';
 
 Future<bool> askConfirmation(
   BuildContext context, {
-  String titleText,
-  Widget title,
-  Widget content,
-  FutureOr<void> Function() onConfirm,
-  FutureOr<void> Function() onCancel,
-  String cancelText,
-  String confirmText,
+  String? titleText,
+  Widget? title,
+  Widget? content,
+  FutureOr<void> Function()? onConfirm,
+  FutureOr<void> Function()? onCancel,
+  String? cancelText,
+  String? confirmText,
 }) async {
-  return await showConfirmDialog<bool>(
-        context,
-        title: titleText != null ? Text(titleText) : title,
-        content: content,
-        onConfirm: onConfirm,
-        onCancel: onCancel,
-        cancelText: cancelText,
-        confirmText: confirmText,
-      ) ??
-      false;
+  return showConfirmDialog(
+    context,
+    title: titleText != null ? Text(titleText) : title,
+    content: content,
+    onConfirm: onConfirm,
+    onCancel: onCancel,
+    cancelText: cancelText,
+    confirmText: confirmText,
+  );
 }
 
 Future<void> showSystemOverlays() async {
-  await SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
 }
 
 Future<void> hideTopSystemOverlay() async {
-  await SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+  await SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: [SystemUiOverlay.bottom],
+  );
 }
 
-Future<void> hideSystemOverlays() async => await SystemChrome.setEnabledSystemUIOverlays([]);
+Future<void> hideSystemOverlays() async {
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+}
 
 ///Create a material swatch with variations of
 ///a base color, credits to [Filip Veličković](https://medium.com/@filipvk/creating-a-custom-color-swatch-in-flutter-554bcdcb27f3)

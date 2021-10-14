@@ -7,13 +7,13 @@ void main() {
     final d2 = parseDuration('02:03:04');
 
     expect(d1, equals(d2));
-    expect(d1.inHours, equals(2));
-    expect(d1.inMinutes, equals(123));
-    expect(d1.inSeconds, equals(7384));
+    expect(d1?.inHours, equals(2));
+    expect(d1?.inMinutes, equals(123));
+    expect(d1?.inSeconds, equals(7384));
 
     final d3 = parseDuration('03:04');
-    expect(d3.inHours, equals(3));
-    expect(d3.inMinutes, equals(184));
+    expect(d3?.inHours, equals(3));
+    expect(d3?.inMinutes, equals(184));
 
     expect(() => parseDuration('03H'), throwsA(isA<FormatException>()));
   });

@@ -10,7 +10,7 @@ class Tuple2<A,B> {
 
   Map<String, dynamic> toJson() => {'value1': value1, 'value2': value2};
 
-  Tuple2 copyWith({A value1, B value2}) {
+  Tuple2 copyWith({A? value1, B? value2}) {
     return Tuple2(value1 ?? this.value1, value2 ?? this.value2);
   }
 

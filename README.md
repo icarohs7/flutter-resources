@@ -24,8 +24,9 @@ https://github.com/ellerbrock/open-source-badges/)
 https://github.com/icarohs7/unox-flutter-resmodules/commits/master)
 
 ## Installing
-Clone the project and include de dependency using the path
-relative to the project's root directory.
+
+Clone the project and include de dependency using the path relative to the project's root directory.
+
 ```yaml
 dependencies:
   flutter:
@@ -34,4 +35,18 @@ dependencies:
     path: unox_flutter_resmodules/core_resources/
 ```
 
-Note: No internationalization yet, all strings are in pt-BR
+## Submodule dependency tree
+
+```
+•
+├── core_resources_2
+│   ├── core_resources
+│   ├── rest_resources
+│   └── modular_mobx_resources
+├── maskedinput_resources
+└── hive_db_resources
+    └── abstract_db_resources
+        └── core_resources
+```
+
+Note: No internationalization, all strings are in pt-BR
