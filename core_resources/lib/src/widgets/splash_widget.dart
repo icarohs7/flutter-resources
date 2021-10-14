@@ -1,6 +1,9 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:core_resources/src/utils/log.dart';
 import 'package:core_resources/src/utils/ui.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class SplashWidget<T> extends StatefulWidget {
