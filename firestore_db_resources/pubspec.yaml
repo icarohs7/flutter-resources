@@ -1,0 +1,16 @@
+name: firestore_db_resources
+version: 0.0.1
+publish_to: none
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+dependencies:
+  abstract_stringkey_db_resources:
+    path: ../abstract_stringkey_db_resources
+  cloud_firestore: ^2.5.3
+  flutter:
+    sdk: flutter
+dev_dependencies:
+  fake_cloud_firestore: ^1.1.3
+  flutter_test:
+    sdk: flutter
+flutter:
