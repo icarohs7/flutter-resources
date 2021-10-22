@@ -2,8 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 mixin BaseGetRouter {
-  Future<T?>? go<T>(String route, {Object? arguments}) {
-    return Get.toNamed<T>(route, arguments: arguments);
+  Future<T?>? go<T>(String route, {Object? arguments, preventDuplicates = true}) {
+    return Get.toNamed<T>(route, arguments: arguments, preventDuplicates: preventDuplicates);
   }
 
   Future<T?>? goReplacement<T>(String route, {Object? arguments}) {
