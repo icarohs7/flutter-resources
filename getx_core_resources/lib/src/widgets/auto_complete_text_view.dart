@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:getx_core_resources/getx_core_resources.dart';
 import 'package:rxdart/rxdart.dart';
 
 typedef OnTapCallback = void Function(String value);
@@ -165,11 +166,13 @@ class _AutoCompleteTextViewState extends State<AutoCompleteTextView> {
           if (text.trim().isNotEmpty) {
             widget.onValueChanged?.call(text);
             isSearching = true;
-            scrollController.animateTo(
-              0.0,
-              curve: Curves.easeOut,
-              duration: const Duration(milliseconds: 300),
-            );
+            scrollController
+                .animateTo(
+                  0.0,
+                  curve: Curves.easeOut,
+                  duration: const Duration(milliseconds: 300),
+                )
+                .orNull();
           } else {
             isSearching = false;
             suggestionsStreamController.sink.add([]);
