@@ -7,6 +7,7 @@ export 'package:get/get.dart'
     hide ListExtension, FormData, MultipartFile, Response, ContextExtensionss;
 export 'package:hive_flutter/hive_flutter.dart';
 export 'package:rest_resources/rest_resources.dart';
+export 'package:rxdart/rxdart.dart' hide Rx;
 
 export 'src/base_get_router.dart';
 export 'src/baseclasses/base_api_service.dart';
