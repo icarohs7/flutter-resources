@@ -5,5 +5,5 @@ extension GCRFutureExtensions<T> on Future<T> {
   /// containing a null value initially
   /// and updating to the future's result
   /// when done
-  Rxn<T> get obsF => Rxn<T>()..bindStream(asStream());
+  Rxn<T> obsF() => Rxn<T>()..bindStream(asStream());
 }
