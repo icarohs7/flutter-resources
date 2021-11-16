@@ -50,6 +50,16 @@ mixin BaseApiService {
     final success = json['sucesso'] ?? json['success'];
     final message = json['mensagem'] ?? json['message'];
     final code = json['code'] ?? runCatching(() => json['data']['status']);
+    final statusMessage = (status != null && status is String)
+        ? !status.isNumericOnly
+            ? status
+            : null
+        : null;
+    final retornoMessage = (retorno != null && retorno is String)
+        ? !retorno.isNumericOnly
+            ? retorno
+            : null
+        : null;
 
     final errorInvalid = error != null && '$error'.isNotBlank;
     final returnInvalid =
@@ -57,8 +67,10 @@ mixin BaseApiService {
     final successInvalid = success == false || success == 0 || success == '0';
     final codeInvalid =
         code != null && (code is int || code is String) && code != 200 && code != '200';
+    final statusAsCodeInvalid = status is int && status >= 400;
 
-    final hasError = errorInvalid || returnInvalid || successInvalid || codeInvalid;
+    final hasError =
+        errorInvalid || returnInvalid || successInvalid || codeInvalid || statusAsCodeInvalid;
 
     if (errors != null) {
       final message = runCatching(() {
@@ -71,7 +83,7 @@ mixin BaseApiService {
     }
 
     if (hasError) {
-      return error ?? status ?? message ?? messageWhenBlankError;
+      return error ?? statusMessage ?? message ?? retornoMessage ?? messageWhenBlankError;
     }
 
     return null;
