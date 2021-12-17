@@ -49,8 +49,7 @@ class SimpleAlert extends StatelessWidget {
   }
 }
 
-Future<bool> showConfirmDialog(
-  BuildContext context, {
+Future<bool> showConfirmDialog(BuildContext context, {
   Widget? title,
   Widget? content,
   FutureOr<void> Function()? onConfirm,
@@ -59,18 +58,18 @@ Future<bool> showConfirmDialog(
   String? confirmText,
 }) async {
   return (await showDialog<bool>(
-        context: context,
-        builder: (context) {
-          return ConfirmDialog(
-            title: title,
-            content: content,
-            onConfirm: onConfirm,
-            onCancel: onCancel,
-            cancelText: cancelText,
-            confirmText: confirmText,
-          );
-        },
-      )) ??
+    context: context,
+    builder: (context) {
+      return ConfirmDialog(
+        title: title,
+        content: content,
+        onConfirm: onConfirm,
+        onCancel: onCancel,
+        cancelText: cancelText,
+        confirmText: confirmText,
+      );
+    },
+  )) ??
       false;
 }
 

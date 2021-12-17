@@ -155,7 +155,10 @@ class LoadingIconButton extends StatelessWidget {
           isLoading: isLoading,
           child: icon,
           progressIndicatorColor:
-              progressIndicatorColor ?? color ?? Theme.of(context).colorScheme.primary,
+          progressIndicatorColor ?? color ?? Theme
+              .of(context)
+              .colorScheme
+              .primary,
         ),
       ),
     );
@@ -182,25 +185,25 @@ class _ButtonContent extends StatelessWidget {
       duration: Duration(milliseconds: 300),
       child: isLoading
           ? Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                Opacity(
-                  opacity: 0,
-                  child: child,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(6),
-                  child: Container(
-                    height: 16,
-                    width: 16,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      valueColor: AlwaysStoppedAnimation<Color>(progressIndicatorColor),
-                    ),
-                  ),
-                ),
-              ],
-            )
+        alignment: Alignment.center,
+        children: <Widget>[
+          Opacity(
+            opacity: 0,
+            child: child,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(6),
+            child: Container(
+              height: 16,
+              width: 16,
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+                valueColor: AlwaysStoppedAnimation<Color>(progressIndicatorColor),
+              ),
+            ),
+          ),
+        ],
+      )
           : child,
     );
   }

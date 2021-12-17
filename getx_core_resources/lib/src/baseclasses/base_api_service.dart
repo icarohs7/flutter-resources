@@ -24,14 +24,15 @@ mixin BaseApiService {
     return _extractErrorOrNullFromJson(json, messageWhenBlankError: messageWhenBlankError);
   }
 
-  Try<T> tryJsonOrErrorT<T>(Map<String, dynamic> json,
-      T mapper(Map<String, dynamic> json), {
-        String messageOnError = 'Erro ao realizar requisição',
-      }) {
+  Try<T> tryJsonOrErrorT<T>(
+    Map<String, dynamic> json,
+    T mapper(Map<String, dynamic> json), {
+    String messageOnError = 'Erro ao realizar requisição',
+  }) {
     return Try(
-          () => mapper(json),
+      () => mapper(json),
       messageOnError:
-      getJsonErrorIfAny(json, messageWhenBlankError: messageOnError) ?? messageOnError,
+          getJsonErrorIfAny(json, messageWhenBlankError: messageOnError) ?? messageOnError,
     );
   }
 
@@ -42,7 +43,8 @@ mixin BaseApiService {
     throw Exception(error);
   }
 
-  String? _extractErrorOrNullFromJson(Map<String, dynamic> json, {
+  String? _extractErrorOrNullFromJson(
+    Map<String, dynamic> json, {
     String? messageWhenBlankError,
   }) {
     final error = json['error'] ?? json['erro'];
@@ -54,13 +56,13 @@ mixin BaseApiService {
     final code = json['code'] ?? runCatching(() => json['data']['status']);
     final statusMessage = (status != null && status is String)
         ? !status.isNumericOnly
-        ? status
-        : null
+            ? status
+            : null
         : null;
     final retornoMessage = (retorno != null && retorno is String)
         ? !retorno.isNumericOnly
-        ? retorno
-        : null
+            ? retorno
+            : null
         : null;
 
     final errorInvalid = error != null && '$error'.isNotBlank;
@@ -91,7 +93,8 @@ mixin BaseApiService {
     return null;
   }
 
-  Future<Response<T>> get<T>(String url, {
+  Future<Response<T>> get<T>(
+    String url, {
     Map<String, dynamic>? queryParameters,
     Options? options,
   }) async {
@@ -102,7 +105,8 @@ mixin BaseApiService {
     );
   }
 
-  Future<Map<String, dynamic>> getRJsonObj(String url, {
+  Future<Map<String, dynamic>> getRJsonObj(
+    String url, {
     Map<String, dynamic>? queryParameters,
     Options? options,
   }) async {
@@ -110,7 +114,8 @@ mixin BaseApiService {
     return jsonDecodeObj(response.data ?? '');
   }
 
-  Future<List> getRJsonArray(String url, {
+  Future<List> getRJsonArray(
+    String url, {
     Map<String, dynamic>? queryParameters,
     Options? options,
   }) async {
@@ -118,7 +123,8 @@ mixin BaseApiService {
     return jsonDecodeArray(response.data ?? '');
   }
 
-  Future<List<int>?> getBytes(String url, {
+  Future<List<int>?> getBytes(
+    String url, {
     required Map<String, dynamic> queryParameters,
     Options? options,
   }) async {
@@ -130,7 +136,8 @@ mixin BaseApiService {
     return response.data;
   }
 
-  Future<http.StreamedResponse> postMultipart(String url, {
+  Future<http.StreamedResponse> postMultipart(
+    String url, {
     Map<String, String>? headers,
     Map<String, String>? fields,
     List<http.MultipartFile>? files,
@@ -155,7 +162,8 @@ mixin BaseApiService {
 
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server
-  Future<Response<T>> post<T>(String url, {
+  Future<Response<T>> post<T>(
+    String url, {
     dynamic data,
     dynamic rawData,
     Map<String, dynamic>? queryParameters,
@@ -171,7 +179,8 @@ mixin BaseApiService {
 
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server
-  Future<Map<String, dynamic>> postRJsonObj(String url, {
+  Future<Map<String, dynamic>> postRJsonObj(
+    String url, {
     dynamic data,
     dynamic rawData,
     Map<String, dynamic>? queryParameters,
@@ -190,7 +199,8 @@ mixin BaseApiService {
 
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server
-  Future<List> postRJsonArray(String url, {
+  Future<List> postRJsonArray(
+    String url, {
     dynamic data,
     dynamic rawData,
     Map<String, dynamic>? queryParameters,
@@ -208,7 +218,8 @@ mixin BaseApiService {
 
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server
-  Future<Response<T>> put<T>(String url, {
+  Future<Response<T>> put<T>(
+    String url, {
     dynamic data,
     dynamic rawData,
     Map<String, dynamic>? queryParameters,
@@ -224,7 +235,8 @@ mixin BaseApiService {
 
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server
-  Future<Map<String, dynamic>> putRJsonObj(String url, {
+  Future<Map<String, dynamic>> putRJsonObj(
+    String url, {
     dynamic data,
     dynamic rawData,
     Map<String, dynamic>? queryParameters,
@@ -240,7 +252,8 @@ mixin BaseApiService {
     return jsonDecodeObj(response.data ?? '');
   }
 
-  Future<http.MultipartFile?> resizedImageMultipart(String field, {
+  Future<http.MultipartFile?> resizedImageMultipart(
+    String field, {
     required String imagePath,
     int imageWidth = 800,
   }) async {
@@ -259,10 +272,10 @@ mixin BaseApiService {
       isJpg
           ? img.encodeJpg(resized)
           : isGif
-          ? img.encodeGif(resized)
-          : isIco
-          ? img.encodeIco(resized)
-          : img.encodePng(resized),
+              ? img.encodeGif(resized)
+              : isIco
+                  ? img.encodeIco(resized)
+                  : img.encodePng(resized),
       filename: path.basename(file.path),
       contentType: MediaType.parse(contentType),
     );

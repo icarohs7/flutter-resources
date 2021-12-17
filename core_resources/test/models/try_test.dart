@@ -45,10 +45,10 @@ void main() {
     expect(f2.exception, null);
     expect(f2.message, 'error');
 
-    final f3 = Try.exception(IntegerDivisionByZeroException());
+    final f3 = Try.exception(UnsupportedError(''));
     expect(f3.value, null);
     expect(f3.isValue, false);
-    expect(f3.exception.runtimeType, IntegerDivisionByZeroException);
+    expect(f3.exception.runtimeType, UnsupportedError);
     expect(f3.message, '');
   });
 
@@ -66,7 +66,7 @@ void main() {
     expect(f2.map((a) => 'world').exception.runtimeType, SocketException);
     expect(f2 | 'world', 'world');
     expect(f2.getOrElse(() => 'hello'), 'hello');
-    
+
     final f3 = Try.value(1532);
     expect(f3.flatMap((b) => Try.value(b * 2)), Try.value(3064));
 

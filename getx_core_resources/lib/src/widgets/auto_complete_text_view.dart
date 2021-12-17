@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:getx_core_resources/getx_core_resources.dart';
-import 'package:rxdart/rxdart.dart';
 
 typedef OnTapCallback = void Function(String value);
 

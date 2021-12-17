@@ -6,7 +6,8 @@ import 'package:core_resources/src/widgets/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-Future<bool> askConfirmation(BuildContext context, {
+Future<bool> askConfirmation(
+  BuildContext context, {
   String? titleText,
   Widget? title,
   Widget? content,

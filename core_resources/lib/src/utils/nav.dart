@@ -1,6 +1,5 @@
 import 'package:core_resources/core_resources.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Nav {
   Future<T?> goFullscreenDialog<T>(BuildContext context, {required Widget page}) {

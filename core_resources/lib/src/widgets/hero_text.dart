@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HeroText extends StatelessWidget {
-  const HeroText(
-    this.text, {
+  const HeroText(this.text, {
     required this.tag,
     this.textAlign,
     this.style,

@@ -1,11 +1,11 @@
-class Tuple2<A,B> {
+class Tuple2<A, B> {
   final A value1;
   final B value2;
 
-  const Tuple2(this.value1,this.value2);
+  const Tuple2(this.value1, this.value2);
 
   factory Tuple2.fromJson(Map<String, dynamic> json) {
-    return Tuple2(json['value1'],json['value2']);
+    return Tuple2(json['value1'], json['value2']);
   }
 
   Map<String, dynamic> toJson() => {'value1': value1, 'value2': value2};
