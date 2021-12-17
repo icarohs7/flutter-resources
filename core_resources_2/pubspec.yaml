@@ -7,7 +7,10 @@ environment:
 dependencies:
   core_resources:
     path: ../core_resources
-  flutter_html: ^2.1.0
+  flutter_html:
+    git:
+      url: https://github.com/Sub6Resources/flutter_html
+      ref: db41f465a7ecf75e173c4507e127aea1327bc4f6
   html_unescape: ^2.0.0
   http: ^0.13.3
   image: ^3.0.2

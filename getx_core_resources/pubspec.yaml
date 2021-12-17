@@ -11,7 +11,10 @@ dependencies:
     path: ../core_resources
   flutter:
     sdk: flutter
-  flutter_html: ^2.1.2
+  flutter_html:
+    git:
+      url: https://github.com/Sub6Resources/flutter_html
+      ref: db41f465a7ecf75e173c4507e127aea1327bc4f6
   get: 4.3.6
   hive_flutter: ^1.1.0
   html_unescape: ^2.0.0

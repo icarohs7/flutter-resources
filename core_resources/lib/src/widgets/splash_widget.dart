@@ -26,8 +26,9 @@ class _SplashWidgetState<T> extends State<SplashWidget<T>> {
   @override
   void initState() {
     super.initState();
-    hideTopSystemOverlay();
+    final f = hideTopSystemOverlay();
     Future(() async {
+      await f;
       T? result;
       try {
         result = await widget.future;
