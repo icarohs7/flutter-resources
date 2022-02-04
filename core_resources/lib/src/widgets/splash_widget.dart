@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:core_resources/src/utils/ui.dart';
 import 'package:flutter/material.dart';
 
 class SplashWidget<T> extends StatefulWidget {
@@ -25,16 +24,13 @@ class _SplashWidgetState<T> extends State<SplashWidget<T>> {
   @override
   void initState() {
     super.initState();
-    final f = hideTopSystemOverlay();
     Future(() async {
-      await f;
       T? result;
       try {
         result = await widget.future;
       } catch (e) {
         print('Error on Splash loading:\n$e');
       }
-      await showSystemOverlays();
       await widget.onComplete(context, result);
     }).then((_) => null);
   }
