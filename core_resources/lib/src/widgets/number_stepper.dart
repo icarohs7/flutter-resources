@@ -1,8 +1,8 @@
+import 'package:core_resources/core_resources.dart';
 import 'package:flutter/material.dart';
 
 class NumberStepper extends StatelessWidget {
-  const NumberStepper(
-    this.number, {
+  const NumberStepper(this.number, {
     required this.onChange,
     this.iconColor,
     this.increaseEnabled = true,
@@ -26,13 +26,13 @@ class NumberStepper extends StatelessWidget {
         children: <Widget>[
           IconButton(
             icon: Icon(Icons.remove),
-            color: iconColor ?? Theme.of(context).colorScheme.secondary,
+            color: iconColor ?? context.theme.colorScheme.primary,
             onPressed: decreaseEnabled ? () => onChange(number, NumberStepperEvent.decrease) : null,
           ),
           Text('$number'),
           IconButton(
             icon: Icon(Icons.add),
-            color: iconColor ?? Theme.of(context).colorScheme.secondary,
+            color: iconColor ?? context.theme.colorScheme.primary,
             onPressed: increaseEnabled ? () => onChange(number, NumberStepperEvent.increase) : null,
           ),
         ],
