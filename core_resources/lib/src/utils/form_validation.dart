@@ -69,3 +69,10 @@ FormFieldValidator<String> userValidator({String errorMessage = 'Nome de usuári
     return regex.hasMatch(input ?? '') ? null : errorMessage;
   };
 }
+
+/// Validator only allowing values that can convert to double
+FormFieldValidator<String> validDoubleValidator({String errorMessage = 'Número inválido'}) {
+  return (input) {
+    return (input ?? '').toDoubleOrNull() != null ? null : errorMessage;
+  };
+}
