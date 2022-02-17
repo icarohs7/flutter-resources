@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 
 abstract class SimpleSearchDelegate<T> extends SearchDelegate<T?> {
+  SimpleSearchDelegate({this.enableSearchButton = false});
+
+  final bool enableSearchButton;
+
   @override
   List<Widget> buildActions(BuildContext context) {
     return <Widget>[
       IconButton(
-        icon: Icon(Icons.clear),
+        icon: Icon(Icons.backspace),
         onPressed: () => query = '',
       ),
-      IconButton(
-        icon: Icon(Icons.search),
-        onPressed: () => onSearchButtonTapped(context),
-      ),
+      if (enableSearchButton)
+        IconButton(
+          icon: Icon(Icons.search),
+          onPressed: () => onSearchButtonTapped(context),
+        ),
     ];
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    Future.delayed(Duration.zero);
+    return Container();
   }
 
   @override
