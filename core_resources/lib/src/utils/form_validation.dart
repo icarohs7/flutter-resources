@@ -70,6 +70,13 @@ FormFieldValidator<String> userValidator({String errorMessage = 'Nome de usuári
   };
 }
 
+/// Validator only allowing values that can convert to integer
+FormFieldValidator<String> validIntValidator({String errorMessage = 'Número inválido'}) {
+  return (input) {
+    return (input ?? '').toIntOrNull() != null ? null : errorMessage;
+  };
+}
+
 /// Validator only allowing values that can convert to double
 FormFieldValidator<String> validDoubleValidator({String errorMessage = 'Número inválido'}) {
   return (input) {
