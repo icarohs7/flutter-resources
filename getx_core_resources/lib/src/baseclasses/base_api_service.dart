@@ -66,8 +66,9 @@ mixin BaseApiService {
         : null;
 
     final errorInvalid = error != null && '$error'.isNotBlank;
-    final returnInvalid =
-        (retorno == 0 || retorno == '0') && status != null && '$status'.isNotBlank;
+    final returnInvalid = (retorno == 0 || retorno == '0' || retorno == false) &&
+        status != null &&
+        '$status'.isNotBlank;
     final successInvalid = success == false || success == 0 || success == '0';
     final codeInvalid =
         code != null && (code is int || code is String) && code != 200 && code != '200';
