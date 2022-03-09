@@ -6,6 +6,10 @@ extension TimeExtensions on DateTime {
   ///and [locale]
   String string([String? format, String? locale]) => DateFormat(format, locale).format(this);
 
+  /// Convert the given DateTime object to
+  /// string using the format yyyy-MM-dd HH:mm:ss
+  String toAmericanStdString() => string('yyyy-MM-dd HH:mm:ss');
+
   ///Modify the value of the given DateTime object
   DateTime update({
     int? year,
