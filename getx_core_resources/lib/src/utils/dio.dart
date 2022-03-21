@@ -1,4 +1,4 @@
-import 'package:rest_resources/rest_resources.dart';
+import 'package:dio/dio.dart';
 
 ///Create default dio instance
 ///for flutter
