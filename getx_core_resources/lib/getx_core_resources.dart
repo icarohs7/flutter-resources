@@ -2,7 +2,6 @@ library getx_core_resources;
 
 export 'package:abstract_db_resources/abstract_db_resources.dart';
 export 'package:core_resources/core_resources.dart';
-export 'package:core_resources/core_resources.dart';
 export 'package:dio/dio.dart';
 export 'package:get/get.dart'
     hide ListExtension, FormData, MultipartFile, Response, ContextExtensionss;
