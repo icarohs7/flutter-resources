@@ -1,3 +1,4 @@
+import 'package:core_resources/core_resources.dart';
 import 'package:core_resources/src/extensions/object_extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,7 @@ class LoadingRaisedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.theme;
     return AbsorbPointer(
       absorbing: isLoading,
       child: ElevatedButton(
@@ -40,8 +42,9 @@ class LoadingRaisedButton extends StatelessWidget {
         child: _ButtonContent(
           isLoading: isLoading,
           child: child,
-          progressIndicatorColor:
-              progressIndicatorColor ?? textColor ?? Theme.of(context).colorScheme.onPrimary,
+          progressIndicatorColor: progressIndicatorColor ??
+              textColor ??
+              (theme.useMaterial3 ? theme.primaryColor : theme.colorScheme.onPrimary),
         ),
       ),
     );
@@ -190,25 +193,25 @@ class _ButtonContent extends StatelessWidget {
       duration: Duration(milliseconds: 300),
       child: isLoading
           ? Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          Opacity(
-            opacity: 0,
-            child: child,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: Container(
-              height: 16,
-              width: 16,
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-                valueColor: AlwaysStoppedAnimation<Color>(progressIndicatorColor),
-              ),
-            ),
-          ),
-        ],
-      )
+              alignment: Alignment.center,
+              children: <Widget>[
+                Opacity(
+                  opacity: 0,
+                  child: child,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(6),
+                  child: Container(
+                    height: 16,
+                    width: 16,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(progressIndicatorColor),
+                    ),
+                  ),
+                ),
+              ],
+            )
           : child,
     );
   }
