@@ -1,5 +1,4 @@
 import 'package:core_resources/core_resources.dart';
-import 'package:core_resources/src/extensions/object_extensions.dart';
 import 'package:flutter/material.dart';
 
 class LoadingRaisedButton extends StatelessWidget {
