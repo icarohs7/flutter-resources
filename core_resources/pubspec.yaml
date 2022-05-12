@@ -4,9 +4,9 @@ publish_to: none
 environment:
   sdk: '>=2.17.0 <3.0.0'
 dependencies:
-  async: ^2.6.1
+  async: ^2.8.2
   build_context: ^3.0.0
-  dartx: ^1.0.0
+  dartx: ^1.1.0
   enhanced_future_builder:
     git: https://github.com/icarohs7/enhanced_future_builder
   flutter:

@@ -6,7 +6,7 @@ environment:
 dependencies:
   abstract_stringkey_db_resources:
     path: ../abstract_stringkey_db_resources
-  cloud_firestore: ^3.1.10
+  cloud_firestore: ^3.1.14
   flutter:
     sdk: flutter
 dev_dependencies:

@@ -20,7 +20,7 @@ class HtmlRender extends StatelessWidget {
         data: HtmlUnescape().convert(data),
         style: {...?style},
         onLinkTap: (url, context, attributes, element) {
-          if (url != null) launch(url);
+          if (url != null) launchUrl(Uri.parse(url));
         },
       ),
     );
