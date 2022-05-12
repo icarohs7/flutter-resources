@@ -2,7 +2,7 @@ name: hive_db_resources
 version: 0.0.1
 publish_to: none
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.17.0 <3.0.0'
 dependencies:
   abstract_db_resources:
     path: ../abstract_db_resources
