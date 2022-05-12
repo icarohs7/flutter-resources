@@ -16,7 +16,7 @@ dependencies:
     git:
       ref: db41f465a7ecf75e173c4507e127aea1327bc4f6
       url: https://github.com/Sub6Resources/flutter_html
-  get: ^4.6.1
+  get: ^4.6.3
   hive_flutter: ^1.1.0
   html_unescape: ^2.0.0
   http: ^0.13.4
