@@ -9,4 +9,6 @@ extension CRContextExtensions on BuildContext {
   }
 
   bool get isSystemDarkTheme => platformBrightness == Brightness.dark;
+
+  bool get isDarkTheme => theme.brightness == Brightness.dark;
 }
