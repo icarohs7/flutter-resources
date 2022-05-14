@@ -23,5 +23,4 @@ export 'src/utils/dio.dart';
 export 'src/utils/simple_search_delegate.dart';
 export 'src/widgets/auto_complete_text_view.dart';
 export 'src/widgets/editable_label.dart';
-export 'src/widgets/html_render.dart';
 export 'src/widgets/password_form_field.dart';
