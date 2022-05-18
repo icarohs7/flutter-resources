@@ -6,6 +6,12 @@ extension GCRStreamExtensions<T> on Stream<T> {
   /// containing a null value initially
   /// and updating according to the stream events
   Rxn<T> obsF({T? initialValue}) => Rxn<T>(initialValue)..bindStream(this);
+
+  /// Create an observable from a stream,
+  /// containing [initialValue] initially
+  /// and updating according to the stream events
+  /// non-nullable version of [obsF]
+  Rx<T> obsFNN({required T initialValue}) => Rx<T>(initialValue)..bindStream(this);
 }
 
 extension GCRStreamOfMapExtensions<K, V> on Stream<Map<K, V>> {
