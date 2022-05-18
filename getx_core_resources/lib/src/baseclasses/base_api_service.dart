@@ -19,9 +19,10 @@ mixin BaseApiService {
   Dio get dio => Get.find();
 
   String? getJsonErrorIfAny(
-    Map<String, dynamic> json, {
+    Map<String, dynamic>? json, {
     String messageWhenBlankError = 'Erro ao realizar requisição',
   }) {
+    if (json == null) return messageWhenBlankError;
     return _extractErrorOrNullFromJson(json, messageWhenBlankError: messageWhenBlankError);
   }
 
