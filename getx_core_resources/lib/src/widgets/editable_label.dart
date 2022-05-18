@@ -24,7 +24,7 @@ class EditableLabel extends StatefulWidget {
   final TextEditingController? controller;
   final String? labelText;
   final List<TextInputFormatter>? inputFormatters;
-  final String Function(String? input)? validator;
+  final FormFieldValidator<String>? validator;
   final TextInputType? keyboardType;
   final String? initialValue;
   final bool? editable;
