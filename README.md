@@ -2,8 +2,6 @@
 
 [![Actions Status](https://github.com/icarohs7/unox-flutter-resmodules/workflows/flutter/badge.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/actions)
-[![HitCount](http://hits.dwyl.io/icarohs7/unox-flutter-resmodules.svg)](
-http://hits.dwyl.io/icarohs7/unox-flutter-resmodules)
 [![GitHub license](https://img.shields.io/github/license/icarohs7/unox-flutter-resmodules.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/blob/master/LICENSE)
 [![codecov](https://codecov.io/gh/icarohs7/unox-flutter-resmodules/branch/master/graph/badge.svg)](
