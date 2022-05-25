@@ -23,28 +23,16 @@ https://github.com/icarohs7/unox-flutter-resmodules/commits/master)
 
 ## Installing
 
-Clone the project and include de dependency using the path relative to the project's root directory.
+Select the module and import it through GitHub.
 
 ```yaml
 dependencies:
   flutter:
     sdk: flutter
   core_resources:
-    path: unox_flutter_resmodules/core_resources/
-```
-
-## Submodule dependency tree
-
-```
-•
-├── core_resources_2
-│   ├── core_resources
-│   ├── rest_resources
-│   └── modular_mobx_resources
-├── maskedinput_resources
-└── hive_db_resources
-    └── abstract_db_resources
-        └── core_resources
+    git:
+      url: https://github.com/icarohs7/unox-flutter-resmodules
+      path: core_resources
 ```
 
 Note: No internationalization, all strings are in pt-BR
