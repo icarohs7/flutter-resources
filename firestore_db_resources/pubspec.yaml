@@ -5,7 +5,9 @@ environment:
   sdk: '>=2.17.0 <3.0.0'
 dependencies:
   abstract_stringkey_db_resources:
-    path: ../abstract_stringkey_db_resources
+    git:
+      url: https://github.com/icarohs7/unox-flutter-resmodules
+      path: abstract_stringkey_db_resources
   cloud_firestore: ^3.1.14
   flutter:
     sdk: flutter

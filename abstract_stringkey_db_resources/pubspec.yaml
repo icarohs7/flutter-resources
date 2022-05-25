@@ -5,7 +5,9 @@ environment:
   sdk: '>=2.17.0 <3.0.0'
 dependencies:
   core_resources:
-    path: ../core_resources
+    git:
+      url: https://github.com/icarohs7/unox-flutter-resmodules
+      path: core_resources
   flutter:
     sdk: flutter
 dev_dependencies:
