@@ -8,7 +8,7 @@ dependencies:
     git:
       url: https://github.com/icarohs7/unox-flutter-resmodules
       path: abstract_stringkey_db_resources
-  cloud_firestore: ^3.1.14
+  cloud_firestore: ^3.1.17
   flutter:
     sdk: flutter
 dev_dependencies:
