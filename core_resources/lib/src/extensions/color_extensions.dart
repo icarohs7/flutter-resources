@@ -9,4 +9,9 @@ extension ColorExtensions on Color {
     buffer.write(hexString.replaceFirst('#', ''));
     return Color(int.parse(buffer.toString(), radix: 16));
   }
+
+  /// Calculate brightness of the color,
+  /// returning either [Brightness.dark]
+  /// or [Brightness.light]
+  Brightness get brightness => ThemeData.estimateBrightnessForColor(this);
 }
