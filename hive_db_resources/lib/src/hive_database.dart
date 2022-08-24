@@ -115,6 +115,10 @@ class HiveDatabase extends AbstractJsonDatabase {
 
   @override
   Stream<Map<String, dynamic>?> streamSingle(int key) async* {
-    yield* (await _getBox()).watch(key: key).asyncMap<Map<String, dynamic>?>((e) => getSingle(key));
+    yield* (await _getBox())
+        .watch(key: key)
+        .throttleTime(Duration(milliseconds: 250), trailing: true)
+        .asyncMap<Map<String, dynamic>?>((e) => getSingle(key))
+        .startWith(await getSingle(key));
   }
 }
