@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:firestore_db_resources/firestore_db_resources.dart';
 @TestOn('vm')
