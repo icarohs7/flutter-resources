@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:abstract_db_resources/src/abstract_json_database.dart';
 import 'package:core_resources/core_resources.dart';
+import 'package:getx_core_resources/src/baseclasses/abstract_json_database.dart';
 
 ///Abstraction of database storing records
 ///as json objects but exposing them as

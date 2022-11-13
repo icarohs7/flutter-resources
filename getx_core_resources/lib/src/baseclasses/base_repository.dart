@@ -1,4 +1,4 @@
-import 'package:abstract_db_resources/abstract_db_resources.dart';
+import 'package:getx_core_resources/src/baseclasses/abstract_t_database.dart';
 
 class BaseRepository<T> {
   BaseRepository({required this.db});

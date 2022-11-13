@@ -5,10 +5,10 @@ version: 0.0.1
 environment:
   sdk: '>=2.17.0 <3.0.0'
 dependencies:
-  abstract_db_resources:
+  core_resources:
     git:
       url: https://github.com/icarohs7/unox-flutter-resmodules
-      path: abstract_db_resources
+      path: core_resources
   dio: ^4.0.6
   flutter:
     sdk: flutter

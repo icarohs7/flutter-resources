@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:getx_core_resources/getx_core_resources.dart';
+import 'package:getx_core_resources/src/baseclasses/abstract_json_database.dart';
+import 'package:getx_core_resources/src/baseclasses/abstract_t_database.dart';
 
 /// Global box used to persist data as
 /// an alternative to using shared preferences
