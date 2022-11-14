@@ -6,6 +6,7 @@ export 'package:dartx/dartx.dart' hide Function0, Function1, Function2, Function
 export 'package:dio/dio.dart';
 export 'package:enhanced_future_builder/enhanced_future_builder.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
+export 'package:hive_flutter/hive_flutter.dart';
 export 'package:http_parser/http_parser.dart';
 export 'package:intl/date_symbol_data_local.dart';
 export 'package:intl/intl.dart';
