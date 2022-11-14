@@ -1,22 +1,20 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:core_resources/core_resources.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:get/get.dart' hide Response;
 import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
 import 'package:image/image.dart' as img;
 import 'package:mime_type/mime_type.dart';
 import 'package:path/path.dart' as path;
+
+import '../../core_resources.dart';
 
 class _EmptyBaseApiService with BaseApiService {}
 
 mixin BaseApiService {
   static BaseApiService create() => _EmptyBaseApiService();
 
-  Dio get dio => Get.find();
+  Dio get dio => Core.get();
 
   String? getJsonErrorIfAny(
     Map<String, dynamic>? json, {
@@ -299,4 +297,12 @@ img.Image? _resizeImage(Tuple2<File, int> args) {
   final image = img.decodeImage(file.readAsBytesSync());
   if (image == null) return null;
   return image.width <= widthThreshold ? image : img.copyResize(image, width: widthThreshold);
+}
+
+extension on String {
+  bool get isNumericOnly => hasMatch(this, r'^\d+$');
+
+  bool hasMatch(String? value, String pattern) {
+    return value != null && RegExp(pattern).hasMatch(value);
+  }
 }
