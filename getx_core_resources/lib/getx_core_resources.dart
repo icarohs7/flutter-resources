@@ -9,8 +9,11 @@ export 'package:http_parser/http_parser.dart';
 export 'package:rxdart/rxdart.dart' hide Rx;
 
 export 'src/base_get_router.dart';
+export 'src/baseclasses/abstract_json_database.dart';
+export 'src/baseclasses/abstract_t_database.dart';
 export 'src/baseclasses/base_api_service.dart';
 export 'src/baseclasses/base_getx_module.dart';
+export 'src/baseclasses/base_repository.dart';
 export 'src/extensions/future_extensions.dart';
 export 'src/extensions/getx_extensions.dart';
 export 'src/extensions/stream_extensions.dart';
