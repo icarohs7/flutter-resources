@@ -1,4 +1,4 @@
-import 'package:getx_core_resources/getx_core_resources.dart';
+import '../../getx_core_resources.dart';
 
 extension GCRGetExtensions on GetInterface {
   /// Shortcut to [Get.put] setting the [permanent] parameter as true

@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:async/async.dart';
-import 'package:core_resources/core_resources.dart';
+
+import '../../core_resources.dart';
 
 ///Run the given operation asynchronously
 Future<T> runAsync<T>(FutureOr<T> Function() fn) => Future(() async => await fn());

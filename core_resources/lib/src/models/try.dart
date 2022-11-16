@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:core_resources/core_resources.dart';
+import '../../core_resources.dart';
 
 class Try<A> {
   factory Try(A op(), {String messageOnError = ''}) {

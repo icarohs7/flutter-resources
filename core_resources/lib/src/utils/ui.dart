@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:ui' as ui;
 
-import 'package:core_resources/src/widgets/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../widgets/dialogs.dart';
 
 Future<bool> askConfirmation(
   BuildContext context, {

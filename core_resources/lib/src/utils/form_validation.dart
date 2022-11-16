@@ -1,5 +1,6 @@
-import 'package:core_resources/core_resources.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../../core_resources.dart';
 
 /// Use multiple validators, returning null if all of them pass or the result of the
 /// first one not passing
