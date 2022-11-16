@@ -19,7 +19,7 @@ export 'src/extensions/stream_extensions.dart';
 // ignore: avoid_classes_with_only_static_members
 class HiveDbResources {
   static Future<void> init() async {
-    Core.setLocator(Get.find);
+    Core.setLocator(<T extends Object>() => Get.find<T>());
     await Hive.initFlutter();
     await Hive.openBox<String>('globalBox');
   }
