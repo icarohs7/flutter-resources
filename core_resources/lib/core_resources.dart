@@ -66,9 +66,9 @@ export 'src/widgets/transitions.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class Core {
-  static late T Function<T extends Object>({String? tag}) _locator;
+  static late T Function<T extends Object>() _locator;
 
-  static void setLocator(T Function<T extends Object>({String? tag}) locator) => _locator = locator;
+  static void setLocator(T Function<T extends Object>() locator) => _locator = locator;
 
-  static S get<S>({String? tag}) => _locator(tag: tag);
+  static S get<S>() => _locator();
 }
