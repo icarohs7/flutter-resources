@@ -70,5 +70,5 @@ class Core {
 
   static void setLocator(T Function<T extends Object>() locator) => _locator = locator;
 
-  static S get<S>() => _locator();
+  static T get<T extends Object>() => _locator();
 }

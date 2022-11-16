@@ -4,12 +4,8 @@ import 'package:core_resources/core_resources.dart';
 import 'package:get/get.dart';
 
 export 'package:core_resources/core_resources.dart' hide HiveDbResources;
-export 'package:dio/dio.dart';
 export 'package:get/get.dart'
     hide ListExtension, FormData, MultipartFile, Response, ContextExtensionss;
-export 'package:hive_flutter/hive_flutter.dart';
-export 'package:http_parser/http_parser.dart';
-export 'package:rxdart/rxdart.dart' hide Rx;
 
 export 'src/base_get_router.dart';
 export 'src/extensions/future_extensions.dart';
