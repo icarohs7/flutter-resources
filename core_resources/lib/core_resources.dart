@@ -1,7 +1,7 @@
 library core_resources;
 
 export 'package:async/async.dart';
-export 'package:build_context/build_context.dart' hide NavigatorExt;
+export 'package:build_context/build_context.dart';
 export 'package:dartx/dartx.dart' hide Function0, Function1, Function2, Function3, Function4;
 export 'package:dio/dio.dart';
 export 'package:enhanced_future_builder/enhanced_future_builder.dart';
