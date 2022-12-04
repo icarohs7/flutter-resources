@@ -3,7 +3,7 @@ library getx_core_resources;
 import 'package:core_resources/core_resources.dart';
 import 'package:get/get.dart';
 
-export 'package:core_resources/core_resources.dart' hide HiveDbResources;
+export 'package:core_resources/core_resources.dart' hide HiveDbResources, RxList;
 export 'package:get/get.dart'
     hide ListExtension, FormData, MultipartFile, Response, ContextExtensionss;
 
