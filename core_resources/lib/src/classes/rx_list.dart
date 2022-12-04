@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:collection';
 import 'dart:math';
 
@@ -22,7 +21,7 @@ class RxList<T> implements List<T> {
     _controller.add(value);
   }
 
-  Stream<List<T>> get stream => _controller;
+  ValueStream<List<T>> get stream => _controller;
 
   @override
   Iterator<T> get iterator => _list.iterator;
