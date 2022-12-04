@@ -11,6 +11,13 @@ void main() {
     expect(list.stream, emits([1, 2, 3]));
   });
 
+  test('should set a new value for the list', () {
+    final list = RxList<int>([1, 2, 3]);
+    list.value = [4, 5, 6];
+    expect(list.value, [4, 5, 6]);
+    expect(list.stream, emits([4, 5, 6]));
+  });
+
   test('should combine two RxLists', () {
     final list1 = RxList<int>([1, 2, 3]);
     final list2 = RxList<int>([4, 5, 6]);

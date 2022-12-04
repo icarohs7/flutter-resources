@@ -16,6 +16,12 @@ class RxList<T> implements List<T> {
 
   UnmodifiableListView<T> get value => UnmodifiableListView(_list);
 
+  set value(List<T> value) {
+    _list.clear();
+    _list.addAll(value);
+    _controller.add(value);
+  }
+
   Stream<List<T>> get stream => _controller;
 
   @override
