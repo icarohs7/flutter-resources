@@ -16,12 +16,14 @@ export 'src/extensions/stream_extensions.dart';
 class HiveDbResources {
   static Future<void> init() async {
     Core.setLocator(<T extends Object>() => Get.find<T>());
-    Core.setGoNamedFn((context, routeName, {params}) => Get.toNamed(routeName, arguments: params));
-    Core.setReplaceNamedFn((context, routeName, {params}) {
-      Get.offNamed(routeName, arguments: params);
+    Core.setGoNamedFn((context, routeName, {params, extra}) {
+      Get.toNamed(routeName, parameters: params, arguments: extra);
     });
-    Core.setReplaceAllNamedFn((context, routeName, {params}) {
-      Get.offAllNamed(routeName, arguments: params);
+    Core.setReplaceNamedFn((context, routeName, {params, extra}) {
+      Get.offNamed(routeName, parameters: params, arguments: extra);
+    });
+    Core.setReplaceAllNamedFn((context, routeName, {params, extra}) {
+      Get.offAllNamed(routeName, parameters: params, arguments: extra);
     });
     Core.setCurrentPathFn((context) => Get.currentRoute);
     await core.HiveDbResources.init();
