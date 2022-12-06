@@ -19,6 +19,7 @@ export 'src/baseclasses/abstract_json_database.dart';
 export 'src/baseclasses/abstract_t_database.dart';
 export 'src/baseclasses/base_api_service.dart';
 export 'src/baseclasses/base_repository.dart';
+export 'src/baseclasses/base_router.dart';
 export 'src/classes/rx_list.dart';
 export 'src/extensions/color_extensions.dart';
 export 'src/extensions/context_extensions.dart';
@@ -65,6 +66,13 @@ export 'src/widgets/row_with_padded_children.dart';
 export 'src/widgets/splash_widget.dart';
 export 'src/widgets/transitions.dart';
 
+typedef NavigationFunction = void Function(
+  BuildContext context,
+  String routeName, {
+  Map<String, String>? params,
+  Object? extra,
+});
+
 // ignore: avoid_classes_with_only_static_members
 class Core {
   //region locator
@@ -78,64 +86,65 @@ class Core {
   //endregion
 
   //region replaceAllNamedNavigator
-  static late void Function(
-    BuildContext context,
-    String routeName, {
-    Map<String, String>? params,
-  }) _replaceAllNamedNavigator;
+  static late NavigationFunction _replaceAllNamedNavigator;
 
   /// Define the function that will be used to replace all the routes in the navigator,
   /// used by other libraries to reuse navigation functions
-  static void setReplaceAllNamedFn(
-    void Function(BuildContext context, String routeName, {Map<String, String>? params}) fn,
-  ) {
-    _replaceAllNamedNavigator = fn;
-  }
+  static void setReplaceAllNamedFn(NavigationFunction fn) => _replaceAllNamedNavigator = fn;
 
-  void replaceAllNamed(BuildContext context, String routeName, {Map<String, String>? params}) {
-    _replaceAllNamedNavigator(context, routeName);
+  static void replaceAllNamed(
+    BuildContext context,
+    String routeName, {
+    Map<String, String>? params,
+    Object? extra,
+  }) {
+    _replaceAllNamedNavigator(context, routeName, params: params, extra: extra);
   }
 
   //endregion
 
   //region replaceNamedNavigator
-  static late void Function(
-    BuildContext context,
-    String routeName, {
-    Map<String, String>? params,
-  }) _replaceNamedNavigator;
+  static late NavigationFunction _replaceNamedNavigator;
 
   /// Define the function that will be used to replace the current route in the navigator,
   /// used by other libraries to reuse navigation functions
-  static void setReplaceNamedFn(
-    void Function(BuildContext context, String routeName, {Map<String, String>? params}) fn,
-  ) {
-    _replaceNamedNavigator = fn;
-  }
+  static void setReplaceNamedFn(NavigationFunction fn) => _replaceNamedNavigator = fn;
 
-  void replaceNamed(BuildContext context, String routeName, {Map<String, String>? params}) {
-    _replaceNamedNavigator(context, routeName);
+  static void replaceNamed(
+    BuildContext context,
+    String routeName, {
+    Map<String, String>? params,
+    Object? extra,
+  }) {
+    _replaceNamedNavigator(context, routeName, params: params, extra: extra);
   }
 
   //endregion
 
   //region goNamedNavigator
-  static late void Function(
-    BuildContext context,
-    String routeName, {
-    Map<String, String>? params,
-  }) _goNamedNavigator;
+  static late NavigationFunction _goNamedNavigator;
 
   /// Define the function that will be used to push the given route into the navigator,
   /// used by other libraries to reuse navigation functions
-  static void setGoNamedFn(
-    void Function(BuildContext context, String routeName, {Map<String, String>? params}) fn,
-  ) {
-    _goNamedNavigator = fn;
+  static void setGoNamedFn(NavigationFunction fn) => _goNamedNavigator = fn;
+
+  static void goNamed(
+    BuildContext context,
+    String routeName, {
+    Map<String, String>? params,
+    Object? extra,
+  }) {
+    _goNamedNavigator(context, routeName, params: params, extra: extra);
   }
 
-  void goNamed(BuildContext context, String routeName, {Map<String, String>? params}) {
-    _goNamedNavigator(context, routeName);
-  }
+  //endregion
+
+  //region currentPath
+  static late String Function(BuildContext context) _currentPath;
+
+  /// Define the function that will be used to get the current path
+  static void setCurrentPathFn(String Function(BuildContext context) fn) => _currentPath = fn;
+
+  static String currentPath(BuildContext context) => _currentPath(context);
 //endregion
 }

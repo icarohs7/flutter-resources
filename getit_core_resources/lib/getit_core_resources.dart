@@ -1,5 +1,7 @@
 library getit_core_resources;
 
+import 'package:core_resources/core_resources.dart' as core;
+
 import 'getit_core_resources.dart';
 
 export 'package:core_resources/core_resources.dart' hide HiveDbResources;
@@ -11,7 +13,6 @@ final getIt = GetIt.instance;
 class HiveDbResources {
   static Future<void> init() async {
     Core.setLocator(<T extends Object>() => GetIt.I<T>());
-    await Hive.initFlutter();
-    await Hive.openBox<String>('globalBox');
+    await core.HiveDbResources.init();
   }
 }
