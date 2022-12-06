@@ -146,5 +146,26 @@ class Core {
   static void setCurrentPathFn(String Function(BuildContext context) fn) => _currentPath = fn;
 
   static String currentPath(BuildContext context) => _currentPath(context);
+
+  //endregion
+
+  //region currentParams
+  static late Map<String, String> Function(BuildContext context) _currentParams;
+
+  /// Define the function that will be used to get the current route params
+  static void setCurrentParamsFn(Map<String, String> Function(BuildContext context) fn) =>
+      _currentParams = fn;
+
+  static Map<String, String> currentParams(BuildContext context) => _currentParams(context);
+
+  //endregion
+
+  //region currentExtras
+  static late Object? Function(BuildContext context) _currentExtras;
+
+  /// Define the function that will be used to get the current route extras
+  static void setCurrentExtrasFn(Object? Function(BuildContext context) fn) => _currentExtras = fn;
+
+  static Object? currentExtras(BuildContext context) => _currentExtras(context);
 //endregion
 }
