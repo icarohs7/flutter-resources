@@ -15,7 +15,9 @@ export 'src/extensions/stream_extensions.dart';
 // ignore: avoid_classes_with_only_static_members
 class HiveDbResources {
   static Future<void> init() async {
-    Core.setLocator(<T extends Object>() => Get.find<T>());
+    Core.setLocator(<T extends Object>() {
+      return Get.find<T>();
+    });
     Core.setGoNamedFn((context, routeName, {params, extra}) {
       Get.toNamed(routeName, parameters: params, arguments: extra);
     });
@@ -25,7 +27,15 @@ class HiveDbResources {
     Core.setReplaceAllNamedFn((context, routeName, {params, extra}) {
       Get.offAllNamed(routeName, parameters: params, arguments: extra);
     });
-    Core.setCurrentPathFn((context) => Get.currentRoute);
+    Core.setCurrentPathFn((context) {
+      return Get.currentRoute;
+    });
+    Core.setCurrentParamsFn((context) {
+      return Get.parameters.mapValues((entry) => entry.value ?? '');
+    });
+    Core.setCurrentExtrasFn((context) {
+      return Get.arguments;
+    });
     await core.HiveDbResources.init();
   }
 }
