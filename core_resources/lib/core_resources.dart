@@ -1,5 +1,7 @@
 library core_resources;
 
+import 'package:flutter/material.dart';
+
 export 'package:async/async.dart';
 export 'package:build_context/build_context.dart';
 export 'package:dartx/dartx.dart' hide Function0, Function1, Function2, Function3, Function4;
@@ -65,9 +67,75 @@ export 'src/widgets/transitions.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class Core {
+  //region locator
   static late T Function<T extends Object>() _locator;
 
+  /// Define the service locator used on some functions
   static void setLocator(T Function<T extends Object>() locator) => _locator = locator;
 
   static T get<T extends Object>() => _locator();
+
+  //endregion
+
+  //region replaceAllNamedNavigator
+  static late void Function(
+    BuildContext context,
+    String routeName, {
+    Map<String, String>? params,
+  }) _replaceAllNamedNavigator;
+
+  /// Define the function that will be used to replace all the routes in the navigator,
+  /// used by other libraries to reuse navigation functions
+  static void setReplaceAllNamedFn(
+    void Function(BuildContext context, String routeName, {Map<String, String>? params}) fn,
+  ) {
+    _replaceAllNamedNavigator = fn;
+  }
+
+  void replaceAllNamed(BuildContext context, String routeName, {Map<String, String>? params}) {
+    _replaceAllNamedNavigator(context, routeName);
+  }
+
+  //endregion
+
+  //region replaceNamedNavigator
+  static late void Function(
+    BuildContext context,
+    String routeName, {
+    Map<String, String>? params,
+  }) _replaceNamedNavigator;
+
+  /// Define the function that will be used to replace the current route in the navigator,
+  /// used by other libraries to reuse navigation functions
+  static void setReplaceNamedFn(
+    void Function(BuildContext context, String routeName, {Map<String, String>? params}) fn,
+  ) {
+    _replaceNamedNavigator = fn;
+  }
+
+  void replaceNamed(BuildContext context, String routeName, {Map<String, String>? params}) {
+    _replaceNamedNavigator(context, routeName);
+  }
+
+  //endregion
+
+  //region goNamedNavigator
+  static late void Function(
+    BuildContext context,
+    String routeName, {
+    Map<String, String>? params,
+  }) _goNamedNavigator;
+
+  /// Define the function that will be used to push the given route into the navigator,
+  /// used by other libraries to reuse navigation functions
+  static void setGoNamedFn(
+    void Function(BuildContext context, String routeName, {Map<String, String>? params}) fn,
+  ) {
+    _goNamedNavigator = fn;
+  }
+
+  void goNamed(BuildContext context, String routeName, {Map<String, String>? params}) {
+    _goNamedNavigator(context, routeName);
+  }
+//endregion
 }
