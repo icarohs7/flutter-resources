@@ -30,4 +30,19 @@ mixin BaseRouter {
     final index = bottomNavRoutes.indexOf(routeName);
     return index != -1 ? index : null;
   }
+
+  void goToBottomNavRoute(BuildContext context, int index) {
+    final route = bottomNavRoutes[index];
+    go(context, route);
+  }
+
+  void replaceToBottomNavRoute(BuildContext context, int index) {
+    final route = bottomNavRoutes[index];
+    replace(context, route);
+  }
+
+  void replaceAllToBottomNavRoute(BuildContext context, int index) {
+    final route = bottomNavRoutes[index];
+    replaceAll(context, route);
+  }
 }
