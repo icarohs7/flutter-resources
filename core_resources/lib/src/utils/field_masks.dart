@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import '../maskedinput_resources.dart';
+import '../../core_resources.dart';
 
 const FieldMasks = _FieldMasks();
 

@@ -12,6 +12,7 @@ export 'package:hive_flutter/hive_flutter.dart';
 export 'package:http_parser/http_parser.dart';
 export 'package:intl/date_symbol_data_local.dart';
 export 'package:intl/intl.dart';
+export 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 export 'package:rxdart/rxdart.dart' hide Rx;
 export 'package:transparent_image/transparent_image.dart';
 
@@ -39,6 +40,7 @@ export 'src/utils/common_intents.dart';
 export 'src/utils/date_time.dart';
 export 'src/utils/dio.dart';
 export 'src/utils/fade_page_route.dart';
+export 'src/utils/field_masks.dart';
 export 'src/utils/form_validation.dart';
 export 'src/utils/json.dart';
 export 'src/utils/log.dart';

@@ -18,6 +18,7 @@ dependencies:
   html_unescape: ^2.0.0
   http: ^0.13.4
   image: ^3.2.0
+  mask_text_input_formatter: ^2.3.0
   mime_type: ^1.0.0
   rxdart: 0.27.4
   transparent_image: ^2.0.0
