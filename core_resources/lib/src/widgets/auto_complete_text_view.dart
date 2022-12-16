@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../extensions/future_extensions.dart';
@@ -30,25 +31,28 @@ class AutoCompleteTextView extends StatefulWidget with AutoCompleteTextInterface
   final int suggestionsApiFetchDelay;
   final void Function(String)? onValueChanged;
 
-  AutoCompleteTextView(
-      {required this.controller,
-      this.onTapCallback,
-      this.maxHeight = 200,
-      this.tfCursorColor,
-      this.tfCursorWidth = 2.0,
-      this.tfValidator,
-      this.tfStyle = const TextStyle(color: Colors.black),
-      this.tfTextDecoration = const InputDecoration(),
-      this.tfTextAlign = TextAlign.left,
-      this.suggestionStyle = const TextStyle(color: Colors.black),
-      this.suggestionTextAlign = TextAlign.left,
-      required this.getSuggestionsMethod,
-      this.focusGained,
-      this.suggestionsApiFetchDelay = 0,
-      this.focusLost,
-      this.onValueChanged});
+  AutoCompleteTextView({
+    super.key,
+    required this.controller,
+    this.onTapCallback,
+    this.maxHeight = 200,
+    this.tfCursorColor,
+    this.tfCursorWidth = 2.0,
+    this.tfValidator,
+    this.tfStyle = const TextStyle(color: Colors.black),
+    this.tfTextDecoration = const InputDecoration(),
+    this.tfTextAlign = TextAlign.left,
+    this.suggestionStyle = const TextStyle(color: Colors.black),
+    this.suggestionTextAlign = TextAlign.left,
+    required this.getSuggestionsMethod,
+    this.focusGained,
+    this.suggestionsApiFetchDelay = 0,
+    this.focusLost,
+    this.onValueChanged,
+  });
 
   @override
+  // ignore: library_private_types_in_public_api
   _AutoCompleteTextViewState createState() => _AutoCompleteTextViewState();
 
   //This funciton is called when a user clicks on a suggestion
@@ -111,40 +115,40 @@ class _AutoCompleteTextViewState extends State<AutoCompleteTextView> {
                 offset: Offset(0.0, size.height + 5.0),
                 child: Material(
                   elevation: 4.0,
-                  child: StreamBuilder<List<String>>(
-                      stream: suggestionsStreamController.stream,
-                      builder: (context, suggestionData) {
-                        if (suggestionData.hasData && widget.controller.text.isNotEmpty) {
-                          suggestionShowList = suggestionData.data ?? [];
-                          return ConstrainedBox(
-                            constraints: BoxConstraints(
-                              maxHeight: 200,
-                            ),
-                            child: ListView.builder(
-                                controller: scrollController,
-                                padding: EdgeInsets.zero,
-                                shrinkWrap: true,
-                                itemCount: suggestionShowList.length,
-                                itemBuilder: (context, index) {
-                                  return ListTile(
-                                    title: Text(
-                                      suggestionShowList[index],
-                                      style: widget.suggestionStyle,
-                                      textAlign: widget.suggestionTextAlign,
-                                    ),
-                                    onTap: () {
-                                      isSearching = false;
-                                      widget.controller.text = suggestionShowList[index];
-                                      suggestionsStreamController.sink.add([]);
-                                      widget.onTappedSuggestion(widget.controller.text);
-                                    },
-                                  );
-                                }),
-                          );
-                        } else {
-                          return Container();
-                        }
-                      }),
+                  child: HookBuilder(builder: (context) {
+                    final suggestionData = useStream(suggestionsStreamController.stream);
+
+                    if (suggestionData.hasData && widget.controller.text.isNotEmpty) {
+                      suggestionShowList = suggestionData.data ?? [];
+                      return ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxHeight: 200,
+                        ),
+                        child: ListView.builder(
+                            controller: scrollController,
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            itemCount: suggestionShowList.length,
+                            itemBuilder: (context, index) {
+                              return ListTile(
+                                title: Text(
+                                  suggestionShowList[index],
+                                  style: widget.suggestionStyle,
+                                  textAlign: widget.suggestionTextAlign,
+                                ),
+                                onTap: () {
+                                  isSearching = false;
+                                  widget.controller.text = suggestionShowList[index];
+                                  suggestionsStreamController.sink.add([]);
+                                  widget.onTappedSuggestion(widget.controller.text);
+                                },
+                              );
+                            }),
+                      );
+                    } else {
+                      return Container();
+                    }
+                  }),
                 ),
               ),
             ));
