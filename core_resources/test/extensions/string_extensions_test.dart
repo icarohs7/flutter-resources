@@ -47,4 +47,15 @@ void main() {
     expect(s2s, equals(''));
     expect(s2s2, equals('Smokey'));
   });
+
+  test('should convert string to uri', () {
+    const s = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    final uri = s.toUri;
+    expect(uri, isA<Uri>());
+    expect(uri.toString(), equals(s));
+    expect(uri.scheme, equals('https'));
+    expect(uri.host, equals('www.youtube.com'));
+    expect(uri.path, equals('/watch'));
+    expect(uri.queryParameters, equals({'v': 'dQw4w9WgXcQ'}));
+  });
 }
