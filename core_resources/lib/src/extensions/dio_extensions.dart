@@ -120,47 +120,6 @@ extension CRDioExtensions on Dio {
     return jsonDecodeArray(response.data ?? '');
   }
 
-  /// Returns the result of the get request to the given [url],
-  /// parsed as a list of bytes.
-  Future<List<int>?> getBytes(
-    String url, {
-    Map<String, dynamic>? queryParameters,
-    Options? options,
-  }) async {
-    final response = await get<List<int>>(
-      url,
-      queryParameters: queryParameters,
-      options: (options ?? Options()).copyWith(responseType: ResponseType.bytes),
-    );
-    return response.data;
-  }
-
-  /// Performs a post request to the given [url] using the given
-  /// [headers], [fields] and [files] as multipart/form-data.
-  Future<http.StreamedResponse> postMultipart(
-    String url, {
-    Map<String, String>? headers,
-    Map<String, String>? fields,
-    List<http.MultipartFile>? files,
-  }) async {
-    final request = http.MultipartRequest('POST', Uri.parse(url));
-
-    request.headers.addAll({
-      ...?headers,
-      'Accept': 'application/json',
-    });
-
-    request.fields.addAll({
-      ...?fields,
-    });
-
-    request.files.addAll([
-      ...?files,
-    ]);
-
-    return request.send();
-  }
-
   /// Performs a post request to the given [url]
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server

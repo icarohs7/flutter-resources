@@ -52,23 +52,6 @@ mixin BaseApiService {
     return dio.getRJsonArray(url, queryParameters: queryParameters, options: options);
   }
 
-  Future<List<int>?> getBytes(
-    String url, {
-    required Map<String, dynamic> queryParameters,
-    Options? options,
-  }) {
-    return dio.getBytes(url, queryParameters: queryParameters, options: options);
-  }
-
-  Future<http.StreamedResponse> postMultipart(
-    String url, {
-    Map<String, String>? headers,
-    Map<String, String>? fields,
-    List<http.MultipartFile>? files,
-  }) {
-    return dio.postMultipart(url, headers: headers, fields: fields, files: files);
-  }
-
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server
   Future<Response<T>> post<T>(
