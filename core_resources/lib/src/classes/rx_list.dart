@@ -187,7 +187,7 @@ class RxList<T> implements List<T> {
   List<T> sublist(int start, [int? end]) => _list.sublist(start, end);
 
   @override
-  Iterable<T> whereType<T>() => _list.whereType<T>();
+  Iterable<R> whereType<R>() => _list.whereType<R>();
 
   @override
   set last(T value) {
@@ -278,5 +278,5 @@ class RxList<T> implements List<T> {
   Iterable<T> where(bool Function(T element) test) => _list.where(test);
 
   @override
-  Iterable<R> expand<R>(Iterable<R> toElements(T element)) => _list.expand(toElements);
+  Iterable<R> expand<R>(Iterable<R> Function(T element) toElements) => _list.expand(toElements);
 }

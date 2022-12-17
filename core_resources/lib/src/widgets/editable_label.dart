@@ -34,6 +34,7 @@ class EditableLabel extends StatefulWidget {
   final TextStyle? labelStyle;
 
   @override
+  // ignore: library_private_types_in_public_api
   _EditableLabelState createState() => _EditableLabelState();
 }
 
@@ -79,7 +80,7 @@ class _EditableLabelState extends State<EditableLabel> {
                   ? Icon(Icons.save, key: ValueKey(1))
                   : Icon(Icons.edit, key: ValueKey(2)),
               transitionBuilder: (child, value) {
-                return ScaleTransition(child: child, scale: value);
+                return ScaleTransition(scale: value, child: child);
               },
             ),
             onPressed: () async {
