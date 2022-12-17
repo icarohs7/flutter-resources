@@ -1,4 +1,6 @@
-# unox_flutter_resmodules
+# Flutter Resources
+Library of functions, extensions, widgets and classes used to simplify
+the development of Flutter applications.
 
 [![Actions Status](https://github.com/icarohs7/unox-flutter-resmodules/workflows/build/badge.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/actions)
