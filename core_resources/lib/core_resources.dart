@@ -10,12 +10,14 @@ export 'package:enhanced_future_builder/enhanced_future_builder.dart';
 export 'package:flutter_hooks/flutter_hooks.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:hive_flutter/hive_flutter.dart';
+export 'package:html_unescape/html_unescape.dart';
 export 'package:http_parser/http_parser.dart';
 export 'package:intl/date_symbol_data_local.dart';
 export 'package:intl/intl.dart';
 export 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 export 'package:rxdart/rxdart.dart' hide Rx;
 export 'package:transparent_image/transparent_image.dart';
+export 'package:url_launcher/url_launcher.dart';
 
 export 'src/baseclasses/abstract_json_database.dart';
 export 'src/baseclasses/abstract_t_database.dart';
