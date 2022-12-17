@@ -43,13 +43,16 @@ Future<void> hideSystemOverlays() async {
 }
 
 ///Create a material swatch with variations of
-///a base color, credits to [Filip Veličković](https://medium.com/@filipvk/creating-a-custom-color-swatch-in-flutter-554bcdcb27f3)
+///a base color, credits to
+///[Filip Veličković](https://medium.com/@filipvk/creating-a-custom-color-swatch-in-flutter-554bcdcb27f3)
 MaterialColor createMaterialColor(Color color) {
   final strengths = <double>[.05];
   final swatch = <int, Color>{};
   final r = color.red, g = color.green, b = color.blue;
 
-  for (var i = 1; i < 10; i++) strengths.add(0.1 * i);
+  for (var i = 1; i < 10; i++) {
+    strengths.add(0.1 * i);
+  }
 
   for (final strength in strengths) {
     final ds = 0.5 - strength;

@@ -4,6 +4,7 @@ import '../../core_resources.dart';
 
 class LoadingRaisedButton extends StatelessWidget {
   const LoadingRaisedButton({
+    super.key,
     required this.onPressed,
     this.child,
     this.isLoading = false,
@@ -41,10 +42,10 @@ class LoadingRaisedButton extends StatelessWidget {
             ),
         child: _ButtonContent(
           isLoading: isLoading,
-          child: child,
           progressIndicatorColor: progressIndicatorColor ??
               textColor ??
               (theme.useMaterial3 ? theme.primaryColor : theme.colorScheme.onPrimary),
+          child: child,
         ),
       ),
     );
@@ -53,6 +54,7 @@ class LoadingRaisedButton extends StatelessWidget {
 
 class LoadingFlatButton extends StatelessWidget {
   const LoadingFlatButton({
+    super.key,
     required this.onPressed,
     this.child,
     this.isLoading = false,
@@ -89,11 +91,11 @@ class LoadingFlatButton extends StatelessWidget {
             ),
         child: _ButtonContent(
           isLoading: isLoading,
-          child: child,
           progressIndicatorColor: progressIndicatorColor ??
               textColor ??
               style?.foregroundColor?.resolve({}) ??
               Theme.of(context).colorScheme.primary,
+          child: child,
         ),
       ),
     );
@@ -102,6 +104,7 @@ class LoadingFlatButton extends StatelessWidget {
 
 class LoadingFloatingActionButton extends StatelessWidget {
   const LoadingFloatingActionButton({
+    super.key,
     required this.onPressed,
     this.child,
     this.isLoading = false,
@@ -129,8 +132,8 @@ class LoadingFloatingActionButton extends StatelessWidget {
         shape: shape,
         child: _ButtonContent(
           isLoading: isLoading,
-          child: child,
           progressIndicatorColor: progressIndicatorColor ?? Theme.of(context).colorScheme.onPrimary,
+          child: child,
         ),
       ),
     );
@@ -139,6 +142,7 @@ class LoadingFloatingActionButton extends StatelessWidget {
 
 class LoadingIconButton extends StatelessWidget {
   const LoadingIconButton({
+    super.key,
     required this.onPressed,
     this.icon,
     this.isLoading = false,
@@ -164,9 +168,9 @@ class LoadingIconButton extends StatelessWidget {
         padding: padding ?? const EdgeInsets.all(8.0),
         icon: _ButtonContent(
           isLoading: isLoading,
-          child: icon,
           progressIndicatorColor:
               progressIndicatorColor ?? color ?? Theme.of(context).colorScheme.primary,
+          child: icon,
         ),
       ),
     );

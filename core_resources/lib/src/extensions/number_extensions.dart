@@ -10,7 +10,7 @@ extension StringToNumberExtensions on String {
 
 extension DoubleExtensions on double {
   ///Convert the given value to a currency representation
-  String asCurrency() => 'R\$ ' + toStringAsFixed(2).replaceAll('.', ',');
+  String asCurrency() => 'R\$ ${toStringAsFixed(2).replaceAll('.', ',')}';
 
   ///Convert the given value to a string representation,
   ///removing trailing zeros in the decimal part

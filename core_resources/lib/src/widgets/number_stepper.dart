@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../../core_resources.dart';
 
 class NumberStepper extends StatelessWidget {
-  const NumberStepper(this.number, {
+  const NumberStepper(
+    this.number, {
+    super.key,
     required this.onChange,
     this.iconColor,
     this.increaseEnabled = true,

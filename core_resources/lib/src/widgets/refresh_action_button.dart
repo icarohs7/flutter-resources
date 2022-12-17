@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 /// its [onTap] when true
 class RefreshActionButton extends StatelessWidget {
   const RefreshActionButton({
+    super.key,
     this.isRefreshing = false,
     this.onTap,
   });

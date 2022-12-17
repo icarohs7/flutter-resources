@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class DismissibleAndEditableSlidable extends StatelessWidget {
   const DismissibleAndEditableSlidable({
+    super.key,
     required this.itemKey,
     required this.onDismissed,
     required this.onEdited,

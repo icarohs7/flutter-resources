@@ -4,6 +4,7 @@ import '../../core_resources.dart';
 
 class FutureLoadingRaisedButton extends StatefulWidget {
   const FutureLoadingRaisedButton({
+    super.key,
     required this.onPressed,
     this.child,
   });
@@ -12,6 +13,7 @@ class FutureLoadingRaisedButton extends StatefulWidget {
   final Future<void> Function() onPressed;
 
   @override
+  // ignore: library_private_types_in_public_api
   _FutureLoadingRaisedButtonState createState() => _FutureLoadingRaisedButtonState();
 }
 
@@ -21,7 +23,6 @@ class _FutureLoadingRaisedButtonState extends State<FutureLoadingRaisedButton> {
   @override
   Widget build(BuildContext context) {
     return LoadingRaisedButton(
-      child: widget.child,
       isLoading: _isLoading,
       onPressed: _isLoading
           ? null
@@ -33,6 +34,7 @@ class _FutureLoadingRaisedButtonState extends State<FutureLoadingRaisedButton> {
                 setState(() => _isLoading = false);
               }
             },
+      child: widget.child,
     );
   }
 }

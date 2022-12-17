@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class PasswordFormField extends StatefulWidget {
   const PasswordFormField({
+    super.key,
     this.fieldKey,
     this.controller,
     this.prefixIcon,
@@ -32,6 +33,7 @@ class PasswordFormField extends StatefulWidget {
   final TextInputAction? textInputAction;
 
   @override
+  // ignore: library_private_types_in_public_api
   _PasswordFormFieldState createState() => _PasswordFormFieldState();
 }
 

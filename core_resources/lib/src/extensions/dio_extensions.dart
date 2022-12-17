@@ -27,7 +27,7 @@ extension CRDioExtensions on Dio {
   /// or the [messageOnError] if the error message is blank.
   Try<T> tryJsonOrErrorT<T>(
     Map<String, dynamic> json,
-    T mapper(Map<String, dynamic> json), {
+    T Function(Map<String, dynamic> json) mapper, {
     String messageOnError = 'Erro ao realizar requisição',
   }) {
     return Try(

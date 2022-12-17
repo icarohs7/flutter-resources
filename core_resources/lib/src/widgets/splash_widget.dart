@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -15,6 +17,7 @@ class SplashWidget<T> extends StatefulWidget {
   final FutureOr<void> Function(BuildContext context, T? value) onComplete;
 
   @override
+  // ignore: library_private_types_in_public_api
   _SplashWidgetState createState() => _SplashWidgetState<T>();
 }
 

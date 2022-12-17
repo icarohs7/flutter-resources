@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class DismissibleFromEndToStart extends StatelessWidget {
   const DismissibleFromEndToStart({
+    super.key,
     required this.itemKey,
     required this.onDismissed,
     required this.child,

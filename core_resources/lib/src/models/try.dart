@@ -3,7 +3,7 @@ import 'dart:async';
 import '../../core_resources.dart';
 
 class Try<A> {
-  factory Try(A op(), {String messageOnError = ''}) {
+  factory Try(A Function() op, {String messageOnError = ''}) {
     try {
       return Try.value(op());
     } catch (e, s) {
@@ -11,7 +11,7 @@ class Try<A> {
     }
   }
 
-  static Future<Try<A>> async<A>(FutureOr<A> op(), {String messageOnError = ''}) async {
+  static Future<Try<A>> async<A>(FutureOr<A> Function() op, {String messageOnError = ''}) async {
     try {
       return Try.value(await op());
     } catch (e, s) {
@@ -37,23 +37,24 @@ class Try<A> {
 
   bool get isValue => message.isBlank && exception == null && value != null;
 
-  B fold<B>(B ifError(), B ifValue(A a)) => isValue ? ifValue(value!) : ifError();
+  // ignore: null_check_on_nullable_type_parameter
+  B fold<B>(B Function() ifError, B Function(A a) ifValue) => isValue ? ifValue(value!) : ifError();
 
-  Try<B> map<B>(B f(A a)) {
+  Try<B> map<B>(B Function(A a) f) {
     return fold(
       () => Try.message(message, exception: exception),
       (A a) => Try(() => f(a)),
     );
   }
 
-  Try<B> flatMap<B>(Try<B> f(A b)) {
+  Try<B> flatMap<B>(Try<B> Function(A b) f) {
     return fold(
       () => Try.message(message, exception: exception, stacktrace: stacktrace),
       f,
     );
   }
 
-  A getOrElse(A dflt()) => fold(dflt, (a) => a);
+  A getOrElse(A Function() dflt) => fold(dflt, (a) => a);
 
   A operator |(A other) => getOrElse(() => other);
 

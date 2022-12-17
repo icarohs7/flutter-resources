@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 ///the animation returned from the [transitionBuilder]
 class ConditionalRender extends StatelessWidget {
   const ConditionalRender({
+    super.key,
     required this.condition,
     this.child,
     this.childBuilder,
@@ -43,7 +44,7 @@ class ConditionalRender extends StatelessWidget {
       switchOutCurve: switchOutCurve,
       transitionBuilder: transitionBuilder ??
           (child, value) {
-            return ScaleTransition(child: child, scale: value);
+            return ScaleTransition(scale: value, child: child);
           },
       child: condition ? child : (childElse ?? childElseBuilder?.call(context) ?? SizedBox()),
     );

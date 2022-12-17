@@ -1,4 +1,4 @@
-name: flutter
+name: build
 on: push
 jobs:
   build:

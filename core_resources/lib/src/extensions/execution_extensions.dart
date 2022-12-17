@@ -11,7 +11,7 @@ T? runCatching<T>(T Function() fn) {
 ///Return the result of the given
 ///function or the [fallback] if
 ///an exception is thrown
-T runOrDefault<T>(T fallback, T fn()) {
+T runOrDefault<T>(T fallback, T Function() fn) {
   try {
     return fn();
   } catch (_) {

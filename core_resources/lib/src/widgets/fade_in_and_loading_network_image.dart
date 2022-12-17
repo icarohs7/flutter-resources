@@ -6,6 +6,7 @@ import 'package:transparent_image/transparent_image.dart';
 class FadeInAndLoadingNetworkImage extends StatelessWidget {
   const FadeInAndLoadingNetworkImage(
     this.imageUrl, {
+    super.key,
     this.width,
     this.height,
     this.fit,

@@ -49,7 +49,8 @@ class SimpleAlert extends StatelessWidget {
   }
 }
 
-Future<bool> showConfirmDialog(BuildContext context, {
+Future<bool> showConfirmDialog(
+  BuildContext context, {
   Widget? title,
   Widget? content,
   FutureOr<void> Function()? onConfirm,
@@ -58,18 +59,18 @@ Future<bool> showConfirmDialog(BuildContext context, {
   String? confirmText,
 }) async {
   return (await showDialog<bool>(
-    context: context,
-    builder: (context) {
-      return ConfirmDialog(
-        title: title,
-        content: content,
-        onConfirm: onConfirm,
-        onCancel: onCancel,
-        cancelText: cancelText,
-        confirmText: confirmText,
-      );
-    },
-  )) ??
+        context: context,
+        builder: (context) {
+          return ConfirmDialog(
+            title: title,
+            content: content,
+            onConfirm: onConfirm,
+            onCancel: onCancel,
+            cancelText: cancelText,
+            confirmText: confirmText,
+          );
+        },
+      )) ??
       false;
 }
 
@@ -98,19 +99,19 @@ class ConfirmDialog extends StatelessWidget {
       content: content,
       actions: <Widget>[
         TextButton(
-          child: Text(cancelText ?? 'Cancelar'),
           style: ButtonStyle(
             foregroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
           ),
           onPressed: onCancel ?? () => Navigator.of(context).pop(false),
+          child: Text(cancelText ?? 'Cancelar'),
         ),
         TextButton(
-          child: Text(confirmText ?? 'Confirmar'),
           style: ButtonStyle(
             foregroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
           ),
           onPressed: onConfirm ?? () => Navigator.of(context).pop(true),
-        )
+          child: Text(confirmText ?? 'Confirmar'),
+        ),
       ],
     );
   }

@@ -8,7 +8,7 @@ import 'baseclasses/abstract_t_database.dart';
 
 /// Global box used to persist data as
 /// an alternative to using shared preferences
-late final globalBox = Hive.box<String>('globalBox');
+final globalBox = Hive.box<String>('globalBox');
 
 ///Implementation of [AbstractTDatabase] using Hive
 ///as the underlying engine.

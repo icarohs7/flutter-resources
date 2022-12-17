@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 /// child
 class ColumnWithPaddedChildren extends StatelessWidget {
   const ColumnWithPaddedChildren({
-    Key? key,
+    super.key,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.max,
     this.crossAxisAlignment = CrossAxisAlignment.center,
@@ -13,7 +13,7 @@ class ColumnWithPaddedChildren extends StatelessWidget {
     this.textBaseline,
     this.children = const <Widget>[],
     this.childrenPadding = EdgeInsets.zero,
-  }) : super(key: key);
+  });
 
   final MainAxisAlignment mainAxisAlignment;
   final MainAxisSize mainAxisSize;

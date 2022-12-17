@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class EditableLabel extends StatefulWidget {
+  // ignore: use_key_in_widget_constructors
   const EditableLabel({
     Key? key,
     this.onSave,

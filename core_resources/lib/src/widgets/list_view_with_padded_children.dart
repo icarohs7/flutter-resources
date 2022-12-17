@@ -58,10 +58,10 @@ class ListViewWithPaddedChildren extends StatelessWidget {
       addRepaintBoundaries: addRepaintBoundaries,
       addSemanticIndexes: addSemanticIndexes,
       cacheExtent: cacheExtent,
-      children: children.map<Widget>((w) => Padding(padding: childrenPadding, child: w)).toList(),
       semanticChildCount: semanticChildCount,
       dragStartBehavior: dragStartBehavior,
       keyboardDismissBehavior: keyboardDismissBehavior,
+      children: children.map<Widget>((w) => Padding(padding: childrenPadding, child: w)).toList(),
     );
   }
 }
