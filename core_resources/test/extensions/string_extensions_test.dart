@@ -50,7 +50,7 @@ void main() {
 
   test('should convert string to uri', () {
     const s = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-    final uri = s.toUri;
+    final uri = s.toUri();
     expect(uri, isA<Uri>());
     expect(uri.toString(), equals(s));
     expect(uri.scheme, equals('https'));

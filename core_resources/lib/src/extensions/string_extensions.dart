@@ -41,5 +41,5 @@ extension StringExtensions on String {
   String get htmlUnescaped => _htmlUnescape.convert(this);
 
   /// Shortcut to convert a [String] to a [Uri]
-  Uri get toUri => Uri.parse(this);
+  Uri toUri() => Uri.parse(this);
 }
