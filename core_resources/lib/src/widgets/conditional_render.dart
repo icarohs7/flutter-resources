@@ -46,7 +46,9 @@ class ConditionalRender extends StatelessWidget {
           (child, value) {
             return ScaleTransition(scale: value, child: child);
           },
-      child: condition ? child : (childElse ?? childElseBuilder?.call(context) ?? SizedBox()),
+      child: condition
+          ? (child ?? childBuilder?.call(context))!
+          : (childElse ?? childElseBuilder?.call(context) ?? SizedBox()),
     );
   }
 }
