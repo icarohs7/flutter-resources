@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -9,6 +10,14 @@ T useValueStream<T>(
 }) {
   final snapshot = useStream(stream, preserveState: preserveState);
   return snapshot.data ?? stream.value;
+}
+
+/// [useFuture] while remembering the first future
+/// instance and retaining it
+AsyncSnapshot<T> useMemoizedFuture<T>(Future<T> future) {
+  final memoizedFuture = useMemoized(() => future);
+  final snapshot = useFuture(memoizedFuture);
+  return snapshot;
 }
 
 /// [useFuture] direcly returning the result of the
@@ -27,6 +36,14 @@ T? useMemoizedFutureData<T>(Future<T> future) {
   final memoizedFuture = useMemoized(() => future);
   final data = useFutureData(memoizedFuture);
   return data;
+}
+
+/// [useStream] while remembering the first stream
+/// instance and retaining it
+AsyncSnapshot<T> useMemoizedStream<T>(Stream<T> stream) {
+  final memoizedStream = useMemoized(() => stream);
+  final snapshot = useStream(memoizedStream);
+  return snapshot;
 }
 
 /// [useStream] direcly returning the emitted values

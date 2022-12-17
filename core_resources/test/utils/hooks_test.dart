@@ -25,6 +25,28 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 
+  testWidgets('useMemoizedFuture test', (tester) async {
+    final subject = Future.value(0).subject;
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: HookBuilder(
+          builder: (context) {
+            final future = useValueStream(subject);
+            final value = useMemoizedFuture(future);
+            return Text(value.data.toString());
+          },
+        ),
+      ),
+    );
+
+    await tester.pump();
+    expect(find.text('0'), findsOneWidget);
+    subject.add(Future.value(1));
+    await tester.pump();
+    expect(find.text('0'), findsOneWidget);
+  });
+
   testWidgets('useFutureData test', (tester) async {
     final completer = Completer<int>();
 
@@ -65,6 +87,36 @@ void main() {
     subject.add(Future.value(1));
     await tester.pump();
     expect(find.text('0'), findsOneWidget);
+  });
+
+  testWidgets('useMemoizedStream test', (tester) async {
+    final subject = 0.subject.subject;
+    final subjectSubject = subject.value;
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: HookBuilder(
+          builder: (context) {
+            final stream = useValueStream(subject);
+            final value = useMemoizedStream(stream);
+            return Text(value.data.toString());
+          },
+        ),
+      ),
+    );
+
+    await tester.pump(Duration(milliseconds: 300));
+    expect(find.text('0'), findsOneWidget);
+    subject.add(1.subject);
+    await tester.pump(Duration(milliseconds: 300));
+    expect(find.text('0'), findsOneWidget);
+    subjectSubject.add(2);
+    await tester.pump(Duration(milliseconds: 300));
+    expect(find.text('2'), findsOneWidget);
+
+    subjectSubject.close();
+    subject.value.close();
+    subject.close();
   });
 
   testWidgets('useStreamData test', (tester) async {
