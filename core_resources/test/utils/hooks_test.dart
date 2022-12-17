@@ -89,6 +89,8 @@ void main() {
     subject.add(2);
     await tester.pump(Duration(milliseconds: 300));
     expect(find.text('2'), findsOneWidget);
+
+    subject.close();
   });
 
   testWidgets('useMemoizedStreamData test', (tester) async {
@@ -115,5 +117,9 @@ void main() {
     subjectSubject.add(2);
     await tester.pump(Duration(milliseconds: 300));
     expect(find.text('2'), findsOneWidget);
+
+    subjectSubject.close();
+    subject.value.close();
+    subject.close();
   });
 }
