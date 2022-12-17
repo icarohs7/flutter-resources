@@ -18,7 +18,7 @@ mixin BaseApiService {
 
   Try<T> tryJsonOrErrorT<T>(
     Map<String, dynamic> json,
-    T mapper(Map<String, dynamic> json), {
+    T Function(Map<String, dynamic> json) mapper, {
     String messageOnError = 'Erro ao realizar requisição',
   }) {
     return dio.tryJsonOrErrorT(json, mapper, messageOnError: messageOnError);
@@ -117,42 +117,6 @@ mixin BaseApiService {
     Options? options,
   }) {
     return dio.postRJsonArray(
-      url,
-      data: data,
-      rawData: rawData,
-      queryParameters: queryParameters,
-      options: options,
-    );
-  }
-
-  /// [data] - will be sent encoded to the server
-  /// [rawData] - will be sent as is to the server
-  Future<Response<T>> put<T>(
-    String url, {
-    dynamic data,
-    dynamic rawData,
-    Map<String, dynamic>? queryParameters,
-    Options? options,
-  }) {
-    return dio.crPut(
-      url,
-      data: data,
-      rawData: rawData,
-      queryParameters: queryParameters,
-      options: options,
-    );
-  }
-
-  /// [data] - will be sent encoded to the server
-  /// [rawData] - will be sent as is to the server
-  Future<Map<String, dynamic>> putRJsonObj(
-    String url, {
-    dynamic data,
-    dynamic rawData,
-    Map<String, dynamic>? queryParameters,
-    Options? options,
-  }) {
-    return dio.putRJsonObj(
       url,
       data: data,
       rawData: rawData,

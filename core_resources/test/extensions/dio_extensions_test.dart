@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:core_resources/core_resources.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
@@ -31,6 +33,11 @@ void main() {
       (server) => server.reply(200, {'path': 'objectData'}),
     )
     ..onPost(
+      '/map',
+      data: {'key': 'value'},
+      (server) => server.reply(200, {'path': 'mapData'}),
+    )
+    ..onPost(
       '/array',
       (server) => server.reply(200, ['object']),
     )
@@ -58,6 +65,11 @@ void main() {
   test('postRJsonObj', () async {
     final response = await dio.postRJsonObj('/object', rawData: 'data');
     expect(response, {'path': 'objectData'});
+  });
+
+  test('postRJsonObj with map', () async {
+    final response = await dio.postRJsonObj('/map', data: {'key': 'value'});
+    expect(response, {'path': 'mapData'});
   });
 
   test('postRJsonArray', () async {
