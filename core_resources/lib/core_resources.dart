@@ -23,6 +23,7 @@ export 'src/baseclasses/base_api_service.dart';
 export 'src/baseclasses/base_repository.dart';
 export 'src/baseclasses/base_router.dart';
 export 'src/classes/rx_list.dart';
+export 'src/extensions/async_snapshot_extensions.dart';
 export 'src/extensions/color_extensions.dart';
 export 'src/extensions/context_extensions.dart';
 export 'src/extensions/dio_extensions.dart';
