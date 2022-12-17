@@ -10,6 +10,12 @@ void main() {
     expect(dt.string('yyyy-MM-dd HH:mm:ss'), equals('2020-05-09 12:00:00'));
   });
 
+  test('should convert DateTime to string using american standard', () {
+    final dt = DateTime(2020, 5, 9, 12, 0, 35);
+
+    expect(dt.toAmericanStdString(), equals('2020-05-09 12:00:35'));
+  });
+
   test('should change values on DateTime', () {
     final dtex = DateTime.parse('2020-01-01 12:00');
     expect(dtex.year, equals(2020));
@@ -34,5 +40,24 @@ void main() {
     expect(dt2.hour, equals(15));
     expect(dt2.minute, equals(30));
     expect(dt2.second, equals(0));
+
+    final dt3 = dtex.update(
+      year: 2022,
+      month: 12,
+      day: 31,
+      hour: 23,
+      minute: 59,
+      second: 58,
+      millisecond: 999,
+      microsecond: 998,
+    );
+    expect(dt3.year, equals(2022));
+    expect(dt3.month, equals(12));
+    expect(dt3.day, equals(31));
+    expect(dt3.hour, equals(23));
+    expect(dt3.minute, equals(59));
+    expect(dt3.second, equals(58));
+    expect(dt3.millisecond, equals(999));
+    expect(dt3.microsecond, equals(998));
   });
 }
