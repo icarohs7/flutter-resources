@@ -8,6 +8,10 @@ void main() {
   final dio = Core.get<Dio>();
   final dioAdapter = DioAdapter(dio: dio);
 
+  test('baseUrl', () {
+    expect(dio.baseUrl, 'https://example.com');
+  });
+
   dioAdapter
     ..onGet(
       '/object',
