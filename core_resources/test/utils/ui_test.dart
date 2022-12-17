@@ -3,6 +3,127 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  testWidgets('askConfirmation', (tester) async {
+    var result = false;
+    var confirmed = false;
+    var cancelled = false;
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: Builder(
+            builder: (context) => TextButton(
+              onPressed: () async {
+                result = await askConfirmation(
+                  context,
+                  titleText: 'title',
+                  content: Text('content'),
+                  confirmText: 'confirmTest',
+                  onConfirm: () {
+                    confirmed = true;
+                    context.pop(true);
+                  },
+                  cancelText: 'cancelTest',
+                  onCancel: () {
+                    cancelled = true;
+                    context.pop();
+                  },
+                );
+              },
+              child: const Text('Show dialog'),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('Show dialog'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('title'), findsOneWidget);
+    expect(find.text('content'), findsOneWidget);
+    expect(find.text('confirmTest'), findsOneWidget);
+    expect(find.text('cancelTest'), findsOneWidget);
+
+    await tester.tap(find.text('cancelTest'));
+    await tester.pumpAndSettle();
+
+    expect(result, isFalse);
+    expect(confirmed, isFalse);
+    expect(cancelled, isTrue);
+    expect(find.text('title'), findsNothing);
+    expect(find.text('content'), findsNothing);
+    expect(find.text('confirmTest'), findsNothing);
+    expect(find.text('cancelTest'), findsNothing);
+
+    await tester.tap(find.text('Show dialog'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('confirmTest'));
+    await tester.pumpAndSettle();
+
+    expect(result, isTrue);
+    expect(confirmed, isTrue);
+    expect(cancelled, isTrue);
+    expect(find.text('title'), findsNothing);
+    expect(find.text('content'), findsNothing);
+    expect(find.text('confirmTest'), findsNothing);
+    expect(find.text('cancelTest'), findsNothing);
+  });
+
+  testWidgets('askConfirmation with default values', (tester) async {
+    var result = false;
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: Builder(
+            builder: (context) => TextButton(
+              onPressed: () async {
+                result = await askConfirmation(
+                  context,
+                  title: Text('title'),
+                  confirmText: 'confirmTest',
+                  cancelText: 'cancelTest',
+                );
+              },
+              child: const Text('Show dialog'),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('Show dialog'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('title'), findsOneWidget);
+    expect(find.text('content'), findsNothing);
+    expect(find.text('confirmTest'), findsOneWidget);
+    expect(find.text('cancelTest'), findsOneWidget);
+
+    await tester.tap(find.text('cancelTest'));
+    await tester.pumpAndSettle();
+
+    expect(result, isFalse);
+    expect(find.text('title'), findsNothing);
+    expect(find.text('content'), findsNothing);
+    expect(find.text('confirmTest'), findsNothing);
+    expect(find.text('cancelTest'), findsNothing);
+
+    await tester.tap(find.text('Show dialog'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('confirmTest'));
+    await tester.pumpAndSettle();
+
+    expect(result, isTrue);
+    expect(find.text('title'), findsNothing);
+    expect(find.text('content'), findsNothing);
+    expect(find.text('confirmTest'), findsNothing);
+    expect(find.text('cancelTest'), findsNothing);
+  });
+
   test('createMaterialColor', () {
     const c1 = Color(0xFF174378);
     final m1 = createMaterialColor(c1);

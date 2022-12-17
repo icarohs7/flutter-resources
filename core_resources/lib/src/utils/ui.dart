@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 
 import '../widgets/dialogs.dart';
 
+/// Shows a [ConfirmDialog], returns true if the user confirms, false otherwise.
 Future<bool> askConfirmation(
   BuildContext context, {
   String? titleText,
