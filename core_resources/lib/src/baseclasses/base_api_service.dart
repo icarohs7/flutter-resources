@@ -108,6 +108,26 @@ mixin BaseApiService {
     );
   }
 
+  /// [data] - will be sent encoded to the server
+  /// [rawData] - will be sent as is to the server
+  Future<Map<String, dynamic>> putRJsonObj(
+      String url, {
+        dynamic data,
+        dynamic rawData,
+        Map<String, dynamic>? queryParameters,
+        Options? options,
+        String Function(String)? responseInterceptor,
+      }) {
+    return dio.putRJsonObj(
+      url,
+      data: data,
+      rawData: rawData,
+      queryParameters: queryParameters,
+      options: options,
+      responseInterceptor: responseInterceptor,
+    );
+  }
+
   Future<http.MultipartFile?> resizedImageMultipart(
     String field, {
     required String imagePath,

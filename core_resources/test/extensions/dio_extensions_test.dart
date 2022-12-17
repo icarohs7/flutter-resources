@@ -47,6 +47,20 @@ void main() {
       '/array',
       data: 'data',
       (server) => server.reply(200, ['objectData']),
+    )
+    ..onPut(
+      '/object',
+      (server) => server.reply(200, {'path': 'object'}),
+    )
+    ..onPut(
+      '/object',
+      data: 'data',
+      (server) => server.reply(200, {'path': 'objectData'}),
+    )
+    ..onPut(
+      '/map',
+      data: {'key': 'value'},
+      (server) => server.reply(200, {'path': 'mapData'}),
     );
 
   test('getRJsonObj', () async {
@@ -58,11 +72,6 @@ void main() {
     final response = await dio.getRJsonArray('/array');
     expect(response, ['object']);
   });
-
-  // test('getBytes', () async {
-  //   final response = await dio.getBytes('/bytes');
-  //   expect(response, [0, 0, 1, 1, 0, 0, 1, 1]);
-  // });
 
   test('postRJsonObj', () async {
     final response = await dio.postRJsonObj('/object', rawData: 'data');
@@ -77,5 +86,15 @@ void main() {
   test('postRJsonArray', () async {
     final response = await dio.postRJsonArray('/array', rawData: 'data');
     expect(response, ['objectData']);
+  });
+
+  test('putRJsonObj', () async {
+    final response = await dio.putRJsonObj('/object', rawData: 'data');
+    expect(response, {'path': 'objectData'});
+  });
+
+  test('putRJsonObj with map', () async {
+    final response = await dio.putRJsonObj('/map', data: {'key': 'value'});
+    expect(response, {'path': 'mapData'});
   });
 }

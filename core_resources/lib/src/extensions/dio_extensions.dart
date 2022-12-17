@@ -181,6 +181,46 @@ extension CRDioExtensions on Dio {
     return jsonDecodeArray(response.data ?? '');
   }
 
+  /// Performs a put request to the given [url]
+  /// [data] - will be sent encoded to the server
+  /// [rawData] - will be sent as is to the server
+  Future<Response<T>> crPut<T>(
+      String url, {
+        dynamic data,
+        dynamic rawData,
+        Map<String, dynamic>? queryParameters,
+        Options? options,
+      }) async {
+    return await put(
+      url,
+      data: rawData ?? await compute(_encodeObj, data),
+      queryParameters: queryParameters,
+      options: options,
+    );
+  }
+
+  /// Performs a put request to the given [url]
+  /// parsing the response as a [Map<String, dynamic>]
+  /// [data] - will be sent encoded to the server
+  /// [rawData] - will be sent as is to the server
+  Future<Map<String, dynamic>> putRJsonObj(
+      String url, {
+        dynamic data,
+        dynamic rawData,
+        Map<String, dynamic>? queryParameters,
+        Options? options,
+        String Function(String)? responseInterceptor,
+      }) async {
+    final response = await crPut<String>(
+      url,
+      data: data,
+      rawData: rawData,
+      queryParameters: queryParameters,
+      options: options,
+    );
+    return jsonDecodeObj(responseInterceptor?.call(response.data ?? '') ?? response.data ?? '');
+  }
+
   /// Returns the given image located at [imagePath] as a [http.MultipartFile]
   /// resized to the given [imageWidth]
   Future<http.MultipartFile?> resizedImageMultipart(
