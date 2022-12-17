@@ -2,44 +2,39 @@
 
 import 'dart:async';
 
+import 'package:core_resources/core_resources.dart';
 import 'package:flutter/material.dart';
 
-class SplashWidget<T> extends StatefulWidget {
+class SplashWidget<T> extends StatelessWidget {
   const SplashWidget({
-    Key? key,
+    super.key,
     required this.future,
     required this.child,
     required this.onComplete,
-  }) : super(key: key);
+  });
 
   final Future<T> future;
   final Widget child;
-  final FutureOr<void> Function(BuildContext context, T? value) onComplete;
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _SplashWidgetState createState() => _SplashWidgetState<T>();
-}
-
-class _SplashWidgetState<T> extends State<SplashWidget<T>> {
-  _SplashWidgetState();
-
-  @override
-  void initState() {
-    super.initState();
-    Future(() async {
-      T? result;
-      try {
-        result = await widget.future;
-      } catch (e) {
-        print('Error on Splash loading:\n$e');
-      }
-      await widget.onComplete(context, result);
-    }).then((_) => null);
-  }
+  final FutureOr<void> Function(BuildContext context, T value) onComplete;
 
   @override
   Widget build(BuildContext context) {
-    return widget.child;
+    return HookBuilder(builder: (context) {
+      final future = useMemoized(() => this.future);
+      final isMounted = useIsMounted();
+
+      useEffect(() {
+        if (isMounted()) {
+          future.then((value) async {
+            if (isMounted()) {
+              await onComplete(context, value);
+            }
+          });
+        }
+        return null;
+      }, [future]);
+
+      return child;
+    });
   }
 }
