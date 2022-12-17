@@ -10,74 +10,47 @@ class Nav {
     );
   }
 
-  ///Navigate using a named route
   Future<T?> goNamed<T>(BuildContext context, String route, {Object? arguments}) {
     return Navigator.pushNamed<T>(context, route, arguments: arguments);
   }
 
   Future<T?> go<T>(
     BuildContext context, {
-    Widget? page,
+    required Widget page,
     Route<T> Function(Widget page)? routeBuilder,
-    Route<T>? route,
   }) {
-    if (page != null) {
-      return Navigator.push<T>(context, routeBuilder?.call(page) ?? FadePageRoute(page: page));
-    } else if (route != null) {
-      return Navigator.push<T>(context, route);
-    }
-    throw ArgumentError('namedRoute, page or route must be defined');
+    return Navigator.push<T>(context, routeBuilder?.call(page) ?? FadePageRoute(page: page));
   }
 
-  ///Shorthand to [goReplacement] with named route
-  Future<T?> goReplacementNamed<T>(BuildContext context, String route) {
-    return goReplacement(context, namedRoute: route);
+  Future<T?> goReplacementNamed<T>(BuildContext context, String route, {Object? arguments}) {
+    return Navigator.pushReplacementNamed<T, dynamic>(context, route, arguments: arguments);
   }
 
   Future<T?> goReplacement<T>(
     BuildContext context, {
-    String? namedRoute,
-    Widget? page,
+    required Widget page,
     Route<T> Function(Widget page)? routeBuilder,
-    Route<T>? route,
   }) {
-    if (namedRoute != null) {
-      return Navigator.pushReplacementNamed<T, dynamic>(context, namedRoute);
-    } else if (page != null) {
-      return Navigator.pushReplacement<T, dynamic>(
-        context,
-        routeBuilder?.call(page) ?? FadePageRoute(page: page),
-      );
-    } else if (route != null) {
-      return Navigator.pushReplacement<T, dynamic>(context, route);
-    }
-    throw ArgumentError('namedRoute, page or route must be defined');
+    return Navigator.pushReplacement<T, dynamic>(
+      context,
+      routeBuilder?.call(page) ?? FadePageRoute(page: page),
+    );
   }
 
-  ///Shorthand to [goErasingHistory] with named route
   Future goErasingHistoryNamed(BuildContext context, String route) {
-    return goErasingHistory(context, namedRoute: route);
+    return Navigator.pushNamedAndRemoveUntil(context, route, (r) => false);
   }
 
   Future goErasingHistory(
     BuildContext context, {
-    String? namedRoute,
-    Widget? page,
+    required Widget page,
     Route Function(Widget page)? routeBuilder,
-    Route? route,
   }) {
-    if (namedRoute != null) {
-      return Navigator.pushNamedAndRemoveUntil(context, namedRoute, (r) => false);
-    } else if (page != null) {
-      return Navigator.pushAndRemoveUntil(
-        context,
-        routeBuilder?.call(page) ?? FadePageRoute(page: page),
-        (r) => false,
-      );
-    } else if (route != null) {
-      return Navigator.pushAndRemoveUntil(context, route, (r) => false);
-    }
-    throw ArgumentError('namedRoute, page or route must be defined');
+    return Navigator.pushAndRemoveUntil(
+      context,
+      routeBuilder?.call(page) ?? FadePageRoute(page: page),
+      (r) => false,
+    );
   }
 
   static Nav get to => _instance;
