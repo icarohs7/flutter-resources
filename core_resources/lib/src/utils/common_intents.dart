@@ -1,10 +1,11 @@
+// ignore_for_file: non_constant_identifier_names
 
+import 'package:core_resources/src/extensions/string_extensions.dart';
 
-// ignore: non_constant_identifier_names
 final CommonIntents = _CommonIntents();
 
 class _CommonIntents {
-  String locationOnMaps({
+  Uri locationOnMaps({
     required double latitude,
     required double longitude,
   }) {
@@ -15,16 +16,16 @@ class _CommonIntents {
         'api': '1',
         'query': '$latitude,$longitude',
       },
-    ).toString();
+    );
   }
 
-  String openDialer({required String phone}) => 'tel:$phone';
+  Uri openDialer({required String phone}) => 'tel:$phone'.toUri();
 
-  String sendWhatsappMessage(String phone, {String? message}) {
+  Uri sendWhatsappMessage(String phone, {String? message}) {
     return Uri.https(
       'wa.me',
       '/$phone',
       message != null ? {'text': message} : null,
-    ).toString();
+    );
   }
 }
