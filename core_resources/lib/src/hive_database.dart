@@ -12,32 +12,24 @@ final globalBox = Hive.box<String>('globalBox');
 
 ///Implementation of [AbstractTDatabase] using Hive
 ///as the underlying engine.
-///<br/> Either [jsonDatabase] or [dbName] must be defined
 // ignore: non_constant_identifier_names
 AbstractTDatabase<T> HiveTDatabase<T>({
-  HiveDatabase? jsonDatabase,
   String? dbName,
   required T Function(Map<String, dynamic>) adapter,
 }) {
-  assert(jsonDatabase != null || dbName != null);
-  final dbImpl = jsonDatabase ?? HiveJsonDatabase(boxName: dbName!);
-  return AbstractTDatabase(jsonDatabase: dbImpl, adapter: adapter);
+  final db = HiveDatabase('${T.runtimeType}'.toLowerCase());
+  return AbstractTDatabase(jsonDatabase: db, adapter: adapter);
 }
 
 ///Implementation of [AbstractJsonDatabase] using Hive
 ///as the underlying engine
 // ignore: non_constant_identifier_names
-AbstractJsonDatabase HiveJsonDatabase({required String boxName}) {
-  return HiveDatabase(boxName: boxName);
-}
-
 class HiveDatabase extends AbstractJsonDatabase {
-  HiveDatabase({required this.boxName, this.boxFactory});
+  HiveDatabase(this.boxName);
 
   final String boxName;
-  final Box<String> Function(String? boxName)? boxFactory;
 
-  Future<Box<String>> _getBox() async => boxFactory?.call(boxName) ?? await Hive.openBox(boxName);
+  Future<Box<String>> _getBox() async => await Hive.openBox(boxName);
 
   String _serialize(Map<String, dynamic> item) => jsonEncode(item);
 
