@@ -23,6 +23,7 @@ export 'src/baseclasses/abstract_t_database.dart';
 export 'src/baseclasses/base_api_service.dart';
 export 'src/baseclasses/base_repository.dart';
 export 'src/baseclasses/base_router.dart';
+export 'src/classes/core_router_observer.dart';
 export 'src/classes/rx_list.dart';
 export 'src/extensions/async_snapshot_extensions.dart';
 export 'src/extensions/color_extensions.dart';
@@ -172,5 +173,5 @@ class Core {
   static void setCurrentExtrasFn(Object? Function(BuildContext context) fn) => _currentExtras = fn;
 
   static Object? currentExtras(BuildContext context) => _currentExtras(context);
-//endregion
+  //endregion
 }
