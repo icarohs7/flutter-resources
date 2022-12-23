@@ -145,6 +145,18 @@ class Core {
 
   //endregion
 
+  //region back
+  static void Function(BuildContext context, [Object? result]) _back =
+      (BuildContext context, [Object? result]) => Navigator.of(context).pop(result);
+
+  /// Define the function that will be used to pop the current route in the navigator,
+  /// used by other libraries to reuse navigation functions
+  static void setBackFn(void Function(BuildContext context, [Object? result]) fn) => _back = fn;
+
+  static void back(BuildContext context, [Object? result]) => _back(context, result);
+
+  //endregion
+
   //region currentPath
   static late String Function(BuildContext context) _currentPath;
 
@@ -173,5 +185,5 @@ class Core {
   static void setCurrentExtrasFn(Object? Function(BuildContext context) fn) => _currentExtras = fn;
 
   static Object? currentExtras(BuildContext context) => _currentExtras(context);
-  //endregion
+//endregion
 }

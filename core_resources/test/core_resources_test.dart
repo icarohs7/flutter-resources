@@ -139,6 +139,36 @@ void main() {
     expect(arguments, {'test': 'test'});
   });
 
+  testWidgets('back test', (tester) async {
+    await tester.pumpWidget(defaultApp);
+
+    Navigator.of(navigatorKey.currentContext!).pushNamed('/test');
+    await tester.pumpAndSettle();
+
+    expect(find.byType(Row), findsNothing);
+    expect(find.byType(Column), findsOneWidget);
+    expect(find.byType(Container), findsNothing);
+    Core.back(navigatorKey.currentContext!);
+    await tester.pumpAndSettle();
+
+    Core.setBackFn((context, [result]) {
+      Navigator.of(context).pushNamed('/test2', arguments: result);
+    });
+    Core.back(navigatorKey.currentContext!, {'test': 'test'});
+    await tester.pumpAndSettle();
+
+    expect(find.byType(Row), findsNothing);
+    expect(find.byType(Column), findsNothing);
+    expect(find.byType(Container), findsOneWidget);
+    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
+    Object? arguments;
+    navigatorKey.currentState?.popUntil((route) {
+      arguments = route.settings.arguments;
+      return true;
+    });
+    expect(arguments, {'test': 'test'});
+  });
+
   testWidgets('currentPath test', (tester) async {
     await tester.pumpWidget(defaultApp);
 
