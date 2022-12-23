@@ -99,16 +99,10 @@ class ConfirmDialog extends StatelessWidget {
       content: content,
       actions: <Widget>[
         TextButton(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
-          ),
           onPressed: onCancel ?? () => Navigator.of(context).pop(false),
           child: Text(cancelText ?? 'Cancelar'),
         ),
         TextButton(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
-          ),
           onPressed: onConfirm ?? () => Navigator.of(context).pop(true),
           child: Text(confirmText ?? 'Confirmar'),
         ),
