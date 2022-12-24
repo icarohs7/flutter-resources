@@ -17,7 +17,7 @@ AbstractTDatabase<T> HiveTDatabase<T>({
   String? dbName,
   required T Function(Map<String, dynamic>) adapter,
 }) {
-  final db = HiveDatabase('${T.runtimeType}'.toLowerCase());
+  final db = HiveDatabase(dbName ?? '${T.runtimeType}'.toLowerCase());
   return AbstractTDatabase(jsonDatabase: db, adapter: adapter);
 }
 
