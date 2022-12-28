@@ -168,8 +168,7 @@ class LoadingIconButton extends StatelessWidget {
         padding: padding ?? const EdgeInsets.all(8.0),
         icon: _ButtonContent(
           isLoading: isLoading,
-          progressIndicatorColor:
-              progressIndicatorColor ?? color ?? Theme.of(context).colorScheme.primary,
+          progressIndicatorColor: progressIndicatorColor,
           child: icon,
         ),
       ),
@@ -187,7 +186,7 @@ class _ButtonContent extends StatelessWidget {
 
   final bool isLoading;
   final Widget? child;
-  final Color progressIndicatorColor;
+  final Color? progressIndicatorColor;
 
   @override
   Widget build(BuildContext context) {
@@ -210,7 +209,9 @@ class _ButtonContent extends StatelessWidget {
                     width: 16,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      valueColor: AlwaysStoppedAnimation<Color>(progressIndicatorColor),
+                      valueColor: progressIndicatorColor != null
+                          ? AlwaysStoppedAnimation<Color>(progressIndicatorColor!)
+                          : null,
                     ),
                   ),
                 ),
