@@ -152,7 +152,7 @@ class LoadingIconButton extends StatelessWidget {
   });
 
   final Widget? icon;
-  final void Function()? onPressed;
+  final void Function() onPressed;
   final bool isLoading;
   final Color? color;
   final Color? progressIndicatorColor;
@@ -209,9 +209,7 @@ class _ButtonContent extends StatelessWidget {
                     width: 16,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      valueColor: progressIndicatorColor != null
-                          ? AlwaysStoppedAnimation<Color>(progressIndicatorColor!)
-                          : null,
+                      color: progressIndicatorColor,
                     ),
                   ),
                 ),
