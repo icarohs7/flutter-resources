@@ -18,13 +18,16 @@ class HiveDbResources {
     Core.setLocator(<T extends Object>() {
       return Get.find<T>();
     });
-    Core.setGoNamedFn((context, routeName, {params, extra}) {
+    Core.setPushFn((context, routeName, {params, extra}) {
       Get.toNamed(routeName, parameters: params, arguments: extra, preventDuplicates: false);
     });
-    Core.setReplaceNamedFn((context, routeName, {params, extra}) {
+    Core.setGoFn((context, routeName, {params, extra}) {
+      Get.toNamed(routeName, parameters: params, arguments: extra, preventDuplicates: false);
+    });
+    Core.setReplaceFn((context, routeName, {params, extra}) {
       Get.offNamed(routeName, parameters: params, arguments: extra, preventDuplicates: false);
     });
-    Core.setReplaceAllNamedFn((context, routeName, {params, extra}) {
+    Core.setReplaceAllFn((context, routeName, {params, extra}) {
       Get.offAllNamed(routeName, parameters: params, arguments: extra);
     });
     Core.setCurrentPathFn((context) {
