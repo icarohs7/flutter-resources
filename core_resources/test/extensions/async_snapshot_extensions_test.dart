@@ -38,5 +38,59 @@ void main() {
     expect(snapshot5.isActive, true);
     expect(snapshot5.isDone, false);
     expect(snapshot5.isError, false);
+
+    final snapshot6 = AsyncSnapshot<int>.withError(ConnectionState.none, Exception());
+    expect(
+      snapshot6.when(
+        loading: () => 'loading',
+        error: (error, stack) => 'error',
+        data: (data) => 'data',
+        none: () => 'none',
+      ),
+      'error',
+    );
+
+    final snapshot7 = AsyncSnapshot<int>.nothing();
+    expect(
+      snapshot7.when(
+        loading: () => 'loading',
+        error: (error, stack) => 'error',
+        data: (data) => 'data',
+        none: () => 'none',
+      ),
+      'none',
+    );
+
+    final snapshot8 = AsyncSnapshot<int>.waiting();
+    expect(
+      snapshot8.when(
+        loading: () => 'loading',
+        error: (error, stack) => 'error',
+        data: (data) => 'data',
+        none: () => 'none',
+      ),
+      'loading',
+    );
+
+    final snapshot9 = AsyncSnapshot<int>.withData(ConnectionState.active, 1);
+    expect(
+      snapshot9.when(
+        loading: () => 'loading',
+        error: (error, stack) => 'error',
+        data: (data) => 'data',
+        none: () => 'none',
+      ),
+      'data',
+    );
+
+    final snapshot10 = AsyncSnapshot<int>.nothing();
+    expect(
+      snapshot10.when(
+        loading: () => 'loading',
+        error: (error, stack) => 'error',
+        data: (data) => 'data',
+      ),
+      'error',
+    );
   });
 }
