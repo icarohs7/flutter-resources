@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import '../../core_resources.dart';
 
 mixin BaseRouter {
+  void push(BuildContext context, String route, {Map<String, String>? params, Object? extra}) {
+    Core.push(context, route, params: params, extra: extra);
+  }
+
   void go(BuildContext context, String route, {Map<String, String>? params, Object? extra}) {
-    Core.goNamed(context, route, params: params, extra: extra);
+    Core.go(context, route, params: params, extra: extra);
   }
 
   void replace(BuildContext context, String route, {Map<String, String>? params, Object? extra}) {
-    Core.replaceNamed(context, route, params: params, extra: extra);
+    Core.replace(context, route, params: params, extra: extra);
   }
 
   void replaceAll(
@@ -17,7 +21,7 @@ mixin BaseRouter {
     Map<String, String>? params,
     Object? extra,
   }) {
-    Core.replaceAllNamed(context, route, params: params, extra: extra);
+    Core.replaceAll(context, route, params: params, extra: extra);
   }
 
   List<String> get bottomNavRoutes => [];
@@ -31,18 +35,19 @@ mixin BaseRouter {
     return index != -1 ? index : null;
   }
 
+  void pushToBottomNavRoute(BuildContext context, int index) {
+    push(context, bottomNavRoutes[index]);
+  }
+
   void goToBottomNavRoute(BuildContext context, int index) {
-    final route = bottomNavRoutes[index];
-    go(context, route);
+    go(context, bottomNavRoutes[index]);
   }
 
   void replaceToBottomNavRoute(BuildContext context, int index) {
-    final route = bottomNavRoutes[index];
-    replace(context, route);
+    replace(context, bottomNavRoutes[index]);
   }
 
   void replaceAllToBottomNavRoute(BuildContext context, int index) {
-    final route = bottomNavRoutes[index];
-    replaceAll(context, route);
+    replaceAll(context, bottomNavRoutes[index]);
   }
 }

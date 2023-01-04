@@ -34,7 +34,7 @@ void main() {
     expect(() => Core.get<int>(), throwsA(isA<Error>()));
   });
 
-  testWidgets('replaceAllNamedNavigator test', (tester) async {
+  testWidgets('push test', (tester) async {
     await tester.pumpWidget(defaultApp);
 
     Navigator.of(navigatorKey.currentContext!).pushNamed('/test');
@@ -45,88 +45,123 @@ void main() {
     expect(find.byType(Column), findsNothing);
     expect(find.byType(Container), findsOneWidget);
     expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
-    expect(() => Core.replaceAllNamed(navigatorKey.currentContext!, '/'), throwsA(isA<Error>()));
+    expect(() => Core.push(navigatorKey.currentContext!, '/'), throwsA(isA<Error>()));
 
-    Core.setReplaceAllNamedFn((context, routeName, {params, extra}) {
+    Core.setPushFn((context, routeName, {params, extra}) {
+      Navigator.of(context).pushNamed(routeName, arguments: params);
+    });
+    Core.push(navigatorKey.currentContext!, '/test', params: {'test': 'test'});
+
+    await tester.pumpAndSettle();
+    expect(find.byType(Row), findsNothing);
+    expect(find.byType(Column), findsOneWidget);
+    expect(find.byType(Container), findsNothing);
+    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
+
+    String? currentPath;
+    Object? arguments;
+    navigatorKey.currentState?.popUntil((route) {
+      currentPath = route.settings.name;
+      arguments = route.settings.arguments;
+      return true;
+    });
+    expect(currentPath, '/test');
+    expect(arguments, {'test': 'test'});
+  });
+
+  testWidgets('go test', (tester) async {
+    await tester.pumpWidget(defaultApp);
+
+    Navigator.of(navigatorKey.currentContext!).pushNamed('/test');
+    Navigator.of(navigatorKey.currentContext!).pushNamed('/test2');
+    await tester.pumpAndSettle();
+
+    expect(find.byType(Row), findsNothing);
+    expect(find.byType(Column), findsNothing);
+    expect(find.byType(Container), findsOneWidget);
+    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
+    expect(() => Core.go(navigatorKey.currentContext!, '/'), throwsA(isA<Error>()));
+
+    Core.setGoFn((context, routeName, {params, extra}) {
+      Navigator.of(context).pushNamed(routeName, arguments: params);
+    });
+    Core.go(navigatorKey.currentContext!, '/test', params: {'test': 'test'});
+
+    await tester.pumpAndSettle();
+    expect(find.byType(Row), findsNothing);
+    expect(find.byType(Column), findsOneWidget);
+    expect(find.byType(Container), findsNothing);
+    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
+
+    String? currentPath;
+    Object? arguments;
+    navigatorKey.currentState?.popUntil((route) {
+      currentPath = route.settings.name;
+      arguments = route.settings.arguments;
+      return true;
+    });
+    expect(currentPath, '/test');
+    expect(arguments, {'test': 'test'});
+  });
+
+  testWidgets('replace test', (tester) async {
+    await tester.pumpWidget(defaultApp);
+
+    Navigator.of(navigatorKey.currentContext!).pushNamed('/test');
+    Navigator.of(navigatorKey.currentContext!).pushNamed('/test2');
+    await tester.pumpAndSettle();
+
+    expect(find.byType(Row), findsNothing);
+    expect(find.byType(Column), findsNothing);
+    expect(find.byType(Container), findsOneWidget);
+    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
+    expect(() => Core.replace(navigatorKey.currentContext!, '/'), throwsA(isA<Error>()));
+
+    Core.setReplaceFn((context, routeName, {params, extra}) {
+      Navigator.of(context).pushReplacementNamed(routeName, arguments: params);
+    });
+    Core.replace(navigatorKey.currentContext!, '/test', params: {'test': 'test'});
+
+    await tester.pumpAndSettle();
+    expect(find.byType(Row), findsNothing);
+    expect(find.byType(Column), findsOneWidget);
+    expect(find.byType(Container), findsNothing);
+    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
+
+    String? currentPath;
+    Object? arguments;
+    navigatorKey.currentState?.popUntil((route) {
+      currentPath = route.settings.name;
+      arguments = route.settings.arguments;
+      return true;
+    });
+    expect(currentPath, '/test');
+    expect(arguments, {'test': 'test'});
+  });
+
+  testWidgets('replaceAll test', (tester) async {
+    await tester.pumpWidget(defaultApp);
+
+    Navigator.of(navigatorKey.currentContext!).pushNamed('/test');
+    Navigator.of(navigatorKey.currentContext!).pushNamed('/test2');
+    await tester.pumpAndSettle();
+
+    expect(find.byType(Row), findsNothing);
+    expect(find.byType(Column), findsNothing);
+    expect(find.byType(Container), findsOneWidget);
+    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
+    expect(() => Core.replaceAll(navigatorKey.currentContext!, '/'), throwsA(isA<Error>()));
+
+    Core.setReplaceAllFn((context, routeName, {params, extra}) {
       Navigator.of(context).pushNamedAndRemoveUntil(routeName, (route) => false, arguments: params);
     });
-    Core.replaceAllNamed(navigatorKey.currentContext!, '/test', params: {'test': 'test'});
+    Core.replaceAll(navigatorKey.currentContext!, '/test', params: {'test': 'test'});
 
     await tester.pumpAndSettle();
     expect(find.byType(Row), findsNothing);
     expect(find.byType(Column), findsOneWidget);
     expect(find.byType(Container), findsNothing);
     expect(Navigator.of(navigatorKey.currentContext!).canPop(), isFalse);
-
-    String? currentPath;
-    Object? arguments;
-    navigatorKey.currentState?.popUntil((route) {
-      currentPath = route.settings.name;
-      arguments = route.settings.arguments;
-      return true;
-    });
-    expect(currentPath, '/test');
-    expect(arguments, {'test': 'test'});
-  });
-
-  testWidgets('replaceNamedNavigator test', (tester) async {
-    await tester.pumpWidget(defaultApp);
-
-    Navigator.of(navigatorKey.currentContext!).pushNamed('/test');
-    Navigator.of(navigatorKey.currentContext!).pushNamed('/test2');
-    await tester.pumpAndSettle();
-
-    expect(find.byType(Row), findsNothing);
-    expect(find.byType(Column), findsNothing);
-    expect(find.byType(Container), findsOneWidget);
-    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
-    expect(() => Core.replaceNamed(navigatorKey.currentContext!, '/'), throwsA(isA<Error>()));
-
-    Core.setReplaceNamedFn((context, routeName, {params, extra}) {
-      Navigator.of(context).pushReplacementNamed(routeName, arguments: params);
-    });
-    Core.replaceNamed(navigatorKey.currentContext!, '/test', params: {'test': 'test'});
-
-    await tester.pumpAndSettle();
-    expect(find.byType(Row), findsNothing);
-    expect(find.byType(Column), findsOneWidget);
-    expect(find.byType(Container), findsNothing);
-    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
-
-    String? currentPath;
-    Object? arguments;
-    navigatorKey.currentState?.popUntil((route) {
-      currentPath = route.settings.name;
-      arguments = route.settings.arguments;
-      return true;
-    });
-    expect(currentPath, '/test');
-    expect(arguments, {'test': 'test'});
-  });
-
-  testWidgets('goNamedNavigator test', (tester) async {
-    await tester.pumpWidget(defaultApp);
-
-    Navigator.of(navigatorKey.currentContext!).pushNamed('/test');
-    Navigator.of(navigatorKey.currentContext!).pushNamed('/test2');
-    await tester.pumpAndSettle();
-
-    expect(find.byType(Row), findsNothing);
-    expect(find.byType(Column), findsNothing);
-    expect(find.byType(Container), findsOneWidget);
-    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
-    expect(() => Core.goNamed(navigatorKey.currentContext!, '/'), throwsA(isA<Error>()));
-
-    Core.setGoNamedFn((context, routeName, {params, extra}) {
-      Navigator.of(context).pushNamed(routeName, arguments: params);
-    });
-    Core.goNamed(navigatorKey.currentContext!, '/test', params: {'test': 'test'});
-
-    await tester.pumpAndSettle();
-    expect(find.byType(Row), findsNothing);
-    expect(find.byType(Column), findsOneWidget);
-    expect(find.byType(Container), findsNothing);
-    expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
 
     String? currentPath;
     Object? arguments;
