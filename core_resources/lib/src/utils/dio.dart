@@ -2,15 +2,22 @@ import 'package:dio/dio.dart';
 
 ///Create default dio instance
 ///for flutter
-Dio defaultFlutterDio(String baseUrl) {
-  int secondsToMilliseconds(int seconds) => seconds * 1000;
+Dio defaultFlutterDio(
+  String baseUrl, {
+  int? connectTimeout = 30 * 1000,
+  int? receiveTimeout = 30 * 1000,
+  int? sendTimeout = 30 * 1000,
+  ResponseType? responseType = ResponseType.plain,
+  Map<String, String> headers = const {'Accept': 'application/json'},
+  bool receiveDataWhenStatusError = true,
+}) {
   return Dio(BaseOptions(
     baseUrl: baseUrl,
-    connectTimeout: secondsToMilliseconds(30),
-    receiveTimeout: secondsToMilliseconds(30),
-    sendTimeout: secondsToMilliseconds(30),
-    responseType: ResponseType.plain,
-    headers: {'Accept': 'application/json'},
-    receiveDataWhenStatusError: true,
+    connectTimeout: connectTimeout,
+    receiveTimeout: receiveTimeout,
+    sendTimeout: sendTimeout,
+    responseType: responseType,
+    headers: headers,
+    receiveDataWhenStatusError: receiveDataWhenStatusError,
   ));
 }
