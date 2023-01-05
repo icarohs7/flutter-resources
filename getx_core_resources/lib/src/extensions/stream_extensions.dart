@@ -1,4 +1,5 @@
-import '../../getx_core_resources.dart';
+
+import 'package:get/get.dart';
 
 /// GCR = Getx Core Resources
 extension GCRStreamExtensions<T> on Stream<T> {
