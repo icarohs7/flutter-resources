@@ -6,10 +6,6 @@ import 'package:rxdart/rxdart.dart';
 import 'baseclasses/abstract_json_database.dart';
 import 'baseclasses/abstract_t_database.dart';
 
-/// Global box used to persist data as
-/// an alternative to using shared preferences
-final globalBox = Hive.box<String>('globalBox');
-
 ///Implementation of [AbstractTDatabase] using Hive
 ///as the underlying engine.
 // ignore: non_constant_identifier_names
