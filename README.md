@@ -1,6 +1,5 @@
 # Flutter Resources
-Library of functions, extensions, widgets and classes used to simplify
-the development of Flutter applications.
+Library of functions, extensions, widgets and classes I use to develop apps.
 
 [![Actions Status](https://github.com/icarohs7/unox-flutter-resmodules/workflows/build/badge.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/actions)
@@ -22,19 +21,3 @@ https://github.com/icarohs7/unox-flutter-resmodules/releases/v0.1)
 https://github.com/ellerbrock/open-source-badges/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/icarohs7/unox-flutter-resmodules.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/commits/master)
-
-## Installing
-
-Select the module and import it through GitHub.
-
-```yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  core_resources:
-    git:
-      url: https://github.com/icarohs7/unox-flutter-resmodules
-      path: core_resources
-```
-
-Note: No internationalization, all strings are in pt-BR
