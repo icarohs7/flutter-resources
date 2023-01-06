@@ -19,7 +19,7 @@ class AbstractTDatabase<T> {
 
   Map<String, dynamic> _serialize(T item) => jsonDecode(jsonEncode(item));
 
-  List<Map<String, dynamic>> _serializeList(List<T> items) => items.map(_serialize).toList();
+  List<Map<String, dynamic>> _serializeList(Iterable<T> items) => items.map(_serialize).toList();
 
   T? _deserialize(Map<String, dynamic> json) => adapter(json);
 
@@ -33,7 +33,7 @@ class AbstractTDatabase<T> {
   }
 
   ///Store multiple items
-  Future<void> insertAll(List<T> items) {
+  Future<void> insertAll(Iterable<T> items) {
     return jsonDatabase.insertAll(_serializeList(items));
   }
 
@@ -43,7 +43,7 @@ class AbstractTDatabase<T> {
   }
 
   ///Erase the database and insert values
-  Future<void> replaceAll(List<T> items) {
+  Future<void> replaceAll(Iterable<T> items) {
     return jsonDatabase.replaceAll(_serializeList(items));
   }
 
