@@ -2,21 +2,8 @@
 
 import 'dart:async';
 
-import 'package:async/async.dart';
-
-import '../../core_resources.dart';
-
 ///Run the given operation asynchronously
 Future<T> runAsync<T>(FutureOr<T> Function() fn) => Future(() async => await fn());
-
-///Wrap the given future result into a Result instance
-Future<Result<T>> runCatchingAsync<T>(FutureOr<T> Function() fn) async {
-  try {
-    return Result.value(await fn());
-  } catch (e) {
-    return Result.error(e);
-  }
-}
 
 ///Return the result of the given operation or the [fallback] if
 ///the operation throws
