@@ -140,7 +140,7 @@ void main() {
   });
 }
 
-AbstractTDatabase<MockModel> createDb() {
+TDatabase<MockModel> createDb() {
   return HiveTDatabase<MockModel>(dbName: 'database', adapter: (e) => MockModel.fromJson(e));
 }
 

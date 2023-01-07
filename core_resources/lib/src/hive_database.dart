@@ -1,82 +1,64 @@
-import 'dart:convert';
-
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 
-import 'baseclasses/abstract_json_database.dart';
-import 'baseclasses/abstract_t_database.dart';
+import 'baseclasses/json_database.dart';
+import 'baseclasses/t_database.dart';
 
-///Implementation of [AbstractTDatabase] using Hive
+///Implementation of [TDatabase] using Hive
 ///as the underlying engine.
 // ignore: non_constant_identifier_names
-AbstractTDatabase<T> HiveTDatabase<T>({
+TDatabase<T> HiveTDatabase<T>({
   String? dbName,
-  required T Function(Map<String, dynamic>) adapter,
+  required T Function(JsonObject) adapter,
 }) {
   final db = HiveDatabase(dbName ?? '${T.runtimeType}'.toLowerCase());
-  return AbstractTDatabase(jsonDatabase: db, adapter: adapter);
+  return TDatabase(jsonDatabase: db, adapter: adapter);
 }
 
-///Implementation of [AbstractJsonDatabase] using Hive
+///Implementation of [JsonDatabase] using Hive
 ///as the underlying engine
 // ignore: non_constant_identifier_names
-class HiveDatabase extends AbstractJsonDatabase {
+class HiveDatabase extends JsonDatabase {
   HiveDatabase(this.boxName);
 
   final String boxName;
 
-  Future<Box<String>> _getBox() async => await Hive.openBox(boxName);
-
-  String _serialize(Map<String, dynamic> item) => jsonEncode(item);
-
-  List<String> _serializeList(List<Map<String, dynamic>> items) => items.map(_serialize).toList();
-
-  Map<String, dynamic> _deserialize(String item) => jsonDecode(item);
-
-  List<Map<String, dynamic>> _deserializeList(List<String> items) {
-    return items.map(_deserialize).toList();
-  }
+  Future<Box<JsonObject>> _box() async => await Hive.openBox(boxName);
 
   @override
-  Future<int> insert(Map<String, dynamic> item, {int? key}) async {
-    final box = await _getBox();
+  Future<int> insert(JsonObject item, {int? key}) async {
+    final box = await _box();
     if (key != null) {
-      await box.put(key, _serialize(item));
+      await box.put(key, item);
       return key;
     } else {
-      return await box.add(_serialize(item));
+      return await box.add(item);
     }
   }
 
   @override
-  Future<void> insertAll(List<Map<String, dynamic>> items) async {
-    await (await _getBox()).addAll(_serializeList(items));
-  }
+  Future<void> insertAll(Iterable<JsonObject> items) async => (await _box()).addAll(items);
 
   @override
-  Future<void> insertAllWithKeys(Map<int, Map<String, dynamic>> items) async {
-    await (await _getBox()).putAll(items.map<int, String>((k, v) {
-      return MapEntry(k, _serialize(v));
-    }));
-  }
+  Future<void> insertAllWithKeys(Map<int, JsonObject> items) async => (await _box()).putAll(items);
 
   @override
-  Future<void> replaceAll(List<Map<String, dynamic>> items) async {
-    final box = await _getBox();
+  Future<void> replaceAll(Iterable<JsonObject> items) async {
+    final box = await _box();
     await box.clear();
     await insertAll(items);
   }
 
   @override
-  Future<void> replaceAllWithKeys(Map<int, Map<String, dynamic>> items) async {
-    final box = await _getBox();
+  Future<void> replaceAllWithKeys(Map<int, JsonObject> items) async {
+    final box = await _box();
     await box.clear();
     await insertAllWithKeys(items);
   }
 
   @override
   Future<void> delete({int? key}) async {
-    final box = await _getBox();
+    final box = await _box();
     if (key != null) {
       await box.delete(key);
     } else {
@@ -85,31 +67,26 @@ class HiveDatabase extends AbstractJsonDatabase {
   }
 
   @override
-  Future<Map<String, dynamic>?> getSingle(int key) async {
-    final item = (await _getBox()).get(key);
-    return item != null ? _deserialize(item) : null;
-  }
+  Future<JsonObject?> getSingle(int key) async => (await _box()).get(key);
 
   @override
-  Future<List<Map<String, dynamic>>> getAll() async {
-    return _deserializeList((await _getBox()).values.toList());
-  }
+  Future<Iterable<JsonObject>> getAll() async => (await _box()).values;
 
   @override
-  Stream<List<Map<String, dynamic>>> streamAll() async* {
-    yield* (await _getBox())
+  Stream<Iterable<JsonObject>> streamAll() async* {
+    yield* (await _box())
         .watch()
         .throttleTime(Duration(milliseconds: 250), trailing: true)
-        .asyncMap<List<Map<String, dynamic>>>((e) => getAll())
+        .asyncMap<Iterable<JsonObject>>((e) => getAll())
         .startWith(await getAll());
   }
 
   @override
-  Stream<Map<String, dynamic>?> streamSingle(int key) async* {
-    yield* (await _getBox())
+  Stream<JsonObject?> streamSingle(int key) async* {
+    yield* (await _box())
         .watch(key: key)
         .throttleTime(Duration(milliseconds: 250), trailing: true)
-        .asyncMap<Map<String, dynamic>?>((e) => getSingle(key))
+        .asyncMap<JsonObject?>((e) => getSingle(key))
         .startWith(await getSingle(key));
   }
 }

@@ -19,11 +19,11 @@ export 'package:rxdart/rxdart.dart' hide Rx;
 export 'package:transparent_image/transparent_image.dart';
 export 'package:url_launcher/url_launcher.dart';
 
-export 'src/baseclasses/abstract_json_database.dart';
-export 'src/baseclasses/abstract_t_database.dart';
 export 'src/baseclasses/base_api_service.dart';
 export 'src/baseclasses/base_repository.dart';
 export 'src/baseclasses/base_router.dart';
+export 'src/baseclasses/json_database.dart' hide JsonObject;
+export 'src/baseclasses/t_database.dart';
 export 'src/classes/core_router_observer.dart';
 export 'src/extensions/async_snapshot_extensions.dart';
 export 'src/extensions/color_extensions.dart';

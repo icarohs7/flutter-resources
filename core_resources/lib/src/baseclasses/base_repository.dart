@@ -1,9 +1,9 @@
-import 'abstract_t_database.dart';
+import 't_database.dart';
 
 class BaseRepository<T> {
   BaseRepository({required this.db});
 
-  final AbstractTDatabase<T> db;
+  final TDatabase<T> db;
 
   ///Store single item
   Future<int> insert(T item, {int? key}) => db.insert(item, key: key);
@@ -32,13 +32,13 @@ class BaseRepository<T> {
   Future<void> clear() => delete();
 
   ///Get a record identified by the given [key]
-  Future<T?> getSingle(int key) async => db.getSingle(key);
+  Future<T?> getSingle(int key) => db.getSingle(key);
 
   ///Get all records stored
-  Future<List<T>> getAll() async => db.getAll();
+  Future<Iterable<T>> getAll() => db.getAll();
 
   ///Stream of the latest records store
-  Stream<List<T>> streamAll() => db.streamAll();
+  Stream<Iterable<T>> streamAll() => db.streamAll();
 
   ///Stream of the latest version of a record
   ///identified by the given [key]
