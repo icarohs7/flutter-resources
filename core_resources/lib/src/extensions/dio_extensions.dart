@@ -12,92 +12,6 @@ import '../../core_resources.dart';
 extension CRDioExtensions on Dio {
   String get baseUrl => options.baseUrl;
 
-  /// Returns the error message from the json response,
-  /// or the [messageWhenBlankError] if the error message is blank.
-  String? getJsonErrorIfAny(
-    Map<String, dynamic>? json, {
-    String messageWhenBlankError = 'Erro ao realizar requisição',
-  }) {
-    if (json == null) return messageWhenBlankError;
-    return _extractErrorOrNullFromJson(json, messageWhenBlankError: messageWhenBlankError);
-  }
-
-  /// Returns a [Try] with the result of the [mapper] function,
-  /// or a [Try.error] with the error message from the json response,
-  /// or the [messageOnError] if the error message is blank.
-  Try<T> tryJsonOrErrorT<T>(
-    Map<String, dynamic> json,
-    T Function(Map<String, dynamic> json) mapper, {
-    String messageOnError = 'Erro ao realizar requisição',
-  }) {
-    return Try(
-      () => mapper(json),
-      messageOnError:
-          getJsonErrorIfAny(json, messageWhenBlankError: messageOnError) ?? messageOnError,
-    );
-  }
-
-  /// Throws an [Exception] with the error message from the json response
-  /// or do nothing if there's no error in the json
-  void throwJsonErrorIfAny(Map<String, dynamic> json) {
-    final error = _extractErrorOrNullFromJson(json);
-    if (error == null) return;
-    if (error.isBlank) throw Exception('Unknown error on API call');
-    throw Exception(error);
-  }
-
-  /// Returns the error message from the json response
-  String? _extractErrorOrNullFromJson(
-    Map<String, dynamic> json, {
-    String? messageWhenBlankError,
-  }) {
-    final error = json['error'] ?? json['erro'];
-    final errors = json['errors'];
-    final retorno = json['retorno'];
-    final status = json['status'];
-    final success = json['sucesso'] ?? json['success'];
-    final message = json['mensagem'] ?? json['message'];
-    final code = json['code'] ?? runCatching(() => json['data']['status']);
-    final statusMessage = (status != null && status is String)
-        ? !status.isNumericOnly
-            ? status
-            : null
-        : null;
-    final retornoMessage = (retorno != null && retorno is String)
-        ? !retorno.isNumericOnly
-            ? retorno
-            : null
-        : null;
-
-    final errorInvalid = error != null && '$error'.isNotBlank;
-    final returnInvalid = (retorno == 0 || retorno == '0' || retorno == false) &&
-        status != null &&
-        '$status'.isNotBlank;
-    final successInvalid = success == false || success == 0 || success == '0';
-    final codeInvalid =
-        code != null && (code is int || code is String) && code != 200 && code != '200';
-    final statusAsCodeInvalid = status is int && status >= 400;
-
-    final hasError =
-        errorInvalid || returnInvalid || successInvalid || codeInvalid || statusAsCodeInvalid;
-
-    if (errors != null) {
-      final message = runCatching(() {
-        final Map<String, dynamic> errors = json['errors'];
-        final List messages = errors.values.first;
-        final String message = messages.first;
-        return message;
-      });
-      return message ?? messageWhenBlankError;
-    }
-
-    if (hasError) {
-      return error ?? statusMessage ?? message ?? retornoMessage ?? messageWhenBlankError;
-    }
-
-    return null;
-  }
-
   /// Returns the result of the get request to the given [url],
   /// parsed as a [Map<String, dynamic>].
   Future<Map<String, dynamic>> getRJsonObj(
@@ -267,15 +181,4 @@ img.Image? _resizeImage(Tuple2<File, int> args) {
   final image = img.decodeImage(file.readAsBytesSync());
   if (image == null) return null;
   return image.width <= widthThreshold ? image : img.copyResize(image, width: widthThreshold);
-}
-
-extension on String {
-  /// Returns whether this string has only digits
-  bool get isNumericOnly => hasMatch(r'^\d+$');
-
-  /// Returns whether there's any match of the given [pattern]
-  /// on this string
-  bool hasMatch(String pattern) {
-    return RegExp(pattern).hasMatch(this);
-  }
 }

@@ -9,25 +9,6 @@ mixin BaseApiService {
 
   Dio get dio => Core.get();
 
-  String? getJsonErrorIfAny(
-    Map<String, dynamic>? json, {
-    String messageWhenBlankError = 'Erro ao realizar requisição',
-  }) {
-    return dio.getJsonErrorIfAny(json, messageWhenBlankError: messageWhenBlankError);
-  }
-
-  Try<T> tryJsonOrErrorT<T>(
-    Map<String, dynamic> json,
-    T Function(Map<String, dynamic> json) mapper, {
-    String messageOnError = 'Erro ao realizar requisição',
-  }) {
-    return dio.tryJsonOrErrorT(json, mapper, messageOnError: messageOnError);
-  }
-
-  void throwJsonErrorIfAny(Map<String, dynamic> json) {
-    dio.throwJsonErrorIfAny(json);
-  }
-
   Future<Response<T>> get<T>(
     String url, {
     Map<String, dynamic>? queryParameters,
