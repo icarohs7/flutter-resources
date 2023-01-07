@@ -169,12 +169,6 @@ extension CRDioExtensions on Dio {
 
 dynamic _encodeObj(dynamic obj) => jsonDecode(jsonEncode(obj));
 
-extension CRResponseExtensions on Response<String> {
-  Future<List> toJsonArray() => jsonDecodeArray(data ?? '');
-
-  Future<Map<String, dynamic>> toJsonObject() => jsonDecodeObj(data ?? '');
-}
-
 img.Image? _resizeImage(Tuple2<File, int> args) {
   final file = args.value1;
   final widthThreshold = args.value2;
