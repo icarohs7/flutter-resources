@@ -13,7 +13,6 @@ class HorizontalScaleTransition extends AnimatedWidget {
   ///
   /// If the current value of the scale animation is v, the child will be
   /// painted v times its normal size.
-  // ignore: avoid_as
   Animation<double> get scale => listenable as Animation<double>;
 
   /// The alignment of the origin of the coordinate system in which the scale
@@ -51,7 +50,6 @@ class VerticalScaleTransition extends AnimatedWidget {
   ///
   /// If the current value of the scale animation is v, the child will be
   /// painted v times its normal size.
-  // ignore: avoid_as
   Animation<double> get scale => listenable as Animation<double>;
 
   /// The alignment of the origin of the coordinate system in which the scale
