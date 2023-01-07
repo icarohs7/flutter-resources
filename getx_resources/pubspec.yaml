@@ -1,4 +1,4 @@
-name: getx_core_resources
+name: getx_resources
 description: Monolithic library with opinionated state, dependency injection and storage utilities
 publish_to: none
 version: 0.0.1

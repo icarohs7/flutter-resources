@@ -1,4 +1,4 @@
-library getx_core_resources;
+library getx_resources;
 
 import 'package:core_resources/core_resources.dart';
 import 'package:core_resources/core_resources.dart' as core;
