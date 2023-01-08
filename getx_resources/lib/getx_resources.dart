@@ -4,8 +4,7 @@ import 'package:core_resources/core_resources.dart';
 import 'package:core_resources/core_resources.dart' as core;
 import 'package:get/get.dart';
 
-export 'package:core_resources/core_resources.dart'
-    hide HiveDbResources, RxList, RxMap, RxSet, RxNotifier;
+export 'package:core_resources/core_resources.dart' hide RxList, RxMap, RxSet, RxNotifier;
 export 'package:get/get.dart'
     hide ListExtension, FormData, MultipartFile, Response, ContextExtensionss;
 
@@ -40,6 +39,6 @@ class HiveDbResources {
     Core.setCurrentExtrasFn((context) {
       return Get.arguments;
     });
-    if (initHive) await core.HiveDbResources.init();
+    if (initHive) await Hive.initFlutter();
   }
 }
