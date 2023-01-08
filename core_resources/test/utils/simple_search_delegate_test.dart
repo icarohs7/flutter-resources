@@ -53,11 +53,60 @@ void main() {
     expect(find.byType(ListTile), findsNWidgets(1));
 
     await tester.tap(find.byType(ListTile).first);
+    await tester.pump(Duration(milliseconds: 300));
+
+    expect(result, 'test001');
+  });
+
+  testWidgets('SimpleSearchDelegate 2', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(
+            actions: [
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () async {
+                  await showSearch<String?>(
+                    context: tester.element(find.byType(Scaffold)),
+                    delegate: SimpleSearchDelegateImplementation(),
+                  );
+                },
+              ),
+            ],
+          ),
+          body: Center(
+            child: Text('Home Page'),
+          ),
+        ),
+      ),
+    );
+
+    await tester.tap(find.byIcon(Icons.search));
+    for (int i = 0; i < 10; i++) {
+      await tester.pump(Duration(milliseconds: 100));
+    }
+    await tester.enterText(find.byType(TextField), 'hellotest');
+
+    expect(find.text('hellotest'), findsOneWidget);
+
+    await tester.tap(find.byIcon(Icons.backspace));
+
+    expect(find.text('hellotest'), findsNothing);
+
+    await tester.tap(find.byType(AnimatedIcon));
     for (int i = 0; i < 10; i++) {
       await tester.pump(Duration(milliseconds: 100));
     }
 
-    expect(result, 'test001');
+    expect(find.byIcon(Icons.backspace), findsNothing);
+    expect(find.byIcon(Icons.search), findsOneWidget);
+    expect(find.byType(TextField), findsNothing);
+    expect(find.byType(ListView), findsNothing);
+    expect(find.byType(ListTile), findsNothing);
+    expect(find.text('test001'), findsNothing);
+    expect(find.text('test012'), findsNothing);
+    expect(find.text('test013'), findsNothing);
   });
 }
 
