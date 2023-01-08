@@ -1,11 +1,6 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:http/http.dart' as http;
-import 'package:image/image.dart' as img;
-import 'package:mime_type/mime_type.dart';
-import 'package:path/path.dart' as path;
 
 import '../../core_resources.dart';
 
@@ -134,45 +129,6 @@ extension CRDioExtensions on Dio {
     );
     return jsonDecodeObj(responseInterceptor?.call(response.data ?? '') ?? response.data ?? '');
   }
-
-  /// Returns the given image located at [imagePath] as a [http.MultipartFile]
-  /// resized to the given [imageWidth]
-  Future<http.MultipartFile?> resizedImageMultipart(
-    String field, {
-    required String imagePath,
-    int imageWidth = 800,
-  }) async {
-    final file = File(imagePath);
-    final contentType = mime(file.uri.toString());
-    if (contentType == null) return null;
-    final resized = await compute(_resizeImage, Tuple2(file, imageWidth));
-    if (resized == null) return null;
-
-    final isJpg = contentType == 'image/jpeg' || contentType == 'image/jpg';
-    final isGif = contentType == 'image/gif';
-    final isIco = contentType == 'image/x-icon';
-
-    return http.MultipartFile.fromBytes(
-      field,
-      isJpg
-          ? img.encodeJpg(resized)
-          : isGif
-              ? img.encodeGif(resized)
-              : isIco
-                  ? img.encodeIco(resized)
-                  : img.encodePng(resized),
-      filename: path.basename(file.path),
-      contentType: MediaType.parse(contentType),
-    );
-  }
 }
 
 dynamic _encodeObj(dynamic obj) => jsonDecode(jsonEncode(obj));
-
-img.Image? _resizeImage(Tuple2<File, int> args) {
-  final file = args.value1;
-  final widthThreshold = args.value2;
-  final image = img.decodeImage(file.readAsBytesSync());
-  if (image == null) return null;
-  return image.width <= widthThreshold ? image : img.copyResize(image, width: widthThreshold);
-}

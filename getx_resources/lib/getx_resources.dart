@@ -1,7 +1,6 @@
 library getx_resources;
 
 import 'package:core_resources/core_resources.dart';
-import 'package:core_resources/core_resources.dart' as core;
 import 'package:get/get.dart';
 
 export 'package:core_resources/core_resources.dart' hide RxList, RxMap, RxSet, RxNotifier;

@@ -1,5 +1,3 @@
-import 'package:http/http.dart' as http;
-
 import '../../core_resources.dart';
 
 class _EmptyBaseApiService with BaseApiService {}
@@ -92,13 +90,13 @@ mixin BaseApiService {
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server
   Future<Map<String, dynamic>> putRJsonObj(
-      String url, {
-        dynamic data,
-        dynamic rawData,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        String Function(String)? responseInterceptor,
-      }) {
+    String url, {
+    dynamic data,
+    dynamic rawData,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    String Function(String)? responseInterceptor,
+  }) {
     return dio.putRJsonObj(
       url,
       data: data,
@@ -107,13 +105,5 @@ mixin BaseApiService {
       options: options,
       responseInterceptor: responseInterceptor,
     );
-  }
-
-  Future<http.MultipartFile?> resizedImageMultipart(
-    String field, {
-    required String imagePath,
-    int imageWidth = 800,
-  }) {
-    return dio.resizedImageMultipart(field, imagePath: imagePath, imageWidth: imageWidth);
   }
 }
