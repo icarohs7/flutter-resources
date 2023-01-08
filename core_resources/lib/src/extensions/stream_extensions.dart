@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart' show IterableExtension;
 
-extension ListStreamExtensions<T> on Stream<List<T>> {
+extension ListStreamExtensions<T> on Stream<Iterable<T>> {
   ///Apply the given filter to each list emitted by the stream
-  Stream<List<T>> innerFilter(bool Function(T element) predicate) {
+  Stream<Iterable<T>> innerFilter(bool Function(T element) predicate) {
     return map((list) => list.where(predicate).toList());
   }
 
