@@ -58,10 +58,8 @@ void main() {
     expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
 
     String? currentPath;
-    Object? arguments;
     navigatorKey.currentState?.popUntil((route) {
       currentPath = route.settings.name;
-      arguments = route.settings.arguments;
       return true;
     });
     expect(currentPath, '/test?test=test');
@@ -88,10 +86,8 @@ void main() {
     expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
 
     String? currentPath;
-    Object? arguments;
     navigatorKey.currentState?.popUntil((route) {
       currentPath = route.settings.name;
-      arguments = route.settings.arguments;
       return true;
     });
     expect(currentPath, '/test?test=test');
@@ -118,10 +114,8 @@ void main() {
     expect(Navigator.of(navigatorKey.currentContext!).canPop(), isTrue);
 
     String? currentPath;
-    Object? arguments;
     navigatorKey.currentState?.popUntil((route) {
       currentPath = route.settings.name;
-      arguments = route.settings.arguments;
       return true;
     });
     expect(currentPath, '/test?test=test');
@@ -148,10 +142,8 @@ void main() {
     expect(Navigator.of(navigatorKey.currentContext!).canPop(), isFalse);
 
     String? currentPath;
-    Object? arguments;
     navigatorKey.currentState?.popUntil((route) {
       currentPath = route.settings.name;
-      arguments = route.settings.arguments;
       return true;
     });
     expect(currentPath, '/test?test=test');
