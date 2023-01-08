@@ -7,15 +7,7 @@ import 'package:get/get.dart';
 export 'package:core_resources/core_resources.dart'
     hide HiveDbResources, RxList, RxMap, RxSet, RxNotifier;
 export 'package:get/get.dart'
-    hide
-        ListExtension,
-        FormData,
-        MultipartFile,
-        Response,
-        ContextExtensionss,
-        RxNotifier,
-        RxSet,
-        RxMap;
+    hide ListExtension, FormData, MultipartFile, Response, ContextExtensionss;
 
 export 'src/extensions/future_extensions.dart';
 export 'src/extensions/getx_extensions.dart';
