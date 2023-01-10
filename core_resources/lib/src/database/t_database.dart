@@ -10,10 +10,7 @@ import 'json_database.dart';
 ///T objects, converted by the [adapter]
 ///field
 class TDatabase<T> {
-  TDatabase({
-    required JsonDatabase jsonDatabase,
-    required this.adapter,
-  }) : db = jsonDatabase;
+  TDatabase({required JsonDatabase database, required this.adapter}) : db = database;
 
   final JsonDatabase db;
   final T Function(JsonObject) adapter;

@@ -1,6 +1,8 @@
 import 'package:core_resources/core_resources.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'hive_database_test.dart';
+
 void main() {
   setUp(() async {
     await Hive.initFlutter();
@@ -11,20 +13,22 @@ void main() {
     await Hive.close();
   });
 
+  MockRepository createRepository() => MockRepository();
+
   test('insert and get', () async {
-    final db = createDb();
-    final key = await db.insert(MockModel(id: 1, description: 'test'), key: 1);
-    final item = await db.getSingle(key);
+    final repo = createRepository();
+    final key = await repo.insert(MockModel(id: 1, description: 'test'), key: 1);
+    final item = await repo.getSingle(key);
     expect(item, MockModel(id: 1, description: 'test'));
   });
 
   test('insertAll and getAll', () async {
-    final db = createDb();
-    await db.insertAll([
+    final repo = createRepository();
+    await repo.insertAll([
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
     ]);
-    final items = await db.getAll();
+    final items = await repo.getAll();
     expect(items, [
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
@@ -32,36 +36,36 @@ void main() {
   });
 
   test('insertAllWithKeys', () async {
-    final db = createDb();
-    await db.insertAllWithKeys({
+    final repo = createRepository();
+    await repo.insertAllWithKeys({
       1: MockModel(id: 1, description: 'test'),
       2: MockModel(id: 2, description: 'test2'),
     });
-    final items = await db.getAll();
+    final items = await repo.getAll();
     expect(items, [
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
     ]);
-    final item2 = await db.getSingle(2);
+    final item2 = await repo.getSingle(2);
     expect(item2, MockModel(id: 2, description: 'test2'));
   });
 
   test('replaceAll', () async {
-    final db = createDb();
-    await db.insertAll([
+    final repo = createRepository();
+    await repo.insertAll([
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
     ]);
-    final items0 = await db.getAll();
+    final items0 = await repo.getAll();
     expect(items0, [
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
     ]);
-    await db.replaceAll([
+    await repo.replaceAll([
       MockModel(id: 3, description: 'test3'),
       MockModel(id: 4, description: 'test4'),
     ]);
-    final items = await db.getAll();
+    final items = await repo.getAll();
     expect(items, [
       MockModel(id: 3, description: 'test3'),
       MockModel(id: 4, description: 'test4'),
@@ -69,54 +73,66 @@ void main() {
   });
 
   test('replaceAllWithKeys', () async {
-    final db = createDb();
-    await db.insertAllWithKeys({
+    final repo = createRepository();
+    await repo.insertAllWithKeys({
       1: MockModel(id: 1, description: 'test'),
       2: MockModel(id: 2, description: 'test2'),
     });
-    final items0 = await db.getAll();
+    final items0 = await repo.getAll();
     expect(items0, [
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
     ]);
-    await db.replaceAllWithKeys({
+    await repo.replaceAllWithKeys({
       1: MockModel(id: 3, description: 'test3'),
       2: MockModel(id: 4, description: 'test4'),
     });
-    final items = await db.getAll();
+    final items = await repo.getAll();
     expect(items, [
       MockModel(id: 3, description: 'test3'),
       MockModel(id: 4, description: 'test4'),
     ]);
-    final item3 = await db.getSingle(1);
+    final item3 = await repo.getSingle(1);
     expect(item3, MockModel(id: 3, description: 'test3'));
   });
 
-  test('delete', () async {
-    final db = createDb();
-    await db.insertAllWithKeys({
+  test('delete and clear', () async {
+    final repo = createRepository();
+    await repo.insertAllWithKeys({
       1: MockModel(id: 1, description: 'test'),
       2: MockModel(id: 2, description: 'test2'),
     });
-    final items0 = await db.getAll();
+    final items0 = await repo.getAll();
     expect(items0, [
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
     ]);
-    await db.delete(key: 1);
-    final items = await db.getAll();
+    await repo.delete(key: 1);
+    final items = await repo.getAll();
     expect(items, [
       MockModel(id: 2, description: 'test2'),
     ]);
-    await db.delete();
-    final items2 = await db.getAll();
+    await repo.delete();
+    final items2 = await repo.getAll();
     expect(items2, []);
+    await repo.insertAllWithKeys({
+      1: MockModel(id: 1, description: 'test'),
+      2: MockModel(id: 2, description: 'test2'),
+    });
+    final items3 = await repo.getAll();
+    expect(items3, [
+      MockModel(id: 1, description: 'test'),
+      MockModel(id: 2, description: 'test2'),
+    ]);
+    await repo.clear();
+    final items4 = await repo.getAll();
+    expect(items4, []);
   });
 
   test('streamAll', () async {
-    final db = createDb();
-    final stream = db.streamAll();
-    await db.insertAllWithKeys({
+    final repo = createRepository();
+    final stream = repo.streamAll();
+    await repo.insertAllWithKeys({
       1: MockModel(id: 1, description: 'test'),
       2: MockModel(id: 2, description: 'test2'),
     });
@@ -127,9 +143,9 @@ void main() {
   });
 
   test('streamSingle', () async {
-    final db = createDb();
-    final stream = db.streamSingle(1);
-    await db.insertAllWithKeys({
+    final repo = createRepository();
+    final stream = repo.streamSingle(1);
+    await repo.insertAllWithKeys({
       1: MockModel(id: 1, description: 'test'),
       2: MockModel(id: 2, description: 'test2'),
     });
@@ -140,59 +156,12 @@ void main() {
   });
 }
 
-TDatabase<MockModel> createDb() {
-  return HiveTDatabase<MockModel>(dbName: 'database', adapter: (e) => MockModel.fromJson(e));
-}
-
-class MockModel {
-  final int id;
-  final String description;
-
-//<editor-fold desc="Data Methods">
-
-  const MockModel({
-    required this.id,
-    required this.description,
-  });
+class MockRepository extends BaseRepository<MockModel> {
+  MockRepository() : super(db: createDb());
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is MockModel &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          description == other.description);
-
-  @override
-  int get hashCode => id.hashCode ^ description.hashCode;
-
-
-  @override
-  String toString() => 'MockModel{id: $id, description: $description}';
-
-  MockModel copyWith({
-    int? id,
-    String? description,
-  }) {
-    return MockModel(
-      id: id ?? this.id,
-      description: description ?? this.description,
-    );
+  Future<int> insert(MockModel item, {int? key}) async {
+    final id = key ?? item.id;
+    return super.insert(item.copyWith(id: id), key: id);
   }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'description': description,
-    };
-  }
-
-  factory MockModel.fromJson(Map<String, dynamic> map) {
-    return MockModel(
-      id: map['id'] as int,
-      description: map['description'] as String,
-    );
-  }
-
-//</editor-fold>
 }

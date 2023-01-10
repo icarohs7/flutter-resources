@@ -1,18 +1,14 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 
-import 'baseclasses/json_database.dart';
-import 'baseclasses/t_database.dart';
+import 'json_database.dart';
+import 't_database.dart';
 
 ///Implementation of [TDatabase] using Hive
 ///as the underlying engine.
 // ignore: non_constant_identifier_names
-TDatabase<T> HiveTDatabase<T>({
-  String? dbName,
-  required T Function(JsonObject) adapter,
-}) {
-  final db = HiveDatabase(dbName ?? '${T.runtimeType}'.toLowerCase());
-  return TDatabase(jsonDatabase: db, adapter: adapter);
+TDatabase<T> HiveTDatabase<T>(String dbName, T Function(JsonObject) adapter) {
+  return TDatabase(database: HiveDatabase(dbName), adapter: adapter);
 }
 
 ///Implementation of [JsonDatabase] using Hive
@@ -77,7 +73,7 @@ class HiveDatabase extends JsonDatabase {
     yield* (await _box())
         .watch()
         .throttleTime(Duration(milliseconds: 250), trailing: true)
-        .asyncMap<Iterable<JsonObject>>((e) => getAll())
+        .asyncMap((e) => getAll())
         .startWith(await getAll());
   }
 
@@ -86,7 +82,7 @@ class HiveDatabase extends JsonDatabase {
     yield* (await _box())
         .watch(key: key)
         .throttleTime(Duration(milliseconds: 250), trailing: true)
-        .asyncMap<JsonObject?>((e) => getSingle(key))
+        .asyncMap((e) => getSingle(key))
         .startWith(await getSingle(key));
   }
 }
