@@ -107,12 +107,12 @@ void main() {
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
     ]);
-    await repo.delete(key: 1);
+    await repo.delete(1);
     final items = await repo.getAll();
     expect(items, [
       MockModel(id: 2, description: 'test2'),
     ]);
-    await repo.delete();
+    await repo.deleteAll();
     final items2 = await repo.getAll();
     expect(items2, []);
     await repo.insertAllWithKeys({
@@ -124,7 +124,7 @@ void main() {
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
     ]);
-    await repo.clear();
+    await repo.deleteAll();
     final items4 = await repo.getAll();
     expect(items4, []);
   });

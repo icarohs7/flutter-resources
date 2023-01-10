@@ -18,6 +18,14 @@ void main() {
     expect(item, MockModel(id: 1, description: 'test'));
   });
 
+  test('insert and getAll', () async {
+    final db = createDb();
+    await db.insert(MockModel(id: 1, description: 'test'));
+    await db.insert(MockModel(id: 2, description: 'test2'));
+    final items = await db.getAll();
+    expect(items, [MockModel(id: 1, description: 'test'), MockModel(id: 2, description: 'test2')]);
+  });
+
   test('insertAll and getAll', () async {
     final db = createDb();
     await db.insertAll([
@@ -103,12 +111,12 @@ void main() {
       MockModel(id: 1, description: 'test'),
       MockModel(id: 2, description: 'test2'),
     ]);
-    await db.delete(key: 1);
+    await db.delete(1);
     final items = await db.getAll();
     expect(items, [
       MockModel(id: 2, description: 'test2'),
     ]);
-    await db.delete();
+    await db.deleteAll();
     final items2 = await db.getAll();
     expect(items2, []);
   });
