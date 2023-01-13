@@ -11,6 +11,7 @@ class NumberStepper extends StatelessWidget {
     this.increaseEnabled = true,
     this.decreaseEnabled = true,
     this.decoration,
+    this.mainAxisAlignment = MainAxisAlignment.spaceEvenly,
   });
 
   final int number;
@@ -19,13 +20,14 @@ class NumberStepper extends StatelessWidget {
   final bool increaseEnabled;
   final bool decreaseEnabled;
   final Decoration? decoration;
+  final MainAxisAlignment mainAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: decoration,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: mainAxisAlignment,
         children: <Widget>[
           IconButton(
             icon: Icon(Icons.remove),

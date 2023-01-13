@@ -16,6 +16,7 @@ void main() {
 
             return NumberStepper(
               numberValue,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               onChange: (value, event) {
                 if (event == NumberStepperEvent.increase) {
                   number.value = value + 1;
