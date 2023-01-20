@@ -16,7 +16,6 @@ export 'package:intl/intl.dart';
 export 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 export 'package:rx_notifier/rx_notifier.dart';
 export 'package:rxdart/rxdart.dart' hide Rx;
-export 'package:transparent_image/transparent_image.dart';
 export 'package:url_launcher/url_launcher.dart';
 
 export 'src/baseclasses/base_api_service.dart';
