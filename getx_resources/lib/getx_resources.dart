@@ -8,7 +8,6 @@ export 'package:get/get.dart'
     hide ListExtension, FormData, MultipartFile, Response, ContextExtensionss;
 
 export 'src/extensions/future_extensions.dart';
-export 'src/extensions/getx_extensions.dart';
 export 'src/extensions/stream_extensions.dart';
 
 // ignore: avoid_classes_with_only_static_members
