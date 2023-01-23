@@ -1,35 +1,32 @@
 import os
-from os.path import join
+from os import path
 
-subdirs = next(os.walk('.'))[1]
-subdirs.remove(".git")
-subdirs.remove(".github")
+packages = [
+    d[0] for d in os.walk('.')
+    if path.isdir(d[0]) and 'pubspec.yaml' in os.listdir(d[0])
+]
 
-errs = 0
-for subdir in subdirs:
-    try:
-        commands = [
-            f"cd ./{subdir}",
-            "flutter packages get",
-            "flutter analyze",
-            "flutter test --coverage"
-        ]
-        command = "&&".join(commands)
-        result = os.system(command)
-        if result != 0:
-            raise RuntimeError()
-        print(f"{subdir} built successfully")
-        print("=================================================\n")
-    except:
-        errs += 1
-        print(f"{subdir} failed to build")
-        print("=================================================\n")
+error_count = 0
+for package_dir in packages:
+    commands = [
+        f'cd ./{package_dir}',
+        'flutter packages get',
+        'flutter analyze',
+        'flutter test --coverage'
+    ]
+    command = '&&'.join(commands)
+    return_code = os.system(command)
+    if return_code == 0:
+        print(f'{package_dir} built successfully')
+        print('=================================================\n')
+    else:
+        error_count += 1
+        print(f'{package_dir} failed to build')
+        print('=================================================\n')
 
-module_count = len(subdirs)
-print("=================================================\n")
-print(f"{module_count - errs}/{module_count} modules succeeded building")
-print("=================================================\n")
-if os.name == "nt":
-    os.system("pause")
-if errs > 0:
+package_count = len(packages)
+print('=================================================\n')
+print(f'{package_count - error_count}/{package_count} modules succeeded building')
+print('=================================================\n')
+if error_count > 0:
     raise RuntimeError()
