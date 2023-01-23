@@ -2,8 +2,9 @@
 
 import 'dart:async';
 
-import 'package:core_resources/core_resources.dart';
 import 'package:flutter/material.dart';
+
+import '../../core_resources.dart';
 
 class SplashWidget<T> extends StatelessWidget {
   const SplashWidget({

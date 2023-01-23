@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core_resources.dart';
+import 'fade_page_route.dart';
 
 class Nav {
   Future<T?> goFullscreenDialog<T>(BuildContext context, {required Widget page}) {

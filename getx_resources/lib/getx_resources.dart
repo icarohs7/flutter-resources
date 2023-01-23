@@ -3,7 +3,7 @@ library getx_resources;
 import 'package:core_resources/core_resources.dart';
 import 'package:get/get.dart';
 
-export 'package:core_resources/core_resources.dart' hide RxList, RxMap, RxSet, RxNotifier;
+export 'package:core_resources/core_resources.dart';
 export 'package:get/get.dart'
     hide ListExtension, FormData, MultipartFile, Response, ContextExtensionss;
 

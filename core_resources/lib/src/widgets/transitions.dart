@@ -3,11 +3,11 @@ import 'package:flutter/widgets.dart';
 /// Animates the scale of a transformed widget in the X axis.
 class HorizontalScaleTransition extends AnimatedWidget {
   const HorizontalScaleTransition({
-    Key? key,
+    super.key,
     required Animation<double> scale,
     this.alignment = Alignment.center,
     this.child,
-  }) : super(key: key, listenable: scale);
+  }) : super(listenable: scale);
 
   /// The animation that controls the scale of the child.
   ///
@@ -40,11 +40,11 @@ class HorizontalScaleTransition extends AnimatedWidget {
 /// Animates the scale of a transformed widget in the Y axis.
 class VerticalScaleTransition extends AnimatedWidget {
   const VerticalScaleTransition({
-    Key? key,
+    super.key,
     required Animation<double> scale,
     this.alignment = Alignment.center,
     this.child,
-  }) : super(key: key, listenable: scale);
+  }) : super(listenable: scale);
 
   /// The animation that controls the scale of the child.
   ///

@@ -1,8 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/foundation.dart';
-
-import '../../core_resources.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 const FieldMasks = _FieldMasks();
 

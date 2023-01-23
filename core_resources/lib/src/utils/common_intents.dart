@@ -1,4 +1,4 @@
-import 'package:core_resources/src/extensions/string_extensions.dart';
+import '../extensions/string_extensions.dart';
 
 class CommonIntents {
   static Uri locationOnMaps({

@@ -1,8 +1,9 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../core_resources.dart';
+import '../utils/json.dart';
 
 extension CRDioExtensions on Dio {
   String get baseUrl => options.baseUrl;

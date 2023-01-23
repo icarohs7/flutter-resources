@@ -1,6 +1,7 @@
+import 'package:build_context/build_context.dart';
 import 'package:flutter/material.dart';
 
-import '../../core_resources.dart';
+import '../extensions/object_extensions.dart';
 
 class LoadingRaisedButton extends StatelessWidget {
   const LoadingRaisedButton({
@@ -178,11 +179,10 @@ class LoadingIconButton extends StatelessWidget {
 
 class _ButtonContent extends StatelessWidget {
   const _ButtonContent({
-    Key? key,
     required this.isLoading,
     required this.child,
     required this.progressIndicatorColor,
-  }) : super(key: key);
+  });
 
   final bool isLoading;
   final Widget? child;

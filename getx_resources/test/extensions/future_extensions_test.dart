@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:getx_resources/getx_resources.dart' hide TextDirection;
+import 'package:getx_resources/getx_resources.dart';
 
 void main() {
   testWidgets('obsF', (tester) async {

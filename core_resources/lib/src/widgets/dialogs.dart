@@ -27,12 +27,12 @@ class SimpleAlert extends StatelessWidget {
   final Function()? onConfirm;
 
   const SimpleAlert({
-    Key? key,
+    super.key,
     this.title,
     this.content,
     this.onConfirm,
     this.confirmText,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -89,8 +89,8 @@ class ConfirmDialog extends StatelessWidget {
     this.onCancel,
     this.cancelText,
     this.confirmText,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

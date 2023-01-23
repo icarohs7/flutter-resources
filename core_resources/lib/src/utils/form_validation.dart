@@ -1,6 +1,7 @@
+import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 
-import '../../core_resources.dart';
+import '../extensions/number_extensions.dart';
 
 /// Use multiple validators, returning null if all of them pass or the result of the
 /// first one not passing
