@@ -7,7 +7,6 @@ export 'package:dartx/dartx.dart' hide Function0, Function1, Function2, Function
 export 'package:dio/dio.dart';
 export 'package:flutter_hooks/flutter_hooks.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
-export 'package:functional_listener/functional_listener.dart';
 export 'package:hive_flutter/hive_flutter.dart';
 export 'package:html_unescape/html_unescape.dart';
 export 'package:http_parser/http_parser.dart';
