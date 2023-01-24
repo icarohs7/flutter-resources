@@ -8,7 +8,8 @@ void main() {
   late Widget defaultApp;
 
   setUpAll(() async {
-    await HiveDbResources.init(initHive: false);
+    await HiveDbResources.init();
+    await Hive.close();
   });
 
   setUp(() {
@@ -184,5 +185,12 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(Core.currentExtras(navigatorKey.currentContext!), 'Standing here I realize');
+  });
+
+  test('should initialize Hive safely', () async {
+    await HiveDbResources.init();
+    await Hive.openBox('test');
+    expect(Hive.isBoxOpen('test'), isTrue);
+    await Hive.close();
   });
 }

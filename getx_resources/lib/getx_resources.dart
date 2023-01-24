@@ -11,7 +11,7 @@ export 'src/extensions/stream_extensions.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class HiveDbResources {
-  static Future<void> init({bool initHive = true}) async {
+  static Future<void> init() async {
     Core.setLocator(<T extends Object>() {
       return Get.find<T>();
     });
@@ -36,6 +36,6 @@ class HiveDbResources {
     Core.setCurrentExtrasFn((context) {
       return Get.arguments;
     });
-    if (initHive) await Hive.initFlutter();
+    await Hive.initFlutter();
   }
 }
