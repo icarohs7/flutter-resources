@@ -21,3 +21,11 @@ https://github.com/icarohs7/unox-flutter-resmodules/releases/v0.1)
 https://github.com/ellerbrock/open-source-badges/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/icarohs7/unox-flutter-resmodules.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/commits/master)
+
+## Package structure
+
+`core_resources`: Core utilities and interfaces to abstract common use cases
+
+`getx_resources`: GetX extensions and utilities
+
+`value_notifier_resources`: ValueNotifier extensions and utilities

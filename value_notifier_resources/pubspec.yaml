@@ -1,4 +1,4 @@
-name: getx_resources
+name: value_notifier_resources
 version: 0.0.1
 publish_to: none
 environment:
@@ -10,7 +10,9 @@ dependencies:
       path: core_resources
   flutter:
     sdk: flutter
-  get: ^4.6.5
+  functional_listener: ^2.1.0
+  rx_notifier:
+    git: https://github.com/icarohs7/rx_notifier
 dev_dependencies:
   flutter_test:
     sdk: flutter

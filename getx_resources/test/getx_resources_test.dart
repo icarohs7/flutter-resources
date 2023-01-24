@@ -1,3 +1,4 @@
+import 'package:core_resources/core_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:getx_resources/getx_resources.dart';
