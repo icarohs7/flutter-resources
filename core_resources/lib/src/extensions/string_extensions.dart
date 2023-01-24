@@ -1,7 +1,4 @@
 import 'package:dartx/dartx.dart';
-import 'package:html_unescape/html_unescape.dart';
-
-final _htmlUnescape = HtmlUnescape();
 
 extension StringExtensions on String {
   /// Returns the result of the given function
@@ -37,8 +34,6 @@ extension StringExtensions on String {
     if (index >= length) return patternIncluded ? pattern : '';
     return substring(index + (patternIncluded ? 0 : pattern.length));
   }
-
-  String get htmlUnescaped => _htmlUnescape.convert(this);
 
   /// Shortcut to convert a [String] to a [Uri]
   Uri toUri() => Uri.parse(this);

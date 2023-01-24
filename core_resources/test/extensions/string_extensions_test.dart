@@ -48,12 +48,6 @@ void main() {
     expect(s2s2, equals('Smokey'));
   });
 
-  test('should unescape html string', () {
-    const s1 = '&lt;strong&#62;This &quot;escaped&quot; string';
-    final s1u = s1.htmlUnescaped;
-    expect(s1u, equals('<strong>This "escaped" string'));
-  });
-
   test('should convert string to uri', () {
     const s = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
     final uri = s.toUri();

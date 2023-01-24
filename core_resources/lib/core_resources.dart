@@ -6,7 +6,6 @@ export 'package:dio/dio.dart';
 export 'package:flutter_hooks/flutter_hooks.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:hive_flutter/hive_flutter.dart';
-export 'package:html_unescape/html_unescape.dart';
 export 'package:rxdart/rxdart.dart' hide Rx;
 
 export 'src/baseclasses/base_api_service.dart';
