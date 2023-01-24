@@ -7,7 +7,6 @@ export 'package:flutter_hooks/flutter_hooks.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:hive_flutter/hive_flutter.dart';
 export 'package:html_unescape/html_unescape.dart';
-export 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 export 'package:rxdart/rxdart.dart' hide Rx;
 
 export 'src/baseclasses/base_api_service.dart';
@@ -33,7 +32,6 @@ export 'src/utils/common_intents.dart';
 export 'src/utils/date_time.dart';
 export 'src/utils/dio.dart';
 export 'src/utils/fade_page_route.dart';
-export 'src/utils/field_masks.dart';
 export 'src/utils/form_validation.dart';
 export 'src/utils/hooks.dart';
 export 'src/utils/json.dart';

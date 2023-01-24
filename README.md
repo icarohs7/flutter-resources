@@ -11,4 +11,6 @@ https://codecov.io/gh/icarohs7/unox-flutter-resmodules)
 
 `getx_resources`: GetX extensions and utilities
 
+`masked_text_resources`: Extensions and utilities for masks applied to texts
+
 `value_notifier_resources`: ValueNotifier extensions and utilities

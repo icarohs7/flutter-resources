@@ -1,5 +1,5 @@
-import 'package:core_resources/core_resources.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:masked_text_resources/masked_text_resources.dart';
 
 void main() {
   Future<void> testMask(MaskTextInputFormatter formatter, String input, String expected) async {

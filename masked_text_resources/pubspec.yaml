@@ -1,0 +1,18 @@
+name: masked_text_resources
+version: 0.0.1
+publish_to: none
+environment:
+  sdk: '>=2.17.0 <3.0.0'
+dependencies:
+  core_resources:
+    git:
+      url: https://github.com/icarohs7/unox-flutter-resmodules
+      path: core_resources
+  flutter:
+    sdk: flutter
+  mask_text_input_formatter: ^2.4.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
