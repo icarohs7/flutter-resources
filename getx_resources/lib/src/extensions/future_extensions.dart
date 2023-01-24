@@ -1,4 +1,4 @@
-import '../../getx_resources.dart';
+import 'package:get/get.dart';
 
 extension GCRFutureExtensions<T> on Future<T> {
   /// Create an observable from a future,

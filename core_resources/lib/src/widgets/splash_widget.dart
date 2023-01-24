@@ -3,8 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
-import '../../core_resources.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 class SplashWidget<T> extends StatelessWidget {
   const SplashWidget({

@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 
 /// GCR = Getx Core Resources

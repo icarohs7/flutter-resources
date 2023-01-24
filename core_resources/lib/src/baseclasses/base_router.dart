@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core_resources.dart';
+import '../core.dart';
 
 mixin BaseRouter {
   void push(BuildContext context, String route, {Map<String, String>? params, Object? extra}) {

@@ -1,4 +1,7 @@
-import '../../core_resources.dart';
+import 'package:dio/dio.dart';
+
+import '../core.dart';
+import '../extensions/dio_extensions.dart';
 
 class _EmptyBaseApiService with BaseApiService {}
 
