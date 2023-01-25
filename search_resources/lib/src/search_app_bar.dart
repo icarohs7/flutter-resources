@@ -3,15 +3,21 @@ import 'package:flutter/material.dart';
 
 class SearchAppBar extends HookWidget implements PreferredSizeWidget {
   final Widget title;
+  final bool centerTitle;
   final List<Widget>? actions;
   final String hintText;
+  final bool isSearching;
+  final ValueChanged<bool> onSearchToggled;
   final ValueChanged<String> onSearchChange;
 
   const SearchAppBar({
     super.key,
     required this.title,
+    this.centerTitle = false,
     this.actions,
     this.hintText = 'Pesquisa',
+    required this.isSearching,
+    required this.onSearchToggled,
     required this.onSearchChange,
   });
 
@@ -20,34 +26,35 @@ class SearchAppBar extends HookWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isSearching = useState(false);
     final searchController = useTextEditingController();
 
+    useEffect(() {
+      return () => onSearchToggled(false);
+    }, []);
+
     return AppBar(
-      title: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 300),
-        child: isSearching.value
-            ? TextField(
-                key: UniqueKey(),
-                controller: searchController,
-                autofocus: true,
-                decoration: InputDecoration(
-                  hintText: hintText,
-                  border: InputBorder.none,
-                ),
-                onChanged: onSearchChange,
-              )
-            : title,
-      ),
+      title: isSearching
+          ? TextField(
+              key: UniqueKey(),
+              controller: searchController,
+              autofocus: true,
+              decoration: InputDecoration(
+                hintText: hintText,
+                border: InputBorder.none,
+              ),
+              onChanged: onSearchChange,
+            )
+          : title,
+      centerTitle: centerTitle,
       actions: [
         AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
-          child: isSearching.value
+          child: isSearching
               ? IconButton(
                   key: UniqueKey(),
                   icon: const Icon(Icons.close),
                   onPressed: () {
-                    isSearching.value = false;
+                    onSearchToggled(false);
                     searchController.clear();
                     onSearchChange('');
                   },
@@ -55,7 +62,7 @@ class SearchAppBar extends HookWidget implements PreferredSizeWidget {
               : IconButton(
                   key: UniqueKey(),
                   icon: const Icon(Icons.search),
-                  onPressed: () => isSearching.value = true,
+                  onPressed: () => onSearchToggled(true),
                 ),
         ),
         ...?actions,

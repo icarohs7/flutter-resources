@@ -1,3 +1,4 @@
+import 'package:core_resources/core_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:search_resources/src/search_app_bar.dart';
@@ -6,14 +7,21 @@ void main() {
   group('SearchAppBar', () {
     testWidgets('should open search', (tester) async {
       //arrange
+      final isSearchOpen = ValueNotifier(false);
       await tester.pumpWidget(MaterialApp(
-        home: SearchAppBar(
-          title: Text('Title'),
-          actions: const [
-            Icon(Icons.refresh),
-          ],
-          onSearchChange: (String query) {},
-        ),
+        home: HookBuilder(builder: (context) {
+          final isOpen = useValueListenable(isSearchOpen);
+          return SearchAppBar(
+            title: Text('Title'),
+            centerTitle: true,
+            actions: const [
+              Icon(Icons.refresh),
+            ],
+            isSearching: isOpen,
+            onSearchToggled: (bool isOpen) => isSearchOpen.value = isOpen,
+            onSearchChange: (String query) {},
+          );
+        }),
       ));
       expect(find.byIcon(Icons.close), findsNothing);
       expect(find.byType(TextField), findsNothing);
@@ -36,14 +44,20 @@ void main() {
     testWidgets('should emit query change events', (tester) async {
       //arrange
       var query = '';
+      final isSearchOpen = ValueNotifier(false);
       await tester.pumpWidget(MaterialApp(
-        home: SearchAppBar(
-          title: Text('Title'),
-          actions: const [
-            Icon(Icons.refresh),
-          ],
-          onSearchChange: (String newQuery) => query = newQuery,
-        ),
+        home: HookBuilder(builder: (context) {
+          final isOpen = useValueListenable(isSearchOpen);
+          return SearchAppBar(
+            title: Text('Title'),
+            actions: const [
+              Icon(Icons.refresh),
+            ],
+            isSearching: isOpen,
+            onSearchToggled: (bool isOpen) => isSearchOpen.value = isOpen,
+            onSearchChange: (String newQuery) => query = newQuery,
+          );
+        }),
       ));
       await tester.tap(find.byIcon(Icons.search));
       await tester.pumpAndSettle();
@@ -57,14 +71,20 @@ void main() {
     testWidgets('should clear query', (tester) async {
       //arrange
       var query = '';
+      final isSearchOpen = ValueNotifier(false);
       await tester.pumpWidget(MaterialApp(
-        home: SearchAppBar(
-          title: Text('Title'),
-          actions: const [
-            Icon(Icons.refresh),
-          ],
-          onSearchChange: (String newQuery) => query = newQuery,
-        ),
+        home: HookBuilder(builder: (context) {
+          final isOpen = useValueListenable(isSearchOpen);
+          return SearchAppBar(
+            title: Text('Title'),
+            actions: const [
+              Icon(Icons.refresh),
+            ],
+            isSearching: isOpen,
+            onSearchToggled: (bool isOpen) => isSearchOpen.value = isOpen,
+            onSearchChange: (String newQuery) => query = newQuery,
+          );
+        }),
       ));
       await tester.tap(find.byIcon(Icons.search));
       await tester.pumpAndSettle();
@@ -79,14 +99,20 @@ void main() {
 
     testWidgets('should close search', (tester) async {
       //arrange
+      final isSearchOpen = ValueNotifier(false);
       await tester.pumpWidget(MaterialApp(
-        home: SearchAppBar(
-          title: Text('Title'),
-          actions: const [
-            Icon(Icons.refresh),
-          ],
-          onSearchChange: (String query) {},
-        ),
+        home: HookBuilder(builder: (context) {
+          final isOpen = useValueListenable(isSearchOpen);
+          return SearchAppBar(
+            title: Text('Title'),
+            actions: const [
+              Icon(Icons.refresh),
+            ],
+            isSearching: isOpen,
+            onSearchToggled: (bool isOpen) => isSearchOpen.value = isOpen,
+            onSearchChange: (String query) {},
+          );
+        }),
       ));
       await tester.tap(find.byIcon(Icons.search));
       await tester.pumpAndSettle();
