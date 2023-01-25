@@ -37,7 +37,6 @@ export 'src/utils/json.dart';
 export 'src/utils/log.dart';
 export 'src/utils/math.dart';
 export 'src/utils/nav.dart';
-export 'src/utils/simple_search_delegate.dart';
 export 'src/utils/ui.dart';
 export 'src/utils/utils.dart';
 export 'src/widgets/auto_complete_text_view.dart';
