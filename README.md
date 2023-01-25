@@ -1,5 +1,6 @@
 # Flutter Resources
 Library of functions, extensions, widgets and classes I use to develop apps.
+<br/>
 [![Actions Status](https://github.com/icarohs7/unox-flutter-resmodules/workflows/build/badge.svg)](
 https://github.com/icarohs7/unox-flutter-resmodules/actions)
 [![GitHub license](https://img.shields.io/github/license/icarohs7/unox-flutter-resmodules.svg)](
