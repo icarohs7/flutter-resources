@@ -1,7 +1,7 @@
 import 'dart:convert';
+import 'dart:isolate';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 
 import '../utils/json.dart';
 
@@ -42,7 +42,7 @@ extension CRDioExtensions on Dio {
   }) async {
     return await post(
       url,
-      data: rawData ?? await compute(_encodeObj, data),
+      data: rawData ?? await Isolate.run(() => jsonDecode(jsonEncode(data))),
       queryParameters: queryParameters,
       options: options,
     );
@@ -95,15 +95,15 @@ extension CRDioExtensions on Dio {
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server
   Future<Response<T>> crPut<T>(
-      String url, {
-        dynamic data,
-        dynamic rawData,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-      }) async {
+    String url, {
+    dynamic data,
+    dynamic rawData,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
     return await put(
       url,
-      data: rawData ?? await compute(_encodeObj, data),
+      data: rawData ?? await Isolate.run(() => jsonDecode(jsonEncode(data))),
       queryParameters: queryParameters,
       options: options,
     );
@@ -114,13 +114,13 @@ extension CRDioExtensions on Dio {
   /// [data] - will be sent encoded to the server
   /// [rawData] - will be sent as is to the server
   Future<Map<String, dynamic>> putRJsonObj(
-      String url, {
-        dynamic data,
-        dynamic rawData,
-        Map<String, dynamic>? queryParameters,
-        Options? options,
-        String Function(String)? responseInterceptor,
-      }) async {
+    String url, {
+    dynamic data,
+    dynamic rawData,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    String Function(String)? responseInterceptor,
+  }) async {
     final response = await crPut<String>(
       url,
       data: data,
@@ -131,5 +131,3 @@ extension CRDioExtensions on Dio {
     return jsonDecodeObj(responseInterceptor?.call(response.data ?? '') ?? response.data ?? '');
   }
 }
-
-dynamic _encodeObj(dynamic obj) => jsonDecode(jsonEncode(obj));
