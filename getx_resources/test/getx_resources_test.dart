@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:getx_resources/getx_resources.dart';
 
+import 'mocks.dart';
+
 void main() {
   late GlobalKey<NavigatorState> navigatorKey;
   late Widget defaultApp;
 
   setUpAll(() async {
-    await HiveDbResources.init();
+    await startHiveWithMockDirectory();
     await Hive.close();
   });
 
@@ -188,7 +190,7 @@ void main() {
   });
 
   test('should initialize Hive safely', () async {
-    await HiveDbResources.init();
+    await startHiveWithMockDirectory();
     await Hive.openBox('test');
     expect(Hive.isBoxOpen('test'), isTrue);
     await Hive.close();

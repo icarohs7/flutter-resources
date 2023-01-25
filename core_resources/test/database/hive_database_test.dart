@@ -1,15 +1,11 @@
 import 'package:core_resources/core_resources.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-void main() {
-  setUp(() async {
-    await Hive.initFlutter();
-  });
+import '../mocks.dart';
 
-  tearDown(() async {
-    await Hive.deleteBoxFromDisk('database');
-    await Hive.close();
-  });
+void main() {
+  setUp(() async => await startHiveWithMockDirectory());
+  tearDown(() async => await Hive.close());
 
   test('insert and get', () async {
     final db = createDb();
