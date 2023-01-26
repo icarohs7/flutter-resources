@@ -29,7 +29,10 @@ class SearchAppBar extends HookWidget implements PreferredSizeWidget {
     final searchController = useTextEditingController();
 
     useEffect(() {
-      return () => onSearchToggled(false);
+      return () {
+        onSearchChange('');
+        onSearchToggled(false);
+      };
     }, []);
 
     return AppBar(
