@@ -6,7 +6,6 @@ environment:
 dependencies:
   build_context: ^3.0.0
   dartx: ^1.1.0
-  dio: ^4.0.6
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.5+1
