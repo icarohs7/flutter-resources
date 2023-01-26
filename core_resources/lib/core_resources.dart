@@ -4,15 +4,11 @@ export 'package:build_context/build_context.dart';
 export 'package:dartx/dartx.dart' hide Function0, Function1, Function2, Function3, Function4;
 export 'package:flutter_hooks/flutter_hooks.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
-export 'package:hive_flutter/hive_flutter.dart';
 export 'package:rxdart/rxdart.dart' hide Rx;
 
 export 'src/baseclasses/base_router.dart';
 export 'src/classes/core_router_observer.dart';
 export 'src/core.dart';
-export 'src/database/base_repository.dart';
-export 'src/database/hive_database.dart' hide HiveDatabase, HiveBoxAdapter;
-export 'src/database/t_database.dart' hide JsonObject;
 export 'src/extensions/async_snapshot_extensions.dart';
 export 'src/extensions/color_extensions.dart';
 export 'src/extensions/context_extensions.dart';
