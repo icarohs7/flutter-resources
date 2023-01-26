@@ -26,7 +26,6 @@ export 'src/extensions/object_extensions.dart';
 export 'src/extensions/stream_extensions.dart';
 export 'src/extensions/string_extensions.dart';
 export 'src/extensions/time_extensions.dart';
-export 'src/models/tuple.dart';
 export 'src/utils/common_intents.dart';
 export 'src/utils/date_time.dart';
 export 'src/utils/dio.dart';
