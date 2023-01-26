@@ -30,6 +30,9 @@ void main() {
 
     const f3 = 'hi';
     expect(minLengthValidator(5, errorMessage: '5 chars required')(f3), '5 chars required');
+
+    const f4 = 'default';
+    expect(minLengthValidator(15)(f4), 'Mínimo de 15 caracteres requiridos');
   });
 
   test('emailValidator', () {

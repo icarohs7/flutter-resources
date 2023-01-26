@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 void main() {
+  final router = RouterImpl();
+
   test('push', () {
     late BuildContext contextE;
     late String routeNameE;
@@ -15,7 +17,7 @@ void main() {
       paramsE = params;
       extraE = extra;
     });
-    MockRouter().push(MockContext(), 'route', params: {'param': 'value'}, extra: 'extra');
+    router.push(MockContext(), 'route', params: {'param': 'value'}, extra: 'extra');
     expect(contextE, isA<MockContext>());
     expect(routeNameE, 'route');
     expect(paramsE, {'param': 'value'});
@@ -33,7 +35,7 @@ void main() {
       paramsE = params;
       extraE = extra;
     });
-    MockRouter().go(MockContext(), 'route', params: {'param': 'value'}, extra: 'extra');
+    router.go(MockContext(), 'route', params: {'param': 'value'}, extra: 'extra');
     expect(contextE, isA<MockContext>());
     expect(routeNameE, 'route');
     expect(paramsE, {'param': 'value'});
@@ -51,7 +53,7 @@ void main() {
       paramsE = params;
       extraE = extra;
     });
-    MockRouter().replace(MockContext(), 'route', params: {'param': 'value'}, extra: 'extra');
+    router.replace(MockContext(), 'route', params: {'param': 'value'}, extra: 'extra');
     expect(contextE, isA<MockContext>());
     expect(routeNameE, 'route');
     expect(paramsE, {'param': 'value'});
@@ -69,7 +71,7 @@ void main() {
       paramsE = params;
       extraE = extra;
     });
-    MockRouter().replaceAll(MockContext(), 'route', params: {'param': 'value'}, extra: 'extra');
+    router.replaceAll(MockContext(), 'route', params: {'param': 'value'}, extra: 'extra');
     expect(contextE, isA<MockContext>());
     expect(routeNameE, 'route');
     expect(paramsE, {'param': 'value'});
@@ -77,14 +79,14 @@ void main() {
   });
 
   test('bottomNavRoutes', () {
-    expect(MockRouter().bottomNavRoutes, ['test1', 'test2']);
+    expect(router.bottomNavRoutes, ['test1', 'test2']);
   });
 
   test('currentBottomNavIndex', () {
     Core.setCurrentPathFn((context) => 'test2');
-    expect(MockRouter().currentBottomNavIndex(MockContext()), 1);
+    expect(router.currentBottomNavIndex(MockContext()), 1);
     Core.setCurrentPathFn((context) => 'test3');
-    expect(MockRouter().currentBottomNavIndex(MockContext()), null);
+    expect(router.currentBottomNavIndex(MockContext()), null);
   });
 
   test('pushToBottomNavRoute', () {
@@ -98,7 +100,7 @@ void main() {
       paramsE = params;
       extraE = extra;
     });
-    MockRouter().pushToBottomNavRoute(MockContext(), 1);
+    router.pushToBottomNavRoute(MockContext(), 1);
     expect(contextE, isA<MockContext>());
     expect(routeNameE, 'test2');
     expect(paramsE, null);
@@ -116,7 +118,7 @@ void main() {
       paramsE = params;
       extraE = extra;
     });
-    MockRouter().goToBottomNavRoute(MockContext(), 1);
+    router.goToBottomNavRoute(MockContext(), 1);
     expect(contextE, isA<MockContext>());
     expect(routeNameE, 'test2');
     expect(paramsE, null);
@@ -134,7 +136,7 @@ void main() {
       paramsE = params;
       extraE = extra;
     });
-    MockRouter().replaceToBottomNavRoute(MockContext(), 1);
+    router.replaceToBottomNavRoute(MockContext(), 1);
     expect(contextE, isA<MockContext>());
     expect(routeNameE, 'test2');
     expect(paramsE, null);
@@ -152,7 +154,7 @@ void main() {
       paramsE = params;
       extraE = extra;
     });
-    MockRouter().replaceAllToBottomNavRoute(MockContext(), 1);
+    router.replaceAllToBottomNavRoute(MockContext(), 1);
     expect(contextE, isA<MockContext>());
     expect(routeNameE, 'test2');
     expect(paramsE, null);
@@ -160,7 +162,7 @@ void main() {
   });
 }
 
-class MockRouter with BaseRouter {
+class RouterImpl with BaseRouter {
   @override
   List<String> get bottomNavRoutes => [
         'test1',

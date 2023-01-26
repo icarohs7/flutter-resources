@@ -59,5 +59,13 @@ void main() {
     expect(dt3.second, equals(58));
     expect(dt3.millisecond, equals(999));
     expect(dt3.microsecond, equals(998));
+
+    final dt4 = dtex.update(year: 2023);
+    expect(dt4.year, equals(2023));
+    expect(dt4.month, equals(1));
+    expect(dt4.day, equals(1));
+    expect(dt4.hour, equals(12));
+    expect(dt4.minute, equals(0));
+    expect(dt4.second, equals(0));
   });
 }

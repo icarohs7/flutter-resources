@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class SplashWidget<T> extends StatelessWidget {
+class SplashWidget<T> extends HookWidget {
   const SplashWidget({
     super.key,
     required this.future,
@@ -19,22 +19,20 @@ class SplashWidget<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HookBuilder(builder: (context) {
-      final future = useMemoized(() => this.future);
-      final isMounted = useIsMounted();
+    final future = useMemoized(() => this.future);
+    final isMounted = useIsMounted();
 
-      useEffect(() {
-        if (isMounted()) {
-          future.then((value) async {
-            if (isMounted()) {
-              await onComplete(context, value);
-            }
-          });
-        }
-        return null;
-      }, [future]);
+    useEffect(() {
+      if (isMounted()) {
+        future.then((value) async {
+          if (isMounted()) {
+            await onComplete(context, value);
+          }
+        });
+      }
+      return null;
+    }, [future]);
 
-      return child;
-    });
+    return child;
   }
 }
