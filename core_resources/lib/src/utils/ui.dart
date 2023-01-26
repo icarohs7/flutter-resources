@@ -1,30 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-
-import '../widgets/dialogs.dart';
-
-/// Shows a [ConfirmDialog], returns true if the user confirms, false otherwise.
-Future<bool> askConfirmation(
-  BuildContext context, {
-  String? titleText,
-  Widget? title,
-  Widget? content,
-  FutureOr<void> Function()? onConfirm,
-  FutureOr<void> Function()? onCancel,
-  String? cancelText,
-  String? confirmText,
-}) async {
-  return showConfirmDialog(
-    context,
-    title: titleText != null ? Text(titleText) : title,
-    content: content,
-    onConfirm: onConfirm,
-    onCancel: onCancel,
-    cancelText: cancelText,
-    confirmText: confirmText,
-  );
-}
 
 ///Create a material swatch with variations of
 ///a base color, credits to
