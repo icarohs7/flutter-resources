@@ -14,4 +14,6 @@ https://codecov.io/gh/icarohs7/unox-flutter-resmodules)
 
 `masked_text_resources`: Extensions and utilities for masks applied to texts
 
+`search_resources`: Search widgets and utilities
+
 `value_notifier_resources`: ValueNotifier extensions and utilities
