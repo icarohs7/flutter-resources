@@ -10,8 +10,6 @@ https://codecov.io/gh/icarohs7/unox-flutter-resmodules)
 ## Package structure
 `core_resources`: Core utilities and interfaces to abstract common use cases
 
-`getx_resources`: GetX extensions and utilities
-
 `masked_text_resources`: Extensions and utilities for masks applied to texts
 
 `search_resources`: Search widgets and utilities
