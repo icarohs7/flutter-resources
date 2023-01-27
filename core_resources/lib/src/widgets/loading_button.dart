@@ -1,30 +1,18 @@
 import 'package:build_context/build_context.dart';
 import 'package:flutter/material.dart';
 
-import '../extensions/object_extensions.dart';
-
 class LoadingElevatedButton extends StatelessWidget {
   const LoadingElevatedButton({
     super.key,
     required this.onPressed,
     this.child,
     this.isLoading = false,
-    this.color,
-    this.textColor,
-    this.progressIndicatorColor,
-    this.shape,
-    this.padding,
     this.style,
   });
 
   final Widget? child;
   final void Function()? onPressed;
   final bool isLoading;
-  final Color? color;
-  final Color? textColor;
-  final Color? progressIndicatorColor;
-  final OutlinedBorder? shape;
-  final EdgeInsetsGeometry? padding;
   final ButtonStyle? style;
 
   @override
@@ -34,17 +22,10 @@ class LoadingElevatedButton extends StatelessWidget {
       absorbing: isLoading,
       child: ElevatedButton(
         onPressed: onPressed,
-        style: style ??
-            ButtonStyle(
-              backgroundColor: color?.materialProperty,
-              foregroundColor: textColor?.materialProperty,
-              shape: shape?.materialProperty,
-              padding: padding?.materialProperty,
-            ),
+        style: style,
         child: _ButtonContent(
           isLoading: isLoading,
-          foregroundColor: progressIndicatorColor ??
-              textColor ??
+          foregroundColor: style?.foregroundColor?.resolve({}) ??
               (theme.useMaterial3 ? theme.primaryColor : theme.colorScheme.onPrimary),
           child: child,
         ),
