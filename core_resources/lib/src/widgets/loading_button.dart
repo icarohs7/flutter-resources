@@ -43,7 +43,7 @@ class LoadingElevatedButton extends StatelessWidget {
             ),
         child: _ButtonContent(
           isLoading: isLoading,
-          progressIndicatorColor: progressIndicatorColor ??
+          foregroundColor: progressIndicatorColor ??
               textColor ??
               (theme.useMaterial3 ? theme.primaryColor : theme.colorScheme.onPrimary),
           child: child,
@@ -92,7 +92,7 @@ class LoadingTextButton extends StatelessWidget {
             ),
         child: _ButtonContent(
           isLoading: isLoading,
-          progressIndicatorColor: progressIndicatorColor ??
+          foregroundColor: progressIndicatorColor ??
               textColor ??
               style?.foregroundColor?.resolve({}) ??
               Theme.of(context).colorScheme.primary,
@@ -110,7 +110,7 @@ class LoadingFloatingActionButton extends StatelessWidget {
     this.child,
     this.isLoading = false,
     this.backgroundColor,
-    this.progressIndicatorColor,
+    this.foregroundColor,
     this.shape,
     this.padding,
   });
@@ -119,7 +119,7 @@ class LoadingFloatingActionButton extends StatelessWidget {
   final void Function()? onPressed;
   final bool isLoading;
   final Color? backgroundColor;
-  final Color? progressIndicatorColor;
+  final Color? foregroundColor;
   final ShapeBorder? shape;
   final EdgeInsetsGeometry? padding;
 
@@ -129,11 +129,12 @@ class LoadingFloatingActionButton extends StatelessWidget {
       absorbing: isLoading,
       child: FloatingActionButton(
         backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
         onPressed: onPressed,
         shape: shape,
         child: _ButtonContent(
           isLoading: isLoading,
-          progressIndicatorColor: progressIndicatorColor ?? Theme.of(context).colorScheme.onPrimary,
+          foregroundColor: foregroundColor ?? context.theme.colorScheme.onSecondary,
           child: child,
         ),
       ),
@@ -166,10 +167,10 @@ class LoadingIconButton extends StatelessWidget {
       child: IconButton(
         onPressed: onPressed,
         color: color,
-        padding: padding ?? const EdgeInsets.all(8.0),
+        padding: padding,
         icon: _ButtonContent(
           isLoading: isLoading,
-          progressIndicatorColor: progressIndicatorColor,
+          foregroundColor: progressIndicatorColor,
           child: icon,
         ),
       ),
@@ -181,12 +182,12 @@ class _ButtonContent extends StatelessWidget {
   const _ButtonContent({
     required this.isLoading,
     required this.child,
-    required this.progressIndicatorColor,
+    required this.foregroundColor,
   });
 
   final bool isLoading;
   final Widget? child;
-  final Color? progressIndicatorColor;
+  final Color? foregroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -209,7 +210,7 @@ class _ButtonContent extends StatelessWidget {
                     width: 16,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      color: progressIndicatorColor,
+                      color: foregroundColor,
                     ),
                   ),
                 ),
