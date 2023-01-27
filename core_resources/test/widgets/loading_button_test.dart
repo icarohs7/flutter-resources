@@ -50,7 +50,7 @@ void main() {
             child: HookBuilder(builder: (context) {
               final loading = useValueListenable(isLoading);
 
-              return LoadingFlatButton(
+              return LoadingTextButton(
                 onPressed: () => count++,
                 isLoading: loading,
                 child: const Text('Test'),
@@ -71,7 +71,7 @@ void main() {
 
     isLoading.value = false;
     await tester.pump(Duration(milliseconds: 300));
-    await tester.tap(find.byType(LoadingFlatButton));
+    await tester.tap(find.byType(LoadingTextButton));
     expect(count, 1);
   });
 

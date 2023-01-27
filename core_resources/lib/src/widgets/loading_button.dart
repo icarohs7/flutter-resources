@@ -53,8 +53,8 @@ class LoadingRaisedButton extends StatelessWidget {
   }
 }
 
-class LoadingFlatButton extends StatelessWidget {
-  const LoadingFlatButton({
+class LoadingTextButton extends StatelessWidget {
+  const LoadingTextButton({
     super.key,
     required this.onPressed,
     this.child,
