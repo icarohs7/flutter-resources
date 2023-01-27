@@ -34,6 +34,38 @@ class LoadingElevatedButton extends StatelessWidget {
   }
 }
 
+class LoadingFilledButton extends StatelessWidget {
+  const LoadingFilledButton({
+    super.key,
+    required this.onPressed,
+    this.child,
+    this.isLoading = false,
+    this.style,
+  });
+
+  final Widget? child;
+  final void Function()? onPressed;
+  final bool isLoading;
+  final ButtonStyle? style;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = context.theme;
+    return AbsorbPointer(
+      absorbing: isLoading,
+      child: FilledButton(
+        onPressed: onPressed,
+        style: style,
+        child: _ButtonContent(
+          isLoading: isLoading,
+          foregroundColor: style?.foregroundColor?.resolve({}) ?? theme.colorScheme.onPrimary,
+          child: child,
+        ),
+      ),
+    );
+  }
+}
+
 class LoadingTextButton extends StatelessWidget {
   const LoadingTextButton({
     super.key,
