@@ -59,22 +59,12 @@ class LoadingTextButton extends StatelessWidget {
     required this.onPressed,
     this.child,
     this.isLoading = false,
-    this.color,
-    this.textColor,
-    this.progressIndicatorColor,
-    this.shape,
-    this.padding,
     this.style,
   });
 
   final Widget? child;
   final void Function() onPressed;
   final bool isLoading;
-  final Color? color;
-  final Color? textColor;
-  final Color? progressIndicatorColor;
-  final OutlinedBorder? shape;
-  final EdgeInsetsGeometry? padding;
   final ButtonStyle? style;
 
   @override
@@ -83,19 +73,10 @@ class LoadingTextButton extends StatelessWidget {
       absorbing: isLoading,
       child: TextButton(
         onPressed: onPressed,
-        style: style ??
-            ButtonStyle(
-              foregroundColor: color?.materialProperty,
-              backgroundColor: textColor?.materialProperty,
-              shape: shape?.materialProperty,
-              padding: padding?.materialProperty,
-            ),
+        style: style,
         child: _ButtonContent(
           isLoading: isLoading,
-          foregroundColor: progressIndicatorColor ??
-              textColor ??
-              style?.foregroundColor?.resolve({}) ??
-              Theme.of(context).colorScheme.primary,
+          foregroundColor: style?.foregroundColor?.resolve({}) ?? context.theme.colorScheme.primary,
           child: child,
         ),
       ),
