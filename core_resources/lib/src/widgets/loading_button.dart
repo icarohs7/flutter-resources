@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../extensions/object_extensions.dart';
 
-class LoadingRaisedButton extends StatelessWidget {
-  const LoadingRaisedButton({
+class LoadingElevatedButton extends StatelessWidget {
+  const LoadingElevatedButton({
     super.key,
     required this.onPressed,
     this.child,
