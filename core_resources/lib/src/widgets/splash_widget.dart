@@ -20,18 +20,18 @@ class SplashWidget<T> extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final future = useMemoized(() => this.future);
+    final onComplete = useMemoized(() => this.onComplete);
     final isMounted = useIsMounted();
 
     useEffect(() {
-      if (isMounted()) {
-        future.then((value) async {
-          if (isMounted()) {
-            await onComplete(context, value);
-          }
-        });
-      }
+      Future(() async {
+        if (!isMounted()) return;
+        final result = await future;
+        if (!isMounted()) return;
+        await onComplete(context, result);
+      });
       return null;
-    }, [future]);
+    }, []);
 
     return child;
   }
