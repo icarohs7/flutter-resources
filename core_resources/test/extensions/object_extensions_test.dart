@@ -8,14 +8,4 @@ void main() {
     final materialStateProperty = color.materialProperty;
     expect(materialStateProperty.resolve({}), color);
   });
-
-  test('should convert object to subject', () {
-    const color = Colors.red;
-    final subject = color.subject;
-    expect(subject.value, color);
-    expect(subject, emits(color));
-    subject.value = Colors.blue;
-    expect(subject.value, Colors.blue);
-    expect(subject, emits(Colors.blue));
-  });
 }

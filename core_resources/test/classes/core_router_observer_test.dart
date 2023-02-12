@@ -8,7 +8,7 @@ void main() {
   late Widget defaultApp;
   final mockObserver = MockCoreRouterObserver();
   BuildContext context() => navigatorKey.currentContext!;
-  final stream = CoreRouterObserver.stream;
+  final stream = CoreRouterObserver.listenable;
 
   setUp(() {
     registerFallbackValue(MockRoute());
@@ -33,7 +33,7 @@ void main() {
   void assertRoute(CoreRoute coreRoute, {String path = '', String? previousPath}) {
     final route = coreRoute.currentRoute;
     final previousRoute = coreRoute.previousRoute;
-    expect(stream, emits(coreRoute));
+    expect(stream.value, coreRoute);
     expect(route.settings.name, path);
     expect(previousRoute?.settings.name, previousPath);
   }

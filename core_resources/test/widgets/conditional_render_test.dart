@@ -4,12 +4,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('ConditionalRender using widgets', (WidgetTester tester) async {
-    final visible = true.subject;
+    final visible = ValueNotifier(true);
     await tester.pumpWidget(
       MaterialApp(
         home: HookBuilder(
           builder: (context) {
-            final isVisible = useValueStream(visible);
+            final isVisible = useValueListenable(visible);
 
             return ConditionalRender(
               condition: isVisible,
@@ -24,13 +24,13 @@ void main() {
     expect(find.text('Hello'), findsOneWidget);
     expect(find.text('Else'), findsNothing);
 
-    visible.add(false);
+    visible.value = false;
     await tester.pumpAndSettle();
 
     expect(find.text('Hello'), findsNothing);
     expect(find.text('Else'), findsOneWidget);
 
-    visible.add(true);
+    visible.value = true;
     await tester.pumpAndSettle();
 
     expect(find.text('Hello'), findsOneWidget);
@@ -38,12 +38,12 @@ void main() {
   });
 
   testWidgets('ConditionalRender using builders', (WidgetTester tester) async {
-    final visible = true.subject;
+    final visible = ValueNotifier(true);
     await tester.pumpWidget(
       MaterialApp(
         home: HookBuilder(
           builder: (context) {
-            final isVisible = useValueStream(visible);
+            final isVisible = useValueListenable(visible);
 
             return ConditionalRender(
               condition: isVisible,
@@ -59,13 +59,13 @@ void main() {
     expect(find.text('Hello'), findsOneWidget);
     expect(find.text('Else'), findsNothing);
 
-    visible.add(false);
+    visible.value = false;
     await tester.pumpAndSettle();
 
     expect(find.text('Hello'), findsNothing);
     expect(find.text('Else'), findsOneWidget);
 
-    visible.add(true);
+    visible.value = true;
     await tester.pumpAndSettle();
 
     expect(find.text('Hello'), findsOneWidget);

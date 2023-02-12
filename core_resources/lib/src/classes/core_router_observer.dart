@@ -1,11 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:rxdart/rxdart.dart';
 
 /// A [NavigatorObserver] that notifies when the current route changes
-/// through its [stream]
+/// through its [listenable]
 class CoreRouterObserver extends NavigatorObserver {
-  static final _subject = BehaviorSubject<CoreRoute?>.seeded(null);
-  static final ValueStream<CoreRoute?> stream = _subject.stream;
+  static final _notifier = ValueNotifier<CoreRoute?>(null);
+  static final ValueListenable<CoreRoute?> listenable = _notifier;
 
   @override
   void didPush(Route route, Route? previousRoute) =>
@@ -25,7 +25,7 @@ class CoreRouterObserver extends NavigatorObserver {
 
   void update({Route? route, Route? previousRoute}) {
     if (route == null) return;
-    _subject.add(CoreRoute(currentRoute: route, previousRoute: previousRoute));
+    _notifier.value = CoreRoute(currentRoute: route, previousRoute: previousRoute);
   }
 }
 
