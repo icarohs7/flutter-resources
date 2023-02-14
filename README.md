@@ -8,8 +8,7 @@ https://github.com/icarohs7/unox-flutter-resmodules/blob/master/LICENSE)
 [![codecov](https://codecov.io/gh/icarohs7/unox-flutter-resmodules/branch/master/graph/badge.svg)](
 https://codecov.io/gh/icarohs7/unox-flutter-resmodules)
 ## Package structure
-`core_resources`: Core utilities and interfaces to abstract common use cases,
-all other packages depend on and export this one
+`core_resources`: Core utilities and interfaces to abstract common use cases
 
 `masked_text_resources`: Extensions and utilities for masks applied to texts
 
