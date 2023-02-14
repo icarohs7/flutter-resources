@@ -18,3 +18,4 @@ dev_dependencies:
   http_mock_adapter: ^0.3.3
   mocktail: ^0.3.0
 flutter:
+  uses-material-design: true
