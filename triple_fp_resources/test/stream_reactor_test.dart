@@ -72,4 +72,35 @@ void main() {
 
     reactor.dispose();
   });
+
+  test('remove listener', () async {
+    //arrange
+    final controller = StreamController<int>();
+    final stream = controller.stream;
+    //act
+    final reactor = stream.asRcValue(10);
+    //assert
+    expect(reactor.value, 10);
+
+    //arrange
+    var count = 0;
+    listener() => count++;
+    reactor.addListener(listener);
+    //act
+    controller.add(42);
+    await pump();
+    //assert
+    expect(count, 1);
+    expect(reactor.value, 42);
+
+    //act
+    reactor.removeListener(listener);
+    controller.add(1532);
+    await pump();
+    //assert
+    expect(count, 1);
+    expect(reactor.value, 42);
+
+    reactor.dispose();
+  });
 }

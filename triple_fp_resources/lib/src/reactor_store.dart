@@ -8,6 +8,7 @@ import 'package:value_notifier_resources/value_notifier_resources.dart';
 import 'disposable.dart';
 import 'reactor.dart';
 
+/// Implementation of a triple [Store] using [Reactor] as its observable type
 class ReactorStore<Error extends Object, State extends Object> extends Store<Error, State>
     implements Selectors<Reactor<Error?>, Reactor<State>, Reactor<bool>>, Disposable {
   late final _disposeList = <Disposer>[
@@ -19,20 +20,36 @@ class ReactorStore<Error extends Object, State extends Object> extends Store<Err
   ReactorStore(super.initialState);
 
   late final _stateSubject = state.rc;
-  late final _errorSubject = error.rc;
-  late final _loadingSubject = isLoading.rc;
+  late final _errorSubject = Rcn(error);
+  late final _loadingSubject = Rc(isLoading);
 
+  /// Reactor to watch just the state of the store
   @override
   Reactor<State> get selectState => _stateSubject;
 
+  /// /// Reactor to watch just the error of the store
   @override
   Reactor<Error?> get selectError => _errorSubject;
 
+  /// Reactor to watch just the loading state of the store
   @override
   Reactor<bool> get selectLoading => _loadingSubject;
 
+  /// Call the function and invoke its [Disposer] when the store is about to be destroyed
+  ///
+  /// Useful to create subscriptions that will live with the store and will be cancelled
+  /// when the store is disposed
   void addDisposable(Disposer Function() dispose) => _disposeList.add(dispose());
 
+  /// Subscribe to the given [stream] and update the state according to its emissions
+  ///
+  /// Maps every emission of the given [stream] to a new [State] object through the
+  /// [onData] parameter, updating the current state of the store to it
+  ///
+  /// If defined, on any error of the [stream] the [onError] parameter will be called
+  /// and the returned [Error] object will be set as the error of the store
+  ///
+  /// Automatically cancels the subscription when the store is destroyed
   void connectStream<T>(
     Stream<T> stream,
     FutureOr<State> Function(T data) onData, {
@@ -49,14 +66,20 @@ class ReactorStore<Error extends Object, State extends Object> extends Store<Err
     });
   }
 
+  /// Subscribe to the given [valueListenable] and update the state according to its emissions
+  ///
+  /// Maps every emission of the given [valueListenable] to a new [State] object through the
+  /// [onData] parameter, updating the current state of the store to it
+  ///
+  /// Automatically cancels the subscription when the store is destroyed
   void connectValueListenable<T>(
-    ValueListenable<T> listenable,
+    ValueListenable<T> valueListenable,
     State Function(T) onData,
   ) {
     addDisposable(() {
-      void listener() => update(onData(listenable.value));
-      listenable.addListener(listener);
-      return () async => listenable.removeListener(listener);
+      void listener() => update(onData(valueListenable.value));
+      valueListenable.addListener(listener);
+      return () async => valueListenable.removeListener(listener);
     });
   }
 
@@ -72,6 +95,7 @@ class ReactorStore<Error extends Object, State extends Object> extends Store<Err
     }
   }
 
+  /// Add a listener to the store and returns the [Disposer] of the subscription
   @override
   Disposer observer({
     void Function(State state)? onState,
@@ -94,6 +118,7 @@ class ReactorStore<Error extends Object, State extends Object> extends Store<Err
     };
   }
 
+  /// Add a listener to a part of the state and returns the [Disposer] of the subscription
   Disposer observeStateSelect<T>(T Function(State state) select, void Function(T value) onValue) {
     final sub = selectState.select(select).listen((v, sub) => onValue(v));
     return () async => sub.cancel();

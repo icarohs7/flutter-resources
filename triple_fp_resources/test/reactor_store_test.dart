@@ -125,9 +125,28 @@ void main() {
 
       //act
       expect(canceled, 0);
-      await store.destroy();
+      await store.onDispose();
       //assert
       expect(canceled, 1);
+    });
+
+    test('connect stream with error', () async {
+      //arrange
+      final store = MockStore();
+      final controller = StreamController<int>();
+      var canceled = 0;
+      final stream = controller.stream.doOnCancel(() => canceled++);
+      //act
+      store.connectStream(
+        stream,
+        (data) => MockState(description: '$data'),
+        onError: (e, s) => MockFailure('it failed with $e'),
+      );
+      controller.addError('deadge');
+      await pump();
+      //assert
+      expect(store.state, MockState());
+      expect(store.error, MockFailure('it failed with deadge'));
     });
 
     test('connect valueListenable', () async {
@@ -142,7 +161,7 @@ void main() {
 
       //act
       expect(listenable.hasListeners, true);
-      await store.destroy();
+      await store.onDispose();
       //assert
       expect(listenable.hasListeners, false);
     });
