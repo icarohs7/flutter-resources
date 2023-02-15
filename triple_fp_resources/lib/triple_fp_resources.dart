@@ -4,6 +4,7 @@ export 'package:flutter_triple/flutter_triple.dart';
 export 'package:fpdart/fpdart.dart';
 
 export 'src/disposable.dart';
+export 'src/fp_do_expression.dart';
 export 'src/reactor.dart';
 export 'src/reactor_store.dart';
 export 'src/store_extensions.dart';
