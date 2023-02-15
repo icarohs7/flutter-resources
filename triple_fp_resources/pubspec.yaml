@@ -14,6 +14,10 @@ dependencies:
     git:
       path: stores/flutter_triple
       url: https://github.com/icarohs7/triple_pattern
+  fpdart:
+    git:
+      ref: 4eaf3b0b62395c00444b401a78883c8cd48a4705
+      url: https://github.com/SandroMaglione/fpdart
   get_it: '>=7.2.0'
   value_notifier_resources:
     git:
