@@ -6,4 +6,5 @@ export 'package:fpdart/fpdart.dart';
 export 'src/disposable.dart';
 export 'src/reactor.dart';
 export 'src/reactor_store.dart';
+export 'src/store_extensions.dart';
 export 'src/stream_reactor.dart';

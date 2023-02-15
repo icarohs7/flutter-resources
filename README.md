@@ -14,6 +14,11 @@ https://codecov.io/gh/icarohs7/unox-flutter-resmodules)
 
 `search_resources`: Search widgets and utilities
 
-`stream_resources` Stream + RxDart extensions and utilities
+`stream_resources`: Stream + RxDart extensions and utilities
+
+`triple_fp_resources`: Revolves around the [Triple Pattern](https://github.com/Flutterando/triple_pattern),
+a state management solution, together with the `Reactor` class, a wrapper
+around `ValueNotifier` and many utilities from functional programming including
+the `fpdart` package
 
 `value_notifier_resources`: ValueNotifier extensions and utilities
