@@ -1,0 +1,28 @@
+name: triple_fp_resources
+version: 0.0.1
+publish_to: 'none'
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+dependencies:
+  core_resources:
+    git:
+      url: https://github.com/icarohs7/unox-flutter-resmodules
+      path: core_resources
+  flutter:
+    sdk: flutter
+  flutter_triple:
+    git:
+      path: stores/flutter_triple
+      url: https://github.com/icarohs7/triple_pattern
+  get_it: '>=7.2.0'
+  value_notifier_resources:
+    git:
+      url: https://github.com/icarohs7/unox-flutter-resmodules
+      path: value_notifier_resources
+dev_dependencies:
+  equatable: ^2.0.5
+  flutter_test:
+    sdk: flutter
+  rxdart: ^0.27.7
+flutter:
+  uses-material-design: true
