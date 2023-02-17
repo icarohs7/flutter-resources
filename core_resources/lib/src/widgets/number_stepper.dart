@@ -1,3 +1,4 @@
+import 'package:build_context/build_context.dart';
 import 'package:flutter/material.dart';
 
 class NumberStepper extends StatelessWidget {
@@ -5,6 +6,7 @@ class NumberStepper extends StatelessWidget {
     this.number, {
     super.key,
     required this.onChange,
+    this.iconColor,
     this.increaseEnabled = true,
     this.decreaseEnabled = true,
     this.decoration,
@@ -13,6 +15,7 @@ class NumberStepper extends StatelessWidget {
 
   final int number;
   final void Function(int number, NumberStepperEvent event) onChange;
+  final Color? iconColor;
   final bool increaseEnabled;
   final bool decreaseEnabled;
   final Decoration? decoration;
@@ -27,11 +30,13 @@ class NumberStepper extends StatelessWidget {
         children: <Widget>[
           IconButton(
             icon: Icon(Icons.remove),
+            color: iconColor ?? context.theme.colorScheme.secondary,
             onPressed: decreaseEnabled ? () => onChange(number, NumberStepperEvent.decrease) : null,
           ),
           Text('$number'),
           IconButton(
             icon: Icon(Icons.add),
+            color: iconColor ?? context.theme.colorScheme.secondary,
             onPressed: increaseEnabled ? () => onChange(number, NumberStepperEvent.increase) : null,
           ),
         ],
