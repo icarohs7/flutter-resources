@@ -34,21 +34,36 @@ class _MultiValueNotifier<T> extends ValueNotifier<T> {
 
   final ref = _Ref();
 
+  bool initialized = false;
+
   _MultiValueNotifier(
     super._value, {
     required List<Listenable> listenables,
     required this.builder,
-  }) {
-    _listenable = Listenable.merge(listenables);
-    _listenable.addListener(onUpdate);
-  }
+  }) : _listenable = Listenable.merge(listenables);
 
   @override
   T get value => builder(ref);
 
-  R subscribe<R>(ValueListenable<R> notifier) => notifier.value;
-
   void onUpdate() => value = builder(ref);
+
+  @override
+  void addListener(VoidCallback listener) {
+    if (!initialized) {
+      _listenable.addListener(onUpdate);
+      initialized = true;
+    }
+    super.addListener(listener);
+  }
+
+  @override
+  void removeListener(VoidCallback listener) {
+    super.removeListener(listener);
+    if (!hasListeners) {
+      _listenable.removeListener(onUpdate);
+      initialized = false;
+    }
+  }
 
   @override
   void dispose() {
