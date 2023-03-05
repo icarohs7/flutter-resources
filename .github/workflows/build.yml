@@ -20,7 +20,5 @@ jobs:
       - name: Build
         run: python build.py
 
-      - name: Send coverage to codecov
-        uses: codecov/codecov-action@v1.0.2
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
