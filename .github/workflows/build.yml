@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: "3.9.x"
 
-      - name: Build
+      - name: Analyze and Test
         run: python build.py
 
       - name: Upload coverage reports to Codecov
