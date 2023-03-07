@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
   fpdart:
     git:
-      ref: 4eaf3b0b62395c00444b401a78883c8cd48a4705
+      ref: b7e87e271b43caf05339100e2ab7f205579d346b
       url: https://github.com/SandroMaglione/fpdart
   value_notifier_resources:
     git:

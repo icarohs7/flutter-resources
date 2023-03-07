@@ -21,7 +21,7 @@ import 'package:fpdart/fpdart.dart';
 ///   return $(storeData(processedData));
 /// });
 /// ```
-TaskEither<L, R> taskEitherDo<L, R>(DoFunctionTaskEither<L, R> f) => TaskEither.tryCatch(
+TaskEither<L, R> taskEitherDo<L, R>(CRDoFunctionTaskEither<L, R> f) => TaskEither.tryCatch(
       () => f(_doEitherAdapter<L>(), _doTaskEitherAdapter<L>()),
       (error, _) => (error as _TaskEitherThrow<L>).value,
     );
@@ -41,7 +41,7 @@ _DoAdapterEither<L> _doEitherAdapter<L>() =>
 _DoAdapterTaskEither<L> _doTaskEitherAdapter<L>() => <R>(TaskEither<L, R> taskEither) =>
     taskEither.run().then((either) => either.getOrElse((l) => throw _TaskEitherThrow(l)));
 
-typedef DoFunctionTaskEither<L, R> = Future<R> Function(
+typedef CRDoFunctionTaskEither<L, R> = Future<R> Function(
   _DoAdapterEither<L> $,
   _DoAdapterTaskEither<L> $$,
 );
