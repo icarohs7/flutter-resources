@@ -6,6 +6,11 @@ class Reactor<T> extends ValueNotifier<T> {
   Reactor(super.value);
 
   void setValue(T newValue) => value = newValue;
+
+  /// Update the value of the current object
+  /// to the result of applying the given [reducer]
+  /// to the current value
+  void reduce(T Function(T state) reducer) => setValue(reducer(value));
 }
 
 /// Shortcut to create a [Reactor] of a non-nullable type
