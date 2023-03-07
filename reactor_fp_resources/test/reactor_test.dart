@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:triple_fp_resources/src/reactor.dart';
+import 'package:reactor_fp_resources/reactor_fp_resources.dart';
 import 'package:value_notifier_resources/value_notifier_resources.dart';
 
 void main() {

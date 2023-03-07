@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fpdart/fpdart.dart';
-import 'package:triple_fp_resources/src/fp_do_expression.dart';
+import 'package:reactor_fp_resources/reactor_fp_resources.dart';
 
 import 'mocks.dart';
 

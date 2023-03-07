@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:triple_fp_resources/src/stream_reactor.dart';
+import 'package:reactor_fp_resources/reactor_fp_resources.dart';
 
 void main() {
   Future pump() => Future.delayed(Duration(milliseconds: 100));
