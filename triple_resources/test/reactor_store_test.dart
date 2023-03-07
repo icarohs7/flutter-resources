@@ -6,7 +6,7 @@ import 'package:core_resources/core_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:triple_fp_resources/triple_fp_resources.dart';
+import 'package:triple_resources/triple_resources.dart';
 import 'package:value_notifier_resources/value_notifier_resources.dart';
 
 import 'mocks.dart';

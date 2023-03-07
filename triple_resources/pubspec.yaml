@@ -1,4 +1,4 @@
-name: triple_fp_resources
+name: triple_resources
 version: 0.0.1
 publish_to: 'none'
 environment:
@@ -19,6 +19,10 @@ dependencies:
       ref: 4eaf3b0b62395c00444b401a78883c8cd48a4705
       url: https://github.com/SandroMaglione/fpdart
   get_it: '>=7.2.0'
+  reactor_fp_resources:
+    git:
+      url: https://github.com/icarohs7/unox-flutter-resmodules
+      path: reactor_fp_resources
   value_notifier_resources:
     git:
       url: https://github.com/icarohs7/unox-flutter-resmodules

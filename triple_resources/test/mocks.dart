@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:triple_fp_resources/triple_fp_resources.dart';
+import 'package:triple_resources/triple_resources.dart';
 
 class MockStore extends ReactorStore<MockFailure, MockState> {
   MockStore() : super(MockState());

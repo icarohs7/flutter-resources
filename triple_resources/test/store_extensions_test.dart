@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:triple_fp_resources/src/store_extensions.dart';
+import 'package:triple_resources/src/store_extensions.dart';
 
 import 'mocks.dart';
 

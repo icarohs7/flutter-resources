@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-
-import 'reactor.dart';
+import 'package:reactor_fp_resources/reactor_fp_resources.dart';
 
 /// A [Reactor] that updates its values according to the emissions of a [Stream]
 class StreamReactor<T> extends Reactor<T> {

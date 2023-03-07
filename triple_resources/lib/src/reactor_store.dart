@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:core_resources/core_resources.dart' hide Store;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:reactor_fp_resources/reactor_fp_resources.dart';
 import 'package:value_notifier_resources/value_notifier_resources.dart';
 
 import 'disposable.dart';
-import 'reactor.dart';
 
 /// Implementation of a triple [Store] using [Reactor] as its observable type
 class ReactorStore<Error extends Object, State extends Object> extends Store<Error, State>
