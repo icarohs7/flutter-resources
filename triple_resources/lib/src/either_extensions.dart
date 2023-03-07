@@ -1,5 +1,5 @@
 import 'package:flutter_triple/flutter_triple.dart';
-import 'package:fpdart/fpdart.dart';
+import 'package:reactor_fp_resources/reactor_fp_resources.dart';
 
 extension CREitherExtensions<L extends Object, R extends Object> on Either<L, R> {
   /// Convert a [Either] from fpdart to a [EitherAdapter] usable by

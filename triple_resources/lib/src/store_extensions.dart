@@ -1,5 +1,5 @@
 import 'package:flutter_triple/flutter_triple.dart';
-import 'package:fpdart/fpdart.dart';
+import 'package:reactor_fp_resources/reactor_fp_resources.dart';
 
 import 'either_extensions.dart';
 
