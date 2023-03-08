@@ -23,6 +23,8 @@ void main() {
           );
         }),
       ));
+      expect(tester.firstWidget<SearchAppBar>(find.byType(SearchAppBar)).preferredSize,
+          Size.fromHeight(kToolbarHeight));
       expect(find.byIcon(Icons.close), findsNothing);
       expect(find.byType(TextField), findsNothing);
       expect(find.byIcon(Icons.refresh), findsOneWidget);

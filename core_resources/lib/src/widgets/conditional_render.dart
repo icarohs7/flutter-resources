@@ -34,8 +34,11 @@ class ConditionalRender extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (animationsEnabled == false) {
-      return condition ? (child ?? childBuilder?.call(context))! : SizedBox();
+    getChild() => (child ?? childBuilder?.call(context))!;
+    getChildElse() => (childElse ?? childElseBuilder?.call(context) ?? SizedBox());
+
+    if (!animationsEnabled) {
+      return condition ? getChild() : getChildElse();
     }
     return AnimatedSwitcher(
       duration: duration,
@@ -46,9 +49,7 @@ class ConditionalRender extends StatelessWidget {
           (child, value) {
             return ScaleTransition(scale: value, child: child);
           },
-      child: condition
-          ? (child ?? childBuilder?.call(context))!
-          : (childElse ?? childElseBuilder?.call(context) ?? SizedBox()),
+      child: condition ? getChild() : getChildElse(),
     );
   }
 }

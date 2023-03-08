@@ -72,6 +72,18 @@ void main() {
     expect(printed, equals('Error on future: null -> Error? $e'));
   });
 
+  test('should log error with custom logging function', () async {
+    //arrange
+    var errMsg = '';
+    final f1 = Future.error(Exception('Test')).loggingErrors(
+      errToString: (e, s) => 'Error: $e',
+      loggingFn: (e, s) => errMsg = 'Some error: $e',
+    );
+    //assert
+    await expectLater(f1, throwsException);
+    expect(errMsg, equals('Some error: Exception: Test'));
+  });
+
   test('should turn future value into null if it\'s a failure', () async {
     final f1 = Future<int>(() => throw Exception());
     final r1 = await f1.orNull();

@@ -71,4 +71,40 @@ void main() {
     expect(find.text('Hello'), findsOneWidget);
     expect(find.text('Else'), findsNothing);
   });
+
+  testWidgets('ConditionalRender without animations', (WidgetTester tester) async {
+    final visible = ValueNotifier(true);
+    await tester.pumpWidget(
+      MaterialApp(
+        home: HookBuilder(
+          builder: (context) {
+            final isVisible = useValueListenable(visible);
+
+            return ConditionalRender(
+              condition: isVisible,
+              childElseBuilder: (context) => const Text('Else'),
+              childBuilder: (context) => const Text('Hello'),
+              animationsEnabled: false,
+            );
+          },
+        ),
+      ),
+    );
+
+    await tester.pumpAndSettle();
+    expect(find.text('Hello'), findsOneWidget);
+    expect(find.text('Else'), findsNothing);
+
+    visible.value = false;
+    await tester.pumpAndSettle();
+
+    expect(find.text('Hello'), findsNothing);
+    expect(find.text('Else'), findsOneWidget);
+
+    visible.value = true;
+    await tester.pumpAndSettle();
+
+    expect(find.text('Hello'), findsOneWidget);
+    expect(find.text('Else'), findsNothing);
+  });
 }

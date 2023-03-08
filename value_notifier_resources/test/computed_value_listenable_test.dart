@@ -59,4 +59,40 @@ void main() {
 
     personNotifier.removeListener(listener);
   });
+
+  test('listener is disposed', () {
+    //arrange
+    final notifier1 = ValueNotifier(10);
+    final notifier2 = ValueNotifier(20);
+    final computed = computedValueListenable<int>((ref) {
+      return ref.watch(notifier1) + ref.watch(notifier2);
+    });
+    var count = 0;
+    var lastEmission = 0;
+    final sub = computed.listen((v, _) {
+      count++;
+      lastEmission = v;
+    });
+    //assert
+    expect(count, 0);
+    expect(lastEmission, 0);
+    expect(computed.value, 30);
+
+    //act
+    notifier1.value = 95;
+    //assert
+    expect(count, 1);
+    expect(lastEmission, 115);
+    expect(computed.value, 115);
+
+    //act
+    (computed as ValueNotifier).dispose();
+    notifier2.value = 30;
+    //assert
+    expect(count, 1);
+    expect(lastEmission, 115);
+    expect(computed.value, 125);
+
+    sub.cancel();
+  });
 }

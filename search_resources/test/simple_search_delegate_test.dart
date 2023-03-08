@@ -5,6 +5,12 @@ import 'package:search_resources/search_resources.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  pump(WidgetTester tester,{int times = 10}) async {
+    for (int i = 0; i < times; i++) {
+      await tester.pump(Duration(milliseconds: 100));
+    }
+  }
+
   testWidgets('SimpleSearchDelegate', (tester) async {
     String? result = '';
 
@@ -32,9 +38,7 @@ void main() {
     );
 
     await tester.tap(find.byIcon(Icons.search));
-    for (int i = 0; i < 10; i++) {
-      await tester.pump(Duration(milliseconds: 100));
-    }
+    await pump(tester);
 
     expect(find.byIcon(Icons.backspace), findsOneWidget);
     expect(find.byIcon(Icons.search), findsOneWidget);
@@ -46,9 +50,7 @@ void main() {
     expect(find.text('test013'), findsOneWidget);
 
     await tester.enterText(find.byType(TextField), 'test00');
-    for (int i = 0; i < 10; i++) {
-      await tester.pump(Duration(milliseconds: 100));
-    }
+    await pump(tester);
 
     expect(find.byType(ListTile), findsNWidgets(1));
 
@@ -83,21 +85,18 @@ void main() {
     );
 
     await tester.tap(find.byIcon(Icons.search));
-    for (int i = 0; i < 10; i++) {
-      await tester.pump(Duration(milliseconds: 100));
-    }
+    await pump(tester);
     await tester.enterText(find.byType(TextField), 'hellotest');
 
     expect(find.text('hellotest'), findsOneWidget);
 
+    await tester.tap(find.byIcon(Icons.search));
     await tester.tap(find.byIcon(Icons.backspace));
 
     expect(find.text('hellotest'), findsNothing);
 
     await tester.tap(find.byType(AnimatedIcon));
-    for (int i = 0; i < 10; i++) {
-      await tester.pump(Duration(milliseconds: 100));
-    }
+    await pump(tester);
 
     expect(find.byIcon(Icons.backspace), findsNothing);
     expect(find.byIcon(Icons.search), findsOneWidget);
@@ -114,12 +113,6 @@ class SimpleSearchDelegateImplementation extends SimpleSearchDelegate<String> {
   void onSearch(BuildContext context) => returnSearchResult(context, query);
 
   SimpleSearchDelegateImplementation({super.enableSearchButton = true});
-
-  @override
-  Widget buildResults(BuildContext context) {
-    Future.delayed(Duration.zero).then((_) => returnSearchResult(context, query));
-    return Container();
-  }
 
   @override
   Widget buildSuggestions(BuildContext context) {

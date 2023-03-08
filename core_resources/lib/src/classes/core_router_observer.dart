@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -31,22 +32,13 @@ class CoreRouterObserver extends NavigatorObserver {
 
 /// A [Route] wrapper that contains the current and previous route.
 /// To be replaced by tuples in the future
-class CoreRoute {
+class CoreRoute extends Equatable {
   final Route currentRoute;
   final Route? previousRoute;
 
   const CoreRoute({required this.currentRoute, this.previousRoute});
 
-  @override
-  String toString() {
-    return 'CoreRoute{currentRoute: $currentRoute, previousRoute: $previousRoute}';
-  }
 
   @override
-  bool operator ==(covariant CoreRoute other) =>
-      identical(this, other) ||
-      (currentRoute == other.currentRoute && previousRoute == other.previousRoute);
-
-  @override
-  int get hashCode => currentRoute.hashCode ^ previousRoute.hashCode;
+  List<Object?> get props => [currentRoute, previousRoute];
 }

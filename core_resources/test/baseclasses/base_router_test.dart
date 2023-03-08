@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 void main() {
-  final router = RouterImpl();
+  final BaseRouter router = RouterImpl();
 
   test('push', () {
     late BuildContext contextE;
