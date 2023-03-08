@@ -10,10 +10,7 @@ dependencies:
       path: core_resources
   flutter:
     sdk: flutter
-  fpdart:
-    git:
-      ref: b7e87e271b43caf05339100e2ab7f205579d346b
-      url: https://github.com/SandroMaglione/fpdart
+  fpdart: ^0.6.0-dev.1
   value_notifier_resources:
     git:
       url: https://github.com/icarohs7/unox-flutter-resmodules
