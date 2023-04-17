@@ -10,6 +10,29 @@ void main() {
     expect(dt.string('yyyy-MM-dd HH:mm:ss'), equals('2020-05-09 12:00:00'));
   });
 
+  test('should calculate how much time was elapsed between date and now', () {
+    final d1 = DateTime.now() - 2.days;
+    expect(d1.timeDifferenceFromNow(), 'Há 2 dias');
+
+    final d2 = DateTime.now() - 1.days;
+    expect(d2.timeDifferenceFromNow(), 'Há 1 dia');
+
+    final d3 = DateTime.now() - 2.hours;
+    expect(d3.timeDifferenceFromNow(), 'Há 2 horas');
+
+    final d4 = DateTime.now() - 1.hours;
+    expect(d4.timeDifferenceFromNow(), 'Há 1 hora');
+
+    final d5 = DateTime.now() - 2.minutes;
+    expect(d5.timeDifferenceFromNow(), 'Há 2 minutos');
+
+    final d6 = DateTime.now() - 1.minutes;
+    expect(d6.timeDifferenceFromNow(), 'Há 1 minuto');
+
+    final d7 = DateTime.now() - 30.seconds;
+    expect(d7.timeDifferenceFromNow(), 'Há menos de 1 minuto');
+  });
+
   test('should convert DateTime to string using american standard', () {
     final dt = DateTime(2020, 5, 9, 12, 0, 35);
 
