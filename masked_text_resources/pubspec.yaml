@@ -10,7 +10,7 @@ dependencies:
       path: core_resources
   flutter:
     sdk: flutter
-  mask_text_input_formatter: ^2.4.0
+  mask_text_input_formatter: '>=2.4.0'
 dev_dependencies:
   flutter_test:
     sdk: flutter
