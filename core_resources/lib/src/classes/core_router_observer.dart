@@ -38,7 +38,6 @@ class CoreRoute extends Equatable {
 
   const CoreRoute({required this.currentRoute, this.previousRoute});
 
-
   @override
   List<Object?> get props => [currentRoute, previousRoute];
 }
