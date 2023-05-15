@@ -6,14 +6,14 @@ environment:
 dependencies:
   core_resources:
     git:
-      url: https://github.com/icarohs7/unox-flutter-resmodules
+      url: https://github.com/icarohs7/flutter-resources
       path: core_resources
   flutter:
     sdk: flutter
   fpdart: '>=0.6.0'
   value_notifier_resources:
     git:
-      url: https://github.com/icarohs7/unox-flutter-resmodules
+      url: https://github.com/icarohs7/flutter-resources
       path: value_notifier_resources
 dev_dependencies:
   equatable: ^2.0.5
