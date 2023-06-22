@@ -24,4 +24,4 @@ TaskOption<R> taskOptionCatch<R>(Future<R> Function() fn) => TaskOption.tryCatch
 
 /// Convert the nullable result of the [Future] to a [Option]
 TaskOption<R> taskOptionNullable<R>(Future<R?> Function() fn) =>
-    Task(fn).map((a) => a.toOption()).merge();
+    Task(fn).map((a) => Option.fromNullable(a)).merge();

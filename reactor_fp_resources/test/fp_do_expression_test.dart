@@ -15,7 +15,7 @@ void main() {
     }).run();
     //assert
     expect(result, isA<Right>());
-    expect(result.fold(id, id), 30);
+    expect(result.fold(identity, identity), 30);
   });
 
   test('do notation fails using Either', () async {
@@ -29,7 +29,7 @@ void main() {
     }).run();
     //assert
     expect(result, isA<Left>());
-    expect(result.fold(id, id), MockFailure('Failed'));
+    expect(result.fold(identity, identity), MockFailure('Failed'));
   });
 
   test('do notation fails using TaskEither', () async {
@@ -43,6 +43,6 @@ void main() {
     }).run();
     //assert
     expect(result, isA<Left>());
-    expect(result.fold(id, id), MockFailure('Failed'));
+    expect(result.fold(identity, identity), MockFailure('Failed'));
   });
 }
