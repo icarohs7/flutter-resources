@@ -21,6 +21,7 @@ class EditableLabel extends HookWidget {
     this.labelStyle,
     this.animationDuration = const Duration(milliseconds: 250),
     this.enabled,
+    this.border,
   }) : inputKey = key;
 
   final Key? inputKey;
@@ -37,6 +38,7 @@ class EditableLabel extends HookWidget {
   final TextStyle? labelStyle;
   final Duration animationDuration;
   final bool? enabled;
+  final InputBorder? border;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +64,8 @@ class EditableLabel extends HookWidget {
                 keyboardType: keyboardType,
                 decoration: InputDecoration(
                   labelText: labelText,
-                  border: editing.value ? null : OutlineInputBorder(borderSide: BorderSide.none),
+                  border: border ??
+                      (editing.value ? null : OutlineInputBorder(borderSide: BorderSide.none)),
                   filled: filled,
                   fillColor: fillColor,
                   labelStyle: labelStyle,
