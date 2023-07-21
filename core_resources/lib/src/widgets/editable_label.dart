@@ -20,6 +20,7 @@ class EditableLabel extends HookWidget {
     this.fillColor,
     this.labelStyle,
     this.animationDuration = const Duration(milliseconds: 250),
+    this.enabled,
   }) : inputKey = key;
 
   final Key? inputKey;
@@ -35,6 +36,7 @@ class EditableLabel extends HookWidget {
   final Color? fillColor;
   final TextStyle? labelStyle;
   final Duration animationDuration;
+  final bool? enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,7 @@ class EditableLabel extends HookWidget {
                 fillColor: fillColor,
                 labelStyle: labelStyle,
               ),
-              enabled: editing.value,
+              enabled: enabled ?? editing.value,
             ),
           ),
         ),
