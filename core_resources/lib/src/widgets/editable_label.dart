@@ -51,21 +51,24 @@ class EditableLabel extends HookWidget {
               horizontal: 8,
               vertical: editing.value ? 8 : 2,
             ),
-            child: TextFormField(
-              initialValue: initialValue,
-              key: inputKey,
-              inputFormatters: inputFormatters,
-              controller: controller,
-              validator: validator,
-              keyboardType: keyboardType,
-              decoration: InputDecoration(
-                labelText: labelText,
-                border: editing.value ? null : OutlineInputBorder(borderSide: BorderSide.none),
-                filled: filled,
-                fillColor: fillColor,
-                labelStyle: labelStyle,
+            child: IgnorePointer(
+              ignoring: !editing.value,
+              child: TextFormField(
+                initialValue: initialValue,
+                key: inputKey,
+                inputFormatters: inputFormatters,
+                controller: controller,
+                validator: validator,
+                keyboardType: keyboardType,
+                decoration: InputDecoration(
+                  labelText: labelText,
+                  border: editing.value ? null : OutlineInputBorder(borderSide: BorderSide.none),
+                  filled: filled,
+                  fillColor: fillColor,
+                  labelStyle: labelStyle,
+                ),
+                enabled: enabled ?? editing.value,
               ),
-              enabled: enabled ?? editing.value,
             ),
           ),
         ),
@@ -84,7 +87,10 @@ class EditableLabel extends HookWidget {
             ),
             onPressed: () async {
               final allowSwitch = (editing.value && onSave != null) ? await onSave!() : true;
-              if (allowSwitch) editing.value = !editing.value;
+              if (allowSwitch) {
+                editing.value = !editing.value;
+                FocusScope.of(context).requestFocus(FocusNode());
+              }
             },
           ),
       ],
