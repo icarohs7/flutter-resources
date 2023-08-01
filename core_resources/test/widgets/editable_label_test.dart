@@ -20,6 +20,7 @@ void main() {
               labelText: 'label',
               onSave: () => saved = true,
               animationDuration: Duration.zero,
+              enabled: null,
             );
           }),
         ),

@@ -13,14 +13,13 @@ extension TimeExtensions on DateTime {
     final ageMinutes = age.inMinutes;
     final ageHours = age.inHours;
     final ageDays = age.inDays;
-    final diffDays = DateTime.now().day - day;
     return ageMinutes < 1
         ? 'Há menos de 1 minuto'
         : ageHours < 1
             ? 'Há $ageMinutes minuto${ageMinutes > 1 ? 's' : ''}'
             : ageDays < 1
                 ? 'Há $ageHours hora${ageHours > 1 ? 's' : ''}'
-                : 'Há $diffDays dia${diffDays > 1 ? 's' : ''}';
+                : 'Há $ageDays dia${ageDays > 1 ? 's' : ''}';
   }
 
   /// Convert the given DateTime object to
