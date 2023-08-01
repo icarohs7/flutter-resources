@@ -20,7 +20,7 @@ class EditableLabel extends HookWidget {
     this.fillColor,
     this.labelStyle,
     this.animationDuration = const Duration(milliseconds: 250),
-    this.enabled,
+    this.enabled = true,
     this.border,
   }) : inputKey = key;
 
