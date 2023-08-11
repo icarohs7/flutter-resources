@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-typedef _Builder<T> = T Function(_Ref ref);
+typedef _Builder<T> = T Function(ComputedValueListenableRef ref);
 
 /// Merge many [ValueListenable] objects using a builder
 ///
@@ -24,7 +24,7 @@ typedef _Builder<T> = T Function(_Ref ref);
 /// ```
 ValueListenable<T> computedValueListenable<T>(_Builder<T> builder) {
   final listenables = <Listenable>[];
-  final ref = _Ref(listenables.add);
+  final ref = ComputedValueListenableRef(listenables.add);
   return _MultiValueNotifier(builder(ref), listenables: listenables, builder: builder);
 }
 
@@ -32,7 +32,7 @@ class _MultiValueNotifier<T> extends ValueNotifier<T> {
   late final Listenable _listenable;
   final _Builder<T> builder;
 
-  final ref = _Ref();
+  final ref = ComputedValueListenableRef();
 
   bool initialized = false;
 
@@ -72,10 +72,10 @@ class _MultiValueNotifier<T> extends ValueNotifier<T> {
   }
 }
 
-class _Ref {
+class ComputedValueListenableRef {
   final void Function(Listenable)? _watchHandler;
 
-  const _Ref([this._watchHandler]);
+  const ComputedValueListenableRef([this._watchHandler]);
 
   R watch<R>(ValueListenable<R> notifier) {
     _watchHandler?.call(notifier);
