@@ -21,10 +21,16 @@ import 'package:fpdart/fpdart.dart';
 ///   return $(storeData(processedData));
 /// });
 /// ```
-TaskEither<L, R> taskEitherDo<L, R>(CRDoFunctionTaskEither<L, R> f) => TaskEither.tryCatch(
-      () => f(_doEitherAdapter<L>(), _doTaskEitherAdapter<L>()),
-      (error, _) => (error as _TaskEitherThrow<L>).value,
-    );
+TaskEither<L, R> taskEitherDo<L, R>(CRDoFunctionTaskEither<L, R> f) {
+  return TaskEither<L, R>(() async {
+    try {
+      return Right<L, R>(await f(_doEitherAdapter<L>(), _doTaskEitherAdapter<L>()));
+    } catch (error) {
+      if (error case _TaskEitherThrow<L> error) return Left<L, R>(error.value);
+      rethrow;
+    }
+  });
+}
 
 class _TaskEitherThrow<L> {
   final L value;
