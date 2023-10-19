@@ -24,10 +24,9 @@ import 'package:fpdart/fpdart.dart';
 TaskEither<L, R> taskEitherDo<L, R>(CRDoFunctionTaskEither<L, R> f) {
   return TaskEither<L, R>(() async {
     try {
-      return Right<L, R>(await f(_doEitherAdapter<L>(), _doTaskEitherAdapter<L>()));
-    } catch (error) {
-      if (error case _TaskEitherThrow<L> error) return Left<L, R>(error.value);
-      rethrow;
+      return Either.right(await f(_doEitherAdapter<L>(), _doTaskEitherAdapter<L>()));
+    } on _TaskEitherThrow<L> catch (e) {
+      return Either.left(e.value);
     }
   });
 }
