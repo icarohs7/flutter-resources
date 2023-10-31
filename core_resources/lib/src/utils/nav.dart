@@ -4,7 +4,7 @@ import 'fade_page_route.dart';
 
 /// Utility class to use Navigator methods using a shorter syntax
 class Nav {
-  Future<T?> goFullscreenDialog<T>(BuildContext context, {required Widget page}) {
+  Future<T?> goFullscreenDialog<T extends Object?>(BuildContext context, {required Widget page}) {
     return Navigator.push<T>(
       context,
       MaterialPageRoute(builder: (context) => page, fullscreenDialog: true),
