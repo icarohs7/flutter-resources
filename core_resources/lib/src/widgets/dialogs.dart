@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-Future<T?> showSimpleAlert<T>(
+Future<T?> showSimpleAlert<T extends Object?>(
   BuildContext context, {
   Widget? title,
   Widget? content,
   String? confirmText,
   Function()? onConfirm,
 }) {
-  return showDialog(
+  return showDialog<T>(
     context: context,
     builder: (context) => SimpleAlert(
       title: title,
