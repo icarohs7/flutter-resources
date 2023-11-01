@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../core_resources.dart';
+
 Future<T?> showSimpleAlert<T extends Object?>(
   BuildContext context, {
   Widget? title,
@@ -17,7 +19,7 @@ Future<T?> showSimpleAlert<T extends Object?>(
       confirmText: confirmText,
       onConfirm: onConfirm,
     ),
-  );
+  ).orNull();
 }
 
 class SimpleAlert extends StatelessWidget {
