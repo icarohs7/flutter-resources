@@ -9,7 +9,7 @@ Future<T?> showSimpleAlert<T extends Object?>(
   Widget? title,
   Widget? content,
   String? confirmText,
-  Function()? onConfirm,
+  Function(BuildContext context)? onConfirm,
 }) {
   return showDialog<T>(
     context: context,
@@ -26,7 +26,7 @@ class SimpleAlert extends StatelessWidget {
   final Widget? title;
   final Widget? content;
   final String? confirmText;
-  final Function()? onConfirm;
+  final Function(BuildContext context)? onConfirm;
 
   const SimpleAlert({
     super.key,
@@ -44,7 +44,7 @@ class SimpleAlert extends StatelessWidget {
       actions: <Widget>[
         TextButton(
           child: Text(confirmText ?? 'Ok'),
-          onPressed: () => onConfirm?.call() ?? Navigator.pop(context),
+          onPressed: () => onConfirm?.call(context) ?? Navigator.pop(context),
         ),
       ],
     );
@@ -55,8 +55,8 @@ Future<bool> showConfirmDialog(
   BuildContext context, {
   Widget? title,
   Widget? content,
-  FutureOr<void> Function()? onConfirm,
-  FutureOr<void> Function()? onCancel,
+  FutureOr<void> Function(BuildContext context)? onConfirm,
+  FutureOr<void> Function(BuildContext context)? onCancel,
   String? cancelText,
   String? confirmText,
 }) async {
@@ -79,8 +79,8 @@ Future<bool> showConfirmDialog(
 class ConfirmDialog extends StatelessWidget {
   final Widget? title;
   final Widget? content;
-  final FutureOr<void> Function()? onConfirm;
-  final FutureOr<void> Function()? onCancel;
+  final FutureOr<void> Function(BuildContext context)? onConfirm;
+  final FutureOr<void> Function(BuildContext context)? onCancel;
   final String? cancelText;
   final String? confirmText;
 
@@ -101,11 +101,11 @@ class ConfirmDialog extends StatelessWidget {
       content: content,
       actions: <Widget>[
         TextButton(
-          onPressed: onCancel ?? () => Navigator.of(context).pop(false),
+          onPressed: () => onCancel?.call(context) ?? Navigator.of(context).pop(false),
           child: Text(cancelText ?? 'Cancelar'),
         ),
         TextButton(
-          onPressed: onConfirm ?? () => Navigator.of(context).pop(true),
+          onPressed: () => onConfirm?.call(context) ?? Navigator.of(context).pop(true),
           child: Text(confirmText ?? 'Confirmar'),
         ),
       ],

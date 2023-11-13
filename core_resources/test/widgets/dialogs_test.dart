@@ -13,7 +13,7 @@ void main() {
               title: Text('Title'),
               content: Text('Content'),
               confirmText: 'Confirm',
-              onConfirm: () => Navigator.pop(context),
+              onConfirm: (context) => Navigator.pop(context),
             );
           },
           child: Text('Show dialog'),
@@ -85,12 +85,12 @@ void main() {
                   title: Text('title'),
                   content: Text('content'),
                   confirmText: 'confirmTest',
-                  onConfirm: () {
+                  onConfirm: (context) {
                     confirmed = true;
                     context.pop(true);
                   },
                   cancelText: 'cancelTest',
-                  onCancel: () {
+                  onCancel: (context) {
                     cancelled = true;
                     context.pop();
                   },
