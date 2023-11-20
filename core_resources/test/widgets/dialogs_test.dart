@@ -34,7 +34,6 @@ void main() {
     expect(find.text('Title'), findsNothing);
     expect(find.text('Content'), findsNothing);
     expect(find.text('Confirm'), findsNothing);
-
   });
 
   testWidgets('SimpleAlert using default text', (WidgetTester tester) async {
@@ -66,75 +65,95 @@ void main() {
     expect(find.text('Title'), findsNothing);
     expect(find.text('Content'), findsNothing);
     expect(find.text('Ok'), findsNothing);
-
   });
 
-  testWidgets('showConfirmDialog', (tester) async {
+  group('showConfirmDialog', () {
     var result = false;
     var confirmed = false;
     var cancelled = false;
-
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
-          body: Builder(
-            builder: (context) => TextButton(
-              onPressed: () async {
-                result = await showConfirmDialog(
-                  context,
-                  title: Text('title'),
-                  content: Text('content'),
-                  confirmText: 'confirmTest',
-                  onConfirm: (context) {
-                    confirmed = true;
-                    context.pop(true);
-                  },
-                  cancelText: 'cancelTest',
-                  onCancel: (context) {
-                    cancelled = true;
-                    context.pop();
-                  },
-                );
-              },
-              child: const Text('Show dialog'),
-            ),
+    final widget = MaterialApp(
+      home: Scaffold(
+        body: Builder(
+          builder: (context) => TextButton(
+            onPressed: () async {
+              result = await showConfirmDialog(
+                context,
+                title: Text('title'),
+                content: Text('content'),
+                confirmText: 'confirmTest',
+                onConfirm: (_) {
+                  confirmed = true;
+                  context.pop(true);
+                },
+                cancelText: 'cancelTest',
+                onCancel: (_) {
+                  cancelled = true;
+                  context.pop();
+                },
+              );
+            },
+            child: const Text('Show'),
           ),
         ),
       ),
     );
 
-    await tester.tap(find.text('Show dialog'));
-    await tester.pumpAndSettle();
+    testWidgets('dialog opens', (tester) async {
+      await tester.pumpWidget(widget);
+      await tester.tap(find.text('Show'));
+      await tester.pumpAndSettle();
 
-    expect(find.text('title'), findsOneWidget);
-    expect(find.text('content'), findsOneWidget);
-    expect(find.text('confirmTest'), findsOneWidget);
-    expect(find.text('cancelTest'), findsOneWidget);
+      expect(find.text('title'), findsOneWidget);
+      expect(find.text('content'), findsOneWidget);
+      expect(find.text('confirmTest'), findsOneWidget);
+      expect(find.text('cancelTest'), findsOneWidget);
 
-    await tester.tap(find.text('cancelTest'));
-    await tester.pumpAndSettle();
+      result = false;
+      confirmed = false;
+      cancelled = false;
+    });
 
-    expect(result, isFalse);
-    expect(confirmed, isFalse);
-    expect(cancelled, isTrue);
-    expect(find.text('title'), findsNothing);
-    expect(find.text('content'), findsNothing);
-    expect(find.text('confirmTest'), findsNothing);
-    expect(find.text('cancelTest'), findsNothing);
+    testWidgets('cancel button pressed', (tester) async {
+      await tester.pumpWidget(widget);
+      await tester.tap(find.text('Show'));
+      await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Show dialog'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('cancelTest'));
+      await tester.pumpAndSettle();
 
-    await tester.tap(find.text('confirmTest'));
-    await tester.pumpAndSettle();
+      expect(result, isFalse);
+      expect(confirmed, isFalse);
+      expect(cancelled, isTrue);
+      expect(find.text('title'), findsNothing);
+      expect(find.text('content'), findsNothing);
+      expect(find.text('confirmTest'), findsNothing);
+      expect(find.text('cancelTest'), findsNothing);
 
-    expect(result, isTrue);
-    expect(confirmed, isTrue);
-    expect(cancelled, isTrue);
-    expect(find.text('title'), findsNothing);
-    expect(find.text('content'), findsNothing);
-    expect(find.text('confirmTest'), findsNothing);
-    expect(find.text('cancelTest'), findsNothing);
+      result = false;
+      confirmed = false;
+      cancelled = false;
+    });
+
+    testWidgets('confirm button pressed', (tester) async {
+      await tester.pumpWidget(widget);
+      await tester.tap(find.text('Show'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('confirmTest'));
+      await tester.pumpAndSettle();
+
+      expect(result, isTrue);
+      expect(confirmed, isTrue);
+      expect(cancelled, isFalse);
+      expect(find.text('title'), findsNothing);
+      expect(find.text('content'), findsNothing);
+      expect(find.text('confirmTest'), findsNothing);
+      expect(find.text('cancelTest'), findsNothing);
+
+      result = false;
+      confirmed = false;
+      cancelled = false;
+    });
   });
 
   testWidgets('showConfirmDialog with default values', (tester) async {
