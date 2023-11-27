@@ -76,7 +76,7 @@ class LoadingTextButton extends StatelessWidget {
   });
 
   final Widget? child;
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final bool isLoading;
   final ButtonStyle? style;
 
@@ -148,7 +148,7 @@ class LoadingIconButton extends StatelessWidget {
   });
 
   final Widget? icon;
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final bool isLoading;
   final Color? color;
   final Color? progressIndicatorColor;
