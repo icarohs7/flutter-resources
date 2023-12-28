@@ -1,16 +1,20 @@
-import '../extensions/string_extensions.dart';
+import '../../core_resources.dart';
 
 class CommonIntents {
   static Uri locationOnMaps({
-    required double latitude,
-    required double longitude,
+    double? latitude,
+    double? longitude,
+    String? query,
   }) {
     return Uri.https(
       'www.google.com',
       '/maps/search/',
       {
         'api': '1',
-        'query': '$latitude,$longitude',
+        'query': [
+          if (latitude != null && longitude != null) '$latitude,$longitude',
+          if (query != null) query,
+        ].joinToString(separator: ''),
       },
     );
   }
