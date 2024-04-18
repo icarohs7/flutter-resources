@@ -33,6 +33,29 @@ void main() {
     expect(d7.timeDifferenceFromNow(), 'Há menos de 1 minuto');
   });
 
+  test('should calculate how much time is left to date', () {
+    final d1 = DateTime.now() + 2.days;
+    expect(d1.timeDifferenceFromNow(), 'Em 2 dias');
+
+    final d2 = DateTime.now() + 1.days;
+    expect(d2.timeDifferenceFromNow(), 'Em 1 dia');
+
+    final d3 = DateTime.now() + 2.hours;
+    expect(d3.timeDifferenceFromNow(), 'Em 2 horas');
+
+    final d4 = DateTime.now() + 1.hours;
+    expect(d4.timeDifferenceFromNow(), 'Em 1 hora');
+
+    final d5 = DateTime.now() + 2.minutes;
+    expect(d5.timeDifferenceFromNow(), 'Em 2 minutos');
+
+    final d6 = DateTime.now() + 1.minutes;
+    expect(d6.timeDifferenceFromNow(), 'Em 1 minuto');
+
+    final d7 = DateTime.now() + 30.seconds;
+    expect(d7.timeDifferenceFromNow(), 'Em menos de 1 minuto');
+  });
+
   test('should convert DateTime to string using american standard', () {
     final dt = DateTime(2020, 5, 9, 12, 0, 35);
 
