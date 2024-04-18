@@ -34,22 +34,22 @@ void main() {
   });
 
   test('should calculate how much time is left to date', () {
-    final d1 = DateTime.now() + 2.days;
+    final d1 = DateTime.now() + 2.days + 1.minutes;
     expect(d1.timeDifferenceFromNow(), 'Em 2 dias');
 
-    final d2 = DateTime.now() + 1.days;
+    final d2 = DateTime.now() + 1.days + 1.minutes;
     expect(d2.timeDifferenceFromNow(), 'Em 1 dia');
 
-    final d3 = DateTime.now() + 2.hours;
+    final d3 = DateTime.now() + 2.hours + 1.minutes;
     expect(d3.timeDifferenceFromNow(), 'Em 2 horas');
 
-    final d4 = DateTime.now() + 1.hours;
+    final d4 = DateTime.now() + 1.hours + 1.minutes;
     expect(d4.timeDifferenceFromNow(), 'Em 1 hora');
 
-    final d5 = DateTime.now() + 2.minutes;
+    final d5 = DateTime.now() + 2.minutes + 50.seconds;
     expect(d5.timeDifferenceFromNow(), 'Em 2 minutos');
 
-    final d6 = DateTime.now() + 1.minutes;
+    final d6 = DateTime.now() + 1.minutes + 50.seconds;
     expect(d6.timeDifferenceFromNow(), 'Em 1 minuto');
 
     final d7 = DateTime.now() + 30.seconds;
