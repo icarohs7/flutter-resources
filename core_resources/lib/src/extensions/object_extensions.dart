@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension ObjectExtensions<T> on T {
-  MaterialStateProperty<T> get materialProperty => MaterialStateProperty.all(this);
+  WidgetStateProperty<T> get materialProperty => WidgetStateProperty.all(this);
 
   ///Returns the result of applying the given function to
   ///`this` object
