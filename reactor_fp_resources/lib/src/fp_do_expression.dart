@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:fpdart/fpdart.dart';
 
 /// Create a [TaskEither] using a syntax similar to the [Do] notation in functional languages
@@ -28,6 +29,20 @@ TaskEither<L, R> taskEitherDo<L, R>(CRDoFunctionTaskEither<L, R> f) {
     } on _TaskEitherThrow<L> catch (e) {
       return Either.left(e.value);
     }
+  });
+}
+
+/// [taskEitherDo] running the computation on a
+/// separated isolate
+TaskEither<L, R> taskEitherDoBg<L, R>(CRDoFunctionTaskEither<L, R> f) {
+  return TaskEither<L, R>(() {
+    return compute((_) async {
+      try {
+        return Either.right(await f(_doEitherAdapter<L>(), _doTaskEitherAdapter<L>()));
+      } on _TaskEitherThrow<L> catch (e) {
+        return Either.left(e.value);
+      }
+    }, 0);
   });
 }
 
