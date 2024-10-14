@@ -62,17 +62,6 @@ flutter pub add reactor_fp_resources --git-path=reactor_fp_resources --git-url=h
 
 ---
 
-- ### triple_resources
-
-Revolves around the [Triple Pattern](https://github.com/Flutterando/triple_pattern),
-a state management solution, exports the `reactor_fp_resources` library
-
-```
-flutter pub add triple_resources --git-path=triple_resources --git-url=https://github.com/icarohs7/flutter-resources
-```
-
----
-
 - ### value_notifier_resources
 
 ValueNotifier extensions and utilities

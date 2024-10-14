@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/core_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/core_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/core_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/masked_text_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/masked_text_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/masked_text_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/reactor_fp_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/reactor_fp_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/reactor_fp_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/search_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/search_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/search_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/stream_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/stream_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/stream_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/triple_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/triple_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/triple_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/value_notifier_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/value_notifier_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/value_notifier_resources/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
