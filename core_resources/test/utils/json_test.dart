@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:core_resources/core_resources.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -30,6 +32,27 @@ void main() {
     expect(arr[3], equals('shindeiru'));
     expect(arr[4], equals(42));
     expect(arr, equals(['omai', 'wa', 'mou', 'shindeiru', 42]));
+  });
+
+  test('should decode byte array', () async {
+    final obj1 = {
+      'name': 'test',
+      'items': [1, 2, 3],
+    };
+    final obj1bytes = utf8.encode(jsonEncode(obj1));
+    expect(await jsonDecodeBytesBg(obj1bytes), equals(obj1));
+
+    final obj2 = {
+      'name': 'Hello',
+      'items': [1, 2, 3],
+      'people': {
+        'Jhon': {
+          'age': 27,
+        },
+      },
+    };
+    final obj2bytes = utf8.encode(jsonEncode(obj2));
+    expect(await jsonDecodeBytesBg(obj2bytes), equals(obj2));
   });
 
   test('should encode json object', () async {
