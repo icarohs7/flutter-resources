@@ -1,4 +1,4 @@
-extension StringToNumberExtensions on String {
+extension CRStringToNumberExtensions on String {
   ///Removes all non-digit characters of the string
   ///and returns the resulting sequence
   String onlyNumbers() => replaceAll(RegExp(r'[^0-9]'), '');
@@ -8,7 +8,7 @@ extension StringToNumberExtensions on String {
   int digits() => int.parse(onlyNumbers());
 }
 
-extension DoubleExtensions on double {
+extension CRDoubleExtensions on double {
   ///Convert the given value to a currency representation
   String asCurrency() => 'R\$ ${toStringAsFixed(2).replaceAll('.', ',')}';
 

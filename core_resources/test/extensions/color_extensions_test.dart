@@ -4,10 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('should convert hex code string to color', () {
-    expect(ColorExtensions.fromHex('#102030').toHex(), Color(0xFF102030).toHex());
-    expect(ColorExtensions.fromHex('#FF102030').toHex(), Color(0xFF102030).toHex());
-    expect(ColorExtensions.fromHex('#ff102030').toHex(), Color(0xFF102030).toHex());
-    expect(ColorExtensions.fromHex('#ffabcdef').toHex(), Color(0xFFAbCdEf).toHex());
+    expect(CRColorExtensions.fromHex('#102030').toHex(), Color(0xFF102030).toHex());
+    expect(CRColorExtensions.fromHex('#FF102030').toHex(), Color(0xFF102030).toHex());
+    expect(CRColorExtensions.fromHex('#ff102030').toHex(), Color(0xFF102030).toHex());
+    expect(CRColorExtensions.fromHex('#ffabcdef').toHex(), Color(0xFFAbCdEf).toHex());
   });
 
   test('should convert color to hexadecimal representation', () {

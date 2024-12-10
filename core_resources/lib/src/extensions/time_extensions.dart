@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-extension TimeExtensions on DateTime {
+extension CRTimeExtensions on DateTime {
   ///Convert the given DateTime object to
   ///string using the given [format]
   ///and [locale]

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-extension ColorExtensions on Color {
+extension CRColorExtensions on Color {
   /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
   static Color fromHex(String? hexString) {
     if (hexString == null) return Colors.black;

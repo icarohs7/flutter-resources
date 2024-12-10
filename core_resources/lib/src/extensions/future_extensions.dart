@@ -15,7 +15,7 @@ Future<T> runAsyncOrDefault<T>(T fallback, FutureOr<T> Function() fn) async {
   }
 }
 
-extension FutureExtensions<T> on Future<T> {
+extension CRFutureExtensions<T> on Future<T> {
   ///Intercepts errors thrown on the execution
   ///of the given future, logging them and rethrowing
   Future<T> loggingErrors({

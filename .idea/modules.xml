@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/core_resources/core_resources.iml" filepath="$PROJECT_DIR$/core_resources/core_resources.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/flutter-resources.iml" filepath="$PROJECT_DIR$/.idea/flutter-resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/masked_text_resources/masked_text_resources.iml" filepath="$PROJECT_DIR$/masked_text_resources/masked_text_resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactor_fp_resources/reactor_fp_resources.iml" filepath="$PROJECT_DIR$/reactor_fp_resources/reactor_fp_resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/search_resources/search_resources.iml" filepath="$PROJECT_DIR$/search_resources/search_resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stream_resources/stream_resources.iml" filepath="$PROJECT_DIR$/stream_resources/stream_resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/value_notifier_resources/value_notifier_resources.iml" filepath="$PROJECT_DIR$/value_notifier_resources/value_notifier_resources.iml" />
     </modules>
   </component>
 </project>
