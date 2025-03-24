@@ -10,12 +10,13 @@ typedef NavigationFunction = void Function(
 // ignore: avoid_classes_with_only_static_members
 class Core {
   //region locator
-  static late T Function<T extends Object>() _locator;
+  static late T Function<T extends Object>({String? instanceName}) _locator;
 
   /// Define the service locator used on some functions
-  static void setLocator(T Function<T extends Object>() locator) => _locator = locator;
+  static void setLocator(T Function<T extends Object>({String? instanceName}) locator) =>
+      _locator = locator;
 
-  static T get<T extends Object>() => _locator();
+  static T get<T extends Object>({String? instanceName}) => _locator(instanceName: instanceName);
 
   //endregion
 

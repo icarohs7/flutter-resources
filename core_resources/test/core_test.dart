@@ -27,7 +27,7 @@ void main() {
     };
 
     expect(() => Core.get(), throwsA(isA<Error>()));
-    Core.setLocator(<T extends Object>() => locatorMap[T] as T);
+    Core.setLocator(<T extends Object>({String? instanceName}) => locatorMap[T] as T);
     expect(Core.get<String>(), 'test');
     expect(Core.get<List<String>>(), ['Omai', 'Wa', 'Mou', 'Shindeiru']);
     expect(Core.get<List<int>>(), [1, 2, 3, 4, 5]);
