@@ -152,4 +152,120 @@ void main() {
     subjectSubject.close();
     subject.value.close();
   });
+
+  testWidgets('useMemoizedFuture with keys test', (tester) async {
+    final key = ValueNotifier(0);
+    final subject = ValueNotifier(Future.value(0));
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: HookBuilder(
+          builder: (context) {
+            final keyValue = useValueListenable(key);
+            final future = useValueListenable(subject);
+            final value = useMemoizedFuture(future, [keyValue]);
+            return Text(value.data.toString());
+          },
+        ),
+      ),
+    );
+
+    await tester.pump();
+    expect(find.text('0'), findsOneWidget);
+    subject.value = Future.value(1);
+    await tester.pump();
+    expect(find.text('0'), findsOneWidget);
+    key.value = 1;
+    await tester.pump();
+    await tester.pump();
+    expect(find.text('1'), findsOneWidget);
+  });
+
+  testWidgets('useMemoizedFutureData with keys test', (tester) async {
+    final key = ValueNotifier(0);
+    final subject = ValueNotifier(Future.value(0));
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: HookBuilder(
+          builder: (context) {
+            final keyValue = useValueListenable(key);
+            final future = useValueListenable(subject);
+            final value = useMemoizedFutureData(future, [keyValue]);
+            return Text(value.toString());
+          },
+        ),
+      ),
+    );
+
+    await tester.pump();
+    expect(find.text('0'), findsOneWidget);
+    subject.value = Future.value(1);
+    await tester.pump();
+    expect(find.text('0'), findsOneWidget);
+    key.value = 1;
+    await tester.pump();
+    await tester.pump();
+    expect(find.text('1'), findsOneWidget);
+  });
+
+  testWidgets('useMemoizedStream with keys test', (tester) async {
+    final key = ValueNotifier(0);
+    final subject = ValueNotifier(StreamController()..add(0));
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: HookBuilder(
+          builder: (context) {
+            final keyValue = useValueListenable(key);
+            final stream = useValueListenable(subject);
+            final value = useMemoizedStream(stream.stream, [keyValue]);
+            return Text(value.data.toString());
+          },
+        ),
+      ),
+    );
+
+    await tester.pump(Duration(milliseconds: 300));
+    expect(find.text('0'), findsOneWidget);
+    subject.value = StreamController()..add(1);
+    await tester.pump(Duration(milliseconds: 300));
+    expect(find.text('0'), findsOneWidget);
+    key.value = 1;
+    await tester.pump(Duration(milliseconds: 300));
+    await tester.pump(Duration(milliseconds: 300));
+    expect(find.text('1'), findsOneWidget);
+
+    subject.value.close();
+  });
+
+  testWidgets('useMemoizedStreamData with keys test', (tester) async {
+    final key = ValueNotifier(0);
+    final subject = ValueNotifier(StreamController()..add(0));
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: HookBuilder(
+          builder: (context) {
+            final keyValue = useValueListenable(key);
+            final stream = useValueListenable(subject);
+            final value = useMemoizedStreamData(stream.stream, [keyValue]);
+            return Text(value.toString());
+          },
+        ),
+      ),
+    );
+
+    await tester.pump(Duration(milliseconds: 300));
+    expect(find.text('0'), findsOneWidget);
+    subject.value = StreamController()..add(1);
+    await tester.pump(Duration(milliseconds: 300));
+    expect(find.text('0'), findsOneWidget);
+    key.value = 1;
+    await tester.pump(Duration(milliseconds: 300));
+    await tester.pump(Duration(milliseconds: 300));
+    expect(find.text('1'), findsOneWidget);
+
+    subject.value.close();
+  });
 }
