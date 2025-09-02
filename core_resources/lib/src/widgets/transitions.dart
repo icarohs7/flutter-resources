@@ -28,7 +28,7 @@ class HorizontalScaleTransition extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final scaleValue = scale.value;
-    final transform = Matrix4.identity()..scale(scaleValue, 1.0, 1.0);
+    final transform = Matrix4.diagonal3Values(scaleValue, 1.0, 1.0);
     return Transform(
       transform: transform,
       alignment: alignment,
@@ -65,7 +65,7 @@ class VerticalScaleTransition extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final scaleValue = scale.value;
-    final transform = Matrix4.identity()..scale(1.0, scaleValue, 1.0);
+    final transform = Matrix4.diagonal3Values(1.0, scaleValue, 1.0);
     return Transform(
       transform: transform,
       alignment: alignment,

@@ -17,17 +17,15 @@ void main() {
     await tester.pumpWidget(widget);
 
     Transform transform = tester.widget(find.byType(Transform));
-    expect(transform.transform, Matrix4.identity()..scale(controller.value, 1.0, 1.0));
-
+    expect(transform.transform, Matrix4.diagonal3Values(controller.value, 1.0, 1.0));
     controller.value = 0.5;
     await tester.pump();
     transform = tester.widget(find.byType(Transform));
-    expect(transform.transform, Matrix4.identity()..scale(controller.value, 1.0, 1.0));
-
+    expect(transform.transform, Matrix4.diagonal3Values(controller.value, 1.0, 1.0));
     controller.value = 0.75;
     await tester.pump();
     transform = tester.widget(find.byType(Transform));
-    expect(transform.transform, Matrix4.identity()..scale(controller.value, 1.0, 1.0));
+    expect(transform.transform, Matrix4.diagonal3Values(controller.value, 1.0, 1.0));
   });
 
   testWidgets('VerticalScaleTransition', (WidgetTester tester) async {
@@ -44,16 +42,14 @@ void main() {
     await tester.pumpWidget(widget);
 
     Transform transform = tester.widget(find.byType(Transform));
-    expect(transform.transform, Matrix4.identity()..scale(1.0, controller.value, 1.0));
-
+    expect(transform.transform, Matrix4.diagonal3Values(1.0, controller.value, 1.0));
     controller.value = 0.5;
     await tester.pump();
     transform = tester.widget(find.byType(Transform));
-    expect(transform.transform, Matrix4.identity()..scale(1.0, controller.value, 1.0));
-
+    expect(transform.transform, Matrix4.diagonal3Values(1.0, controller.value, 1.0));
     controller.value = 0.75;
     await tester.pump();
     transform = tester.widget(find.byType(Transform));
-    expect(transform.transform, Matrix4.identity()..scale(1.0, controller.value, 1.0));
+    expect(transform.transform, Matrix4.diagonal3Values(1.0, controller.value, 1.0));
   });
 }
