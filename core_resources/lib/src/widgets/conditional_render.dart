@@ -35,7 +35,7 @@ class ConditionalRender extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getChild() => (child ?? childBuilder?.call(context))!;
-    getChildElse() => (childElse ?? childElseBuilder?.call(context) ?? SizedBox());
+    getChildElse() => (childElse ?? childElseBuilder?.call(context) ?? SizedBox.shrink());
 
     if (!animationsEnabled) {
       return condition ? getChild() : getChildElse();
