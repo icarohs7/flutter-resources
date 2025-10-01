@@ -23,7 +23,7 @@ Future<T?> showSimpleAlert<T>(
 
 Future<T?> showSimpleTimedAlert<T>(
   BuildContext context, {
-  required Duration duration,
+  Duration? duration,
   Widget? title,
   Widget? content,
   String? confirmText,
@@ -36,7 +36,7 @@ Future<T?> showSimpleTimedAlert<T>(
       content: content,
       confirmText: confirmText,
       onConfirm: onConfirm,
-      duration: duration,
+      duration: duration ?? Duration(seconds: 2),
     ),
   );
 }
