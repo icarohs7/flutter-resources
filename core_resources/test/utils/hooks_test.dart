@@ -268,4 +268,28 @@ void main() {
 
     subject.value.close();
   });
+
+  testWidgets('useStartAnimationControllerWithCompletionCallback test', (tester) async {
+    var completed = false;
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: HookBuilder(
+          builder: (context) {
+            final animationController =
+                useAnimationController(duration: Duration(milliseconds: 300));
+            useStartAnimationControllerWithCompletionCallback(
+              animationController,
+              () => completed = true,
+            );
+            return Container();
+          },
+        ),
+      ),
+    );
+
+    expect(completed, false);
+    await tester.pumpAndSettle(Duration(milliseconds: 400));
+    expect(completed, true);
+  });
 }

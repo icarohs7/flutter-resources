@@ -52,3 +52,21 @@ T? useMemoizedStreamData<T>(Stream<T> stream, [List<Object?> keys = const <Objec
   final data = useStreamData(memoizedStream);
   return data;
 }
+
+/// Forward the given [animationController] and invoke the
+/// [onAnimationComplete] callback when the animation is complete
+void useStartAnimationControllerWithCompletionCallback(
+  AnimationController animationController,
+  VoidCallback onAnimationComplete,
+) {
+  useEffect(() {
+    listener(AnimationStatus status) {
+      if (status == AnimationStatus.completed) onAnimationComplete();
+    }
+
+    animationController.forward();
+    animationController.addStatusListener(listener);
+
+    return () => animationController.removeStatusListener(listener);
+  }, [animationController]);
+}

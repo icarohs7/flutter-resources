@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+
+import '../../core_resources.dart';
 
 Future<T?> showSimpleAlert<T>(
   BuildContext context, {
@@ -62,17 +63,10 @@ class SimpleTimedAlert extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final animationController = useAnimationController(duration: duration);
-
-    useEffect(() {
-      listener(AnimationStatus status) {
-        if (status == AnimationStatus.completed) Navigator.of(context).maybePop();
-      }
-
-      animationController.forward();
-      animationController.addStatusListener(listener);
-
-      return () => animationController.removeStatusListener(listener);
-    }, [duration]);
+    useStartAnimationControllerWithCompletionCallback(
+      animationController,
+      Navigator.of(context).maybePop,
+    );
 
     return AlertDialog(
       titlePadding: EdgeInsets.zero,

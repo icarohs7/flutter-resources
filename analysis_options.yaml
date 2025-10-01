@@ -1,3 +1,6 @@
+formatter:
+  page_width: 100
+
 analyzer:
   errors:
     # treat missing required parameters as a warning (not a hint)
