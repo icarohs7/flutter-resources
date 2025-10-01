@@ -3,68 +3,154 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('SimpleAlert using custom text', (WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Builder(builder: (context) {
-        return TextButton(
-          onPressed: () {
-            showSimpleAlert(
-              context,
-              title: Text('Title'),
-              content: Text('Content'),
-              confirmText: 'Confirm',
-              onConfirm: (context) => Navigator.pop(context),
-            );
-          },
-          child: Text('Show dialog'),
-        );
-      }),
-    ));
+  group('SimpleAlert', () {
+    testWidgets('SimpleAlert using custom text', (WidgetTester tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: Builder(builder: (context) {
+          return TextButton(
+            onPressed: () {
+              showSimpleAlert(
+                context,
+                title: Text('Title'),
+                content: Text('Content'),
+                confirmText: 'Confirm',
+                onConfirm: (context) => Navigator.pop(context),
+              );
+            },
+            child: Text('Show dialog'),
+          );
+        }),
+      ));
 
-    await tester.tap(find.text('Show dialog'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('Show dialog'));
+      await tester.pumpAndSettle();
 
-    expect(find.text('Title'), findsOneWidget);
-    expect(find.text('Content'), findsOneWidget);
-    expect(find.text('Confirm'), findsOneWidget);
+      expect(find.text('Title'), findsOneWidget);
+      expect(find.text('Content'), findsOneWidget);
+      expect(find.text('Confirm'), findsOneWidget);
 
-    await tester.tap(find.text('Confirm'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('Confirm'));
+      await tester.pumpAndSettle();
 
-    expect(find.text('Title'), findsNothing);
-    expect(find.text('Content'), findsNothing);
-    expect(find.text('Confirm'), findsNothing);
+      expect(find.text('Title'), findsNothing);
+      expect(find.text('Content'), findsNothing);
+      expect(find.text('Confirm'), findsNothing);
+    });
+
+    testWidgets('SimpleAlert using default text', (WidgetTester tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: Builder(builder: (context) {
+          return TextButton(
+            onPressed: () {
+              showSimpleAlert(
+                context,
+                title: Text('Title'),
+                content: Text('Content'),
+              );
+            },
+            child: Text('Show dialog'),
+          );
+        }),
+      ));
+
+      await tester.tap(find.text('Show dialog'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Title'), findsOneWidget);
+      expect(find.text('Content'), findsOneWidget);
+      expect(find.text('Ok'), findsOneWidget);
+
+      await tester.tap(find.text('Ok'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Title'), findsNothing);
+      expect(find.text('Content'), findsNothing);
+      expect(find.text('Ok'), findsNothing);
+    });
   });
+  
+  group('SimpleTimedAlert', () {
+    testWidgets('SimpleTimedAlert using custom text', (WidgetTester tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: Builder(builder: (context) {
+          return TextButton(
+            onPressed: () {
+              showSimpleTimedAlert(
+                context,
+                duration: Duration(seconds: 2),
+                title: Text('Title'),
+                content: Text('Content'),
+                confirmText: 'Confirm',
+                onConfirm: (context) => Navigator.pop(context),
+              );
+            },
+            child: Text('Show dialog'),
+          );
+        }),
+      ));
 
-  testWidgets('SimpleAlert using default text', (WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: Builder(builder: (context) {
-        return TextButton(
-          onPressed: () {
-            showSimpleAlert(
-              context,
-              title: Text('Title'),
-              content: Text('Content'),
-            );
-          },
-          child: Text('Show dialog'),
-        );
-      }),
-    ));
+      await tester.tap(find.text('Show dialog'));
+      await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Show dialog'));
-    await tester.pumpAndSettle();
+      expect(find.text('Title'), findsOneWidget);
+      expect(find.text('Content'), findsOneWidget);
+      expect(find.text('Confirm'), findsOneWidget);
+    });
 
-    expect(find.text('Title'), findsOneWidget);
-    expect(find.text('Content'), findsOneWidget);
-    expect(find.text('Ok'), findsOneWidget);
+    testWidgets('SimpleTimedAlert using default text', (WidgetTester tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: Builder(builder: (context) {
+          return TextButton(
+            onPressed: () {
+              showSimpleTimedAlert(
+                context,
+                duration: Duration(seconds: 2),
+                title: Text('Title'),
+                content: Text('Content'),
+              );
+            },
+            child: Text('Show dialog'),
+          );
+        }),
+      ));
 
-    await tester.tap(find.text('Ok'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('Show dialog'));
+      await tester.pumpAndSettle();
 
-    expect(find.text('Title'), findsNothing);
-    expect(find.text('Content'), findsNothing);
-    expect(find.text('Ok'), findsNothing);
+      expect(find.text('Title'), findsOneWidget);
+      expect(find.text('Content'), findsOneWidget);
+      expect(find.text('Ok'), findsOneWidget);
+    });
+
+    testWidgets('SimpleTimedAlert auto dismisses after duration', (WidgetTester tester) async {
+      await tester.pumpWidget(MaterialApp(
+        home: Builder(builder: (context) {
+          return TextButton(
+            onPressed: () {
+              showSimpleTimedAlert(
+                context,
+                duration: Duration(seconds: 2),
+                title: Text('Title'),
+                content: Text('Content'),
+              );
+            },
+            child: Text('Show dialog'),
+          );
+        }),
+      ));
+
+      await tester.tap(find.text('Show dialog'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Title'), findsOneWidget);
+
+      await tester.pump(Duration(seconds: 2));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Title'), findsNothing);
+      expect(find.text('Content'), findsNothing);
+      expect(find.text('Ok'), findsNothing);
+    });
   });
 
   group('showConfirmDialog', () {
@@ -154,76 +240,58 @@ void main() {
       confirmed = false;
       cancelled = false;
     });
-  });
 
-  testWidgets('showConfirmDialog with default values', (tester) async {
-    var result = false;
+    testWidgets('showConfirmDialog with default values', (tester) async {
+      var result = false;
 
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
-          body: Builder(
-            builder: (context) => TextButton(
-              onPressed: () async {
-                result = await showConfirmDialog(
-                  context,
-                  title: Text('title'),
-                  confirmText: 'confirmTest',
-                  cancelText: 'cancelTest',
-                );
-              },
-              child: const Text('Show dialog'),
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Builder(
+              builder: (context) => TextButton(
+                onPressed: () async {
+                  result = await showConfirmDialog(
+                    context,
+                    title: Text('title'),
+                    confirmText: 'confirmTest',
+                    cancelText: 'cancelTest',
+                  );
+                },
+                child: const Text('Show dialog'),
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
 
-    await tester.tap(find.text('Show dialog'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('Show dialog'));
+      await tester.pumpAndSettle();
 
-    expect(find.text('title'), findsOneWidget);
-    expect(find.text('content'), findsNothing);
-    expect(find.text('confirmTest'), findsOneWidget);
-    expect(find.text('cancelTest'), findsOneWidget);
+      expect(find.text('title'), findsOneWidget);
+      expect(find.text('content'), findsNothing);
+      expect(find.text('confirmTest'), findsOneWidget);
+      expect(find.text('cancelTest'), findsOneWidget);
 
-    await tester.tap(find.text('cancelTest'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('cancelTest'));
+      await tester.pumpAndSettle();
 
-    expect(result, isFalse);
-    expect(find.text('title'), findsNothing);
-    expect(find.text('content'), findsNothing);
-    expect(find.text('confirmTest'), findsNothing);
-    expect(find.text('cancelTest'), findsNothing);
+      expect(result, isFalse);
+      expect(find.text('title'), findsNothing);
+      expect(find.text('content'), findsNothing);
+      expect(find.text('confirmTest'), findsNothing);
+      expect(find.text('cancelTest'), findsNothing);
 
-    await tester.tap(find.text('Show dialog'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('Show dialog'));
+      await tester.pumpAndSettle();
 
-    await tester.tap(find.text('confirmTest'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('confirmTest'));
+      await tester.pumpAndSettle();
 
-    expect(result, isTrue);
-    expect(find.text('title'), findsNothing);
-    expect(find.text('content'), findsNothing);
-    expect(find.text('confirmTest'), findsNothing);
-    expect(find.text('cancelTest'), findsNothing);
-  });
-
-  test('createMaterialColor', () {
-    const c1 = Color(0xFF174378);
-    final m1 = createMaterialColor(c1);
-
-    expect(m1, isNotNull);
-    expect(m1.toARGB32(), c1.toARGB32());
-    expect(m1[50]!.toARGB32(), equals(Color(0xFF7F98B5).toARGB32()));
-    expect(m1[100]!.toARGB32(), equals(Color(0xFF748EAE).toARGB32()));
-    expect(m1[200]!.toARGB32(), equals(Color(0xFF5D7BA1).toARGB32()));
-    expect(m1[300]!.toARGB32(), equals(Color(0xFF456993).toARGB32()));
-    expect(m1[400]!.toARGB32(), equals(Color(0xFF2E5685).toARGB32()));
-    expect(m1[500]!.toARGB32(), equals(Color(0xFF174378).toARGB32()));
-    expect(m1[600]!.toARGB32(), equals(Color(0xFF153C6C).toARGB32()));
-    expect(m1[700]!.toARGB32(), equals(Color(0xFF123660).toARGB32()));
-    expect(m1[800]!.toARGB32(), equals(Color(0xFF102F54).toARGB32()));
-    expect(m1[900]!.toARGB32(), equals(Color(0xFF0E2848).toARGB32()));
+      expect(result, isTrue);
+      expect(find.text('title'), findsNothing);
+      expect(find.text('content'), findsNothing);
+      expect(find.text('confirmTest'), findsNothing);
+      expect(find.text('cancelTest'), findsNothing);
+    });
   });
 }

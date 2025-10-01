@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 Future<T?> showSimpleAlert<T>(
   BuildContext context, {
@@ -18,6 +19,63 @@ Future<T?> showSimpleAlert<T>(
       onConfirm: onConfirm,
     ),
   );
+}
+
+Future<T?> showSimpleTimedAlert<T>(
+  BuildContext context, {
+  required Duration duration,
+  Widget? title,
+  Widget? content,
+  String? confirmText,
+  Function(BuildContext context)? onConfirm,
+}) {
+  return showDialog<T>(
+    context: context,
+    builder: (context) => SimpleTimedAlert(
+      title: title,
+      content: content,
+      confirmText: confirmText,
+      onConfirm: onConfirm,
+      duration: duration,
+    ),
+  );
+}
+
+class SimpleTimedAlert extends HookWidget {
+  final Widget? title;
+  final Widget? content;
+  final String? confirmText;
+  final Function(BuildContext context)? onConfirm;
+  final Duration duration;
+
+  const SimpleTimedAlert({
+    super.key,
+    this.title,
+    this.content,
+    this.onConfirm,
+    this.confirmText,
+    required this.duration,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    useEffect(() {
+      final timer = Timer(duration, () => Navigator.of(context).maybePop());
+
+      return () => timer.cancel();
+    }, [duration]);
+
+    return AlertDialog(
+      title: title,
+      content: content,
+      actions: <Widget>[
+        TextButton(
+          child: Text(confirmText ?? 'Ok'),
+          onPressed: () => onConfirm?.call(context) ?? Navigator.pop(context),
+        ),
+      ],
+    );
+  }
 }
 
 class SimpleAlert extends StatelessWidget {
