@@ -47,6 +47,7 @@ class SimpleTimedAlert extends HookWidget {
   final String? confirmText;
   final Function(BuildContext context)? onConfirm;
   final Duration duration;
+  final Widget? Function(double animationValue)? progressIndicatorBuilder;
 
   const SimpleTimedAlert({
     super.key,
@@ -55,18 +56,51 @@ class SimpleTimedAlert extends HookWidget {
     this.onConfirm,
     this.confirmText,
     required this.duration,
+    this.progressIndicatorBuilder,
   });
 
   @override
   Widget build(BuildContext context) {
-    useEffect(() {
-      final timer = Timer(duration, () => Navigator.of(context).maybePop());
+    final animationController = useAnimationController(duration: duration);
 
-      return () => timer.cancel();
+    useEffect(() {
+      listener(AnimationStatus status) {
+        if (status == AnimationStatus.completed) Navigator.of(context).maybePop();
+      }
+
+      animationController.forward();
+      animationController.addStatusListener(listener);
+
+      return () => animationController.removeStatusListener(listener);
     }, [duration]);
 
     return AlertDialog(
-      title: title,
+      titlePadding: EdgeInsets.zero,
+      clipBehavior: Clip.antiAlias,
+      title: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AnimatedBuilder(
+            animation: animationController,
+            builder: (context, child) =>
+                progressIndicatorBuilder?.call(animationController.value) ??
+                LinearProgressIndicator(
+                  value: animationController.value,
+                  minHeight: 8,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+          ),
+          if (title != null)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 8, 24, 0),
+              child: DefaultTextStyle(
+                style: Theme.of(context).textTheme.titleLarge!,
+                child: title!,
+              ),
+            ),
+        ],
+      ),
       content: content,
       actions: <Widget>[
         TextButton(

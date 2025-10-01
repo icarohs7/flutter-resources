@@ -90,8 +90,9 @@ void main() {
       ));
 
       await tester.tap(find.text('Show dialog'));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
+      expect(find.byType(LinearProgressIndicator), findsOneWidget);
       expect(find.text('Title'), findsOneWidget);
       expect(find.text('Content'), findsOneWidget);
       expect(find.text('Confirm'), findsOneWidget);
@@ -115,8 +116,9 @@ void main() {
       ));
 
       await tester.tap(find.text('Show dialog'));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
+      expect(find.byType(LinearProgressIndicator), findsOneWidget);
       expect(find.text('Title'), findsOneWidget);
       expect(find.text('Content'), findsOneWidget);
       expect(find.text('Ok'), findsOneWidget);
@@ -140,13 +142,15 @@ void main() {
       ));
 
       await tester.tap(find.text('Show dialog'));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
+      expect(find.byType(LinearProgressIndicator), findsOneWidget);
       expect(find.text('Title'), findsOneWidget);
 
       await tester.pump(Duration(seconds: 2));
       await tester.pumpAndSettle();
 
+      expect(find.byType(LinearProgressIndicator), findsNothing);
       expect(find.text('Title'), findsNothing);
       expect(find.text('Content'), findsNothing);
       expect(find.text('Ok'), findsNothing);
