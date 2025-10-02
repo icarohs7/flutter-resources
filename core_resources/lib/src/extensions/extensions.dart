@@ -3,6 +3,7 @@ export 'color_extensions.dart';
 export 'context_extensions.dart';
 export 'execution_extensions.dart';
 export 'future_extensions.dart';
+export 'iterable_extensions.dart';
 export 'number_extensions.dart';
 export 'object_extensions.dart';
 export 'stream_extensions.dart';
