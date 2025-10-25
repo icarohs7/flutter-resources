@@ -40,6 +40,17 @@ void main() {
     expect(reactor2.value, 'hello');
   });
 
+  test('call method', () {
+    //arrange
+    final reactor = Rc(42);
+    //assert
+    expect(reactor(), 42);
+    //act
+    reactor.setValue(100);
+    //assert
+    expect(reactor(), 100);
+  });
+
   testWidgets('useReactor hook', (tester) async {
     //arrange
     final reactor = Rc(1532);
