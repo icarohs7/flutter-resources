@@ -12,13 +12,8 @@ jobs:
         with:
           channel: "stable"
 
-      - name: Install Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: "3.9.x"
-
       - name: Analyze and Test
-        run: python build.py
+        run: dart run build.dart
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
