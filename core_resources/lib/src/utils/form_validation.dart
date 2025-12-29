@@ -54,6 +54,15 @@ FormFieldValidator<String> cpfValidator({String errorMessage = 'CPF inválido'})
   return (input) => (input ?? '').onlyNumbers().length == 11 ? null : errorMessage;
 }
 
+/// Validator only allowing valid cpf numbers or blank values
+FormFieldValidator<String> optionalCpfValidator({String errorMessage = 'CPF inválido'}) {
+  return (input) {
+    final str = input ?? '';
+    if (str.isBlank) return null;
+    return str.onlyNumbers().length == 11 ? null : errorMessage;
+  };
+}
+
 /// Validator only allowing valid cnpj numbers
 FormFieldValidator<String> cnpjValidator({String errorMessage = 'CNPJ inválido'}) {
   return (input) => (input ?? '').onlyNumbers().length == 14 ? null : errorMessage;

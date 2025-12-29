@@ -74,6 +74,17 @@ void main() {
     expect(cpfValidator(errorMessage: 'Invalid cpf')(f3), null);
   });
 
+  test('optionalCpfValidator', () {
+    const f1 = '';
+    expect(optionalCpfValidator(errorMessage: 'Invalid cpf')(f1), null);
+
+    const f2 = '123456789';
+    expect(optionalCpfValidator(errorMessage: 'Invalid cpf')(f2), 'Invalid cpf');
+
+    const f3 = '12345678901';
+    expect(optionalCpfValidator(errorMessage: 'Invalid cpf')(f3), null);
+  });
+
   test('cnpjValidator', () {
     const f1 = '';
     expect(cnpjValidator(errorMessage: 'Invalid cnpj')(f1), 'Invalid cnpj');
