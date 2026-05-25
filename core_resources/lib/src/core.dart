@@ -100,7 +100,10 @@ class Core {
   /// used by other libraries to reuse navigation functions
   static void setBackFn(void Function(BuildContext context, [Object? result]) fn) => _back = fn;
 
-  static void back(BuildContext context, [Object? result]) => _back(context, result);
+  static void back(BuildContext context, [Object? result]) {
+    if (!context.mounted) return;
+    _back(context, result);
+  }
 
   //endregion
 
