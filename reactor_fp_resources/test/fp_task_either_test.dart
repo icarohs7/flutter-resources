@@ -1,8 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:reactor_fp_resources/reactor_fp_resources.dart';
 
-import 'mocks.dart';
-
 void main() {
   group('constructors', () {
     test('right / left / of / fromEither', () async {
