@@ -1,27 +1,10 @@
 import 'package:flutter/foundation.dart';
-import 'package:fpdart/fpdart.dart';
 
-/// Create a [TaskEither] using a syntax similar to the [Do] notation in functional languages
+import 'fp/fp.dart';
+
+/// Create a [TaskEither] using a syntax similar to Do notation.
 ///
-/// example:
-///
-/// ```dart
-/// TaskEither<Failure, String> getFileContents() { ... }
-///
-/// Either<Failure, String> getProcessedDataSync(String contents) { ... }
-///
-/// Either<Failure, Unit> storeData(String data) { ... }
-///
-/// // $ and $$ will return the result of the given Either and TaskEither, respectively
-/// // or fail with the Left result of that respective Either/TaskEither
-/// final TaskEither<Failure, Unit> result = taskEitherDo(($, $$) async {
-///   final fileContents = await $$(getFileContents()); // $$ returns a Future<T> (use await)
-///
-///   final processedData = $(getProcessedDataSync()); // $ returns T (synchronous)
-///
-///   return $(storeData(processedData));
-/// });
-/// ```
+/// `$` unwraps an [Either]; `$$` unwraps a [TaskEither].
 TaskEither<L, R> taskEitherDo<L, R>(CRDoFunctionTaskEither<L, R> f) {
   return TaskEither<L, R>(() async {
     try {
@@ -32,8 +15,7 @@ TaskEither<L, R> taskEitherDo<L, R>(CRDoFunctionTaskEither<L, R> f) {
   });
 }
 
-/// [taskEitherDo] running the computation on a
-/// separated isolate
+/// [taskEitherDo] running the computation on a separated isolate.
 TaskEither<L, R> taskEitherDoBg<L, R>(CRDoFunctionTaskEither<L, R> f) {
   return TaskEither<L, R>(() {
     return compute((_) async {

@@ -612,3 +612,6 @@ coverage/
 
 # Web related
 **/lib/generated_plugin_registrant.dart
+# Local path dependency overrides (dev only)
+pubspec_overrides.yaml
+

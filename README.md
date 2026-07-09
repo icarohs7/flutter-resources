@@ -53,8 +53,11 @@ flutter pub add stream_resources --git-path=stream_resources --git-url=https://g
 
 - ### reactor_fp_resources
 
-Adds the `Reactor` class, a wrapper around `ValueNotifier` and many utilities 
-from functional programming including the `fpdart` package
+Adds the `Reactor` class (a `ValueNotifier` wrapper) and a slim functional
+programming core (`Either`, `TaskEither`, `Task`, `Unit`, do-notation).
+
+The FP types are adapted from [fpdart](https://pub.dev/packages/fpdart)
+(MIT, Sandro Maglione); see `reactor_fp_resources/LICENSE`.
 
 ```
 flutter pub add reactor_fp_resources --git-path=reactor_fp_resources --git-url=https://github.com/icarohs7/flutter-resources
