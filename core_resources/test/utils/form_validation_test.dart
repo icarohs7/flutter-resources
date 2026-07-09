@@ -130,6 +130,32 @@ void main() {
     expect(userValidator(errorMessage: 'Invalid user')(f7), null);
   });
 
+  test('urlValidator', () {
+    final validator = urlValidator(errorMessage: 'Invalid URL');
+
+    for (final value in [
+      'example.com',
+      'https://example.com',
+      'http://localhost:8080',
+      'https://example.com:8443/path?q=a%20b#section',
+      'http://127.0.0.1:8080/api',
+      'http://[::1]:8080',
+    ]) {
+      expect(validator(value), null, reason: value);
+    }
+
+    for (final value in [
+      '',
+      '   ',
+      'not a url',
+      'ftp://example.com',
+      'https://',
+      '://example.com'
+    ]) {
+      expect(validator(value), 'Invalid URL', reason: value);
+    }
+  });
+
   test('validIntValidator', () {
     const f1 = '';
     expect(validIntValidator(errorMessage: 'Invalid int')(f1), 'Invalid int');

@@ -81,6 +81,20 @@ FormFieldValidator<String> userValidator({String errorMessage = 'Nome de usuári
   };
 }
 
+/// Validator only allowing valid URLs
+FormFieldValidator<String> urlValidator({String errorMessage = 'URL inválida'}) {
+  return (input) {
+    final value = input?.trim();
+    if (value == null || value.isEmpty || value.contains(RegExp(r'\s'))) return errorMessage;
+
+    final candidate = value.contains('://') ? value : 'https://$value';
+    final uri = Uri.tryParse(candidate);
+    final isValid =
+        uri != null && (uri.scheme == 'http' || uri.scheme == 'https') && uri.host.isNotEmpty;
+    return isValid ? null : errorMessage;
+  };
+}
+
 /// Validator only allowing values that can convert to integer
 FormFieldValidator<String> validIntValidator({String errorMessage = 'Número inválido'}) {
   return (input) {
