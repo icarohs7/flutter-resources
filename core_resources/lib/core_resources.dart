@@ -1,6 +1,5 @@
 library core_resources;
 
-export 'package:build_context/build_context.dart';
 export 'package:dartx/dartx.dart' hide Function0, Function1, Function2, Function3, Function4;
 export 'package:flutter_hooks/flutter_hooks.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
