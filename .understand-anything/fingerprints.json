@@ -1,0 +1,7136 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "a93ea128e58c705b3b937479c523eb1f1fa1e5b8",
+  "generatedAt": "2026-07-10T14:37:59.423Z",
+  "files": {
+    ".github/workflows/build.yml": {
+      "filePath": ".github/workflows/build.yml",
+      "contentHash": "5a7b81a484145e72ca57b08d2f6436b392ec14d4d94b6374cd8efe0e02bc42b2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    ".memory/plan.md": {
+      "filePath": ".memory/plan.md",
+      "contentHash": "df7dafb0767a1cceb768d12c53b0ced0e0feb85bf0bf665217fbc00cfa2f34b2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    ".memory/progress.md": {
+      "filePath": ".memory/progress.md",
+      "contentHash": "3cb7ebda477cfd167dda8cae2d92d7654e08c2f97536e2a73b57c28096ed7133",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    ".memory/verify.md": {
+      "filePath": ".memory/verify.md",
+      "contentHash": "231895fbbaee08776bd38b4b324b144d75c700d673e1becac598998b3f0e0709",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    ".understand-anything/.understandignore": {
+      "filePath": ".understand-anything/.understandignore",
+      "contentHash": "7be625cb771aff1d0781b4b88d75b071b853178cdeb49767053aea823ee29013",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 336,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/config.json": {
+      "filePath": ".understand-anything/config.json",
+      "contentHash": "f724bb3f6537c1226fbce7a7791edc7b215a7c2ad73c4068a5961aec17ab4d7c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "analysis_options.yaml": {
+      "filePath": "analysis_options.yaml",
+      "contentHash": "413702d54a9d5176bbb80b688c33544e54cd07ef01c48c76d99b3b620a14404c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 120,
+      "hasStructuralAnalysis": true
+    },
+    "build.dart": {
+      "filePath": "build.dart",
+      "contentHash": "04f3a922bf99d24b86501f2c0f133f963d434cb8f319fcc2e97ca5f6cfb151e6",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getPackages",
+          "params": [],
+          "returnType": "Stream<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "runCommand",
+          "params": [
+            "command",
+            "workingDirectory"
+          ],
+          "returnType": "Future<int>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:io",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main",
+        "getPackages",
+        "runCommand"
+      ],
+      "totalLines": 72,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/.metadata": {
+      "filePath": "core_resources/.metadata",
+      "contentHash": "a560e364dd2a0b150308b140d5778ec2e793e91be7320743f0de1826a5a7f560",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": false
+    },
+    "core_resources/core_resources.iml": {
+      "filePath": "core_resources/core_resources.iml",
+      "contentHash": "b185bca719054483bb67d0c3d6a6f88dfc99b39fc989e663d653549328347184",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": false
+    },
+    "core_resources/lib/core_resources.dart": {
+      "filePath": "core_resources/lib/core_resources.dart",
+      "contentHash": "fdbf512dc364cadc35169b5cfe3f28e5fbf30037a1a2f90652345b8182d4c1bb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "package:dartx/dartx.dart",
+        "package:flutter_hooks/flutter_hooks.dart",
+        "package:flutter_localizations/flutter_localizations.dart",
+        "package:logging/logging.dart",
+        "src/baseclasses/baseclasses.dart",
+        "src/classes/classes.dart",
+        "src/core.dart",
+        "src/extensions/extensions.dart",
+        "src/utils/utils.dart",
+        "src/widgets/widgets.dart"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/baseclasses/base_router.dart": {
+      "filePath": "core_resources/lib/src/baseclasses/base_router.dart",
+      "contentHash": "3fca659b7d859296f2767df8657d47fba5fa0c821fa791eefe9d633ba941d519",
+      "functions": [
+        {
+          "name": "push",
+          "params": [
+            "context",
+            "route",
+            "params",
+            "extra"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "go",
+          "params": [
+            "context",
+            "route",
+            "params",
+            "extra"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "replace",
+          "params": [
+            "context",
+            "route",
+            "params",
+            "extra"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "replaceAll",
+          "params": [
+            "context",
+            "route",
+            "params",
+            "extra"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "bottomNavRoutes",
+          "params": [],
+          "returnType": "List<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentBottomNavIndex",
+          "params": [
+            "context"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "pushToBottomNavRoute",
+          "params": [
+            "context",
+            "index"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "goToBottomNavRoute",
+          "params": [
+            "context",
+            "index"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "replaceToBottomNavRoute",
+          "params": [
+            "context",
+            "index"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "replaceAllToBottomNavRoute",
+          "params": [
+            "context",
+            "index"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "BaseRouter",
+          "methods": [
+            "push",
+            "go",
+            "replace",
+            "replaceAll",
+            "bottomNavRoutes",
+            "currentBottomNavIndex",
+            "pushToBottomNavRoute",
+            "goToBottomNavRoute",
+            "replaceToBottomNavRoute",
+            "replaceAllToBottomNavRoute"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 49
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../core.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "push",
+        "go",
+        "replace",
+        "replaceAll",
+        "bottomNavRoutes",
+        "currentBottomNavIndex",
+        "pushToBottomNavRoute",
+        "goToBottomNavRoute",
+        "replaceToBottomNavRoute",
+        "replaceAllToBottomNavRoute",
+        "BaseRouter"
+      ],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/baseclasses/baseclasses.dart": {
+      "filePath": "core_resources/lib/src/baseclasses/baseclasses.dart",
+      "contentHash": "ffa5cf6feb0de22bab711011879de935cd660a692d2d5bdc13b4efba24c817ca",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "base_router.dart"
+      ],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/classes/classes.dart": {
+      "filePath": "core_resources/lib/src/classes/classes.dart",
+      "contentHash": "9bfcd5033bccb19868926f733933b3589f44ee3ca17c808c84a792cc0cf94680",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "core_router_observer.dart"
+      ],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/classes/core_router_observer.dart": {
+      "filePath": "core_resources/lib/src/classes/core_router_observer.dart",
+      "contentHash": "047fadcaf0260bf0fb02386a09cf44ca4cb787b72de8284b09b9f14ae4899c01",
+      "functions": [
+        {
+          "name": "didPush",
+          "params": [
+            "route",
+            "previousRoute"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "didReplace",
+          "params": [
+            "newRoute",
+            "oldRoute"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "didRemove",
+          "params": [
+            "route",
+            "previousRoute"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "didPop",
+          "params": [
+            "route",
+            "previousRoute"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "update",
+          "params": [
+            "route",
+            "previousRoute"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "props",
+          "params": [],
+          "returnType": "List<Object?>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CoreRouterObserver",
+          "methods": [
+            "didPush",
+            "didReplace",
+            "didRemove",
+            "didPop",
+            "update"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "CoreRoute",
+          "methods": [
+            "props"
+          ],
+          "properties": [
+            "currentRoute",
+            "previousRoute"
+          ],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "didPush",
+        "didReplace",
+        "didRemove",
+        "didPop",
+        "update",
+        "CoreRouterObserver",
+        "props",
+        "CoreRoute"
+      ],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/core.dart": {
+      "filePath": "core_resources/lib/src/core.dart",
+      "contentHash": "a4b96d5c206b4e5085949e4c3f657fcf0e5909ec19c22c4347659b19c246d2a5",
+      "functions": [
+        {
+          "name": "setLocator",
+          "params": [
+            "locator"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "get",
+          "params": [
+            "instanceName"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setPushFn",
+          "params": [
+            "fn"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "push",
+          "params": [
+            "context",
+            "routeName",
+            "params",
+            "extra"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "setGoFn",
+          "params": [
+            "fn"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "go",
+          "params": [
+            "context",
+            "routeName",
+            "params",
+            "extra"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "setReplaceFn",
+          "params": [
+            "fn"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "replace",
+          "params": [
+            "context",
+            "routeName",
+            "params",
+            "extra"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "setReplaceAllFn",
+          "params": [
+            "fn"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "replaceAll",
+          "params": [
+            "context",
+            "routeName",
+            "params",
+            "extra"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "setBackFn",
+          "params": [
+            "fn"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "back",
+          "params": [
+            "context",
+            "result"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setCurrentPathFn",
+          "params": [
+            "fn"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentPath",
+          "params": [
+            "context"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setCurrentParamsFn",
+          "params": [
+            "fn"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentParams",
+          "params": [
+            "context"
+          ],
+          "returnType": "Map<String, String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setCurrentExtrasFn",
+          "params": [
+            "fn"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentExtras",
+          "params": [
+            "context"
+          ],
+          "returnType": "Object",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "Core",
+          "methods": [
+            "setLocator",
+            "get",
+            "setPushFn",
+            "push",
+            "setGoFn",
+            "go",
+            "setReplaceFn",
+            "replace",
+            "setReplaceAllFn",
+            "replaceAll",
+            "setBackFn",
+            "back",
+            "setCurrentPathFn",
+            "currentPath",
+            "setCurrentParamsFn",
+            "currentParams",
+            "setCurrentExtrasFn",
+            "currentExtras"
+          ],
+          "properties": [
+            "_locator",
+            "_pushNavigator",
+            "_goNavigator",
+            "_replaceNavigator",
+            "_replaceAllNavigator",
+            "_back",
+            "_currentPath",
+            "_currentParams",
+            "_currentExtras"
+          ],
+          "exported": true,
+          "lineCount": 129
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "setLocator",
+        "get",
+        "setPushFn",
+        "push",
+        "setGoFn",
+        "go",
+        "setReplaceFn",
+        "replace",
+        "setReplaceAllFn",
+        "replaceAll",
+        "setBackFn",
+        "back",
+        "setCurrentPathFn",
+        "currentPath",
+        "setCurrentParamsFn",
+        "currentParams",
+        "setCurrentExtrasFn",
+        "currentExtras",
+        "Core"
+      ],
+      "totalLines": 140,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/async_snapshot_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/async_snapshot_extensions.dart",
+      "contentHash": "620b6c8e1a983aa65150e10839165f862b2da236458d33cd4e66edfc35cef40d",
+      "functions": [
+        {
+          "name": "isNone",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isWaiting",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isActive",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isDone",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isError",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "when",
+          "params": [
+            "loading",
+            "error",
+            "data",
+            "none"
+          ],
+          "returnType": "R",
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRAsyncSnapshotExtensions",
+          "methods": [
+            "isNone",
+            "isWaiting",
+            "isActive",
+            "isDone",
+            "isError",
+            "when"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 23
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "isNone",
+        "isWaiting",
+        "isActive",
+        "isDone",
+        "isError",
+        "when",
+        "CRAsyncSnapshotExtensions"
+      ],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/color_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/color_extensions.dart",
+      "contentHash": "cfb1bdc60eb8c5a1d05e820912f0b6e1013950696206b65ca1f42bff72909128",
+      "functions": [
+        {
+          "name": "fromHex",
+          "params": [
+            "hexString"
+          ],
+          "returnType": "Color",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toHex",
+          "params": [
+            "leadingHashSign"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "brightness",
+          "params": [],
+          "returnType": "Brightness",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRColorExtensions",
+          "methods": [
+            "fromHex",
+            "toHex",
+            "brightness"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "fromHex",
+        "toHex",
+        "brightness",
+        "CRColorExtensions"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/context_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/context_extensions.dart",
+      "contentHash": "ea7d01f48ccd584d575a868d846065245f2c32a1d05569cc5a4eb3be24441c77",
+      "functions": [
+        {
+          "name": "scaffoldMessenger",
+          "params": [],
+          "returnType": "ScaffoldMessengerState",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "showSnackbar",
+          "params": [
+            "snackBar"
+          ],
+          "returnType": "ScaffoldFeatureController<SnackBar, SnackBarClosedReason>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "removeCurrentSnackBar",
+          "params": [
+            "reason"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "hideCurrentSnackBar",
+          "params": [
+            "reason"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isSystemDarkTheme",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isDarkTheme",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "mediaQuerySize",
+          "params": [],
+          "returnType": "Size",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "mediaQueryPadding",
+          "params": [],
+          "returnType": "EdgeInsets",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "mediaQueryViewPadding",
+          "params": [],
+          "returnType": "EdgeInsets",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "mediaQueryViewInsets",
+          "params": [],
+          "returnType": "EdgeInsets",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "orientation",
+          "params": [],
+          "returnType": "Orientation",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isLandscape",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isPortrait",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "alwaysUse24HourFormat",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "devicePixelRatio",
+          "params": [],
+          "returnType": "double",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "platformBrightness",
+          "params": [],
+          "returnType": "Brightness",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "textScaleFactor",
+          "params": [],
+          "returnType": "double",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "textScaler",
+          "params": [],
+          "returnType": "TextScaler",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "mediaQueryShortestSide",
+          "params": [],
+          "returnType": "double",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isPhone",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isSmallTablet",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isLargeTablet",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "push",
+          "params": [
+            "route"
+          ],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "pop",
+          "params": [
+            "result"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "pushNamed",
+          "params": [
+            "routeName",
+            "arguments"
+          ],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "canPop",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "popUntil",
+          "params": [
+            "predicate"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "theme",
+          "params": [],
+          "returnType": "ThemeData",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "textTheme",
+          "params": [],
+          "returnType": "TextTheme",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "primaryTextTheme",
+          "params": [],
+          "returnType": "TextTheme",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "bottomAppBarTheme",
+          "params": [],
+          "returnType": "BottomAppBarThemeData",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "bottomSheetTheme",
+          "params": [],
+          "returnType": "BottomSheetThemeData",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "backgroundColor",
+          "params": [],
+          "returnType": "Color",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "primaryColor",
+          "params": [],
+          "returnType": "Color",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "scaffoldBackgroundColor",
+          "params": [],
+          "returnType": "Color",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "appBarTheme",
+          "params": [],
+          "returnType": "AppBarThemeData",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "platform",
+          "params": [],
+          "returnType": "TargetPlatform",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isAndroid",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isIOS",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isMacOS",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isWindows",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isFuchsia",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isLinux",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "headline1",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "headline2",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "headline3",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "headline4",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "headline5",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "headline6",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "subtitle1",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "bodyText1",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "bodyText2",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "caption",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "button",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "subtitle2",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "overline",
+          "params": [],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "openDrawer",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "openEndDrawer",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "showBottomSheet",
+          "params": [
+            "builder",
+            "backgroundColor",
+            "elevation",
+            "shape",
+            "clipBehaviour"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "validate",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "reset",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "save",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "form",
+          "params": [],
+          "returnType": "_Form",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_node",
+          "params": [],
+          "returnType": "FocusScopeNode",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "hasFocus",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "isFirstFocus",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "hasPrimaryFocus",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "canRequestFocus",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "nextFocus",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "requestFocus",
+          "params": [
+            "node"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "previousFocus",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "unfocus",
+          "params": [
+            "disposition"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setFirstFocus",
+          "params": [
+            "scope"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "consumeKeyboardToken",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "focusScope",
+          "params": [],
+          "returnType": "_FocusScope",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "closeKeyboard",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "modalRoute",
+          "params": [],
+          "returnType": "ModalRoute<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "routeSettings",
+          "params": [],
+          "returnType": "RouteSettings",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRContextExtensions",
+          "methods": [
+            "scaffoldMessenger",
+            "showSnackbar",
+            "removeCurrentSnackBar",
+            "hideCurrentSnackBar",
+            "isSystemDarkTheme",
+            "isDarkTheme"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "CRMediaQueryExtensions",
+          "methods": [
+            "mediaQuerySize",
+            "mediaQueryPadding",
+            "mediaQueryViewPadding",
+            "mediaQueryViewInsets",
+            "orientation",
+            "isLandscape",
+            "isPortrait",
+            "alwaysUse24HourFormat",
+            "devicePixelRatio",
+            "platformBrightness",
+            "textScaleFactor",
+            "textScaler",
+            "mediaQueryShortestSide",
+            "isPhone",
+            "isSmallTablet",
+            "isLargeTablet"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 33
+        },
+        {
+          "name": "CRNavigatorExtensions",
+          "methods": [
+            "push",
+            "pop",
+            "pushNamed",
+            "canPop",
+            "popUntil"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "CRThemeExtensions",
+          "methods": [
+            "theme",
+            "textTheme",
+            "primaryTextTheme",
+            "bottomAppBarTheme",
+            "bottomSheetTheme",
+            "backgroundColor",
+            "primaryColor",
+            "scaffoldBackgroundColor",
+            "appBarTheme",
+            "platform",
+            "isAndroid",
+            "isIOS",
+            "isMacOS",
+            "isWindows",
+            "isFuchsia",
+            "isLinux",
+            "headline1",
+            "headline2",
+            "headline3",
+            "headline4",
+            "headline5",
+            "headline6",
+            "subtitle1",
+            "bodyText1",
+            "bodyText2",
+            "caption",
+            "button",
+            "subtitle2",
+            "overline"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 59
+        },
+        {
+          "name": "CRScaffoldExtensions",
+          "methods": [
+            "openDrawer",
+            "openEndDrawer",
+            "showBottomSheet"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "_Form",
+          "methods": [
+            "validate",
+            "reset",
+            "save"
+          ],
+          "properties": [
+            "_context"
+          ],
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "CRFormExtensions",
+          "methods": [
+            "form"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "_FocusScope",
+          "methods": [
+            "_node",
+            "hasFocus",
+            "isFirstFocus",
+            "hasPrimaryFocus",
+            "canRequestFocus",
+            "nextFocus",
+            "requestFocus",
+            "previousFocus",
+            "unfocus",
+            "setFirstFocus",
+            "consumeKeyboardToken"
+          ],
+          "properties": [
+            "_context"
+          ],
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "CRFocusScopeExtensions",
+          "methods": [
+            "focusScope",
+            "closeKeyboard"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "CRModalRouteExtensions",
+          "methods": [
+            "modalRoute",
+            "routeSettings"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "scaffoldMessenger",
+        "showSnackbar",
+        "removeCurrentSnackBar",
+        "hideCurrentSnackBar",
+        "isSystemDarkTheme",
+        "isDarkTheme",
+        "CRContextExtensions",
+        "mediaQuerySize",
+        "mediaQueryPadding",
+        "mediaQueryViewPadding",
+        "mediaQueryViewInsets",
+        "orientation",
+        "isLandscape",
+        "isPortrait",
+        "alwaysUse24HourFormat",
+        "devicePixelRatio",
+        "platformBrightness",
+        "textScaleFactor",
+        "textScaler",
+        "mediaQueryShortestSide",
+        "isPhone",
+        "isSmallTablet",
+        "isLargeTablet",
+        "CRMediaQueryExtensions",
+        "push",
+        "pop",
+        "pushNamed",
+        "canPop",
+        "popUntil",
+        "CRNavigatorExtensions",
+        "theme",
+        "textTheme",
+        "primaryTextTheme",
+        "bottomAppBarTheme",
+        "bottomSheetTheme",
+        "backgroundColor",
+        "primaryColor",
+        "scaffoldBackgroundColor",
+        "appBarTheme",
+        "platform",
+        "isAndroid",
+        "isIOS",
+        "isMacOS",
+        "isWindows",
+        "isFuchsia",
+        "isLinux",
+        "headline1",
+        "headline2",
+        "headline3",
+        "headline4",
+        "headline5",
+        "headline6",
+        "subtitle1",
+        "bodyText1",
+        "bodyText2",
+        "caption",
+        "button",
+        "subtitle2",
+        "overline",
+        "CRThemeExtensions",
+        "openDrawer",
+        "openEndDrawer",
+        "showBottomSheet",
+        "CRScaffoldExtensions",
+        "validate",
+        "reset",
+        "save",
+        "form",
+        "CRFormExtensions",
+        "hasFocus",
+        "isFirstFocus",
+        "hasPrimaryFocus",
+        "canRequestFocus",
+        "nextFocus",
+        "requestFocus",
+        "previousFocus",
+        "unfocus",
+        "setFirstFocus",
+        "consumeKeyboardToken",
+        "focusScope",
+        "closeKeyboard",
+        "CRFocusScopeExtensions",
+        "modalRoute",
+        "routeSettings",
+        "CRModalRouteExtensions"
+      ],
+      "totalLines": 210,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/execution_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/execution_extensions.dart",
+      "contentHash": "f15cab759bd71477f33cf2f143dd3699236f3edbb4167b0fc9f5308fc62f6299",
+      "functions": [
+        {
+          "name": "runCatching",
+          "params": [
+            "fn"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "runOrDefault",
+          "params": [
+            "fallback",
+            "fn"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "measureTimeMillis",
+          "params": [
+            "operation"
+          ],
+          "returnType": "BenchmarkedResult<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "BenchmarkedResult",
+          "params": [
+            "value",
+            "milliseconds"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "BenchmarkedResult",
+          "methods": [
+            "BenchmarkedResult"
+          ],
+          "properties": [
+            "value",
+            "milliseconds"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "runCatching",
+        "runOrDefault",
+        "measureTimeMillis",
+        "BenchmarkedResult",
+        "BenchmarkedResult"
+      ],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/extensions.dart",
+      "contentHash": "ccf329f61a6b7b2fea3150a178dcafcc0781fd1f0835893203e7512d9bb1742b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "async_snapshot_extensions.dart",
+        "color_extensions.dart",
+        "context_extensions.dart",
+        "execution_extensions.dart",
+        "future_extensions.dart",
+        "iterable_extensions.dart",
+        "number_extensions.dart",
+        "object_extensions.dart",
+        "stream_extensions.dart",
+        "string_extensions.dart",
+        "time_extensions.dart"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/future_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/future_extensions.dart",
+      "contentHash": "da4b34a85518f786de10f77a613725ee23286e7815f4e7b1f64dab6ceb2149b3",
+      "functions": [
+        {
+          "name": "runAsync",
+          "params": [
+            "fn"
+          ],
+          "returnType": "Future<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "runAsyncOrDefault",
+          "params": [
+            "fallback",
+            "fn"
+          ],
+          "returnType": "Future<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "loggingErrors",
+          "params": [
+            "functionName",
+            "errToString",
+            "loggingFn"
+          ],
+          "returnType": "Future<T>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "orNull",
+          "params": [],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "or",
+          "params": [
+            "fallback"
+          ],
+          "returnType": "Future<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "orEmpty",
+          "params": [],
+          "returnType": "Future<List<T>>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRFutureExtensions",
+          "methods": [
+            "loggingErrors",
+            "orNull",
+            "or"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "FutureListExtensions",
+          "methods": [
+            "orEmpty"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "runAsync",
+        "runAsyncOrDefault",
+        "loggingErrors",
+        "orNull",
+        "or",
+        "CRFutureExtensions",
+        "orEmpty",
+        "FutureListExtensions"
+      ],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/iterable_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/iterable_extensions.dart",
+      "contentHash": "fff78693c4d67a8e95bfb36ff58f0520aeb34eb242cfca827f898f20636d7a95",
+      "functions": [
+        {
+          "name": "put",
+          "params": [
+            "index",
+            "value"
+          ],
+          "returnType": "Iterable<T>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRIterableExtensions",
+          "methods": [
+            "put"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "put",
+        "CRIterableExtensions"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/number_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/number_extensions.dart",
+      "contentHash": "80455758d7f4bde71213ec4a23261090e9ddcdd40efe297fd76d101bc0fc663c",
+      "functions": [
+        {
+          "name": "onlyNumbers",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "digits",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "asCurrency",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toStringTrimmingDecimals",
+          "params": [
+            "precision"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRStringToNumberExtensions",
+          "methods": [
+            "onlyNumbers",
+            "digits"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "CRDoubleExtensions",
+          "methods": [
+            "asCurrency",
+            "toStringTrimmingDecimals"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "onlyNumbers",
+        "digits",
+        "CRStringToNumberExtensions",
+        "asCurrency",
+        "toStringTrimmingDecimals",
+        "CRDoubleExtensions"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/object_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/object_extensions.dart",
+      "contentHash": "585d4f9dbe88e0ade0027f7a36e92856cf777345dd70f6b51c74de82f278705b",
+      "functions": [
+        {
+          "name": "materialProperty",
+          "params": [],
+          "returnType": "WidgetStateProperty<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "apply",
+          "params": [
+            "f"
+          ],
+          "returnType": "R",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRObjectExtensions",
+          "methods": [
+            "materialProperty",
+            "apply"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "materialProperty",
+        "apply",
+        "CRObjectExtensions"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/stream_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/stream_extensions.dart",
+      "contentHash": "eb6d17475e6c17aef44afb503125bd294b5370f91c10ed24d91054b2db960374",
+      "functions": [
+        {
+          "name": "innerFilter",
+          "params": [
+            "predicate"
+          ],
+          "returnType": "Stream<Iterable<T>>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "innerFirst",
+          "params": [
+            "predicate"
+          ],
+          "returnType": "Stream<T?>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRListStreamExtensions",
+          "methods": [
+            "innerFilter",
+            "innerFirst"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:dartx/dartx.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "innerFilter",
+        "innerFirst",
+        "CRListStreamExtensions"
+      ],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/string_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/string_extensions.dart",
+      "contentHash": "dd75696eeee163a0f9bad73520977932407d930f05ef3fcbb83d6f800627a0ac",
+      "functions": [
+        {
+          "name": "ifBlank",
+          "params": [
+            "defaultValue"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "ifEmpty",
+          "params": [
+            "defaultValue"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "truncateTo",
+          "params": [
+            "maxLength",
+            "elipsis"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "afterLast",
+          "params": [
+            "pattern",
+            "patternIncluded"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toUri",
+          "params": [],
+          "returnType": "Uri",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRStringExtensions",
+          "methods": [
+            "ifBlank",
+            "ifEmpty",
+            "truncateTo",
+            "afterLast",
+            "toUri"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 38
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:dartx/dartx.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "ifBlank",
+        "ifEmpty",
+        "truncateTo",
+        "afterLast",
+        "toUri",
+        "CRStringExtensions"
+      ],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/extensions/time_extensions.dart": {
+      "filePath": "core_resources/lib/src/extensions/time_extensions.dart",
+      "contentHash": "69b45079906027e3bbd1a7f1a991e757ffe37573c7fbc89cd8cb5ed05b84f244",
+      "functions": [
+        {
+          "name": "string",
+          "params": [
+            "format",
+            "locale"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "timeDifferenceFromNow",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toAmericanStdString",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "update",
+          "params": [
+            "year",
+            "month",
+            "day",
+            "hour",
+            "minute",
+            "second",
+            "millisecond",
+            "microsecond"
+          ],
+          "returnType": "DateTime",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRTimeExtensions",
+          "methods": [
+            "string",
+            "timeDifferenceFromNow",
+            "toAmericanStdString",
+            "update"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 62
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:intl/intl.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "string",
+        "timeDifferenceFromNow",
+        "toAmericanStdString",
+        "update",
+        "CRTimeExtensions"
+      ],
+      "totalLines": 65,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/common_intents.dart": {
+      "filePath": "core_resources/lib/src/utils/common_intents.dart",
+      "contentHash": "bb9d0453788fa3123332af3ba163e44cebb9d607f69a9123d2bff56cb94e3674",
+      "functions": [
+        {
+          "name": "locationOnMaps",
+          "params": [
+            "latitude",
+            "longitude",
+            "query"
+          ],
+          "returnType": "Uri",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "openDialer",
+          "params": [
+            "phone"
+          ],
+          "returnType": "Uri",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "sendWhatsappMessage",
+          "params": [
+            "phone",
+            "message"
+          ],
+          "returnType": "Uri",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommonIntents",
+          "methods": [
+            "locationOnMaps",
+            "openDialer",
+            "sendWhatsappMessage"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "../../core_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "locationOnMaps",
+        "openDialer",
+        "sendWhatsappMessage",
+        "CommonIntents"
+      ],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/date_time.dart": {
+      "filePath": "core_resources/lib/src/utils/date_time.dart",
+      "contentHash": "1e577275c5f2a6f0d3fa42932497ad04f88b7fe64127862403faaba81b489991",
+      "functions": [
+        {
+          "name": "parseDuration",
+          "params": [
+            "duration"
+          ],
+          "returnType": "Duration",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:dartx/dartx.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "parseDuration"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/fade_page_route.dart": {
+      "filePath": "core_resources/lib/src/utils/fade_page_route.dart",
+      "contentHash": "3d925556404de57c4d1157c94c6d632bfd5e195dbcf2fcb9a047abeaa5c53542",
+      "functions": [
+        {
+          "name": "FadePageRoute",
+          "params": [
+            "page"
+          ],
+          "exported": true,
+          "lineCount": 21
+        }
+      ],
+      "classes": [
+        {
+          "name": "FadePageRoute",
+          "methods": [
+            "FadePageRoute"
+          ],
+          "properties": [
+            "page"
+          ],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "FadePageRoute",
+        "FadePageRoute"
+      ],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/form_validation.dart": {
+      "filePath": "core_resources/lib/src/utils/form_validation.dart",
+      "contentHash": "f84ebc661ef22e91478e3df600114a7d39ef563faa7e2bf7bde8b9d29b80b902",
+      "functions": [
+        {
+          "name": "validators",
+          "params": [
+            "validators"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "requiredValidator",
+          "params": [
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "minLengthValidator",
+          "params": [
+            "minLength",
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "emailValidator",
+          "params": [
+            "errorMessage",
+            "allowBlank"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "phoneValidator",
+          "params": [
+            "requiredLength",
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "cpfValidator",
+          "params": [
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "optionalCpfValidator",
+          "params": [
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "cnpjValidator",
+          "params": [
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "zipValidator",
+          "params": [
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "userValidator",
+          "params": [
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "urlValidator",
+          "params": [
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "validIntValidator",
+          "params": [
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "validDoubleValidator",
+          "params": [
+            "errorMessage"
+          ],
+          "returnType": "FormFieldValidator<String>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:dartx/dartx.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../extensions/number_extensions.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "validators",
+        "requiredValidator",
+        "minLengthValidator",
+        "emailValidator",
+        "phoneValidator",
+        "cpfValidator",
+        "optionalCpfValidator",
+        "cnpjValidator",
+        "zipValidator",
+        "userValidator",
+        "urlValidator",
+        "validIntValidator",
+        "validDoubleValidator"
+      ],
+      "totalLines": 111,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/functions.dart": {
+      "filePath": "core_resources/lib/src/utils/functions.dart",
+      "contentHash": "76fee23353b3cbbbd6fa9209fe09c99099c4a91a372384682dc0d35f15eb4d77",
+      "functions": [
+        {
+          "name": "invoke",
+          "params": [
+            "function"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "identityString",
+          "params": [
+            "object"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "invoke",
+        "identityString"
+      ],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/hooks.dart": {
+      "filePath": "core_resources/lib/src/utils/hooks.dart",
+      "contentHash": "d43c7c2ab5b9629a1783f5847f24732b177a7f4b9dda9ee3202c80298b1c7d7a",
+      "functions": [
+        {
+          "name": "useMemoizedFuture",
+          "params": [
+            "future",
+            "keys"
+          ],
+          "returnType": "AsyncSnapshot<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "useFutureData",
+          "params": [
+            "future"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "useMemoizedFutureData",
+          "params": [
+            "future",
+            "keys"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "useMemoizedStream",
+          "params": [
+            "stream",
+            "keys"
+          ],
+          "returnType": "AsyncSnapshot<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "useStreamData",
+          "params": [
+            "stream"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "useMemoizedStreamData",
+          "params": [
+            "stream",
+            "keys"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "useStartAnimationControllerWithCompletionCallback",
+          "params": [
+            "animationController",
+            "onAnimationComplete"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_hooks/flutter_hooks.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "useMemoizedFuture",
+        "useFutureData",
+        "useMemoizedFutureData",
+        "useMemoizedStream",
+        "useStreamData",
+        "useMemoizedStreamData",
+        "useStartAnimationControllerWithCompletionCallback"
+      ],
+      "totalLines": 73,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/json.dart": {
+      "filePath": "core_resources/lib/src/utils/json.dart",
+      "contentHash": "eccac1ec5975c84bd4ed8e40f4d68cddee92798bb42b8bd80808e544f2cce814",
+      "functions": [
+        {
+          "name": "jsonDecodeObj",
+          "params": [
+            "source"
+          ],
+          "returnType": "Future<Map<String, dynamic>>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "jsonDecodeArray",
+          "params": [
+            "source"
+          ],
+          "returnType": "Future<List<dynamic>>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "jsonDecodeBytesBg",
+          "params": [
+            "bytes"
+          ],
+          "returnType": "Future<Object?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "jsonEncodeBg",
+          "params": [
+            "obj"
+          ],
+          "returnType": "Future<String>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:convert",
+          "specifiers": []
+        },
+        {
+          "source": "dart:isolate",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "jsonDecodeObj",
+        "jsonDecodeArray",
+        "jsonDecodeBytesBg",
+        "jsonEncodeBg"
+      ],
+      "totalLines": 29,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/log.dart": {
+      "filePath": "core_resources/lib/src/utils/log.dart",
+      "contentHash": "6b2e5dd7427c76bf1cef73a3dd1434c8b54b86371a7f503610a61a827e5ea9a6",
+      "functions": [
+        {
+          "name": "clog",
+          "params": [
+            "object",
+            "error",
+            "stackTrace",
+            "zone",
+            "logger"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:logging/logging.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "clog"
+      ],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/math.dart": {
+      "filePath": "core_resources/lib/src/utils/math.dart",
+      "contentHash": "c36aa73299f3b85a2d79f6e52b26c727945910f41a9c9218639f4084805c50f6",
+      "functions": [
+        {
+          "name": "degToRad",
+          "params": [
+            "deg"
+          ],
+          "returnType": "num",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "radToDeg",
+          "params": [
+            "rad"
+          ],
+          "returnType": "num",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:math",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "degToRad",
+        "radToDeg"
+      ],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/nav.dart": {
+      "filePath": "core_resources/lib/src/utils/nav.dart",
+      "contentHash": "69b265f427ab1c79552d0bca825dd74951f8717c1e8ccc8d2c76293c742337a9",
+      "functions": [
+        {
+          "name": "goFullscreenDialog",
+          "params": [
+            "context",
+            "page"
+          ],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "goNamed",
+          "params": [
+            "context",
+            "route",
+            "arguments"
+          ],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "go",
+          "params": [
+            "context",
+            "page",
+            "routeBuilder"
+          ],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "goReplacementNamed",
+          "params": [
+            "context",
+            "route",
+            "arguments"
+          ],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "goReplacement",
+          "params": [
+            "context",
+            "page",
+            "routeBuilder"
+          ],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "goErasingHistoryNamed",
+          "params": [
+            "context",
+            "route"
+          ],
+          "returnType": "Future",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "goErasingHistory",
+          "params": [
+            "context",
+            "page",
+            "routeBuilder"
+          ],
+          "returnType": "Future",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "to",
+          "params": [],
+          "returnType": "Nav",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "Nav",
+          "methods": [
+            "goFullscreenDialog",
+            "goNamed",
+            "go",
+            "goReplacementNamed",
+            "goReplacement",
+            "goErasingHistoryNamed",
+            "goErasingHistory",
+            "to"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 54
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "fade_page_route.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "goFullscreenDialog",
+        "goNamed",
+        "go",
+        "goReplacementNamed",
+        "goReplacement",
+        "goErasingHistoryNamed",
+        "goErasingHistory",
+        "to",
+        "Nav"
+      ],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/ui.dart": {
+      "filePath": "core_resources/lib/src/utils/ui.dart",
+      "contentHash": "393ff5103cf700e742a905e8041f2f17ac65c7c9a49ec563959c365d165c3502",
+      "functions": [
+        {
+          "name": "createMaterialColor",
+          "params": [
+            "color"
+          ],
+          "returnType": "MaterialColor",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "createMaterialColor"
+      ],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/utils/utils.dart": {
+      "filePath": "core_resources/lib/src/utils/utils.dart",
+      "contentHash": "1d423b89f9b5b1181c719fb8bddd9735cf09f46be16ef830ec2ca7b1b755c89a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "common_intents.dart",
+        "date_time.dart",
+        "fade_page_route.dart",
+        "form_validation.dart",
+        "functions.dart",
+        "hooks.dart",
+        "json.dart",
+        "log.dart",
+        "math.dart",
+        "nav.dart",
+        "ui.dart"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/conditional_render.dart": {
+      "filePath": "core_resources/lib/src/widgets/conditional_render.dart",
+      "contentHash": "562ae4f72b816a91c3033aa776817b3618bab27a5a01a86edd91feed5f13f068",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConditionalRender",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "condition",
+            "child",
+            "childBuilder",
+            "childElse",
+            "childElseBuilder",
+            "duration",
+            "reverseDuration",
+            "transitionBuilder",
+            "switchInCurve",
+            "switchOutCurve",
+            "animationsEnabled"
+          ],
+          "exported": true,
+          "lineCount": 49
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "ConditionalRender"
+      ],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/dialogs.dart": {
+      "filePath": "core_resources/lib/src/widgets/dialogs.dart",
+      "contentHash": "8a12d911b44b4548577833dfc12832acc3d11f463928a6f8e032a239d49856f9",
+      "functions": [
+        {
+          "name": "showSimpleAlert",
+          "params": [
+            "context",
+            "title",
+            "content",
+            "confirmText",
+            "onConfirm"
+          ],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "showSimpleTimedAlert",
+          "params": [
+            "context",
+            "duration",
+            "title",
+            "content",
+            "confirmText",
+            "onConfirm"
+          ],
+          "returnType": "Future<T?>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "showConfirmDialog",
+          "params": [
+            "context",
+            "title",
+            "content",
+            "onConfirm",
+            "onCancel",
+            "cancelText",
+            "confirmText"
+          ],
+          "returnType": "Future<bool>",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SimpleTimedAlert",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "title",
+            "content",
+            "confirmText",
+            "onConfirm",
+            "duration",
+            "progressIndicatorBuilder"
+          ],
+          "exported": true,
+          "lineCount": 63
+        },
+        {
+          "name": "SimpleAlert",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "title",
+            "content",
+            "confirmText",
+            "onConfirm"
+          ],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "ConfirmDialog",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "title",
+            "content",
+            "onConfirm",
+            "onCancel",
+            "cancelText",
+            "confirmText"
+          ],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "showSimpleAlert",
+        "showSimpleTimedAlert",
+        "build",
+        "SimpleTimedAlert",
+        "build",
+        "SimpleAlert",
+        "showConfirmDialog",
+        "build",
+        "ConfirmDialog"
+      ],
+      "totalLines": 199,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/dismissible_and_editable_slidable.dart": {
+      "filePath": "core_resources/lib/src/widgets/dismissible_and_editable_slidable.dart",
+      "contentHash": "48013a8760c26e60738f82e9c267b66d96cb78468500ac61b5c0e4c903f7c0aa",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "DismissibleAndEditableSlidable",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "itemKey",
+            "confirmDismiss",
+            "onDismissed",
+            "onEdited",
+            "backgroundDismiss",
+            "backgroundEdit",
+            "child"
+          ],
+          "exported": true,
+          "lineCount": 67
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "DismissibleAndEditableSlidable"
+      ],
+      "totalLines": 70,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/dismissible_from_end_to_start.dart": {
+      "filePath": "core_resources/lib/src/widgets/dismissible_from_end_to_start.dart",
+      "contentHash": "8ce797b0af4417b94f162caec9722cd599e3ce821e766f4aebb9de1808e1aad9",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "DismissibleFromEndToStart",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "itemKey",
+            "confirmDismiss",
+            "onDismissed",
+            "background",
+            "child"
+          ],
+          "exported": true,
+          "lineCount": 40
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "DismissibleFromEndToStart"
+      ],
+      "totalLines": 43,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/editable_label.dart": {
+      "filePath": "core_resources/lib/src/widgets/editable_label.dart",
+      "contentHash": "3cbbe1024f39b0701660785ee23445ca7f0cc21677d61f1802457600c7d8910f",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "EditableLabel",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "inputKey",
+            "onSave",
+            "controller",
+            "labelText",
+            "inputFormatters",
+            "validator",
+            "keyboardType",
+            "initialValue",
+            "editable",
+            "filled",
+            "fillColor",
+            "labelStyle",
+            "animationDuration",
+            "enabled",
+            "border"
+          ],
+          "exported": true,
+          "lineCount": 96
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/services.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_hooks/flutter_hooks.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "EditableLabel"
+      ],
+      "totalLines": 103,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/loading_button.dart": {
+      "filePath": "core_resources/lib/src/widgets/loading_button.dart",
+      "contentHash": "34fe774aa04a4a025b4d74a9e464deee6226aa1c421f15e1ba5400f492a4337a",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "LoadingElevatedButton",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "child",
+            "onPressed",
+            "isLoading",
+            "style",
+            "progressIndicatorHeight",
+            "progressIndicatorWidth",
+            "progressIndicatorStrokeWidth"
+          ],
+          "exported": true,
+          "lineCount": 41
+        },
+        {
+          "name": "LoadingFilledButton",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "child",
+            "onPressed",
+            "isLoading",
+            "style",
+            "progressIndicatorHeight",
+            "progressIndicatorWidth",
+            "progressIndicatorStrokeWidth"
+          ],
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "LoadingTextButton",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "child",
+            "onPressed",
+            "isLoading",
+            "style",
+            "progressIndicatorHeight",
+            "progressIndicatorWidth",
+            "progressIndicatorStrokeWidth"
+          ],
+          "exported": true,
+          "lineCount": 39
+        },
+        {
+          "name": "LoadingFloatingActionButton",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "child",
+            "onPressed",
+            "isLoading",
+            "backgroundColor",
+            "foregroundColor",
+            "shape",
+            "padding",
+            "progressIndicatorHeight",
+            "progressIndicatorWidth",
+            "progressIndicatorStrokeWidth"
+          ],
+          "exported": true,
+          "lineCount": 47
+        },
+        {
+          "name": "LoadingIconButton",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "icon",
+            "onPressed",
+            "isLoading",
+            "color",
+            "progressIndicatorHeight",
+            "progressIndicatorWidth",
+            "progressIndicatorStrokeWidth",
+            "progressIndicatorColor",
+            "padding"
+          ],
+          "exported": true,
+          "lineCount": 44
+        },
+        {
+          "name": "_ButtonContent",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "isLoading",
+            "child",
+            "progressIndicatorHeight",
+            "progressIndicatorWidth",
+            "progressIndicatorStrokeWidth",
+            "foregroundColor"
+          ],
+          "exported": false,
+          "lineCount": 48
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../extensions/context_extensions.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "LoadingElevatedButton",
+        "build",
+        "LoadingFilledButton",
+        "build",
+        "LoadingTextButton",
+        "build",
+        "LoadingFloatingActionButton",
+        "build",
+        "LoadingIconButton",
+        "build"
+      ],
+      "totalLines": 269,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/number_stepper.dart": {
+      "filePath": "core_resources/lib/src/widgets/number_stepper.dart",
+      "contentHash": "a63daecf17280faad4e240f1ee44c6f46fadab307f649d8a234309c069d5a41a",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "NumberStepper",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "number",
+            "onChange",
+            "iconColor",
+            "increaseEnabled",
+            "decreaseEnabled",
+            "decoration",
+            "mainAxisAlignment"
+          ],
+          "exported": true,
+          "lineCount": 43
+        },
+        {
+          "name": "NumberStepperEvent",
+          "methods": [],
+          "properties": [
+            "increase",
+            "decrease"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../extensions/context_extensions.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "NumberStepper",
+        "NumberStepperEvent"
+      ],
+      "totalLines": 53,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/password_form_field.dart": {
+      "filePath": "core_resources/lib/src/widgets/password_form_field.dart",
+      "contentHash": "4fb187179fdb3fde945bdb821cbb92ed0a9afe33f0c58ac45cada4e22bd92471",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "PasswordFormField",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "fieldKey",
+            "controller",
+            "prefixIcon",
+            "maxLength",
+            "hintText",
+            "labelText",
+            "helperText",
+            "enabled",
+            "onSaved",
+            "validator",
+            "onFieldSubmitted",
+            "obscuringCharacter",
+            "fillColor",
+            "textInputAction"
+          ],
+          "exported": true,
+          "lineCount": 64
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_hooks/flutter_hooks.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "PasswordFormField"
+      ],
+      "totalLines": 68,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/refresh_action_button.dart": {
+      "filePath": "core_resources/lib/src/widgets/refresh_action_button.dart",
+      "contentHash": "ad15106050fde4244de3bc5b582c26fc4de0d8454f83be261b49cab52ced5478",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "RefreshActionButton",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "isRefreshing",
+            "onTap"
+          ],
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "RefreshActionButton"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/splash_widget.dart": {
+      "filePath": "core_resources/lib/src/widgets/splash_widget.dart",
+      "contentHash": "ef2ed9e7f1cc5360955eb8a30a05dfad6ce15028c5093ecac62a1b253ea81513",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SplashWidget",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "child",
+            "operation"
+          ],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_hooks/flutter_hooks.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "SplashWidget"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/transitions.dart": {
+      "filePath": "core_resources/lib/src/widgets/transitions.dart",
+      "contentHash": "19c923dc605d502fb920116d4a4d6af26093ac9b31566e611a5f850dd936c88e",
+      "functions": [
+        {
+          "name": "scale",
+          "params": [],
+          "returnType": "Animation<double>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "scale",
+          "params": [],
+          "returnType": "Animation<double>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "HorizontalScaleTransition",
+          "methods": [
+            "scale",
+            "build"
+          ],
+          "properties": [
+            "alignment",
+            "child"
+          ],
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "VerticalScaleTransition",
+          "methods": [
+            "scale",
+            "build"
+          ],
+          "properties": [
+            "alignment",
+            "child"
+          ],
+          "exported": true,
+          "lineCount": 35
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/widgets.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "scale",
+        "build",
+        "HorizontalScaleTransition",
+        "scale",
+        "build",
+        "VerticalScaleTransition"
+      ],
+      "totalLines": 76,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/lib/src/widgets/widgets.dart": {
+      "filePath": "core_resources/lib/src/widgets/widgets.dart",
+      "contentHash": "942986e3bb3841fbcc988009f6ffa77b6de703fa394c8cc1968e9f8e3d889bf3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "conditional_render.dart",
+        "dialogs.dart",
+        "dismissible_and_editable_slidable.dart",
+        "dismissible_from_end_to_start.dart",
+        "editable_label.dart",
+        "loading_button.dart",
+        "number_stepper.dart",
+        "password_form_field.dart",
+        "refresh_action_button.dart",
+        "splash_widget.dart",
+        "transitions.dart"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/pubspec.yaml": {
+      "filePath": "core_resources/pubspec.yaml",
+      "contentHash": "fa25ba2443ed6cd520cd77a9867b391473725794e9251a87dc211fdc579a816b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/baseclasses/base_router_test.dart": {
+      "filePath": "core_resources/test/baseclasses/base_router_test.dart",
+      "contentHash": "018740b03b686799f1ff5496f13d93302e949cd0d0f2cebe34b7cb2d7fe5b155",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "bottomNavRoutes",
+          "params": [],
+          "returnType": "List<String>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "RouterImpl",
+          "methods": [
+            "bottomNavRoutes"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "MockContext",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mocktail/mocktail.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main",
+        "bottomNavRoutes",
+        "RouterImpl",
+        "MockContext"
+      ],
+      "totalLines": 174,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/classes/core_router_observer_test.dart": {
+      "filePath": "core_resources/test/classes/core_router_observer_test.dart",
+      "contentHash": "4d2cdafd4106bc23da4bc1954c35c8524e4b0471a59359fb41e9b3b876b99962",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "MockCoreRouterObserver",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "MockRoute",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mocktail/mocktail.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main",
+        "MockCoreRouterObserver",
+        "MockRoute"
+      ],
+      "totalLines": 86,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/core_test.dart": {
+      "filePath": "core_resources/test/core_test.dart",
+      "contentHash": "4200b170b2ed3ab55c8f48e73a14d2b884428891fb1b3efcae6dafa4a5a12ea2",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 270,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/async_snapshot_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/async_snapshot_extensions_test.dart",
+      "contentHash": "cc7eac608c7a33805ce975bf6be5396d896313da70c50f8ac7e2763a9874d100",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 97,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/color_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/color_extensions_test.dart",
+      "contentHash": "060de379e8640e44369f65d902116b83325fa201a6a162f9a51d5a411abee0dd",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/context_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/context_extensions_test.dart",
+      "contentHash": "f2590f76e4c87a168fec11498340f7f142f934515b584a5bcc57b681f8c09db4",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 307,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/execution_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/execution_extensions_test.dart",
+      "contentHash": "22595853175ebed18efea2b25da7c0606449f8af57ca09742cd3c544627f32c4",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/future_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/future_extensions_test.dart",
+      "contentHash": "95d2a1db57fcd48b0b7643f53a3bc8b507153c59a1671bf1d1546e6b957beba4",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 117,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/iterable_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/iterable_extensions_test.dart",
+      "contentHash": "a97128e64cc5b3b9dc0a1500790e11fbb1cab3a1c6e26b2531fa42f9f3067b71",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/number_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/number_extensions_test.dart",
+      "contentHash": "b47d7380cb04f923c325cc988df7631f2268dd4b8c7b3f4aaf9c7a716b6e1b16",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/object_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/object_extensions_test.dart",
+      "contentHash": "2460ab2f8cc31a08e0ae7cbffd557049b6ba4fd2ccd89fb8210b0d88069468bd",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/stream_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/stream_extensions_test.dart",
+      "contentHash": "d490eff9ad3e5ab5209888488cfc8b3bb43c7796383429a0b1d411b933769403",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/string_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/string_extensions_test.dart",
+      "contentHash": "908511c6eee7090adc9f62b919e0bc495f3b59291f3752be9905c9a53137cb50",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/src/extensions/string_extensions.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 62,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/extensions/time_extensions_test.dart": {
+      "filePath": "core_resources/test/extensions/time_extensions_test.dart",
+      "contentHash": "c59bd5f105ee8010700303df50768e09304a53cd2bb7c38dc77f5c349a8a4522",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 118,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/common_intents_test.dart": {
+      "filePath": "core_resources/test/utils/common_intents_test.dart",
+      "contentHash": "6af366af3c71b0038f1128b95bdfa3be8902873960dc77c90662328da4036abc",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/date_time_test.dart": {
+      "filePath": "core_resources/test/utils/date_time_test.dart",
+      "contentHash": "cbe411e0cac0ae12927ad71968a175a67ddafa0da6ecce184c55243729c44f5a",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/src/utils/date_time.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/form_validation_test.dart": {
+      "filePath": "core_resources/test/utils/form_validation_test.dart",
+      "contentHash": "38b6b6b35c6e71e40e924b847d5e7175bf3bb50f4251f7cf400be78d2fab184f",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 190,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/functions_test.dart": {
+      "filePath": "core_resources/test/utils/functions_test.dart",
+      "contentHash": "5801f8a4e7bbafbda10fd72cae81ce00c7011a1f0ac0505272bc2adf6e3b8d52",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/hooks_test.dart": {
+      "filePath": "core_resources/test/utils/hooks_test.dart",
+      "contentHash": "e36e0c81b75aa9fa03169938d8fa8510e6e916514b22c497f5561c89009896e8",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 296,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/json_test.dart": {
+      "filePath": "core_resources/test/utils/json_test.dart",
+      "contentHash": "d7248a835e4a72046e522c9718a4a220cefbd3845078ee26301f8a8e2309d78f",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:convert",
+          "specifiers": []
+        },
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 71,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/log_test.dart": {
+      "filePath": "core_resources/test/utils/log_test.dart",
+      "contentHash": "be18732718d7a49b09cb2394b745322705336d65d85546e6143f5fdcd30f598a",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 112,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/math_test.dart": {
+      "filePath": "core_resources/test/utils/math_test.dart",
+      "contentHash": "58bcde62e8d4ff27c404141ccc27ca699ea8bfdf3d23bc915c29ba2e36e5d32c",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/nav_test.dart": {
+      "filePath": "core_resources/test/utils/nav_test.dart",
+      "contentHash": "b57890722ace5cb630210bc95ed727b87b4bb049a1e17f3ba3b65422eeb48d1b",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 93,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/ui_test.dart": {
+      "filePath": "core_resources/test/utils/ui_test.dart",
+      "contentHash": "6a6fd517f69d89d92df7d2750b32195cb3c2488578246a0000bd2c626766fb25",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/utils/utils_test.dart": {
+      "filePath": "core_resources/test/utils/utils_test.dart",
+      "contentHash": "c2b09df11ba63d37eb5b8c2b936200982dde896bc8251906cf78356e8ef262cf",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/conditional_render_test.dart": {
+      "filePath": "core_resources/test/widgets/conditional_render_test.dart",
+      "contentHash": "db04559fdb9009d9e2a37eda0ac4565c6b0be4ce8004c3e86dd76f1b12eb516e",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 111,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/dialogs_test.dart": {
+      "filePath": "core_resources/test/widgets/dialogs_test.dart",
+      "contentHash": "2319627439b8f6ec80aa96746ab59912570f9797ea81accb2052f81647ba5eb2",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 302,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/dismissible_and_editable_slidable_test.dart": {
+      "filePath": "core_resources/test/widgets/dismissible_and_editable_slidable_test.dart",
+      "contentHash": "303eb7b387c5e0e4808e49e913aa2de28a41097d85d7a96b94a12cf55a799338",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 48,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/dismissible_from_end_to_start_test.dart": {
+      "filePath": "core_resources/test/widgets/dismissible_from_end_to_start_test.dart",
+      "contentHash": "a7ddb2d44bf9698276b1d7760e112ce9b2a2f4a4f3e7bc389f2034ae40219ca5",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/editable_label_test.dart": {
+      "filePath": "core_resources/test/widgets/editable_label_test.dart",
+      "contentHash": "5ce8f53acd9056019c5d5f981057aedcf78892baab61508e0b6d4545ce709986",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 69,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/loading_button_test.dart": {
+      "filePath": "core_resources/test/widgets/loading_button_test.dart",
+      "contentHash": "bb7da870f51254c94824101bb5698416ad605ba5a98429b2289b4f48c04e7dad",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 186,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/number_stepper_test.dart": {
+      "filePath": "core_resources/test/widgets/number_stepper_test.dart",
+      "contentHash": "cdf8668e2029b1f830eb1da33bead5f159a69c7bc3c4e52d647168c8086e103c",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 58,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/password_form_field_test.dart": {
+      "filePath": "core_resources/test/widgets/password_form_field_test.dart",
+      "contentHash": "79da908d4fb61edb5ca46cff971d42b453071093c72e9263940a6f7fdb5b9300",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/refresh_action_button_test.dart": {
+      "filePath": "core_resources/test/widgets/refresh_action_button_test.dart",
+      "contentHash": "8228626df5d946c1e87af88f2c235a82b2116ea9af5850d6bcb93d3e5f23ca19",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/splash_widget_test.dart": {
+      "filePath": "core_resources/test/widgets/splash_widget_test.dart",
+      "contentHash": "8e99f7b77cf0ba544940f6b950b03822fa051e86962ed8611fab977b11f72fee",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "core_resources/test/widgets/transitions_test.dart": {
+      "filePath": "core_resources/test/widgets/transitions_test.dart",
+      "contentHash": "9ceb18a44e2ee0e4d5cda1b56bb53ee53cbdafabf42b09b8b798ca677dc85183",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "masked_text_resources/.metadata": {
+      "filePath": "masked_text_resources/.metadata",
+      "contentHash": "4122c0ba3f28e01e1d1d8affe4db4d045ebbb5ef39dde490b1199e58adc8cdda",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": false
+    },
+    "masked_text_resources/lib/masked_text_resources.dart": {
+      "filePath": "masked_text_resources/lib/masked_text_resources.dart",
+      "contentHash": "d84e3d74774fa69c745e174f22d0b422db12a5af629f978a4856bf3b55638d0a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "package:mask_text_input_formatter/mask_text_input_formatter.dart",
+        "src/field_masks.dart"
+      ],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "masked_text_resources/lib/src/field_masks.dart": {
+      "filePath": "masked_text_resources/lib/src/field_masks.dart",
+      "contentHash": "e94619d3d3eff5c5b384785915cce1d57aef557feb9e77d166fef7e2309d3e77",
+      "functions": [
+        {
+          "name": "cpf",
+          "params": [],
+          "returnType": "MaskTextInputFormatter",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "cnpj",
+          "params": [],
+          "returnType": "MaskTextInputFormatter",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "cellphone",
+          "params": [],
+          "returnType": "MaskTextInputFormatter",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "phone",
+          "params": [],
+          "returnType": "MaskTextInputFormatter",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "zipCode",
+          "params": [],
+          "returnType": "MaskTextInputFormatter",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_FieldMasks",
+          "methods": [
+            "cpf",
+            "cnpj",
+            "cellphone",
+            "phone",
+            "zipCode"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 13
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mask_text_input_formatter/mask_text_input_formatter.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "cpf",
+        "cnpj",
+        "cellphone",
+        "phone",
+        "zipCode"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "masked_text_resources/masked_text_resources.iml": {
+      "filePath": "masked_text_resources/masked_text_resources.iml",
+      "contentHash": "66daffd09b5a4407bf3b758c86567afc69439ec71f49e461e25c7a07866aee52",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": false
+    },
+    "masked_text_resources/pubspec.yaml": {
+      "filePath": "masked_text_resources/pubspec.yaml",
+      "contentHash": "2e55899d2287cd551ed04d5b8c49b16e6bddb69ecd16642e5a956948aee62aec",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "masked_text_resources/test/field_masks_test.dart": {
+      "filePath": "masked_text_resources/test/field_masks_test.dart",
+      "contentHash": "51ae0b046a60c9e7348d676a121779a5e2a7f766de605bca3a907dd427c03efb",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:masked_text_resources/masked_text_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/.metadata": {
+      "filePath": "reactor_fp_resources/.metadata",
+      "contentHash": "1f4a088fd2ddb5094ac0506c482a673b9414eaa1a404209255061aa3b1e8301c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": false
+    },
+    "reactor_fp_resources/lib/reactor_fp_resources.dart": {
+      "filePath": "reactor_fp_resources/lib/reactor_fp_resources.dart",
+      "contentHash": "d4f2fcf2c30c365eeef2a59a7e475a9fed2d52b14c5e71a71216000dd4b408cf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "src/fp/fp.dart",
+        "src/fp_dart_extensions.dart",
+        "src/fp_do_expression.dart",
+        "src/fp_top_level.dart",
+        "src/reactor.dart",
+        "src/stream_reactor.dart"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/fp_dart_extensions.dart": {
+      "filePath": "reactor_fp_resources/lib/src/fp_dart_extensions.dart",
+      "contentHash": "ef3ce5170c4c7b8eaee7f4851eda06e2e25daf0e074286d6fd8cf5b797eb8bd2",
+      "functions": [
+        {
+          "name": "merge",
+          "params": [],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "orNull",
+          "params": [],
+          "returnType": "R",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "orNull",
+          "params": [],
+          "returnType": "Future<R?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "withLoading",
+          "params": [
+            "loadingObservable"
+          ],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "andThenRun",
+          "params": [
+            "op"
+          ],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "andThenRunF",
+          "params": [
+            "op"
+          ],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "withTimeout",
+          "params": [
+            "timeout",
+            "onTimeout"
+          ],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "withTiming",
+          "params": [
+            "label"
+          ],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "moveToIsolate",
+          "params": [],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "andThenF",
+          "params": [
+            "then"
+          ],
+          "returnType": "Task<B>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "andThenRunF",
+          "params": [
+            "op"
+          ],
+          "returnType": "Task<R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "withLoading",
+          "params": [
+            "loadingObservable"
+          ],
+          "returnType": "Task<R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "unit",
+          "params": [],
+          "returnType": "Future<Unit>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "unit",
+          "params": [],
+          "returnType": "Unit Function()",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "unit",
+          "params": [],
+          "returnType": "Unit Function(A)",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "unit",
+          "params": [],
+          "returnType": "Unit Function(A, B)",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "unit",
+          "params": [],
+          "returnType": "Future<Unit> Function()",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "unit",
+          "params": [],
+          "returnType": "Future<Unit> Function(A)",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "unit",
+          "params": [],
+          "returnType": "Future<Unit> Function(A, B)",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRTaskOfEitherExtensions",
+          "methods": [
+            "merge"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "EitherOrNullExtension",
+          "methods": [
+            "orNull"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "TaskEitherOrNullExtension",
+          "methods": [
+            "orNull"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "TaskEitherExtensions",
+          "methods": [
+            "withLoading",
+            "andThenRun",
+            "andThenRunF",
+            "withTimeout",
+            "withTiming",
+            "moveToIsolate"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 60
+        },
+        {
+          "name": "TaskExtensions",
+          "methods": [
+            "andThenF",
+            "andThenRunF",
+            "withLoading"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 26
+        },
+        {
+          "name": "FutureVoidExtensions",
+          "methods": [
+            "unit"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "VoidFnExtensions0",
+          "methods": [
+            "unit"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "VoidFnExtensions1",
+          "methods": [
+            "unit"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "VoidFnExtensions2",
+          "methods": [
+            "unit"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "FutureVoidFnExtensions0",
+          "methods": [
+            "unit"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "FutureVoidFnExtensions1",
+          "methods": [
+            "unit"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "FutureVoidFnExtensions2",
+          "methods": [
+            "unit"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "fp/fp.dart",
+          "specifiers": [
+            "fp"
+          ]
+        },
+        {
+          "source": "fp/fp.dart",
+          "specifiers": [
+            "Either",
+            "Task",
+            "TaskEither",
+            "Unit",
+            "left",
+            "right"
+          ]
+        }
+      ],
+      "exports": [
+        "merge",
+        "CRTaskOfEitherExtensions",
+        "orNull",
+        "EitherOrNullExtension",
+        "orNull",
+        "TaskEitherOrNullExtension",
+        "withLoading",
+        "andThenRun",
+        "andThenRunF",
+        "withTimeout",
+        "withTiming",
+        "moveToIsolate",
+        "TaskEitherExtensions",
+        "andThenF",
+        "andThenRunF",
+        "withLoading",
+        "TaskExtensions",
+        "unit",
+        "FutureVoidExtensions",
+        "unit",
+        "VoidFnExtensions0",
+        "unit",
+        "VoidFnExtensions1",
+        "unit",
+        "VoidFnExtensions2",
+        "unit",
+        "FutureVoidFnExtensions0",
+        "unit",
+        "FutureVoidFnExtensions1",
+        "unit",
+        "FutureVoidFnExtensions2"
+      ],
+      "totalLines": 174,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/fp_do_expression.dart": {
+      "filePath": "reactor_fp_resources/lib/src/fp_do_expression.dart",
+      "contentHash": "3c908a2ce8e0748795cf25451119f3fd4263c45bcb4202134b9b7a451092412b",
+      "functions": [
+        {
+          "name": "taskEitherDo",
+          "params": [
+            "f"
+          ],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "taskEitherDoBg",
+          "params": [
+            "f"
+          ],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_doEitherAdapter",
+          "params": [],
+          "returnType": "DoEitherAdapter<L>",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_doTaskEitherAdapter",
+          "params": [],
+          "returnType": "DoTaskEitherAdapter<L>",
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_TaskEitherThrow",
+          "methods": [],
+          "properties": [
+            "value"
+          ],
+          "exported": false,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "fp/fp.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "taskEitherDo",
+        "taskEitherDoBg"
+      ],
+      "totalLines": 50,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/fp_top_level.dart": {
+      "filePath": "reactor_fp_resources/lib/src/fp_top_level.dart",
+      "contentHash": "9356c604f75c5eb5a868b79cd112e21b9d0eab6060e890251417699773f8feee",
+      "functions": [
+        {
+          "name": "ignore",
+          "params": [
+            "_",
+            "__",
+            "___",
+            "____",
+            "_____"
+          ],
+          "returnType": "Unit",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "taskEitherCatch",
+          "params": [
+            "fn",
+            "onError"
+          ],
+          "returnType": "TaskEither<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "eitherCatch",
+          "params": [
+            "fn",
+            "onError"
+          ],
+          "returnType": "Either<L, R>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "fp/fp.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "ignore",
+        "taskEitherCatch",
+        "eitherCatch"
+      ],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/fp/either.dart": {
+      "filePath": "reactor_fp_resources/lib/src/fp/either.dart",
+      "contentHash": "3d6088b06db2e21e82e8860fecee500e856f2ffffdad00b77506f65473d3df0b",
+      "functions": [
+        {
+          "name": "right",
+          "params": [
+            "r"
+          ],
+          "returnType": "Either<L, R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "left",
+          "params": [
+            "l"
+          ],
+          "returnType": "Either<L, R>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "right",
+        "left"
+      ],
+      "totalLines": 190,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/fp/fp.dart": {
+      "filePath": "reactor_fp_resources/lib/src/fp/fp.dart",
+      "contentHash": "56cd72c3cc7b592edd39c6c75fd4da39eb14df9b8f8b419f7a7c95117cf9265e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "either.dart",
+        "function.dart",
+        "task.dart",
+        "task_either.dart",
+        "unit.dart"
+      ],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/fp/function.dart": {
+      "filePath": "reactor_fp_resources/lib/src/fp/function.dart",
+      "contentHash": "d4dc5a8786561344aa833e753a1bd7b827d5434b9a1b8d9c3651ff91c19cb361",
+      "functions": [
+        {
+          "name": "identity",
+          "params": [
+            "a"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "identityFuture",
+          "params": [
+            "a"
+          ],
+          "returnType": "Future<T>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "identity",
+        "identityFuture"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/fp/task_either.dart": {
+      "filePath": "reactor_fp_resources/lib/src/fp/task_either.dart",
+      "contentHash": "d26caf73dac3f35b0b8b589aeb2b6c6668fed1a668f3398048a318c27bcd04ef",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "either.dart",
+          "specifiers": []
+        },
+        {
+          "source": "function.dart",
+          "specifiers": []
+        },
+        {
+          "source": "task.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 132,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/fp/task.dart": {
+      "filePath": "reactor_fp_resources/lib/src/fp/task.dart",
+      "contentHash": "0c52c0dccbd54500bf358055e8fcd4fb363f54520d7f3ed287570e3ea0242741",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "function.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/fp/unit.dart": {
+      "filePath": "reactor_fp_resources/lib/src/fp/unit.dart",
+      "contentHash": "2cbb0984e402e7c499ffd39f424717e260c005c809194b4204d1bae70dcf176b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/reactor.dart": {
+      "filePath": "reactor_fp_resources/lib/src/reactor.dart",
+      "contentHash": "1ffa8fa0f3f9e42b8685c012888c4a59a040d86f145b89c45530971ea7153f93",
+      "functions": [
+        {
+          "name": "Reactor",
+          "params": [
+            "value"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setValue",
+          "params": [
+            "newValue"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "reduce",
+          "params": [
+            "reducer"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "call",
+          "params": [],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Rc",
+          "params": [
+            "initialValue"
+          ],
+          "returnType": "Reactor<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Rcn",
+          "params": [
+            "initialValue"
+          ],
+          "returnType": "Reactor<T?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "rc",
+          "params": [],
+          "returnType": "Reactor<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "useReactor",
+          "params": [
+            "reactor"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "Reactor",
+          "methods": [
+            "Reactor",
+            "setValue",
+            "reduce",
+            "call"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "ReactorX",
+          "methods": [
+            "rc"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "Reactor",
+        "setValue",
+        "reduce",
+        "call",
+        "Reactor",
+        "Rc",
+        "Rcn",
+        "rc",
+        "ReactorX",
+        "useReactor"
+      ],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/lib/src/stream_reactor.dart": {
+      "filePath": "reactor_fp_resources/lib/src/stream_reactor.dart",
+      "contentHash": "958053967da2bc6922650fcc5ff888c4678157c9e1f8a25dbf1cf4a7589b10e6",
+      "functions": [
+        {
+          "name": "_update",
+          "params": [
+            "event"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_unsubscribe",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_subscribe",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "addListener",
+          "params": [
+            "listener"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "removeListener",
+          "params": [
+            "listener"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "asRc",
+          "params": [
+            "eagerSubscribe",
+            "initialValue"
+          ],
+          "returnType": "StreamReactor<T?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "asRcValue",
+          "params": [
+            "initialValue",
+            "eagerSubscribe"
+          ],
+          "returnType": "StreamReactor<T>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "StreamReactor",
+          "methods": [
+            "_update",
+            "_unsubscribe",
+            "_subscribe",
+            "addListener",
+            "removeListener",
+            "dispose"
+          ],
+          "properties": [
+            "_keepAlive",
+            "_initialized",
+            "_subscription",
+            "stream"
+          ],
+          "exported": true,
+          "lineCount": 60
+        },
+        {
+          "name": "ReactorStreamX",
+          "methods": [
+            "asRc"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ReactorStreamX2",
+          "methods": [
+            "asRcValue"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "reactor.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "addListener",
+        "removeListener",
+        "dispose",
+        "StreamReactor",
+        "asRc",
+        "ReactorStreamX",
+        "asRcValue",
+        "ReactorStreamX2"
+      ],
+      "totalLines": 83,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/pubspec.yaml": {
+      "filePath": "reactor_fp_resources/pubspec.yaml",
+      "contentHash": "0ded1c352450c0ef063360b23914a0b4ef74c50e9d3514b1c1b96656b950a472",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/reactor_fp_resources.iml": {
+      "filePath": "reactor_fp_resources/reactor_fp_resources.iml",
+      "contentHash": "22095a8c7786a2887168e77ed4585241604d15ad234c5665c5426e0cc43812e2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": false
+    },
+    "reactor_fp_resources/test/fp_dart_extensions_test.dart": {
+      "filePath": "reactor_fp_resources/test/fp_dart_extensions_test.dart",
+      "contentHash": "28e8acae2412486e923ba77d0daae91a9d5da4a73bb55a66d413f4137473cdf8",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:reactor_fp_resources/reactor_fp_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/test/fp_do_expression_test.dart": {
+      "filePath": "reactor_fp_resources/test/fp_do_expression_test.dart",
+      "contentHash": "67be375e687f2f190116ab8e9f350a586ec1a6bc33a77e23db93c16229aec408",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:reactor_fp_resources/reactor_fp_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "mocks.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 91,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/test/fp_either_test.dart": {
+      "filePath": "reactor_fp_resources/test/fp_either_test.dart",
+      "contentHash": "f816b1912e9d94f4e88e3ea2ade22e09eae0b886407c7d3dbcfc17f31bde5f06",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:reactor_fp_resources/reactor_fp_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "mocks.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 116,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/test/fp_task_either_test.dart": {
+      "filePath": "reactor_fp_resources/test/fp_task_either_test.dart",
+      "contentHash": "6b03d3d18ffec48ae88159c376af083c09c8567302788a482620330e007225c5",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:reactor_fp_resources/reactor_fp_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 204,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/test/fp_top_level_test.dart": {
+      "filePath": "reactor_fp_resources/test/fp_top_level_test.dart",
+      "contentHash": "4b1fdb8f78bbd2dc1569eab135e5a247202e3b7fc831f4805ded7776235516b8",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:reactor_fp_resources/reactor_fp_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "mocks.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 29,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/test/mocks.dart": {
+      "filePath": "reactor_fp_resources/test/mocks.dart",
+      "contentHash": "c5fd9a1f1d77e813889298b742db381e9696da267ba3fd86e890f64e9afb09f4",
+      "functions": [
+        {
+          "name": "props",
+          "params": [],
+          "returnType": "List<Object?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "MockFailure",
+          "methods": [
+            "props",
+            "toString"
+          ],
+          "properties": [
+            "message"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "props",
+        "toString",
+        "MockFailure"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/test/reactor_test.dart": {
+      "filePath": "reactor_fp_resources/test/reactor_test.dart",
+      "contentHash": "8e44ffbcda182a94fe41ba4db7110d541320cd48b5058778dddb5e7cfb93d2fa",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:reactor_fp_resources/reactor_fp_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:value_notifier_resources/value_notifier_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 71,
+      "hasStructuralAnalysis": true
+    },
+    "reactor_fp_resources/test/stream_reactor_test.dart": {
+      "filePath": "reactor_fp_resources/test/stream_reactor_test.dart",
+      "contentHash": "5cd644f50d7e03d5155b07befff3b647224d75a2aae5fea801ba0578954358ff",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:reactor_fp_resources/reactor_fp_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 107,
+      "hasStructuralAnalysis": true
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "9235c1be15e017f31604d29737f924217b522fd14666a3e36b8a6ad97fac764e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 75,
+      "hasStructuralAnalysis": true
+    },
+    "search_resources/.metadata": {
+      "filePath": "search_resources/.metadata",
+      "contentHash": "4122c0ba3f28e01e1d1d8affe4db4d045ebbb5ef39dde490b1199e58adc8cdda",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": false
+    },
+    "search_resources/lib/search_resources.dart": {
+      "filePath": "search_resources/lib/search_resources.dart",
+      "contentHash": "448d34c1095464548f2aa31322f2e4811d603b2863b357e8875b2d52c51d66fe",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "src/search_app_bar.dart",
+        "src/simple_search_delegate.dart"
+      ],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "search_resources/lib/src/search_app_bar.dart": {
+      "filePath": "search_resources/lib/src/search_app_bar.dart",
+      "contentHash": "5c1a17c7453591d6cdc09aec7bae031f48f90a84b952903068d8827bd5f421a7",
+      "functions": [
+        {
+          "name": "preferredSize",
+          "params": [],
+          "returnType": "Size",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SearchAppBar",
+          "methods": [
+            "preferredSize",
+            "build"
+          ],
+          "properties": [
+            "title",
+            "centerTitle",
+            "actions",
+            "hintText",
+            "isSearching",
+            "onSearchToggled",
+            "onSearchChange"
+          ],
+          "exported": true,
+          "lineCount": 72
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "preferredSize",
+        "build",
+        "SearchAppBar"
+      ],
+      "totalLines": 76,
+      "hasStructuralAnalysis": true
+    },
+    "search_resources/lib/src/simple_search_delegate.dart": {
+      "filePath": "search_resources/lib/src/simple_search_delegate.dart",
+      "contentHash": "6aa74106c0a6ca76156ce9123723b82438462610b31f1a84120b8ec4e2a2896c",
+      "functions": [
+        {
+          "name": "SimpleSearchDelegate",
+          "params": [
+            "enableSearchButton"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "buildActions",
+          "params": [
+            "context"
+          ],
+          "returnType": "List<Widget>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "buildResults",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "buildLeading",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "onSearchButtonTapped",
+          "params": [
+            "context"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SimpleSearchDelegate",
+          "methods": [
+            "SimpleSearchDelegate",
+            "buildActions",
+            "buildResults",
+            "buildLeading",
+            "onSearchButtonTapped"
+          ],
+          "properties": [
+            "enableSearchButton"
+          ],
+          "exported": true,
+          "lineCount": 39
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "SimpleSearchDelegate",
+        "buildActions",
+        "buildResults",
+        "buildLeading",
+        "onSearchButtonTapped",
+        "SimpleSearchDelegate"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "search_resources/pubspec.yaml": {
+      "filePath": "search_resources/pubspec.yaml",
+      "contentHash": "fd470e4f1696f87be6ae5d22daeb4428b5e54aad5f253854b711f5d8df2326b5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "search_resources/search_resources.iml": {
+      "filePath": "search_resources/search_resources.iml",
+      "contentHash": "66daffd09b5a4407bf3b758c86567afc69439ec71f49e461e25c7a07866aee52",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": false
+    },
+    "search_resources/test/search_app_bar_test.dart": {
+      "filePath": "search_resources/test/search_app_bar_test.dart",
+      "contentHash": "24ed83eee44e5fab6f400f89ab6cb79a4371eddeeaedaf1f441724f9eab858f9",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:search_resources/src/search_app_bar.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 134,
+      "hasStructuralAnalysis": true
+    },
+    "search_resources/test/simple_search_delegate_test.dart": {
+      "filePath": "search_resources/test/simple_search_delegate_test.dart",
+      "contentHash": "d80280057253d645e91841a978df4604ba1106dc88c1cd44c7f0511a488d61d2",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "onSearch",
+          "params": [
+            "context"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "SimpleSearchDelegateImplementation",
+          "params": [
+            "enableSearchButton"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "buildSuggestions",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "returnSearchResult",
+          "params": [
+            "context",
+            "result"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SimpleSearchDelegateImplementation",
+          "methods": [
+            "onSearch",
+            "SimpleSearchDelegateImplementation",
+            "buildSuggestions",
+            "returnSearchResult"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 30
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:search_resources/search_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main",
+        "onSearch",
+        "SimpleSearchDelegateImplementation",
+        "buildSuggestions",
+        "returnSearchResult",
+        "SimpleSearchDelegateImplementation"
+      ],
+      "totalLines": 142,
+      "hasStructuralAnalysis": true
+    },
+    "stream_resources/.metadata": {
+      "filePath": "stream_resources/.metadata",
+      "contentHash": "571ecabd3e39b86a027a56ffff0e7ae694566c5c7d6be48558c3eadc3ce59e94",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": false
+    },
+    "stream_resources/lib/src/hooks.dart": {
+      "filePath": "stream_resources/lib/src/hooks.dart",
+      "contentHash": "a641e9c5013f13aef4cb9b446645f0c20c1bb260653780008b1a902cbb4c0901",
+      "functions": [
+        {
+          "name": "useValueStream",
+          "params": [
+            "stream",
+            "preserveState"
+          ],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:rxdart/rxdart.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "useValueStream"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "stream_resources/lib/src/object_extensions.dart": {
+      "filePath": "stream_resources/lib/src/object_extensions.dart",
+      "contentHash": "c7c5a637c33c964547544994a4793d9e2cc57f89e6aaaf7d2dcd0779afa36fd4",
+      "functions": [
+        {
+          "name": "subject",
+          "params": [],
+          "returnType": "BehaviorSubject<T>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SRObjectExtensions",
+          "methods": [
+            "subject"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:rxdart/rxdart.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "subject",
+        "SRObjectExtensions"
+      ],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "stream_resources/lib/stream_resources.dart": {
+      "filePath": "stream_resources/lib/stream_resources.dart",
+      "contentHash": "a9f754230c0cb18b9bb53f87a5dacca08261aed4a840946627604da6c1c09e8b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "package:rxdart/rxdart.dart",
+        "src/hooks.dart",
+        "src/object_extensions.dart"
+      ],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "stream_resources/pubspec.yaml": {
+      "filePath": "stream_resources/pubspec.yaml",
+      "contentHash": "cb65e51cba6933c9e5cda6bd9ed9330835fb0e2d6c9fdcbab10de9b985412c59",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "stream_resources/stream_resources.iml": {
+      "filePath": "stream_resources/stream_resources.iml",
+      "contentHash": "d07bcae3b70d786060ba425a2e9424fe41b7095cb217e6fd475528eaabf49d19",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": false
+    },
+    "stream_resources/test/hooks_test.dart": {
+      "filePath": "stream_resources/test/hooks_test.dart",
+      "contentHash": "6cc34142e793788c29e0a689bd10930396c7f5853892684fbc853d22aaa87b3d",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:core_resources/core_resources.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:stream_resources/stream_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "stream_resources/test/object_extensions_test.dart": {
+      "filePath": "stream_resources/test/object_extensions_test.dart",
+      "contentHash": "08868e567b937e2fdfaf1a5c99745400b0a8624a0c8475036fccbdfd8f829a6d",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:stream_resources/stream_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "value_notifier_resources/.metadata": {
+      "filePath": "value_notifier_resources/.metadata",
+      "contentHash": "4122c0ba3f28e01e1d1d8affe4db4d045ebbb5ef39dde490b1199e58adc8cdda",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": false
+    },
+    "value_notifier_resources/lib/src/computed_value_listenable.dart": {
+      "filePath": "value_notifier_resources/lib/src/computed_value_listenable.dart",
+      "contentHash": "1cbf7f3391eb2d2b243ceab9105f6ce4b0d1674d818c9755a17d9be78e8737ac",
+      "functions": [
+        {
+          "name": "computedValueListenable",
+          "params": [
+            "builder"
+          ],
+          "returnType": "ValueListenable<T>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_MultiValueNotifier",
+          "params": [
+            "_value",
+            "listenables",
+            "builder"
+          ],
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "value",
+          "params": [],
+          "returnType": "T",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "onUpdate",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "addListener",
+          "params": [
+            "listener"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "removeListener",
+          "params": [
+            "listener"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "watch",
+          "params": [
+            "notifier"
+          ],
+          "returnType": "R",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_MultiValueNotifier",
+          "methods": [
+            "_MultiValueNotifier",
+            "value",
+            "onUpdate",
+            "addListener",
+            "removeListener",
+            "dispose"
+          ],
+          "properties": [
+            "_listenable",
+            "builder",
+            "ref",
+            "initialized"
+          ],
+          "exported": false,
+          "lineCount": 43
+        },
+        {
+          "name": "ComputedValueListenableRef",
+          "methods": [
+            "watch"
+          ],
+          "properties": [
+            "_watchHandler"
+          ],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "computedValueListenable",
+        "value",
+        "onUpdate",
+        "addListener",
+        "removeListener",
+        "dispose",
+        "watch",
+        "ComputedValueListenableRef"
+      ],
+      "totalLines": 85,
+      "hasStructuralAnalysis": true
+    },
+    "value_notifier_resources/lib/src/value_listenable_extensions.dart": {
+      "filePath": "value_notifier_resources/lib/src/value_listenable_extensions.dart",
+      "contentHash": "2213c8f30e4669d9d5371fdb4dbafafe4e65c9827b451d75cb876ca12103066f",
+      "functions": [
+        {
+          "name": "mapEvent",
+          "params": [
+            "convert"
+          ],
+          "returnType": "ValueListenable<R>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "whereEvent",
+          "params": [
+            "selector"
+          ],
+          "returnType": "ValueListenable<T>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "CRValueListenableExtensions",
+          "methods": [
+            "mapEvent",
+            "whereEvent"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:functional_listener/functional_listener.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "mapEvent",
+        "whereEvent",
+        "CRValueListenableExtensions"
+      ],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "value_notifier_resources/lib/value_notifier_resources.dart": {
+      "filePath": "value_notifier_resources/lib/value_notifier_resources.dart",
+      "contentHash": "0f938fb758ee1e7c00928fbed08ea94b40d293fe280a9476663a3aa4ab5dac5e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "package:functional_listener/functional_listener.dart",
+        "package:rx_notifier/rx_notifier.dart",
+        "src/computed_value_listenable.dart",
+        "src/value_listenable_extensions.dart"
+      ],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "value_notifier_resources/pubspec.yaml": {
+      "filePath": "value_notifier_resources/pubspec.yaml",
+      "contentHash": "6c1be1546c792da114681b0b0559380bdf339f4713e3f2dc5db64de817e0351c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "value_notifier_resources/test/computed_value_listenable_test.dart": {
+      "filePath": "value_notifier_resources/test/computed_value_listenable_test.dart",
+      "contentHash": "b2555f3ab3f7c8b357c81f7a383d3d2ac81953340e84366da7fbdf9d99ddaa6e",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter/foundation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:value_notifier_resources/value_notifier_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 99,
+      "hasStructuralAnalysis": true
+    },
+    "value_notifier_resources/test/value_listenable_extensions_test.dart": {
+      "filePath": "value_notifier_resources/test/value_listenable_extensions_test.dart",
+      "contentHash": "29a85eee5c596b50f0887c89541a050648587d4812a45ddbf807df2abfbf4a0e",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:value_notifier_resources/value_notifier_resources.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "value_notifier_resources/value_notifier_resources.iml": {
+      "filePath": "value_notifier_resources/value_notifier_resources.iml",
+      "contentHash": "66daffd09b5a4407bf3b758c86567afc69439ec71f49e461e25c7a07866aee52",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": false
+    }
+  }
+}
