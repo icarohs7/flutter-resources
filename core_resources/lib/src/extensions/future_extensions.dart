@@ -2,6 +2,8 @@
 
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+
 ///Run the given operation asynchronously
 Future<T> runAsync<T>(FutureOr<T> Function() fn) => Future(() async => await fn());
 
@@ -43,6 +45,16 @@ extension CRFutureExtensions<T> on Future<T> {
   ///it's a success or [fallback] if it's a failure
   Future<T> or(T fallback) {
     return runAsyncOrDefault(fallback, () => this);
+  }
+
+  /// Toggle [loadingObservable] while this future runs.
+  Future<T> withLoading(ValueNotifier<bool> loadingObservable) async {
+    try {
+      loadingObservable.value = true;
+      return await this;
+    } finally {
+      loadingObservable.value = false;
+    }
   }
 }
 

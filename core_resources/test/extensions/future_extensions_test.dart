@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:core_resources/core_resources.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -112,5 +113,24 @@ void main() {
     final f2 = Future(() => [24, 42, 1532]);
     final r2 = await f2.orEmpty();
     expect(r2, equals([24, 42, 1532]));
+  });
+
+  test('Future.withLoading', () async {
+    //arrange
+    final completer = Completer<int>();
+    final isLoading = ValueNotifier(false);
+    //assert
+    expect(isLoading.value, false);
+
+    //act
+    final result = completer.future.withLoading(isLoading);
+    //assert
+    expect(isLoading.value, true);
+
+    //act
+    completer.complete(10);
+    //assert
+    expect(await result, 10);
+    expect(isLoading.value, false);
   });
 }
