@@ -615,3 +615,6 @@ coverage/
 # Local path dependency overrides (dev only)
 pubspec_overrides.yaml
 
+# Agent session state (local only)
+.memory/
+
