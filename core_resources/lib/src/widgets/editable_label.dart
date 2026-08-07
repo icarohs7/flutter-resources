@@ -15,6 +15,7 @@ class EditableLabel extends HookWidget {
     this.validator,
     this.keyboardType,
     this.initialValue,
+    this.value,
     this.editable,
     this.filled,
     this.fillColor,
@@ -22,7 +23,8 @@ class EditableLabel extends HookWidget {
     this.animationDuration = const Duration(milliseconds: 250),
     this.enabled = true,
     this.border,
-  }) : inputKey = key;
+  })  : inputKey = key,
+        assert(value == null || (controller == null && initialValue == null));
 
   final Key? inputKey;
   final FutureOr<bool> Function()? onSave;
@@ -32,6 +34,7 @@ class EditableLabel extends HookWidget {
   final FormFieldValidator<String>? validator;
   final TextInputType? keyboardType;
   final String? initialValue;
+  final String? value;
   final bool? editable;
   final bool? filled;
   final Color? fillColor;
@@ -43,6 +46,17 @@ class EditableLabel extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final editing = useState(false);
+    final ownedController = useTextEditingController(text: value);
+
+    useEffect(() {
+      final currentValue = value;
+      if (currentValue != null && ownedController.text != currentValue) {
+        ownedController.text = currentValue;
+      }
+      return null;
+    }, [value]);
+
+    final effectiveController = controller ?? (value == null ? null : ownedController);
 
     return Row(
       children: <Widget>[
@@ -56,10 +70,10 @@ class EditableLabel extends HookWidget {
             child: IgnorePointer(
               ignoring: !editing.value,
               child: TextFormField(
-                initialValue: initialValue,
+                initialValue: value == null ? initialValue : null,
                 key: inputKey,
                 inputFormatters: inputFormatters,
-                controller: controller,
+                controller: effectiveController,
                 validator: validator,
                 keyboardType: keyboardType,
                 decoration: InputDecoration(
