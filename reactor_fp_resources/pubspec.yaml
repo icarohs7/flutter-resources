@@ -19,5 +19,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   rxdart: ^0.27.7
+  material_ui: any
 flutter:
   uses-material-design: true

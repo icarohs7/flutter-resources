@@ -1,5 +1,5 @@
 import 'package:core_resources/core_resources.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class SearchAppBar extends HookWidget implements PreferredSizeWidget {
   final Widget title;
