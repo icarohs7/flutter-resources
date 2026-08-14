@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Refresh icon button that turns into a
 /// [CircularProgressIndicator] according to

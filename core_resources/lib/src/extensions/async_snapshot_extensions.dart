@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 extension CRAsyncSnapshotExtensions<T> on AsyncSnapshot<T> {
   bool get isNone => connectionState == ConnectionState.none;
