@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class FadePageRoute<T> extends PageRouteBuilder<T> {
   FadePageRoute({required this.page})

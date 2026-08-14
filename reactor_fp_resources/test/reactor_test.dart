@@ -1,5 +1,5 @@
 import 'package:core_resources/core_resources.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:reactor_fp_resources/reactor_fp_resources.dart';
 import 'package:value_notifier_resources/value_notifier_resources.dart';

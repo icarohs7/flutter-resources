@@ -1,5 +1,5 @@
 import 'package:core_resources/core_resources.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:search_resources/src/search_app_bar.dart';
 
