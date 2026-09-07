@@ -5,11 +5,14 @@ import 'package:flutter/foundation.dart';
 import 'reactor.dart';
 
 /// A [Reactor] that updates its values according to the emissions of a [Stream]
-class StreamReactor<T> extends Reactor<T> {
-  final bool _keepAlive;
-  bool _initialized;
+class StreamReactor<T>(
+  final Stream<T> stream, {
+  bool eagerSubscribe = false,
+  required T initialValue,
+}) extends Reactor<T> {
+  final bool _keepAlive = eagerSubscribe;
+  bool _initialized = eagerSubscribe;
   StreamSubscription? _subscription;
-  final Stream<T> stream;
 
   /// Create a [Reactor] from a stream
   ///
@@ -21,10 +24,7 @@ class StreamReactor<T> extends Reactor<T> {
   /// If set to false (default), it will only create a subscription
   /// when there are listeners and dispose of it when there are no
   /// more
-  StreamReactor(this.stream, {bool eagerSubscribe = false, required T initialValue})
-      : _keepAlive = eagerSubscribe,
-        _initialized = eagerSubscribe,
-        super(initialValue) {
+  this : super(initialValue) {
     if (eagerSubscribe) _subscribe();
   }
 
@@ -68,15 +68,19 @@ class StreamReactor<T> extends Reactor<T> {
 
 extension ReactorStreamX<T> on Stream<T> {
   /// Creates a [StreamReactor] from a [Stream]
-  StreamReactor<T?> asRc({bool eagerSubscribe = false, T? initialValue}) =>
-      StreamReactor(asBroadcastStream(),
-          eagerSubscribe: eagerSubscribe, initialValue: initialValue);
+  StreamReactor<T?> asRc({bool eagerSubscribe = false, T? initialValue}) => StreamReactor(
+    asBroadcastStream(),
+    eagerSubscribe: eagerSubscribe,
+    initialValue: initialValue,
+  );
 }
 
 extension ReactorStreamX2<T extends Object> on Stream<T> {
   /// Creates a non-nullable [StreamReactor] from a [Stream], requiring a initial value
   /// due to the asynchronous nature of streams
-  StreamReactor<T> asRcValue(T initialValue, {bool eagerSubscribe = false}) =>
-      StreamReactor(asBroadcastStream(),
-          eagerSubscribe: eagerSubscribe, initialValue: initialValue);
+  StreamReactor<T> asRcValue(T initialValue, {bool eagerSubscribe = false}) => StreamReactor(
+    asBroadcastStream(),
+    eagerSubscribe: eagerSubscribe,
+    initialValue: initialValue,
+  );
 }

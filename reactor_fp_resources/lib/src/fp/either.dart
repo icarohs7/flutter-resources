@@ -11,27 +11,22 @@ Either<L, R> left<L, R>(L l) => Left<L, R>(l);
 /// Represents a value of one of two possible types, [Left] or [Right].
 ///
 /// Adapted from [fpdart](https://pub.dev/packages/fpdart) (MIT, Sandro Maglione).
-sealed class Either<L, R> {
-  const Either();
+sealed class const Either<L, R>() {
+  /// Return a [Right] wrapping [r].
+  factory of(R r) => Right(r);
 
   /// Return a [Right] wrapping [r].
-  factory Either.of(R r) => Right(r);
-
-  /// Return a [Right] wrapping [r].
-  factory Either.right(R r) => Right(r);
+  factory right(R r) => Right(r);
 
   /// Return a [Left] wrapping [l].
-  factory Either.left(L l) => Left(l);
+  factory left(L l) => Left(l);
 
   /// If [r] is `null`, return [Left] from [onNull]; otherwise [Right].
-  factory Either.fromNullable(R? r, L Function() onNull) =>
+  factory fromNullable(R? r, L Function() onNull) =>
       r != null ? Either.of(r) : Either.left(onNull());
 
   /// Run [run]; on success return [Right], on throw return [Left] from [onError].
-  factory Either.tryCatch(
-    R Function() run,
-    L Function(Object error, StackTrace stackTrace) onError,
-  ) {
+  factory tryCatch(R Function() run, L Function(Object error, StackTrace stackTrace) onError) {
     try {
       return Either.of(run());
     } catch (e, s) {
@@ -56,10 +51,7 @@ sealed class Either<L, R> {
   }
 
   /// Map each element with [f] and [sequenceList] the results.
-  static Either<E, List<B>> traverseList<E, A, B>(
-    List<A> list,
-    Either<E, B> Function(A a) f,
-  ) =>
+  static Either<E, List<B>> traverseList<E, A, B>(List<A> list, Either<E, B> Function(A a) f) =>
       sequenceList(list.map(f).toList());
 
   /// Map the [Right] value; [Left] is unchanged.
@@ -97,11 +89,7 @@ sealed class Either<L, R> {
 }
 
 /// Successful [Either] variant holding [value].
-final class Right<L, R> extends Either<L, R> {
-  final R _value;
-
-  const Right(this._value);
-
+final class const Right<L, R>(final R _value) extends Either<L, R> {
   /// The wrapped success value.
   R get value => _value;
 
@@ -143,11 +131,7 @@ final class Right<L, R> extends Either<L, R> {
 }
 
 /// Failed [Either] variant holding [value].
-final class Left<L, R> extends Either<L, R> {
-  final L _value;
-
-  const Left(this._value);
-
+final class const Left<L, R>(final L _value) extends Either<L, R> {
   /// The wrapped failure value.
   L get value => _value;
 

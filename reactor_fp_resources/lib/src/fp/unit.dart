@@ -1,9 +1,8 @@
 /// Used instead of `void` when a successful computation has no value.
 ///
 /// Adapted from [fpdart](https://pub.dev/packages/fpdart) (MIT, Sandro Maglione).
-final class Unit {
+final class const Unit._instance() {
   static const _unit = Unit._instance();
-  const Unit._instance();
 
   @override
   String toString() => '()';

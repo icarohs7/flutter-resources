@@ -2,9 +2,7 @@ import 'package:core_resources/core_resources.dart';
 import 'package:flutter/foundation.dart';
 
 /// A wrapper around [ValueNotifier]
-class Reactor<T> extends ValueNotifier<T> {
-  Reactor(super.value);
-
+class Reactor<T>(super.value) extends ValueNotifier<T> {
   void setValue(T newValue) => value = newValue;
 
   /// Update the value of the current object

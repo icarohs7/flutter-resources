@@ -3,13 +3,9 @@ import 'function.dart';
 /// Asynchronous computation that yields a value of type [A] and never fails.
 ///
 /// Adapted from [fpdart](https://pub.dev/packages/fpdart) (MIT, Sandro Maglione).
-final class Task<A> {
-  final Future<A> Function() _run;
-
-  const Task(this._run);
-
+final class const Task<A>(final Future<A> Function() _run) {
   /// Lift [a] into a completed [Task].
-  factory Task.of(A a) => Task(() async => a);
+  factory of(A a) => Task(() async => a);
 
   /// Map the result of this [Task].
   Task<B> map<B>(B Function(A a) f) => Task(() => run().then(f));
@@ -24,10 +20,7 @@ final class Task<A> {
   Future<A> run() => _run();
 
   /// Run each mapped [Task] in [list] in parallel (order preserved).
-  static Task<List<B>> traverseListWithIndex<A, B>(
-    List<A> list,
-    Task<B> Function(A a, int i) f,
-  ) =>
+  static Task<List<B>> traverseListWithIndex<A, B>(List<A> list, Task<B> Function(A a, int i) f) =>
       Task(() => Future.wait(List.generate(list.length, (i) => f(list[i], i).run())));
 
   /// Run each mapped [Task] in [list] in parallel.
@@ -38,14 +31,13 @@ final class Task<A> {
   static Task<List<B>> traverseListWithIndexSeq<A, B>(
     List<A> list,
     Task<B> Function(A a, int i) f,
-  ) =>
-      Task(() async {
-        final collect = <B>[];
-        for (var i = 0; i < list.length; i++) {
-          collect.add(await f(list[i], i).run());
-        }
-        return collect;
-      });
+  ) => Task(() async {
+    final collect = <B>[];
+    for (var i = 0; i < list.length; i++) {
+      collect.add(await f(list[i], i).run());
+    }
+    return collect;
+  });
 
   /// Run each mapped [Task] in [list] in sequence.
   static Task<List<B>> traverseListSeq<A, B>(List<A> list, Task<B> Function(A a) f) =>

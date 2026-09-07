@@ -1,10 +1,8 @@
 import 'package:equatable/equatable.dart';
 
-class MockFailure extends Equatable implements Exception {
-  final String message;
-
-  const MockFailure([this.message = 'Test Failure']);
-
+class const MockFailure([final String message = 'Test Failure'])
+    extends Equatable
+    implements Exception {
   @override
   List<Object?> get props => [message];
 

@@ -5,35 +5,30 @@ import 'task.dart';
 /// Asynchronous computation that yields [R] or fails with [L].
 ///
 /// Adapted from [fpdart](https://pub.dev/packages/fpdart) (MIT, Sandro Maglione).
-final class TaskEither<L, R> {
-  final Future<Either<L, R>> Function() _run;
-
-  const TaskEither(this._run);
+final class const TaskEither<L, R>(final Future<Either<L, R>> Function() _run) {
+  /// Lift a success value into a completed [TaskEither].
+  factory of(R r) => TaskEither(() async => Either.of(r));
 
   /// Lift a success value into a completed [TaskEither].
-  factory TaskEither.of(R r) => TaskEither(() async => Either.of(r));
-
-  /// Lift a success value into a completed [TaskEither].
-  factory TaskEither.right(R right) => TaskEither.of(right);
+  factory right(R right) => TaskEither.of(right);
 
   /// Lift a failure value into a completed [TaskEither].
-  factory TaskEither.left(L left) => TaskEither(() async => Left(left));
+  factory left(L left) => TaskEither(() async => Left(left));
 
   /// Wrap an existing [Either] as a completed [TaskEither].
-  factory TaskEither.fromEither(Either<L, R> either) => TaskEither(() async => either);
+  factory fromEither(Either<L, R> either) => TaskEither(() async => either);
 
   /// Run [run]; on success return [Right], on throw return [Left] from [onError].
-  factory TaskEither.tryCatch(
+  factory tryCatch(
     Future<R> Function() run,
     L Function(Object error, StackTrace stackTrace) onError,
-  ) =>
-      TaskEither(() async {
-        try {
-          return Right(await run());
-        } catch (error, stack) {
-          return Left(onError(error, stack));
-        }
-      });
+  ) => TaskEither(() async {
+    try {
+      return Right(await run());
+    } catch (error, stack) {
+      return Left(onError(error, stack));
+    }
+  });
 
   /// Map the [Right] value; [Left] is unchanged.
   TaskEither<L, C> map<C>(C Function(R r) f) => TaskEither(() => run().then((e) => e.map(f)));
@@ -43,9 +38,8 @@ final class TaskEither<L, R> {
       TaskEither(() => run().then((e) => e.mapLeft(f)));
 
   /// Chain another [TaskEither] from the [Right] value; [Left] short-circuits.
-  TaskEither<L, C> flatMap<C>(TaskEither<L, C> Function(R r) f) => TaskEither(
-        () => run().then((either) => either.match(left, (r) => f(r).run())),
-      );
+  TaskEither<L, C> flatMap<C>(TaskEither<L, C> Function(R r) f) =>
+      TaskEither(() => run().then((either) => either.match(left, (r) => f(r).run())));
 
   /// Discard the [Right] value and continue with [then].
   TaskEither<L, C> andThen<C>(TaskEither<L, C> Function() then) => flatMap((_) => then());
@@ -60,11 +54,9 @@ final class TaskEither<L, R> {
 
   /// On [Left], replace with the result of [orElse].
   TaskEither<TL, R> orElse<TL>(TaskEither<TL, R> Function(L l) orElse) => TaskEither(
-        () async => (await run()).match(
-          (l) => orElse(l).run(),
-          (r) => TaskEither<TL, R>.right(r).run(),
-        ),
-      );
+    () async =>
+        (await run()).match((l) => orElse(l).run(), (r) => TaskEither<TL, R>.right(r).run()),
+  );
 
   /// Collapse to a [Task], mapping [Left] with [orElse].
   Task<R> getOrElse(R Function(L l) orElse) =>
@@ -81,19 +73,17 @@ final class TaskEither<L, R> {
   static TaskEither<E, List<B>> traverseListWithIndex<E, A, B>(
     List<A> list,
     TaskEither<E, B> Function(A a, int i) f,
-  ) =>
-      TaskEither(
-        () async => Either.sequenceList(
-          await Task.traverseListWithIndex(list, (a, i) => Task(() => f(a, i).run())).run(),
-        ),
-      );
+  ) => TaskEither(
+    () async => Either.sequenceList(
+      await Task.traverseListWithIndex(list, (a, i) => Task(() => f(a, i).run())).run(),
+    ),
+  );
 
   /// Map each element with [f] and collect results in parallel.
   static TaskEither<E, List<B>> traverseList<E, A, B>(
     List<A> list,
     TaskEither<E, B> Function(A a) f,
-  ) =>
-      traverseListWithIndex(list, (a, _) => f(a));
+  ) => traverseListWithIndex(list, (a, _) => f(a));
 
   /// Sequence a list of [TaskEither] in parallel.
   static TaskEither<E, List<A>> sequenceList<E, A>(List<TaskEither<E, A>> list) =>
@@ -105,19 +95,17 @@ final class TaskEither<L, R> {
   static TaskEither<E, List<B>> traverseListWithIndexSeq<E, A, B>(
     List<A> list,
     TaskEither<E, B> Function(A a, int i) f,
-  ) =>
-      TaskEither(
-        () async => Either.sequenceList(
-          await Task.traverseListWithIndexSeq(list, (a, i) => Task(() => f(a, i).run())).run(),
-        ),
-      );
+  ) => TaskEither(
+    () async => Either.sequenceList(
+      await Task.traverseListWithIndexSeq(list, (a, i) => Task(() => f(a, i).run())).run(),
+    ),
+  );
 
   /// Map each element with [f] and collect results sequentially.
   static TaskEither<E, List<B>> traverseListSeq<E, A, B>(
     List<A> list,
     TaskEither<E, B> Function(A a) f,
-  ) =>
-      traverseListWithIndexSeq(list, (a, _) => f(a));
+  ) => traverseListWithIndexSeq(list, (a, _) => f(a));
 
   /// Sequence a list of [TaskEither] sequentially.
   static TaskEither<E, List<A>> sequenceListSeq<E, A>(List<TaskEither<E, A>> list) =>

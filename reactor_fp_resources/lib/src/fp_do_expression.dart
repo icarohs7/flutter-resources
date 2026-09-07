@@ -28,11 +28,7 @@ TaskEither<L, R> taskEitherDoBg<L, R>(CRDoFunctionTaskEither<L, R> f) {
   });
 }
 
-class _TaskEitherThrow<L> {
-  final L value;
-
-  const _TaskEitherThrow(this.value);
-}
+class const _TaskEitherThrow<L>(final L value);
 
 typedef DoEitherAdapter<L> = R Function<R>(Either<L, R>);
 typedef DoTaskEitherAdapter<L> = Future<R> Function<R>(TaskEither<L, R>);
@@ -40,8 +36,9 @@ typedef DoTaskEitherAdapter<L> = Future<R> Function<R>(TaskEither<L, R>);
 DoEitherAdapter<L> _doEitherAdapter<L>() =>
     <R>(Either<L, R> either) => either.getOrElse((l) => throw _TaskEitherThrow(l));
 
-DoTaskEitherAdapter<L> _doTaskEitherAdapter<L>() => <R>(TaskEither<L, R> taskEither) =>
-    taskEither.run().then((either) => either.getOrElse((l) => throw _TaskEitherThrow(l)));
+DoTaskEitherAdapter<L> _doTaskEitherAdapter<L>() =>
+    <R>(TaskEither<L, R> taskEither) =>
+        taskEither.run().then((either) => either.getOrElse((l) => throw _TaskEitherThrow(l)));
 
 typedef CRDoFunctionTaskEither<L, R> = Future<R> Function(
   DoEitherAdapter<L> $,
