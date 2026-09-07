@@ -13,12 +13,8 @@ Future<T?> showSimpleAlert<T>(
 }) {
   return showDialog<T>(
     context: context,
-    builder: (context) => SimpleAlert(
-      title: title,
-      content: content,
-      confirmText: confirmText,
-      onConfirm: onConfirm,
-    ),
+    builder: (context) =>
+        SimpleAlert(title: title, content: content, confirmText: confirmText, onConfirm: onConfirm),
   );
 }
 
@@ -42,24 +38,15 @@ Future<T?> showSimpleTimedAlert<T>(
   );
 }
 
-class SimpleTimedAlert extends HookWidget {
-  final Widget? title;
-  final Widget? content;
-  final String? confirmText;
-  final Function(BuildContext context)? onConfirm;
-  final Duration duration;
-  final Widget? Function(double animationValue)? progressIndicatorBuilder;
-
-  const SimpleTimedAlert({
-    super.key,
-    this.title,
-    this.content,
-    this.onConfirm,
-    this.confirmText,
-    required this.duration,
-    this.progressIndicatorBuilder,
-  });
-
+class const SimpleTimedAlert({
+  super.key,
+  final Widget? title,
+  final Widget? content,
+  final Function(BuildContext context)? onConfirm,
+  final String? confirmText,
+  required final Duration duration,
+  final Widget? Function(double animationValue)? progressIndicatorBuilder,
+}) extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final animationController = useAnimationController(duration: duration);
@@ -70,10 +57,10 @@ class SimpleTimedAlert extends HookWidget {
 
     return AlertDialog(
       titlePadding: EdgeInsets.zero,
-      clipBehavior: Clip.antiAlias,
+      clipBehavior: .antiAlias,
       title: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: .min,
+        crossAxisAlignment: .start,
         children: [
           AnimatedBuilder(
             animation: animationController,
@@ -106,20 +93,13 @@ class SimpleTimedAlert extends HookWidget {
   }
 }
 
-class SimpleAlert extends StatelessWidget {
-  final Widget? title;
-  final Widget? content;
-  final String? confirmText;
-  final Function(BuildContext context)? onConfirm;
-
-  const SimpleAlert({
-    super.key,
-    this.title,
-    this.content,
-    this.onConfirm,
-    this.confirmText,
-  });
-
+class const SimpleAlert({
+  super.key,
+  final Widget? title,
+  final Widget? content,
+  final Function(BuildContext context)? onConfirm,
+  final String? confirmText,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -160,24 +140,15 @@ Future<bool> showConfirmDialog(
       false;
 }
 
-class ConfirmDialog extends StatelessWidget {
-  final Widget? title;
-  final Widget? content;
-  final FutureOr<void> Function(BuildContext context)? onConfirm;
-  final FutureOr<void> Function(BuildContext context)? onCancel;
-  final String? cancelText;
-  final String? confirmText;
-
-  const ConfirmDialog({
-    this.title,
-    this.content,
-    this.onConfirm,
-    this.onCancel,
-    this.cancelText,
-    this.confirmText,
-    super.key,
-  });
-
+class const ConfirmDialog({
+  final Widget? title,
+  final Widget? content,
+  final FutureOr<void> Function(BuildContext context)? onConfirm,
+  final FutureOr<void> Function(BuildContext context)? onCancel,
+  final String? cancelText,
+  final String? confirmText,
+  super.key,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

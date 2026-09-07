@@ -8,7 +8,7 @@ typedef NavigationFunction = void Function(
 });
 
 // ignore: avoid_classes_with_only_static_members
-class Core {
+class Core() {
   //region locator
   static late T Function<T extends Object>({String? instanceName}) _locator;
 
@@ -93,8 +93,10 @@ class Core {
   //endregion
 
   //region back
-  static void Function(BuildContext context, [Object? result]) _back =
-      (BuildContext context, [Object? result]) => Navigator.of(context).pop(result);
+  static void Function(BuildContext context, [Object? result]) _back = (
+    BuildContext context, [
+    Object? result,
+  ]) => Navigator.of(context).pop(result);
 
   /// Define the function that will be used to pop the current route in the navigator,
   /// used by other libraries to reuse navigation functions
@@ -135,5 +137,5 @@ class Core {
   static void setCurrentExtrasFn(Object? Function(BuildContext context) fn) => _currentExtras = fn;
 
   static Object? currentExtras(BuildContext context) => _currentExtras(context);
-//endregion
+  //endregion
 }

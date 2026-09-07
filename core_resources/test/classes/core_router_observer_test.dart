@@ -55,7 +55,10 @@ void main() {
     await tester.pump(Duration(milliseconds: 300));
     assertRoute(stream.value!, path: '/test2', previousPath: '/test');
     verify(() {
-      mockObserver.didReplace(newRoute: any(named: 'newRoute'), oldRoute: any(named: 'oldRoute'));
+      mockObserver.didReplace(
+        newRoute: any(named: 'newRoute'),
+        oldRoute: any(named: 'oldRoute'),
+      );
     });
   });
 
@@ -80,6 +83,6 @@ void main() {
   });
 }
 
-class MockCoreRouterObserver extends Mock implements CoreRouterObserver {}
+class MockCoreRouterObserver() extends Mock implements CoreRouterObserver;
 
-class MockRoute extends Route {}
+class MockRoute() extends Route;

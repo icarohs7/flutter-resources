@@ -21,15 +21,15 @@ extension CRContextExtensions on BuildContext {
 }
 
 extension CRMediaQueryExtensions on BuildContext {
-  Size get mediaQuerySize => MediaQuery.of(this).size;
+  Size get mediaQuerySize => MediaQuery.sizeOf(this);
 
-  EdgeInsets get mediaQueryPadding => MediaQuery.of(this).padding;
+  EdgeInsets get mediaQueryPadding => MediaQuery.paddingOf(this);
 
-  EdgeInsets get mediaQueryViewPadding => MediaQuery.of(this).viewPadding;
+  EdgeInsets get mediaQueryViewPadding => MediaQuery.viewPaddingOf(this);
 
-  EdgeInsets get mediaQueryViewInsets => MediaQuery.of(this).viewInsets;
+  EdgeInsets get mediaQueryViewInsets => MediaQuery.viewInsetsOf(this);
 
-  Orientation get orientation => MediaQuery.of(this).orientation;
+  Orientation get orientation => MediaQuery.orientationOf(this);
 
   bool get isLandscape => orientation == Orientation.landscape;
 
@@ -37,9 +37,9 @@ extension CRMediaQueryExtensions on BuildContext {
 
   bool get alwaysUse24HourFormat => MediaQuery.of(this).alwaysUse24HourFormat;
 
-  double get devicePixelRatio => MediaQuery.of(this).devicePixelRatio;
+  double get devicePixelRatio => MediaQuery.devicePixelRatioOf(this);
 
-  Brightness get platformBrightness => MediaQuery.of(this).platformBrightness;
+  Brightness get platformBrightness => MediaQuery.platformBrightnessOf(this);
 
   double get textScaleFactor => MediaQuery.of(this).textScaler.scale(1);
 
@@ -150,11 +150,7 @@ extension CRScaffoldExtensions on BuildContext {
   }
 }
 
-class _Form {
-  const _Form(this._context);
-
-  final BuildContext _context;
-
+class const FormContext(final BuildContext _context) {
   bool validate() => Form.of(_context).validate();
 
   void reset() => Form.of(_context).reset();
@@ -163,14 +159,10 @@ class _Form {
 }
 
 extension CRFormExtensions on BuildContext {
-  _Form get form => _Form(this);
+  FormContext get form => FormContext(this);
 }
 
-class _FocusScope {
-  const _FocusScope(this._context);
-
-  final BuildContext _context;
-
+class const FocusScopeContext(final BuildContext _context) {
   FocusScopeNode get _node => FocusScope.of(_context);
 
   bool get hasFocus => _node.hasFocus;
@@ -197,9 +189,9 @@ class _FocusScope {
 }
 
 extension CRFocusScopeExtensions on BuildContext {
-  _FocusScope get focusScope => _FocusScope(this);
+  FocusScopeContext get focusScope => FocusScopeContext(this);
 
-  void closeKeyboard() => focusScope.requestFocus(FocusNode());
+  void closeKeyboard() => focusScope.requestFocus(.new());
 }
 
 extension CRModalRouteExtensions<T> on BuildContext {

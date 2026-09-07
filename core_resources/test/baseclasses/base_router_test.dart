@@ -162,12 +162,9 @@ void main() {
   });
 }
 
-class RouterImpl with BaseRouter {
+class RouterImpl() with BaseRouter {
   @override
-  List<String> get bottomNavRoutes => [
-        'test1',
-        'test2',
-      ];
+  List<String> get bottomNavRoutes => ['test1', 'test2'];
 }
 
-class MockContext extends Mock implements BuildContext {}
+class MockContext() extends Mock implements BuildContext;

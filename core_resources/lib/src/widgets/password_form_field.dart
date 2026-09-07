@@ -1,40 +1,23 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class PasswordFormField extends HookWidget {
-  const PasswordFormField({
-    super.key,
-    this.fieldKey,
-    this.controller,
-    this.prefixIcon,
-    this.maxLength,
-    this.hintText,
-    this.labelText,
-    this.helperText,
-    this.enabled,
-    this.onSaved,
-    this.validator,
-    this.onFieldSubmitted,
-    this.obscuringCharacter = '•',
-    this.fillColor,
-    this.textInputAction,
-  });
-
-  final Key? fieldKey;
-  final TextEditingController? controller;
-  final Widget? prefixIcon;
-  final int? maxLength;
-  final String? hintText;
-  final String? labelText;
-  final String? helperText;
-  final bool? enabled;
-  final FormFieldSetter<String>? onSaved;
-  final FormFieldValidator<String>? validator;
-  final ValueChanged<String>? onFieldSubmitted;
-  final String obscuringCharacter;
-  final Color? fillColor;
-  final TextInputAction? textInputAction;
-
+class const PasswordFormField({
+  super.key,
+  final Key? fieldKey,
+  final TextEditingController? controller,
+  final Widget? prefixIcon,
+  final int? maxLength,
+  final String? hintText,
+  final String? labelText,
+  final String? helperText,
+  final bool? enabled,
+  final FormFieldSetter<String>? onSaved,
+  final FormFieldValidator<String>? validator,
+  final ValueChanged<String>? onFieldSubmitted,
+  final String obscuringCharacter = '•',
+  final Color? fillColor,
+  final TextInputAction? textInputAction,
+}) extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final obscureText = useState(true);
@@ -50,7 +33,7 @@ class PasswordFormField extends HookWidget {
       onFieldSubmitted: onFieldSubmitted,
       enabled: enabled,
       obscuringCharacter: obscuringCharacter,
-      decoration: InputDecoration(
+      decoration: .new(
         prefixIcon: prefixIcon,
         hintText: hintText,
         labelText: labelText,

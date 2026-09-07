@@ -19,7 +19,7 @@ extension CRAsyncSnapshotExtensions<T> on AsyncSnapshot<T> {
   }) {
     if (hasData) return data(this.data as T);
     if (isError) return error(this.error!, stackTrace!);
-    if (isNone) return none?.call() ?? error(Exception('ConnectionState.none'), StackTrace.empty);
+    if (isNone) return none?.call() ?? error(Exception('ConnectionState.none'), .empty);
     return loading();
   }
 }

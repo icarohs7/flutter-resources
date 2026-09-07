@@ -12,18 +12,20 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
-          body: HookBuilder(builder: (context) {
-            final editable = useValueListenable(isEditable);
+          body: HookBuilder(
+            builder: (context) {
+              final editable = useValueListenable(isEditable);
 
-            return EditableLabel(
-              controller: controller,
-              editable: editable,
-              labelText: 'label',
-              onSave: () => saved = true,
-              animationDuration: Duration.zero,
-              enabled: null,
-            );
-          }),
+              return EditableLabel(
+                controller: controller,
+                editable: editable,
+                labelText: 'label',
+                onSave: () => saved = true,
+                animationDuration: Duration.zero,
+                enabled: null,
+              );
+            },
+          ),
         ),
       ),
     );
@@ -75,12 +77,7 @@ void main() {
   testWidgets('renders value with an owned controller', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
-        home: Scaffold(
-          body: EditableLabel(
-            value: 'shown',
-            editable: false,
-          ),
-        ),
+        home: Scaffold(body: EditableLabel(value: 'shown', editable: false)),
       ),
     );
 
@@ -99,10 +96,7 @@ void main() {
           body: ValueListenableBuilder<String>(
             valueListenable: value,
             builder: (context, currentValue, child) {
-              return EditableLabel(
-                value: currentValue,
-                editable: false,
-              );
+              return EditableLabel(value: currentValue, editable: false);
             },
           ),
         ),
@@ -122,12 +116,7 @@ void main() {
   testWidgets('preserves initialValue compatibility', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
-        home: Scaffold(
-          body: EditableLabel(
-            initialValue: 'initial',
-            editable: false,
-          ),
-        ),
+        home: Scaffold(body: EditableLabel(initialValue: 'initial', editable: false)),
       ),
     );
 
@@ -135,6 +124,22 @@ void main() {
 
     expect(field.initialValue, 'initial');
     expect(field.controller, isNull);
+  });
+
+  testWidgets('keeps the provided key on the text field', (tester) async {
+    final fieldKey = GlobalKey<FormFieldState<String>>();
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: EditableLabel(key: fieldKey, value: 'value'),
+        ),
+      ),
+    );
+
+    expect(tester.takeException(), isNull);
+    expect(find.byKey(fieldKey), findsOneWidget);
+    expect(fieldKey.currentState, isA<FormFieldState<String>>());
   });
 
   test('rejects value with an external controller', () {

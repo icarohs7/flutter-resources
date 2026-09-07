@@ -7,16 +7,11 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 /// Returns a widget wrapping the [child] and running
 /// the given [operation] once
-class SplashWidget extends HookWidget {
-  const SplashWidget({
-    super.key,
-    required this.child,
-    required this.operation,
-  });
-
-  final Widget child;
-  final FutureOr<void> Function(BuildContext context) operation;
-
+class const SplashWidget({
+  super.key,
+  required final Widget child,
+  required final FutureOr<void> Function(BuildContext context) operation,
+}) extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final operation = useMemoized(() => this.operation);

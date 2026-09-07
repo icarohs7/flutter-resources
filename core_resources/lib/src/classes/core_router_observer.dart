@@ -4,7 +4,7 @@ import 'package:material_ui/material_ui.dart';
 
 /// A [NavigatorObserver] that notifies when the current route changes
 /// through its [listenable]
-class CoreRouterObserver extends NavigatorObserver {
+class CoreRouterObserver() extends NavigatorObserver {
   static final _notifier = ValueNotifier<CoreRoute?>(null);
   static final ValueListenable<CoreRoute?> listenable = _notifier;
 
@@ -32,12 +32,8 @@ class CoreRouterObserver extends NavigatorObserver {
 
 /// A [Route] wrapper that contains the current and previous route.
 /// To be replaced by tuples in the future
-class CoreRoute extends Equatable {
-  final Route currentRoute;
-  final Route? previousRoute;
-
-  const CoreRoute({required this.currentRoute, this.previousRoute});
-
+class const CoreRoute({required final Route currentRoute, final Route? previousRoute})
+    extends Equatable {
   @override
   List<Object?> get props => [currentRoute, previousRoute];
 }

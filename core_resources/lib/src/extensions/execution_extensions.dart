@@ -28,9 +28,4 @@ BenchmarkedResult<T> measureTimeMillis<T>(T Function() operation) {
   return BenchmarkedResult(value: result, milliseconds: stopwatch.elapsedMilliseconds);
 }
 
-class BenchmarkedResult<T> {
-  BenchmarkedResult({required this.value, required this.milliseconds});
-
-  final T value;
-  final int milliseconds;
-}
+class BenchmarkedResult<T>({required final T value, required final int milliseconds});

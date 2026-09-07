@@ -4,21 +4,16 @@ import 'package:material_ui/material_ui.dart';
 /// [CircularProgressIndicator] according to
 /// the parameter [isRefreshing], also disabling
 /// its [onTap] when true
-class RefreshActionButton extends StatelessWidget {
-  const RefreshActionButton({
-    super.key,
-    this.isRefreshing = false,
-    this.onTap,
-  });
-
-  final bool isRefreshing;
-  final void Function()? onTap;
-
+class const RefreshActionButton({
+  super.key,
+  final bool isRefreshing = false,
+  final void Function()? onTap,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
       icon: isRefreshing
-          ? Container(
+          ? SizedBox(
               width: 24,
               height: 24,
               child: CircularProgressIndicator(

@@ -2,26 +2,16 @@ import 'package:material_ui/material_ui.dart';
 
 import '../extensions/context_extensions.dart';
 
-class LoadingElevatedButton extends StatelessWidget {
-  final Widget? child;
-  final void Function()? onPressed;
-  final bool isLoading;
-  final ButtonStyle? style;
-  final double progressIndicatorHeight;
-  final double progressIndicatorWidth;
-  final double progressIndicatorStrokeWidth;
-
-  const LoadingElevatedButton({
-    super.key,
-    required this.onPressed,
-    this.child,
-    this.isLoading = false,
-    this.style,
-    this.progressIndicatorHeight = 16,
-    this.progressIndicatorWidth = 16,
-    this.progressIndicatorStrokeWidth = 2,
-  });
-
+class const LoadingElevatedButton({
+  super.key,
+  required final void Function()? onPressed,
+  final Widget? child,
+  final bool isLoading = false,
+  final ButtonStyle? style,
+  final double progressIndicatorHeight = 16,
+  final double progressIndicatorWidth = 16,
+  final double progressIndicatorStrokeWidth = 2,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
@@ -35,7 +25,8 @@ class LoadingElevatedButton extends StatelessWidget {
           progressIndicatorHeight: progressIndicatorHeight,
           progressIndicatorWidth: progressIndicatorWidth,
           progressIndicatorStrokeWidth: progressIndicatorStrokeWidth,
-          foregroundColor: style?.foregroundColor?.resolve({}) ??
+          foregroundColor:
+              style?.foregroundColor?.resolve({}) ??
               (theme.useMaterial3 ? theme.primaryColor : theme.colorScheme.onPrimary),
           child: child,
         ),
@@ -44,26 +35,16 @@ class LoadingElevatedButton extends StatelessWidget {
   }
 }
 
-class LoadingFilledButton extends StatelessWidget {
-  final Widget? child;
-  final void Function()? onPressed;
-  final bool isLoading;
-  final ButtonStyle? style;
-  final double progressIndicatorHeight;
-  final double progressIndicatorWidth;
-  final double progressIndicatorStrokeWidth;
-
-  const LoadingFilledButton({
-    super.key,
-    required this.onPressed,
-    this.child,
-    this.isLoading = false,
-    this.style,
-    this.progressIndicatorHeight = 16,
-    this.progressIndicatorWidth = 16,
-    this.progressIndicatorStrokeWidth = 2,
-  });
-
+class const LoadingFilledButton({
+  super.key,
+  required final void Function()? onPressed,
+  final Widget? child,
+  final bool isLoading = false,
+  final ButtonStyle? style,
+  final double progressIndicatorHeight = 16,
+  final double progressIndicatorWidth = 16,
+  final double progressIndicatorStrokeWidth = 2,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
@@ -85,26 +66,16 @@ class LoadingFilledButton extends StatelessWidget {
   }
 }
 
-class LoadingTextButton extends StatelessWidget {
-  final Widget? child;
-  final void Function()? onPressed;
-  final bool isLoading;
-  final ButtonStyle? style;
-  final double progressIndicatorHeight;
-  final double progressIndicatorWidth;
-  final double progressIndicatorStrokeWidth;
-
-  const LoadingTextButton({
-    super.key,
-    required this.onPressed,
-    this.child,
-    this.isLoading = false,
-    this.style,
-    this.progressIndicatorHeight = 16,
-    this.progressIndicatorWidth = 16,
-    this.progressIndicatorStrokeWidth = 2,
-  });
-
+class const LoadingTextButton({
+  super.key,
+  required final void Function()? onPressed,
+  final Widget? child,
+  final bool isLoading = false,
+  final ButtonStyle? style,
+  final double progressIndicatorHeight = 16,
+  final double progressIndicatorWidth = 16,
+  final double progressIndicatorStrokeWidth = 2,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AbsorbPointer(
@@ -125,32 +96,19 @@ class LoadingTextButton extends StatelessWidget {
   }
 }
 
-class LoadingFloatingActionButton extends StatelessWidget {
-  final Widget? child;
-  final void Function()? onPressed;
-  final bool isLoading;
-  final Color? backgroundColor;
-  final Color? foregroundColor;
-  final ShapeBorder? shape;
-  final EdgeInsetsGeometry? padding;
-  final double progressIndicatorHeight;
-  final double progressIndicatorWidth;
-  final double progressIndicatorStrokeWidth;
-
-  const LoadingFloatingActionButton({
-    super.key,
-    required this.onPressed,
-    this.child,
-    this.isLoading = false,
-    this.backgroundColor,
-    this.foregroundColor,
-    this.shape,
-    this.padding,
-    this.progressIndicatorHeight = 16,
-    this.progressIndicatorWidth = 16,
-    this.progressIndicatorStrokeWidth = 2,
-  });
-
+class const LoadingFloatingActionButton({
+  super.key,
+  required final void Function()? onPressed,
+  final Widget? child,
+  final bool isLoading = false,
+  final Color? backgroundColor,
+  final Color? foregroundColor,
+  final ShapeBorder? shape,
+  final EdgeInsetsGeometry? padding,
+  final double progressIndicatorHeight = 16,
+  final double progressIndicatorWidth = 16,
+  final double progressIndicatorStrokeWidth = 2,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AbsorbPointer(
@@ -173,30 +131,18 @@ class LoadingFloatingActionButton extends StatelessWidget {
   }
 }
 
-class LoadingIconButton extends StatelessWidget {
-  final Widget? icon;
-  final void Function()? onPressed;
-  final bool isLoading;
-  final Color? color;
-  final double progressIndicatorHeight;
-  final double progressIndicatorWidth;
-  final double progressIndicatorStrokeWidth;
-  final Color? progressIndicatorColor;
-  final EdgeInsetsGeometry? padding;
-
-  const LoadingIconButton({
-    super.key,
-    required this.onPressed,
-    this.icon,
-    this.isLoading = false,
-    this.color,
-    this.progressIndicatorHeight = 16,
-    this.progressIndicatorWidth = 16,
-    this.progressIndicatorStrokeWidth = 2,
-    this.progressIndicatorColor,
-    this.padding,
-  });
-
+class const LoadingIconButton({
+  super.key,
+  required final void Function()? onPressed,
+  final Widget? icon,
+  final bool isLoading = false,
+  final Color? color,
+  final double progressIndicatorHeight = 16,
+  final double progressIndicatorWidth = 16,
+  final double progressIndicatorStrokeWidth = 2,
+  final Color? progressIndicatorColor,
+  final EdgeInsetsGeometry? padding,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AbsorbPointer(
@@ -218,40 +164,28 @@ class LoadingIconButton extends StatelessWidget {
   }
 }
 
-class _ButtonContent extends StatelessWidget {
-  final bool isLoading;
-  final Widget? child;
-  final double progressIndicatorHeight;
-  final double progressIndicatorWidth;
-  final double progressIndicatorStrokeWidth;
-  final Color? foregroundColor;
-
-  const _ButtonContent({
-    required this.isLoading,
-    required this.child,
-    required this.progressIndicatorHeight,
-    required this.progressIndicatorWidth,
-    required this.progressIndicatorStrokeWidth,
-    required this.foregroundColor,
-  });
-
+class const _ButtonContent({
+  required final bool isLoading,
+  required final Widget? child,
+  required final double progressIndicatorHeight,
+  required final double progressIndicatorWidth,
+  required final double progressIndicatorStrokeWidth,
+  required final Color? foregroundColor,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSwitcher(
       switchInCurve: Curves.easeOut,
       switchOutCurve: Curves.easeIn,
-      duration: Duration(milliseconds: 300),
+      duration: .new(milliseconds: 300),
       child: isLoading
           ? Stack(
               alignment: Alignment.center,
               children: <Widget>[
-                Opacity(
-                  opacity: 0,
-                  child: child,
-                ),
+                Opacity(opacity: 0, child: child),
                 Padding(
                   padding: const EdgeInsets.all(6),
-                  child: Container(
+                  child: SizedBox(
                     height: progressIndicatorHeight,
                     width: progressIndicatorWidth,
                     child: CircularProgressIndicator(

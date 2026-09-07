@@ -4,45 +4,28 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class EditableLabel extends HookWidget {
-  // ignore: use_key_in_widget_constructors
-  const EditableLabel({
-    Key? key,
-    this.onSave,
-    this.controller,
-    this.labelText,
-    this.inputFormatters,
-    this.validator,
-    this.keyboardType,
-    this.initialValue,
-    this.value,
-    this.editable,
-    this.filled,
-    this.fillColor,
-    this.labelStyle,
-    this.animationDuration = const Duration(milliseconds: 250),
-    this.enabled = true,
-    this.border,
-  })  : inputKey = key,
-        assert(value == null || (controller == null && initialValue == null));
+// ignore: use_key_in_widget_constructors
+class const EditableLabel({
+  Key? key,
+  final FutureOr<bool> Function()? onSave,
+  final TextEditingController? controller,
+  final String? labelText,
+  final List<TextInputFormatter>? inputFormatters,
+  final FormFieldValidator<String>? validator,
+  final TextInputType? keyboardType,
+  final String? initialValue,
+  final String? value,
+  final bool? editable,
+  final bool? filled,
+  final Color? fillColor,
+  final TextStyle? labelStyle,
+  final Duration animationDuration = const Duration(milliseconds: 250),
+  final bool? enabled = true,
+  final InputBorder? border,
+}) extends HookWidget {
+  this : assert(value == null || (controller == null && initialValue == null));
 
-  final Key? inputKey;
-  final FutureOr<bool> Function()? onSave;
-  final TextEditingController? controller;
-  final String? labelText;
-  final List<TextInputFormatter>? inputFormatters;
-  final FormFieldValidator<String>? validator;
-  final TextInputType? keyboardType;
-  final String? initialValue;
-  final String? value;
-  final bool? editable;
-  final bool? filled;
-  final Color? fillColor;
-  final TextStyle? labelStyle;
-  final Duration animationDuration;
-  final bool? enabled;
-  final InputBorder? border;
-
+  final Key? inputKey = key;
   @override
   Widget build(BuildContext context) {
     final editing = useState(false);
@@ -62,11 +45,8 @@ class EditableLabel extends HookWidget {
       children: <Widget>[
         Expanded(
           child: AnimatedPadding(
-            duration: Duration(milliseconds: 250),
-            padding: EdgeInsets.symmetric(
-              horizontal: 8,
-              vertical: editing.value ? 8 : 2,
-            ),
+            duration: .new(milliseconds: 250),
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: editing.value ? 8 : 2),
             child: IgnorePointer(
               ignoring: !editing.value,
               child: TextFormField(
@@ -76,10 +56,9 @@ class EditableLabel extends HookWidget {
                 controller: effectiveController,
                 validator: validator,
                 keyboardType: keyboardType,
-                decoration: InputDecoration(
+                decoration: .new(
                   labelText: labelText,
-                  border: border ??
-                      (editing.value ? null : OutlineInputBorder(borderSide: BorderSide.none)),
+                  border: border ?? (editing.value ? null : OutlineInputBorder(borderSide: .none)),
                   filled: filled,
                   fillColor: fillColor,
                   labelStyle: labelStyle,
@@ -104,9 +83,10 @@ class EditableLabel extends HookWidget {
             ),
             onPressed: () async {
               final allowSwitch = (editing.value && onSave != null) ? await onSave!() : true;
+              if (!context.mounted) return;
               if (allowSwitch) {
                 editing.value = !editing.value;
-                FocusScope.of(context).requestFocus(FocusNode());
+                FocusScope.of(context).requestFocus(.new());
               }
             },
           ),
