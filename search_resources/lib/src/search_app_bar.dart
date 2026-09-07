@@ -1,26 +1,16 @@
 import 'package:core_resources/core_resources.dart';
 import 'package:material_ui/material_ui.dart';
 
-class SearchAppBar extends HookWidget implements PreferredSizeWidget {
-  final Widget title;
-  final bool centerTitle;
-  final List<Widget>? actions;
-  final String hintText;
-  final bool isSearching;
-  final ValueChanged<bool> onSearchToggled;
-  final ValueChanged<String> onSearchChange;
-
-  const SearchAppBar({
-    super.key,
-    required this.title,
-    this.centerTitle = false,
-    this.actions,
-    this.hintText = 'Pesquisa',
-    required this.isSearching,
-    required this.onSearchToggled,
-    required this.onSearchChange,
-  });
-
+class const SearchAppBar({
+  super.key,
+  required final Widget title,
+  final bool centerTitle = false,
+  final List<Widget>? actions,
+  final String hintText = 'Pesquisa',
+  required final bool isSearching,
+  required final ValueChanged<bool> onSearchToggled,
+  required final ValueChanged<String> onSearchChange,
+}) extends HookWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
@@ -41,10 +31,7 @@ class SearchAppBar extends HookWidget implements PreferredSizeWidget {
               key: UniqueKey(),
               controller: searchController,
               autofocus: true,
-              decoration: InputDecoration(
-                hintText: hintText,
-                border: InputBorder.none,
-              ),
+              decoration: .new(hintText: hintText, border: .none),
               onChanged: onSearchChange,
             )
           : title,

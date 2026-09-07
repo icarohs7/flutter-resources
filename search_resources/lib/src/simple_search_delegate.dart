@@ -1,28 +1,19 @@
 import 'package:material_ui/material_ui.dart';
 
-abstract class SimpleSearchDelegate<T> extends SearchDelegate<T?> {
-  SimpleSearchDelegate({this.enableSearchButton = false});
-
-  final bool enableSearchButton;
-
+abstract class SimpleSearchDelegate<T>({final bool enableSearchButton = false})
+    extends SearchDelegate<T?> {
   @override
   List<Widget> buildActions(BuildContext context) {
     return <Widget>[
-      IconButton(
-        icon: Icon(Icons.backspace),
-        onPressed: () => query = '',
-      ),
+      IconButton(icon: Icon(Icons.backspace), onPressed: () => query = ''),
       if (enableSearchButton)
-        IconButton(
-          icon: Icon(Icons.search),
-          onPressed: () => onSearchButtonTapped(context),
-        ),
+        IconButton(icon: Icon(Icons.search), onPressed: () => onSearchButtonTapped(context)),
     ];
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    Future.delayed(Duration.zero);
+    Future.delayed(.zero);
     return Container();
   }
 
@@ -30,10 +21,7 @@ abstract class SimpleSearchDelegate<T> extends SearchDelegate<T?> {
   Widget buildLeading(BuildContext context) {
     return IconButton(
       onPressed: () => close(context, null),
-      icon: AnimatedIcon(
-        icon: AnimatedIcons.menu_arrow,
-        progress: transitionAnimation,
-      ),
+      icon: AnimatedIcon(icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
     );
   }
 

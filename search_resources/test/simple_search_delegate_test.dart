@@ -5,7 +5,7 @@ import 'package:search_resources/search_resources.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  pump(WidgetTester tester,{int times = 10}) async {
+  pump(WidgetTester tester, {int times = 10}) async {
     for (int i = 0; i < times; i++) {
       await tester.pump(Duration(milliseconds: 100));
     }
@@ -30,9 +30,7 @@ void main() {
               ),
             ],
           ),
-          body: Center(
-            child: Text('Home Page'),
-          ),
+          body: Center(child: Text('Home Page')),
         ),
       ),
     );
@@ -77,9 +75,7 @@ void main() {
               ),
             ],
           ),
-          body: Center(
-            child: Text('Home Page'),
-          ),
+          body: Center(child: Text('Home Page')),
         ),
       ),
     );
@@ -109,10 +105,9 @@ void main() {
   });
 }
 
-class SimpleSearchDelegateImplementation extends SimpleSearchDelegate<String> {
+class SimpleSearchDelegateImplementation({super.enableSearchButton = true})
+    extends SimpleSearchDelegate<String> {
   void onSearch(BuildContext context) => returnSearchResult(context, query);
-
-  SimpleSearchDelegateImplementation({super.enableSearchButton = true});
 
   @override
   Widget buildSuggestions(BuildContext context) {

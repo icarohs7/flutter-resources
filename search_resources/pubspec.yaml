@@ -12,7 +12,10 @@ dependencies:
     sdk: flutter
   material_ui: any
 dev_dependencies:
+  dart_code_linter: ^4.3.0
   flutter_test:
     sdk: flutter
 flutter:
   uses-material-design: true
+scripts:
+  lint: dart run dart_code_linter:metrics analyze lib
