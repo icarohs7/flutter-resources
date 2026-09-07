@@ -14,8 +14,11 @@ dependencies:
   rx_notifier:
     git: https://github.com/icarohs7/rx_notifier
 dev_dependencies:
+  dart_code_linter: ^4.3.0
   flutter_test:
     sdk: flutter
   material_ui: any
 flutter:
   uses-material-design: true
+scripts:
+  lint: dart run dart_code_linter:metrics analyze lib

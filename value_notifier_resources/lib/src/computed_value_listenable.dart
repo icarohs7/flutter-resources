@@ -22,25 +22,23 @@ typedef _Builder<T> = T Function(ComputedValueListenableRef ref);
 ///   );
 /// });
 /// ```
-ValueListenable<T> computedValueListenable<T>(_Builder<T> builder) {
+ValueListenable<T> computedValueListenable<T>(T Function(ComputedValueListenableRef ref) builder) {
   final listenables = <Listenable>[];
   final ref = ComputedValueListenableRef(listenables.add);
   return _MultiValueNotifier(builder(ref), listenables: listenables, builder: builder);
 }
 
-class _MultiValueNotifier<T> extends ValueNotifier<T> {
+class _MultiValueNotifier<T>(
+  super._value, {
+  required List<Listenable> listenables,
+  required final _Builder<T> builder,
+}) extends ValueNotifier<T> {
   late final Listenable _listenable;
-  final _Builder<T> builder;
-
   final ref = ComputedValueListenableRef();
 
   bool initialized = false;
 
-  _MultiValueNotifier(
-    super._value, {
-    required List<Listenable> listenables,
-    required this.builder,
-  }) : _listenable = Listenable.merge(listenables);
+  this : _listenable = Listenable.merge(listenables);
 
   @override
   T get value => builder(ref);
@@ -72,11 +70,7 @@ class _MultiValueNotifier<T> extends ValueNotifier<T> {
   }
 }
 
-class ComputedValueListenableRef {
-  final void Function(Listenable)? _watchHandler;
-
-  const ComputedValueListenableRef([this._watchHandler]);
-
+class const ComputedValueListenableRef([final void Function(Listenable)? _watchHandler]) {
   R watch<R>(ValueListenable<R> notifier) {
     _watchHandler?.call(notifier);
     return notifier.value;
