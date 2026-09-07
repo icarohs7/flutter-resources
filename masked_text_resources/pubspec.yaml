@@ -12,7 +12,10 @@ dependencies:
     sdk: flutter
   mask_text_input_formatter: '>=2.4.0'
 dev_dependencies:
+  dart_code_linter: ^4.3.0
   flutter_test:
     sdk: flutter
 flutter:
   uses-material-design: true
+scripts:
+  lint: dart run dart_code_linter:metrics analyze lib

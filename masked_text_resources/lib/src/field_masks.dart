@@ -6,9 +6,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 const FieldMasks = _FieldMasks();
 
 @immutable
-class _FieldMasks {
-  const _FieldMasks();
-
+class const _FieldMasks() {
   MaskTextInputFormatter cpf() => MaskTextInputFormatter(mask: '###.###.###-##');
 
   MaskTextInputFormatter cnpj() => MaskTextInputFormatter(mask: '##.###.###/####-##');
