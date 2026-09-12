@@ -10,4 +10,12 @@ extension CRIterableExtensions<T> on Iterable<T> {
 
     if (index == 0 && isEmpty) yield value;
   }
+
+  /// Returns `true` only if this iterable contains exactly [elemCount] elements.
+  ///
+  /// Iterates at most [elemCount] + 1 elements, so it short-circuits on
+  /// iterables larger than [elemCount] without consuming the full sequence.
+  bool hasCountElements(int elemCount) {
+    return take(elemCount + 1).length == elemCount;
+  }
 }
