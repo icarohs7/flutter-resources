@@ -23,6 +23,7 @@ is the broader, app-oriented package built on top of several packages here.
 | --- | --- | --- |
 | [`core_resources`](core_resources/) | Shared Flutter extensions, hooks, navigation helpers, validation, and widgets | `LoadingElevatedButton`, `EditableLabel`, `Core`, `BuildContext` extensions |
 | [`location_resources`](location_resources/) | Generic device-location access with injectable failure mapping | `GeolocationUtils`, `LocationTuple`, `LocationPermissionX` |
+| [`drift_database_resources`](drift_database_resources/) | Drift JSON conversion and failure-aware database operations | `DriftJsonConverter`, `DriftDatabaseExtensions`, `DriftSelectableExtensions` |
 | [`masked_text_resources`](masked_text_resources/) | Text-input masks | `FieldMasks`, `MaskTextInputFormatter` |
 | [`qr_reader_resources`](qr_reader_resources/) | Camera-based QR/barcode scanning UI | `NQrCodeReader`, `QRReaderResponse`, `NQrCodeScannerBorderPainter`, `BarcodeFormat`, `CameraFacing`, `DetectionSpeed`, `MobileScannerController` |
 | [`search_resources`](search_resources/) | Search app bars and delegates | `SearchAppBar`, `SimpleSearchDelegate` |
@@ -40,7 +41,8 @@ core_resources
 ├── stream_resources
 └── value_notifier_resources
     └── reactor_fp_resources
-        └── location_resources
+        ├── location_resources
+        └── drift_database_resources
 ```
 
 ## Installation
