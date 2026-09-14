@@ -1,0 +1,22 @@
+name: signature_resources
+version: 0.0.1
+publish_to: 'none'
+environment:
+  sdk: '>=3.13.0 <4.0.0'
+dependencies:
+  core_resources:
+    git:
+      url: https://github.com/icarohs7/flutter-resources
+      path: core_resources
+  flutter:
+    sdk: flutter
+  material_ui: any
+  signature: ^6.4.0
+dev_dependencies:
+  dart_code_linter: ^4.3.0
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+scripts:
+  lint: dart run dart_code_linter:metrics analyze lib
