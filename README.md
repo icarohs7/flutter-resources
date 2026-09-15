@@ -25,6 +25,7 @@ is the broader, app-oriented package built on top of several packages here.
 | [`location_resources`](location_resources/) | Generic device-location access with injectable failure mapping | `GeolocationUtils`, `LocationTuple`, `LocationPermissionX` |
 | [`drift_database_resources`](drift_database_resources/) | Drift JSON conversion and failure-aware database operations | `DriftJsonConverter`, `DriftDatabaseExtensions`, `DriftSelectableExtensions` |
 | [`signature_resources`](signature_resources/) | Signature capture UI with injected actions and orientation hooks | `InputSignatureDialog` |
+| [`webview_resources`](webview_resources/) | Web view progress and error presentation with injected copy | `WebViewBody` |
 | [`masked_text_resources`](masked_text_resources/) | Text-input masks | `FieldMasks`, `MaskTextInputFormatter` |
 | [`qr_reader_resources`](qr_reader_resources/) | Camera-based QR/barcode scanning UI | `NQrCodeReader`, `QRReaderResponse`, `NQrCodeScannerBorderPainter`, `BarcodeFormat`, `CameraFacing`, `DetectionSpeed`, `MobileScannerController` |
 | [`search_resources`](search_resources/) | Search app bars and delegates | `SearchAppBar`, `SimpleSearchDelegate` |
