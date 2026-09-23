@@ -24,6 +24,7 @@ is the broader, app-oriented package built on top of several packages here.
 | [`core_resources`](core_resources/) | Shared Flutter extensions, hooks, navigation helpers, validation, and widgets | `LoadingElevatedButton`, `EditableLabel`, `Core`, `BuildContext` extensions |
 | [`location_resources`](location_resources/) | Generic device-location access with injectable failure mapping | `GeolocationUtils`, `LocationTuple`, `LocationPermissionX` |
 | [`drift_database_resources`](drift_database_resources/) | Drift JSON conversion and failure-aware database operations | `DriftJsonConverter`, `DriftDatabaseExtensions`, `DriftSelectableExtensions` |
+| [`printer_resources`](printer_resources/) | ESC/POS payloads, throttled printer TCP writes, and selectable content preview | `PrinterSocket`, `PrinterSocketException`, `EscPosPayload`, `PrintContentView` |
 | [`signature_resources`](signature_resources/) | Signature capture UI with injected actions and orientation hooks | `InputSignatureDialog` |
 | [`webview_resources`](webview_resources/) | Web view progress and error presentation with injected copy | `WebViewBody` |
 | [`masked_text_resources`](masked_text_resources/) | Text-input masks | `FieldMasks`, `MaskTextInputFormatter` |
@@ -45,6 +46,7 @@ core_resources
     └── reactor_fp_resources
         ├── location_resources
         └── drift_database_resources
+printer_resources
 ```
 
 ## Installation

@@ -7,6 +7,21 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/drift_database_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/drift_database_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/drift_database_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/location_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/location_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/location_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/qr_reader_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/qr_reader_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/qr_reader_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/signature_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/signature_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/signature_resources/build" />
+      <excludeFolder url="file://$MODULE_DIR$/printer_resources/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/printer_resources/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/printer_resources/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
